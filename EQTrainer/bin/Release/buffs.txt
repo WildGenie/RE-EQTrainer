@@ -1,0 +1,4511 @@
+#id^name^good_effect^icon
+5^Cloak^1^19
+6^Ignite Blood^0^51
+7^Hymn of Restoration^1^99
+10^Augmentation^1^134
+11^Holy Armor^1^151
+18^Guard^1^151
+19^Armor of Faith^1^151
+20^Shield of Words^1^151
+21^Berserker Strength^1^6
+26^Skin like Wood^1^131
+29^Ice^0^56
+31^Scourge^0^41
+32^Plague^0^41
+33^Brilliance^1^11
+34^Superior Camouflage^1^18
+39^Quickness^1^16
+40^Strengthen^1^6
+41^Weaken^0^7
+42^Invisibility^1^18
+43^Yaulp II^1^6
+44^Yaulp III^1^6
+45^Pacify^1^39
+46^Ultravision^1^87
+47^Calm^1^39
+51^Glimpse^1^106
+59^Panic the Dead^0^164
+60^Resist Fire^1^52
+61^Resist Cold^1^57
+62^Resist Poison^1^61
+63^Resist Disease^1^65
+64^Resist Magic^1^69
+65^Major Shielding^1^133
+66^Greater Shielding^1^133
+67^Arch Shielding^1^133
+72^Group Resist Magic^1^69
+75^Sicken^0^41
+76^Ensnaring Roots^0^117
+77^Engulfing Roots^0^117
+78^Immolate^0^51
+79^Spirit Sight^1^19
+80^See Invisible^1^19
+81^Phantom Chain^1^1
+82^Phantom Plate^1^1
+84^Shifting Sight^1^93
+86^Enduring Breath^1^20
+89^Daring^1^132
+90^Shadow Sight^1^87
+99^Creeping Crud^0^160
+106^Burnout II^1^53
+107^Burnout III^1^53
+108^Elemental Shield^1^148
+109^Elemental Armor^1^148
+110^Malaise^0^55
+111^Malaisement^0^55
+112^Malosi^0^55
+126^Inspire Fear^0^154
+127^Invoke Fear^0^154
+128^Wave of Fear^0^154
+129^Shield of Brambles^1^155
+130^Divine Barrier^1^46
+131^Instill^0^117
+132^Immobilize^0^117
+133^Paralyzing Earth^0^117
+134^Blinding Luminance^0^23
+137^Pack Regeneration^1^118
+138^Pack Chloroplast^1^118
+139^Feral Spirit^1^144
+140^Savage Spirit^1^144
+141^Beguile Animals^0^72
+142^Allure of the Wild^0^72
+143^Sunbeam^0^23
+144^Regeneration^1^118
+145^Chloroplast^1^118
+146^Spirit of Monkey^1^8
+147^Spirit Strength^1^6
+148^Spirit of Cat^1^9
+149^Spirit of Ox^1^10
+150^Alluring Aura^1^15
+151^Raging Strength^1^6
+152^Deftness^1^8
+153^Furious Strength^1^6
+154^Agility^1^9
+155^Glamour^1^15
+156^Charisma^1^15
+157^Dexterity^1^8
+158^Stamina^1^10
+159^Strength^1^6
+160^Nimble^1^9
+161^Health^1^10
+162^Listless Power^0^50
+163^Incapacitate^0^50
+167^Talisman of Tnarg^1^130
+168^Talisman of Altuna^1^130
+169^Pack Spirit^1^4
+170^Alacrity^1^16
+171^Celerity^1^16
+172^Swift like the Wind^1^16
+174^Clarity^1^21
+175^Insight^1^13
+176^Berserker Spirit^1^6
+179^Feckless Might^0^6
+180^Insipid Weakness^0^7
+181^Weakness^0^7
+182^Beguile^0^26
+183^Cajoling Whispers^0^26
+184^Allure^0^26
+185^Tepid Deeds^0^17
+186^Shiftless Deeds^0^17
+187^Enthrall^0^35
+188^Entrance^0^35
+190^Dazzle^0^35
+191^Feedback^1^162
+194^Reoccurring Amnesia^1^39
+195^Gasping Embrace^0^137
+196^Dominate Undead^0^27
+197^Beguile Undead^0^27
+198^Cajole Undead^0^27
+199^Harmshield^1^46
+201^Flash of Light^0^23
+202^Courage^1^132
+207^Divine Aura^1^46
+208^Lull^1^39
+209^Spook the Dead^0^164
+210^Yaulp^1^6
+215^Reckless Strength^1^6
+219^Center^1^132
+220^Spirit of Cheetah^1^4
+222^Invigor^1^138
+224^Endure Fire^1^52
+225^Endure Cold^1^57
+226^Endure Disease^1^65
+227^Endure Poison^1^61
+228^Endure Magic^1^69
+229^Fear^0^154
+230^Root^0^117
+235^Invisibility versus Undead^1^33
+236^Shieldskin^1^77
+239^Flame Lick^0^51
+240^Lull Animal^1^39
+241^Panic Animal^0^165
+242^Snare^0^5
+243^Illusion: Iksar^1^163
+244^Bravery^1^132
+245^Befriend Animal^0^72
+246^Lesser Shielding^1^133
+247^Camouflage^1^18
+249^Grasping Roots^0^117
+250^Harmony^1^39
+254^Firefist^1^2
+255^Invisibility versus Animals^1^34
+256^Shield of Thistles^1^155
+257^Starshine^1^37
+258^Treeform^1^163
+259^Drones of Doom^0^159
+260^Charm Animals^0^72
+261^Levitate^1^80
+263^Skin like Rock^1^131
+264^Stinging Swarm^0^159
+266^Dexterous Aura^1^8
+267^Inner Fire^1^130
+268^Strength of Earth^1^6
+269^Feet like Cat^1^9
+270^Drowsy^0^17
+271^Fleeting Fury^1^16
+273^Shield of Barbs^1^155
+274^Scale Skin^1^151
+276^Serpent Sight^1^86
+277^Tainted Breath^0^42
+278^Spirit of Wolf^1^4
+279^Spirit of Bear^1^10
+280^Burst of Strength^1^16
+281^Disempower^0^50
+283^Turtle Skin^1^151
+284^Spirit of Snake^1^15
+286^Shallow Breath^0^137
+287^Minor Illusion^1^163
+288^Minor Shielding^1^133
+291^Enfeeblement^0^7
+292^Mesmerize^0^35
+293^Haze^1^152
+294^Suffocating Sphere^0^137
+297^Eye of Confusion^0^23
+300^Charm^0^26
+302^Languid Pace^0^17
+303^Whirl till you hurl^0^85
+304^Chase the Moon^0^28
+307^Mesmerization^0^35
+308^Frenzy^1^49
+309^Shielding^1^133
+312^Valor^1^132
+314^Resolution^1^132
+323^Eye of Zomm^1^88
+326^Fury^1^49
+327^Burnout^1^53
+332^Shield of Fire^1^157
+333^Phantom Leather^1^1
+337^Rage^1^49
+340^Disease Cloud^0^41
+343^Siphon Strength^0^7
+344^Clinging Darkness^0^160
+346^Grim Aura^1^3
+347^Numb the Dead^1^40
+348^Poison Bolt^0^42
+349^Rising Dexterity^1^8
+352^Deadeye^1^86
+355^Engulfing Darkness^0^160
+356^Shield of Thorns^1^155
+358^Impart Strength^1^7
+359^Vampiric Embrace^1^140
+360^Heat Blood^0^51
+361^Sight Graft^1^93
+363^Wave of Enfeeblement^0^7
+364^Banshee Aura^1^158
+365^Infectious Cloud^0^41
+367^Heart Flutter^0^41
+368^Spirit Armor^1^151
+369^Hungry Earth^0^117
+370^Shadow Vortex^0^1
+371^Voice Graft^1^95
+378^O'Keils Radiation^1^157
+381^Resistant Skin^1^149
+384^Assiduous Vision^1^88
+387^Leatherskin^1^77
+389^Guardian^1^151
+393^Steelskin^1^77
+394^Diamondskin^1^77
+407^Cast Sight^1^93
+408^Curse of the Simple Mind^0^12
+411^Shield of Flame^1^157
+412^Shield of Lava^1^157
+421^Skin like Steel^1^131
+422^Skin like Diamond^1^131
+423^Skin like Nature^1^131
+424^Scale of Wolf^1^112
+425^Wolf Form^1^81
+426^Greater Wolf Form^1^81
+427^Form of the Great Wolf^1^81
+428^Share Wolf Form^2^81
+429^Strength of Stone^1^6
+430^Storm Strength^1^6
+431^Shifting Shield^1^151
+432^Shield of Spikes^1^155
+433^Fire^0^51
+434^Envenomed Breath^0^42
+435^Venom of the Snake^0^42
+436^Envenomed Bolt^0^42
+448^Rest the Dead^1^40
+449^Intensify Death^1^74
+450^Suffocate^0^137
+451^Boil Blood^0^51
+452^Dooming Darkness^0^160
+453^Cascading Darkness^0^160
+454^Vampiric Curse^0^140
+455^Surge of Enfeeblement^0^7
+456^Bond of Death^0^140
+457^Dead Man Floating^1^137
+478^Breath of the Dead^1^20
+479^Inferno Shield^1^157
+481^Rune I^1^77
+482^Rune II^1^77
+483^Rune III^1^77
+484^Rune IV^1^77
+485^Symbol of Transal^1^150
+486^Symbol of Ryltan^1^150
+487^Symbol of Pinzarn^1^150
+488^Symbol of Naltron^1^150
+489^Sympathetic Aura^1^15
+490^Enveloping Roots^0^117
+500^Bind Sight^1^44
+501^Soothe^1^39
+504^Frenzied Strength^1^6
+505^Walking Sleep^0^17
+506^Tagar's Insects^0^17
+507^Togor's Insects^0^17
+511^Affliction^0^41
+512^Ensnare^0^5
+513^Calm Animal^1^39
+514^Terrorize Animal^0^165
+515^Thistlecoat^1^155
+516^Barbcoat^1^155
+517^Bramblecoat^1^155
+518^Spikecoat^1^155
+519^Thorncoat^1^155
+521^Choke^0^137
+522^Gather Shadows^1^18
+526^Insidious Fever^0^41
+527^Insidious Malady^0^41
+529^Gaze^1^106
+539^Chill Sight^1^87
+549^Screaming Terror^0^28
+559^Ignite Bones^0^54
+578^Sight^1^106
+579^Magnify^1^106
+580^Vision^1^88
+581^Illusion: Skeleton^1^163
+582^Illusion: Human^1^163
+583^Illusion: Half-Elf^1^163
+584^Illusion: Earth Elemental^1^163
+585^Illusion: Werewolf^1^163
+586^Illusion: Barbarian^1^163
+587^Illusion: Erudite^1^163
+588^Illusion: Wood Elf^1^163
+589^Illusion: High Elf^1^163
+590^Illusion: Dark Elf^1^163
+591^Illusion: Dwarf^1^163
+592^Illusion: Troll^1^163
+593^Illusion: Ogre^1^163
+594^Illusion: Halfling^1^163
+595^Illusion: Gnome^1^163
+596^Illusion: Dry Bone^1^163
+597^Illusion: Air Elemental^1^163
+598^Illusion: Fire Elemental^1^163
+599^Illusion: Water Elemental^1^163
+600^Illusion: Spirit Wolf^1^163
+601^Illusion: Tree^1^163
+619^Dyn`s Dizzying Draught^0^85
+636^Bonds of Force^0^5
+640^Creeping Vision^1^106
+641^Dark Pact^1^164
+642^Allure of Death^1^164
+643^Call of Bones^1^164
+644^Lich^1^164
+645^Ebbing Strength^0^7
+646^Radiant Visage^1^15
+647^Adorning Grace^1^15
+648^Rampage^1^6
+649^Protect^1^151
+650^Mist^1^152
+651^Cloud^1^152
+652^Obscure^1^152
+653^Shade^1^152
+654^Shadow^1^152
+655^Eyes of the Cat^1^86
+661^Augment Death^1^74
+665^Drifting Death^0^159
+676^Tashan^0^72
+677^Tashani^0^72
+678^Tashania^0^72
+679^Heat Sight^1^86
+680^Barrier of Combustion^1^157
+693^Divine Might^1^104
+694^Pact of Shadow^1^140
+697^Breeze^1^21
+698^Track Corpse^1^97
+700^Chant of Battle^1^6
+701^Anthem de Arms^1^16
+702^McVaxius` Berserker Crescendo^1^16
+703^Chords of Dissonance^0^143
+705^Largo's Melodic Binding^0^17
+706^Angstlich`s Appalling Screech^0^154
+707^Fufil`s Curtailing Chant^0^161
+708^Cinda`s Charismatic Carillon^1^30
+709^Guardian Rhythms^1^69
+710^Elemental Rhythms^1^148
+711^Purifying Rhythms^1^149
+712^Psalm of Warmth^1^157
+713^Psalm of Cooling^1^156
+714^Psalm of Mystic Shielding^1^82
+715^Psalm of Vitality^1^65
+716^Psalm of Purity^1^61
+717^Selo`s Accelerando^1^4
+718^Agilmente`s Aria of Eagles^1^80
+719^Shauri`s Sonorous Clouding^1^18
+721^Lyssa`s Solidarity of Vision^1^93
+722^Jaxan`s Jig o` Vigor^1^9
+724^Kelin`s Lucid Lullaby^0^35
+725^Solon's Song of the Sirens^0^27
+728^Kelin`s Lugubrious Lament^1^40
+729^Tarew`s Aquatic Ayre^1^20
+730^Denon`s Disruptive Discord^0^161
+734^Jonthan's Whistling Warsong^1^16
+735^Lyssa`s Veracious Concord^1^93
+738^Selo`s Consonant Chain^0^5
+740^Vilia`s Verses of Celerity^1^16
+741^Crission`s Pixie Strike^0^35
+743^Tuyen`s Chant of Flame^0^51
+744^Tuyen`s Chant of Frost^0^56
+745^Cassindra`s Elegy^1^11
+746^Selo`s Chords of Cessation^0^143
+747^Verses of Victory^1^16
+748^Niv`s Melody of Preservation^1^78
+749^Jonthan's Provocation^1^16
+750^Solon's Bewitching Bravura^0^27
+751^Ikaav's Venom^0^-1
+753^Beguile Plants^0^72
+756^Resurrection Effects^0^154
+757^Resurrection Effect^0^154
+760^Weakening Poison I^0^161
+762^Muscle Lock I^0^161
+765^Injected Poison I^0^42
+766^Dizzy I^0^42
+768^Lower Resists I^0^161
+769^Levitate Test^1^85
+771^Chromatic Chaos^1^89
+772^Chromatic Purity^1^89
+774^Soul Energy^1^89
+779^ByeZBye^1^161
+789^Dragon Roar^0^154
+793^Fist of Air^0^161
+795^Fist of Water^0^5
+798^Cazic Shield^1^161
+799^Test Shield^0^161
+806^Magi Curse^1^85
+810^Guide Alliance^1^22
+813^Guide Journey^1^4
+814^Guide Vision^1^161
+815^Guide Health^1^161
+816^Guide Invulnerability^1^46
+820^FlameSongOfRo^0^51
+824^LowerElement I^0^161
+825^WhirlBolt^0^85
+826^Whirlwind^0^85
+827^Devourer Tongue^0^117
+828^Goop Poison^0^42
+833^Bond of Sathir^0^154
+836^Diseased Cloud^0^41
+838^Stream of Acid^0^51
+840^Mesmerizing Breath^0^161
+841^Dragon Charm^0^161
+843^Immolating Breath^0^51
+845^Freezing Breath^0^56
+856^Blinding Fear^0^23
+857^Poison Breath^0^42
+867^Matriarch Poison^0^42
+868^Sionachie`s Dreams^0^35
+871^Reckless Health^1^10
+873^Stalwart Regeneration^1^0
+874^JourneymanBoots^1^4
+876^Soluan`s Vigor^1^99
+879^Troll`s Essence^1^99
+880^Dulsehound^1^99
+881^Aura of Marr^1^10
+882^Undead`s Recourse^1^153
+883^Potion of Assailing^1^6
+884^Calimony^1^153
+885^Graveyard Dust^1^135
+887^Aura of Fatigue^0^7
+890^Wrath of Trushar^0^139
+891^Spiritual Possession^0^28
+894^Invisibility versus Animal^1^34
+895^Ink jet^0^160
+896^Vortex^0^85
+897^Rotting Flesh^0^41
+898^Choking^0^137
+899^Whirl until you hurl^0^85
+901^Ghoul Root^0^117
+902^GelatRoot^0^161
+906^SkunkSpray^0^41
+909^PlagueRatDisease^0^41
+911^Can o` Whoop Ass^1^6
+912^Vampire Charm^0^27
+914^Vampire Wolf Form^1^81
+920^PlagueRatDiseaseLesser^0^41
+923^HarpyCharm^0^27
+933^Mort Drowsy^0^17
+934^Screaming Mace^1^6
+935^Choking Wind^0^161
+936^Blood Claw^0^140
+937^Fungus Spores^1^41
+938^Darkness^0^160
+939^EyeLevitate^1^161
+941^Desperate Hope^1^77
+944^Steal Strength^0^7
+946^Putrid Breath^0^41
+947^Dread Touch^0^7
+949^Rubicite Aura^1^161
+954^Slow^0^161
+956^Panic^0^28
+957^Mud^0^160
+959^Telescope^1^161
+960^Stalking Probe^1^93
+961^Aqua Lung^1^20
+963^Extended Regeneration^1^0
+964^Resistance to Magic^1^69
+965^Obsidian Shatter^0^51
+969^EarthElementalAttack^0^117
+970^Levitation^1^80
+971^Boiling Blood^0^51
+979^Spine Chill^0^56
+981^Dragon Roar^0^28
+983^Daze^0^161
+984^Dazed^0^161
+986^Harpy Voice^0^35
+998^Haste^1^161
+1000^Feeble Poison^0^42
+1001^Weak Poison^0^42
+1002^Poison^0^42
+1003^Strong Poison^0^42
+1004^Dark Poison^0^42
+1005^Deadly Poison^0^42
+1006^Bixie Poison^0^42
+1007^Rabies^0^41
+1008^Disease^0^41
+1010^Clockwork Poison^0^161
+1011^Wasp Poison^0^42
+1012^Strong Wasp Poison^0^42
+1013^Caleah's Aura^1^152
+1014^Strong Disease^0^41
+1016^Burrowing Scarab^0^161
+1018^InnoruuksPresence^0^161
+1019^InnoruuksWrath^0^153
+1022^Earth Elemental Strike^0^117
+1029^Heat Lightning^0^162
+1033^Tornado^0^85
+1034^Cyclone^0^85
+1035^Lure of the Storm^0^85
+1037^Flame Wind^0^51
+1038^Flamewall^0^51
+1039^Solar Storm^0^51
+1041^Stone Thunder^0^162
+1042^Storm Comet^0^111
+1044^Rage of the Rainkeeper^0^85
+1051^Corrupted Pus^0^42
+1052^Foul Pus^0^41
+1053^Breath of Corruption^0^41
+1054^Greater Corrupted Pus^0^42
+1055^Greater Foul Pus^0^41
+1056^Debilitating Death^0^17
+1057^Darkening Death^0^160
+1061^Gathering of Souls^0^154
+1063^Shield of Life^1^138
+1064^Enveloping Entropy^0^160
+1066^Orxkras Bane^0^42
+1067^Mark of the Plague Lords^0^140
+1068^Death Strike^0^135
+1069^Fwexar's Rage^1^134
+1070^Bubonian Rabies^0^41
+1072^Cloud of Poisonous Decay^0^42
+1073^Cloud of Deadly Decay^0^41
+1076^Oil Spray^0^160
+1079^Wave of White Noise^0^114
+1080^Gas Leak^0^161
+1081^Deathfog IV^0^41
+1082^Biomelt IX^0^42
+1083^Liquid Hydrokill^0^56
+1086^Blinding Smog^0^48
+1100^Dreams of Ayonae^0^35
+1101^Spin the Bottle^1^85
+1106^Sear^0^51
+1108^Verdict of Eternity^0^162
+1109^Justice^0^153
+1110^Poxed Web^0^145
+1111^Achilles Bite^0^145
+1112^Decay of the Plaguebringer^0^41
+1113^Stench of Decay^0^137
+1114^Viral Decay^0^154
+1115^Plasma Decay^0^154
+1116^Blinding Essence^0^93
+1117^Toxic Secretion^0^41
+1119^Bubonian Duboes^0^41
+1120^Bubonian Plague^0^41
+1121^Decaying Plague^0^41
+1122^Oozing Pores of Pestilence^0^41
+1123^Hazy Thought^0^40
+1126^Armor Break^0^1
+1131^Wave of Heat^0^1
+1137^Grasping Chains^0^29
+1138^Barbed Chains^0^155
+1139^Defilement of Hope^0^139
+1143^Spiked Adornment^1^155
+1146^Blistering Strands^0^155
+1147^Web of Chain^0^155
+1148^Web of Hooks^0^155
+1149^Taste of Death^0^154
+1150^Deafening Screech^0^95
+1152^Black Symbol of Pain^0^139
+1153^Black Symbol of Suffering^0^139
+1154^Black Symbol of Anguish^0^139
+1162^Curse of the Shrine^0^139
+1163^Will of the Crusader^0^153
+1165^Dismal Rage of the Shrine^0^125
+1166^Draconic Rage^1^125
+1169^BarkerTest^1^104
+1176^Withering Flesh^0^42
+1177^Wasted Flesh^0^42
+1178^Minor Irritation^0^42
+1179^Oozing Irritation^0^42
+1182^Itching Madness^0^42
+1183^Scratching Madness^0^42
+1184^Spine Bruiser^0^41
+1185^Spine Rend^0^41
+1186^Anger of Incapacitation^0^41
+1187^Rage of Incapacitation^0^41
+1190^Crushed Vein^0^41
+1191^Mangled Tendon^0^41
+1194^Illusion: Fier`dal^1^163
+1196^Ancient: Lcea's Lament^1^99
+1197^Ancient: Lullaby of Shadow^0^35
+1198^Ro's Shadowed Flame^0^51
+1210^ByeZBye^1^161
+1212^Guide Journey^1^4
+1213^Guide Vision^1^161
+1214^Guide Health^1^161
+1215^Guide Invulnerability^1^46
+1219^Guide Alliance^1^22
+1225^Voice of Darkness^1^91
+1226^Voice of Shadows^1^91
+1227^Voice of Death^1^91
+1228^Voice of Terris^1^91
+1229^Vengeance V^1^-1
+1230^Vengeance VII^1^-1
+1231^Vengeance VIII^1^-1
+1232^Vengeance IX^1^-1
+1233^Corrupted Laceration^0^42
+1234^Visions of Chaos^0^28
+1235^Visions of Pain^0^28
+1236^Commanding Presence^0^27
+1237^Malicious Intent^0^154
+1238^Curse of Flames^0^51
+1246^Magi Curse^1^85
+1248^Spiritual Echo^1^43
+1249^Bristling Armament^1^43
+1250^Wanton Destruction^0^43
+1251^Scorching Skin^1^161
+1252^Rejuvenation^1^0
+1253^Vigor^1^6
+1254^Cohesion^1^8
+1255^Stability^1^8
+1256^Accuracy^1^8
+1257^Adroitness^1^6
+1258^Power^1^6
+1259^Aura of Antibody^1^66
+1260^Null Aura^1^70
+1261^Aura of Cold^1^52
+1262^Aura of Heat^1^58
+1263^Aura of Purity^1^62
+1266^Flurry^1^134
+1268^Mistmoore Charm^1^35
+1271^Deranged Wonderment^1^161
+1272^Rekeklication^1^1
+1274^Aura of Red Petals^1^53
+1275^Aura of Blue Petals^1^69
+1276^Aura of White Petals^1^58
+1277^Aura of Green Petals^1^61
+1278^Aura of Black Petals^1^66
+1280^Splintering Shards^0^161
+1281^Searing Flames^0^161
+1283^Celestial Cleansing^1^118
+1284^Valiant Companion^1^146
+1286^Expedience^1^4
+1288^Divine Glory^1^90
+1289^Strengthen Death^1^74
+1292^Complete Heal^1^119
+1297^Rune Shield^1^77
+1298^Flowing Thought I^1^21
+1299^Flowing Thought II^1^21
+1300^Flowing Thought III^1^21
+1301^Flowing Thought IV^1^21
+1302^Flowing Thought V^1^21
+1303^Flowing Thought VI^1^21
+1304^Flowing Thought VII^1^21
+1305^Flowing Thought VIII^1^21
+1306^Flowing Thought IX^1^21
+1307^Flowing Thought X^1^21
+1308^Avatar Snare^0^5
+1309^Celestial Aura^1^119
+1312^Scarab Storm^0^161
+1313^Festering Sores^0^161
+1315^Lethargy^0^161
+1318^Muscle Spasm^0^161
+1319^Impotent Rage^0^161
+1321^Malevolent Grasp^0^153
+1323^Echinacea Infusion^1^149
+1324^Aloe Sweat^1^149
+1327^Aura of Battle^1^49
+1328^Agilmente`s Aria of Eagles^1^80
+1329^Angstlich`s Appalling Screech^0^161
+1330^Selo`s Song of Travel^1^161
+1331^Kilva's Skin of Flame^1^161
+1340^TravelerBoots^1^4
+1341^Speechless Fright^0^161
+1342^Test GLT^0^164
+1343^NPCAegolism^1^132
+1344^Test GACD^0^154
+1345^Test GATD^0^3
+1346^Test GSTRD^0^116
+1347^Test GMD^0^71
+1349^Hug^1^99
+1350^Frostreaver's Blessing^1^56
+1351^Immunity^1^46
+1352^Hide in a can^1^18
+1357^Discordant Energy^1^161
+1358^Evenglow^0^42
+1360^Translocational Anchor^0^122
+1361^Time Out^1^35
+1362^Mana Flare^1^161
+1363^Greenmist^0^137
+1364^Garzicor's Vengeance^0^163
+1365^Chill of Unlife^0^91
+1367^Fiery Might^1^51
+1368^Silver Skin^1^77
+1370^Pathing Fear^0^28
+1376^Shroud of Undeath^1^140
+1377^Primal Avatar^1^2
+1378^Translocational Suppression^0^122
+1379^Translocational Disruption^0^122
+1380^Stream of Acid^0^51
+1381^Lawrence's Uberity^1^6
+1383^Screech^0^95
+1385^Al`Kabor's Expansive Mind^1^11
+1386^Nildaar's Storm of Locusts^0^161
+1387^Fulmination^0^141
+1390^Prime Healer's Blessing^1^99
+1391^Dead Men Floating^1^137
+1396^Dark Inferno^0^51
+1397^Strength of Nature^1^123
+1403^Elemental Maelstrom^0^162
+1405^Wrath of the Elements^0^162
+1406^Improved Invisibility^1^18
+1407^Wandering Mind^0^40
+1408^Gift of Magic^1^115
+1409^Gift of Insight^1^115
+1410^Gift of Brilliance^1^115
+1411^Improved Invis to Undead^1^33
+1412^Chilling Embrace^0^42
+1414^Augmentation of Death^1^74
+1416^Arch Lich^1^164
+1419^O'Keils Flickering Flame^1^157
+1420^Invisibility to Undead^1^33
+1424^Swarm of Retribution^0^159
+1428^Tumultuous Strength^1^6
+1430^Spirit Quickening^1^16
+1431^Form of the Great Bear^1^163
+1432^Focus of Spirit^1^130
+1435^Improved Superior Camouflage^1^18
+1436^Fixation of Ro^0^51
+1437^Ro's Fiery Sundering^0^53
+1441^Wash of Waves^1^20
+1442^Protection of the Glades^1^131
+1443^Turning of the Unnatural^0^153
+1444^Celestial Healing^1^118
+1445^Armor of Protection^1^132
+1447^Aegolism^1^132
+1448^Cantata of Soothing^1^99
+1449^Melody of Ervaj^1^43
+1450^Shield of Songs^1^78
+1451^Occlusion of Sound^0^148
+1452^Composition of Ervaj^1^43
+1453^Divine Purpose^1^0
+1456^Divine Strength^1^90
+1457^Shroud of Hate^0^3
+1458^Shroud of Pain^0^1
+1459^Shroud of Death^1^140
+1461^Call of Sky^1^104
+1462^Call of Earth^1^158
+1463^Call of Fire^1^104
+1464^Call of the Predator^1^123
+1466^Cloud of Silence^0^114
+1468^Swarming Pain^0^159
+1470^Vengeance of Root^0^117
+1472^Burnout IV^1^53
+1473^Ring of Winter^0^161
+1474^Boon of the Garou^1^163
+1477^Manticore Poison^0^42
+1478^Bellowing Winds^0^85
+1483^Cloud of Fear^0^28
+1485^Cloud of Disempowerment^0^7
+1486^Ancient Breath^0^161
+1491^Slime Mist^0^41
+1492^Thunder Blast^0^161
+1493^Acid Jet^0^42
+1495^Rodricks Gift^1^139
+1496^Immolating Breath II^0^51
+1497^Deadly Velium Poison^0^56
+1499^Aura of Battle^1^161
+1506^Scouring Wind^0^161
+1508^Asystole^0^41
+1509^Leach^0^154
+1510^Shadow Compact^1^140
+1511^Scent of Dusk^0^160
+1512^Scent of Shadow^0^160
+1513^Scent of Darkness^0^160
+1522^Celestial Elixir^1^118
+1525^Antidote^1^42
+1527^Trepidation^0^154
+1532^Dread of Night^0^164
+1533^Heroism^1^132
+1534^Yaulp IV^1^6
+1535^Symbol of Marzin^1^150
+1536^Heroic Bond^1^132
+1537^Bulwark of Faith^1^151
+1538^Heroic Bond^1^132
+1539^Fortitude^1^132
+1540^Aegis^1^151
+1541^Wake of Tranquility^1^39
+1545^The Unspoken Word^0^153
+1546^Divine Intervention^1^88
+1547^Death Pact^1^82
+1548^Mark of Karn^0^156
+1549^Wizard Mastery^1^153
+1550^Repulse Animal^0^165
+1551^Circle of Winter^1^52
+1552^Circle of Summer^1^57
+1553^Call of Karana^0^72
+1554^Spirit of Scale^1^112
+1555^Glamour of Tunare^0^165
+1556^Tunare's Request^0^72
+1557^Girdle of Karana^1^6
+1558^Bladecoat^1^155
+1559^Natureskin^1^131
+1560^Shield of Blades^1^155
+1561^Legacy of Thorn^1^155
+1562^Form of the Howler^1^81
+1563^Form of the Hunter^1^81
+1564^Spirit of Oak^1^163
+1565^Mask of the Hunter^1^21
+1568^Regrowth^1^118
+1569^Regrowth of the Grove^1^118
+1570^Talisman of Jasinth^1^68
+1571^Talisman of Shadoo^1^64
+1573^Insidious Decay^0^41
+1575^Acumen^1^138
+1576^Torpor^1^118
+1577^Malosini^0^55
+1578^Malo^0^55
+1579^Talisman of the Cat^1^9
+1580^Talisman of the Brute^1^10
+1581^Talisman of the Rhino^1^6
+1582^Talisman of the Serpent^1^15
+1583^Talisman of the Raptor^1^8
+1584^Shroud of the Spirits^1^151
+1585^Talisman of Kragg^1^130
+1588^Turgur's Insects^0^17
+1589^Tigir's Insects^0^17
+1590^Bane of Nife^0^42
+1591^Pox of Bertoxxulous^0^41
+1592^Cripple^0^50
+1593^Maniacal Strength^1^6
+1594^Deliriously Nimble^1^9
+1595^Riotous Health^1^10
+1596^Mortal Deftness^1^8
+1597^Unfailing Reverence^1^15
+1598^Avatar^1^2
+1599^Voice of the Berserker^1^49
+1600^Breath of Ro^0^51
+1601^Winged Death^0^159
+1608^Entrapping Roots^0^117
+1609^Manaskin^1^78
+1610^Shield of the Magi^1^133
+1611^Demi Lich^1^164
+1612^Quivering Veil of Xarn^1^46
+1614^Chill Bones^0^59
+1615^Cessation of Cor^0^41
+1616^Vexing Mordinia^0^154
+1617^Pyrocruor^0^51
+1619^Devouring Darkness^0^160
+1620^Splurt^0^163
+1624^Thrall of Bones^0^27
+1625^Skin of the Shadow^1^18
+1629^Enslave Death^0^27
+1631^Atol's Spectral Shackles^0^5
+1632^Plainsight^1^87
+1633^Fetter^0^117
+1666^Phantom Armor^1^1
+1667^Cadeau of Flame^1^157
+1668^Boon of Immolation^1^157
+1669^Aegis of Ro^1^157
+1670^Velocity^1^4
+1688^Enlightenment^1^11
+1689^Rune V^1^77
+1690^Fascination^0^35
+1691^Glamour of Kintaz^0^35
+1692^Rapture^0^35
+1693^Clarity II^1^21
+1694^Boon of the Clear Mind^1^21
+1695^Gift of Pure Thought^1^21
+1697^Recant Magic^1^32
+1699^Wind of Tashani^0^72
+1700^Torment of Argli^0^25
+1701^Overwhelming Splendor^1^15
+1702^Tashanian^0^72
+1703^Asphyxiate^0^137
+1704^Wind of Tashanian^0^72
+1705^Boltran`s Agacerie^0^26
+1706^Boltran's Agacerie^0^161
+1707^Dictate^0^26
+1708^Aanya's Quickening^1^16
+1709^Wonderous Rapidity^1^16
+1710^Visions of Grandeur^1^134
+1711^Umbra^1^152
+1712^Forlorn Deeds^0^17
+1713^Bedlam^1^6
+1716^Scent of Terris^0^160
+1717^Shadowbond^1^140
+1719^Engorging Roots^0^117
+1720^Eye of Tallon^1^88
+1726^Sunskin^1^33
+1727^Legacy of Spike^1^155
+1728^Manasink^1^98
+1729^Augment^1^134
+1730^Illusion: Gender^1^163
+1731^Illusion: Female^1^163
+1732^Illusion: Male^1^163
+1742^Bobbing Corpse^1^154
+1743^Divine Favor^1^77
+1745^Vengeance of the Glades^0^136
+1748^Angstlich's Assonance^0^153
+1749^Kazumi's Note of Preservation^1^46
+1750^Selo`s Song of Travel^1^161
+1751^Largo`s Absonant Binding^0^5
+1752^Nillipus` March of the Wee^1^108
+1753^Song of Twilight^0^35
+1756^Song of Midnight^0^154
+1757^Vilia`s Chorus of Celerity^1^16
+1758^Selo`s Assonant Strane^0^5
+1759^Cantata of Replenishment^1^99
+1760^McVaxius` Rousing Rondo^1^49
+1761^Cassindra's Insipid Ditty^0^24
+1762^Jonthan's Inspiration^1^16
+1763^Niv`s Harmonic^1^98
+1764^Denon`s Bereavement^0^42
+1765^Solon's Charismatic Concord^1^15
+1767^Bonds of Tunare^0^5
+1768^Sacrifice^1^113
+1772^Mala^0^53
+1774^Naltron's Mark^1^150
+1776^Spirit of Wolf^1^4
+1786^Torment^0^153
+1788^Truesight^1^19
+1790^Feast of Blood^0^140
+1795^Shield of the Winter^1^161
+1796^Shield of the Ring^1^161
+1801^Froglok Poison^0^42
+1806^Fungal Regrowth^1^99
+1808^Melodious Befuddlement^0^35
+1809^One Hundred Blows^0^47
+1811^Soul Bond^0^154
+1813^Disjunction^0^35
+1814^Sebilite Pox^0^41
+1816^Soul Well^0^154
+1817^Alluring Whispers^0^161
+1819^Primal Essence^1^49
+1822^Persuade^0^161
+1828^Burning Acid^0^51
+1829^Strength of the Kunzar^1^6
+1832^Blinding Poison I^0^23
+1833^Paralyzing Poison I^0^42
+1836^Berserker Madness I^0^49
+1837^Flesh Rot I^0^41
+1838^Brittle Haste I^0^16
+1839^Blinding Poison II^0^23
+1840^Blinding Poison III^0^23
+1841^Paralyzing Poison II^0^42
+1842^Paralyzing Poison III^0^42
+1847^Flesh Rot II^0^41
+1848^Flesh Rot III^0^41
+1849^Brittle Haste II^0^16
+1850^Brittle Haste III^0^16
+1851^Weakening Poison II^0^161
+1852^Weakening Poison III^0^161
+1856^Muscle Lock II^0^161
+1857^Muscle Lock III^0^161
+1858^Berserker Madness II^0^49
+1859^Berserker Madness III^0^49
+1865^Injected Poison II^0^42
+1866^Injected Poison III^0^42
+1867^Injected Poison IV^0^42
+1868^Dizzy II^0^85
+1869^Dizzy III^0^85
+1872^Lower Resists II^0^161
+1873^Lower Resists III^0^161
+1875^Muscle Lock IV^0^161
+1877^Lower Resists IV^0^161
+1878^Weakening Poison IV^0^161
+1879^Berserker Madness IV^0^49
+1880^Brittle Haste IV^0^16
+1882^Dizzy IV^0^85
+1883^Injected Poison V^0^16
+1915^Acting Armor II^1^1
+1916^Acting Armor III^1^1
+1921^Acting Spirit I^1^4
+1922^Acting Spirit II^1^4
+1925^Captain Nalots Quickening^1^16
+1926^Wrath of Nature^0^161
+1927^Seething Fury^1^50
+1928^Earthcall^0^17
+1929^Swift Spirit^1^161
+1930^Soul Consumption^0^163
+1931^Barrier of Force^1^78
+1932^Curse of the Spirits^0^139
+1933^Rage of Zek^0^51
+1934^Rage of Tallon^1^51
+1935^Rage of Vallon^0^51
+1937^Dance of the Blade^1^134
+1938^Torment of Shadows^0^161
+1939^Speed of the Shissar^1^134
+1940^Celestial Tranquility^1^6
+1945^Frostbite^0^56
+1946^Blessing of Nature^0^136
+1949^Ice breath^0^56
+1950^Mind Cloud^0^14
+1952^Strike of Thunder^0^162
+1956^Putrefy Flesh^0^41
+1958^Cacophony^0^161
+1959^Net^0^117
+1960^Energy Sap^0^161
+1961^Bone Melt^0^161
+1962^Velium Poison^0^42
+1963^Shield of the Eighth^1^56
+1964^Blessing of the Grove^1^161
+1967^Frost Storm^0^56
+1968^Stunning Strike^0^24
+1972^Waves of the Deep Sea^0^56
+1973^Song of the Deep Seas^1^116
+1974^Ikatiar's Revenge^0^42
+1975^Thorny Shield^1^155
+1977^Dawncall^0^161
+1978^Breath of the Sea^0^115
+1979^Embrace of the Kelpmaiden^0^161
+1980^Fellspine^0^116
+1998^Invisibility Cloak^1^18
+1999^Cog Boost^1^161
+2000^Steam Overload^1^85
+2001^Battery Vision^1^19
+2002^Grease Injection^1^160
+2003^Mystic Precision^1^21
+2007^Selo`s Song of Travel^1^116
+2008^Fungal Regrowth^1^99
+2010^Gathering of the Mind^1^21
+2013^Kylie's Venom^0^42
+2017^Storm Strength^1^6
+2018^Aegis of Bathezid^1^156
+2034^Recant Magic^1^32
+2039^Shroud of Stealth^1^18
+2041^Aura of the Nurga^1^66
+2045^Weakening Spray^0^7
+2046^Deathly Chants^0^154
+2050^Nature's Melody^1^116
+2052^Poisoned Web^0^42
+2053^Enveloping Fog^0^23
+2056^Savage Roar^0^28
+2059^Death Roll^0^85
+2060^Enfeebling Shock^0^7
+2061^Torturing Winds^0^153
+2065^Fury of the Vah Shir^1^123
+2066^Protection of the Vah Shir^1^123
+2067^Blessing of the Vah Shir^1^155
+2069^Curse of Sshraezha^0^139
+2071^Tempest Wing's Embrace^1^85
+2072^Spiritual Discipline^1^19
+2073^Overfiend's Fury^0^161
+2084^Grimling Rot^0^41
+2096^Crushing Fist of the Wind^0^85
+2109^Ancient: High Priest's Bulwark^1^133
+2110^Skin like Wood^1^131
+2112^Ancient: Feral Avatar^1^2
+2113^Ancient: Scourge of Nife^0^42
+2114^Ancient: Master of Death^1^164
+2119^Ancient: Burnout Blaze^1^53
+2120^Ancient: Eternal Rapture^0^35
+2122^Ancient: Gift of Aegolism^1^132
+2125^Ancient: Legacy of Blades^1^155
+2128^Avatar of Fear^0^28
+2132^Acidic Current^0^85
+2133^Bane of Thule^0^10
+2134^Thule's Scourge^0^42
+2138^Horrifying Apparition^0^35
+2139^Corpse Breath^1^20
+2145^Kaggy's Curse^0^5
+2146^Polymorphic Mayhem^0^163
+2148^Sleetstorm^0^56
+2149^Immobilizing Spikes^0^117
+2150^Spirit Sap^0^154
+2151^Contagious Insanity^0^27
+2152^Languid Curse of Noqufiel^0^145
+2153^Debilitating Curse of Noqufiel^0^117
+2154^Siphoning Curse of Noqufiel^0^142
+2155^Withering Curse of Noqufiel^0^17
+2158^Carnage^1^134
+2159^Lesser Shadow Poison^0^139
+2160^Greater Shadow Poison^0^139
+2164^Silence of the Shadows^0^114
+2165^Mark of Darkness^0^139
+2175^Celestial Health^1^118
+2176^Spiritual Light^1^72
+2177^Spiritual Radiance^1^72
+2178^Spiritual Brawn^1^1
+2180^Ethereal Elixir^1^118
+2188^Protection of the Cabbage^1^131
+2189^Healing Yay!^1^161
+2191^Vengeance I^1^2
+2192^Vengeance II^1^2
+2193^Vengeance III^1^2
+2194^Vengeance IV^1^2
+2195^Vengeance VI^1^2
+2196^Vengeance X^1^2
+2197^Icicle Aura^1^161
+2200^Brilliance of Ro^1^51
+2201^Endurance^1^10
+2202^Mana Shield^1^98
+2207^Will of the Master^0^27
+2209^Tendrils of Apathy^0^17
+2210^Deathly Facade^0^91
+2214^Jedah's Lesser Conservation^1^161
+2215^Jedah's Conservation^1^161
+2216^Jedah's Greater Conservation^1^161
+2217^Tavee's Lesser Diuturnity^1^161
+2218^Tavee's Charm of Diuturnity^1^161
+2219^Tavee's Greater Diuturnity^1^161
+2220^Gallenite's Minor Destruction^1^161
+2221^Gallenite's Destruction^1^161
+2222^Gallenite's Major Destruction^1^161
+2223^Naki's Lesser Pernicity^1^161
+2224^Naki's Charm of Pernicity^1^161
+2225^Naki's Greater Pernicity^1^161
+2226^Jolum's Minor Abatement^1^161
+2227^Jolum's Abatement^1^161
+2228^Jolum's Major Abatement^1^161
+2229^Rowyl's Gleeful Destruction^1^161
+2247^Blessing of Vah Kerrath^1^21
+2248^Acumen^1^138
+2254^Freezing Scourge^0^56
+2256^Coils of Temptation^1^36
+2257^Bewildering Dementia^1^28
+2259^Discorded Terror^1^161
+2260^Entrapment of Dreams^0^35
+2262^Annulling Spirit^0^32
+2265^Jaydrox Rocks^1^161
+2266^Curse of Walking Sleep^0^161
+2267^Curse of Turgur^0^161
+2269^test atk4-85^1^2
+2270^test atk3-100^1^2
+2271^test speed1-70^1^2
+2273^archery^1^2
+2274^test atk4-170^1^2
+2275^BetaATK140^1^2
+2276^BetaATK160^1^2
+2278^Fury of the Chosen^1^134
+2305^Zephyr of Brell^1^161
+2306^Yttric Ventus^1^0
+2307^Breath of the Fallen^0^91
+2308^Breath of the Black^0^91
+2310^Rage of Ssraeshza^0^139
+2312^Life Bind^0^161
+2313^Heart of the Void^1^110
+2316^Tempest Guard^1^82
+2317^Wind of Renewal^1^99
+2318^Cromastorm^1^162
+2326^Yaulp V^1^6
+2328^Gallenite's Inverted Mishap^0^99
+2329^Gallenite's Bark of Fury^1^134
+2330^Reagent Conservation I^1^161
+2331^Reagent Conservation II^1^161
+2332^Reagent Conservation III^1^161
+2333^Extended Enhancement I^1^161
+2334^Extended Enhancement II^1^161
+2335^Extended Enhancement III^1^161
+2336^Improved Damage I^1^161
+2337^Improved Damage II^1^161
+2338^Improved Damage III^1^161
+2339^Spell Haste I^1^161
+2340^Spell Haste II^1^161
+2341^Spell Haste III^1^161
+2342^Mana Preservation I^1^161
+2343^Mana Preservation II^1^161
+2344^Mana Preservation III^1^161
+2345^Improved Healing I^1^161
+2346^Improved Healing II^1^161
+2347^Improved Healing III^1^161
+2348^Extended Range I^1^161
+2349^Extended Range II^1^161
+2350^Extended Range III^1^161
+2351^Summoning Haste I^1^161
+2352^Summoning Haste II^1^161
+2353^Summoning Haste III^1^161
+2354^Summoning Efficiency I^1^161
+2355^Summoning Efficiency II^1^161
+2356^Summoning Efficiency III^1^161
+2357^Enhancement Haste I^1^161
+2358^Enhancement Haste II^1^161
+2359^Enhancement Haste III^1^161
+2360^Affliction Haste I^1^161
+2361^Affliction Haste II^1^161
+2362^Affliction Haste III^1^161
+2363^Affliction Efficiency I^1^161
+2364^Affliction Efficiency II^1^161
+2365^Affliction Efficiency III^1^161
+2366^Burning Affliction I^1^161
+2367^Burning Affliction II^1^161
+2368^Burning Affliction III^1^161
+2369^Reanimation Haste I^1^161
+2370^Reanimation Haste II^1^161
+2371^Reanimation Haste III^1^161
+2372^Reanimation Efficiency I^1^161
+2373^Reanimation Efficiency II^1^161
+2374^Reanimation Efficiency III^1^161
+2388^Shattering Frills^0^155
+2389^Devastating Frills^0^155
+2390^Crumbling Earth Breath^0^160
+2391^Typhoon Breath^0^56
+2393^Avaricious Sojourn^0^153
+2395^Lesser Strike Poison^1^41
+2396^Strike Poison^1^41
+2397^Lesser Destroy Poison^1^41
+2398^Destroy Mind Poison^1^41
+2399^Lesser Vein Rot Poison^1^41
+2400^Vein Rot Poison^1^41
+2401^Lesser Corruption Poison^1^41
+2402^Corruption Poison^1^41
+2403^Lesser Molten Silver Poison^1^41
+2404^Molten Silver Poison^1^41
+2405^Lesser Dip Resist Poison^1^41
+2406^Dip Resist Poison^1^41
+2407^Lesser Confine Poison^1^41
+2408^Confine Poison^1^41
+2409^Lesser Sluggish Poison^1^41
+2410^Sluggish Poison^1^41
+2411^Lesser Concussion Poison^1^41
+2412^Concussion Poison^1^41
+2413^Lesser Waste Poison^1^41
+2414^Waste Poison^1^41
+2415^Lesser Remiss Poison^1^41
+2416^Remiss Poison^1^41
+2434^Avatar^1^2
+2438^Hendin Bolt^0^3
+2439^Gemination^0^139
+2440^Disomatous^0^139
+2441^Shadowblade^0^105
+2442^Gindanblade^0^105
+2444^Rage of Zek^0^139
+2445^Sedition^0^139
+2446^Vallon's Precision^0^139
+2447^Vallon's Subversion^0^56
+2448^Tallon's Balance^0^154
+2449^Barb of Tallon^0^139
+2451^Barb of Tallon^0^41
+2454^War Fire^0^51
+2455^Furious Bash I^0^1
+2456^Furious Bash II^0^1
+2457^Furious Bash III^0^1
+2458^Furious Bash IV^0^1
+2459^Furious Bash V^0^1
+2460^Furious Bash VI^0^1
+2461^Furious Bash VII^0^1
+2463^Siphon Strength Recourse^1^7
+2464^Impart Strength Recourse^0^7
+2465^Shadow Vortex Recourse^1^1
+2466^Vampiric Curse Recourse^1^140
+2467^Bond of Death Recourse^1^140
+2468^Pact of Shadow Recourse^0^140
+2469^Wandering Mind Recourse^1^40
+2470^Shroud of Hate Recourse^1^3
+2471^Shroud of Pain Recourse^1^1
+2472^Leach Recourse^1^154
+2473^Shadow Compact Recourse^0^140
+2474^Vexing Mordinia Recourse^1^154
+2475^Shadowbond Recourse^0^140
+2476^Life Bind Recourse^1^161
+2477^Degeneration Recourse^1^10
+2478^S. of Shadows Recourse^1^139
+2479^Crippling Claud. Recourse^1^3
+2480^Mind Wrack Recourse^1^21
+2481^Zevfeer's T. of V. Recourse^1^140
+2482^Scream of Hate Recourse^1^3
+2483^Scream of Pain Recourse^1^1
+2484^Ab. of Strength Recourse^1^7
+2485^T. of Hate Recourse^1^3
+2486^T. of Pain Recourse^1^1
+2487^T. of Fatigue Recourse^1^29
+2488^Lifeburn Recourse^1^47
+2489^Shadow Creep Recourse^1^1
+2491^Ensnaring Concoction I^0^5
+2492^Ensnaring Concoction II^0^5
+2493^Ensnaring Concoction III^0^5
+2502^Celestial Remedy^1^118
+2503^Sermon of the Righteous^0^153
+2505^Armor of the Faithful^1^132
+2506^Epitaph of Life^0^153
+2507^Mark of Retribution^0^158
+2509^Blessed Armor of the Risen^1^133
+2510^Blessing of Aegolism^1^132
+2511^Protection of Wood^1^131
+2512^Protection of Rock^1^131
+2513^Protection of Steel^1^131
+2514^Protection of Diamond^1^131
+2515^Protection of Nature^1^131
+2516^Foliage Shield^1^18
+2517^Spirit of Eagle^1^4
+2518^Ro's Smoldering Disjunction^0^51
+2519^Circle of Seasons^1^148
+2520^Nature's Recovery^1^118
+2521^Talisman of the Beast^1^6
+2523^Form of the Bear^1^163
+2524^Spirit of Bih`Li^1^4
+2525^Harnessing of Spirit^1^130
+2527^Plague of Insects^0^17
+2528^Regrowth of Dar Khura^1^118
+2529^Talisman of Epuration^1^68
+2530^Khura's Focusing^1^130
+2537^Veil of Elements^1^18
+2539^Transon's Phantasmal Protection^1^152
+2541^Focus Death^1^74
+2542^Shackle of Bone^0^17
+2543^Eternities Torment^0^161
+2544^Shackle of Spirit^0^17
+2545^Insidious Retrogression^0^145
+2546^Degeneration^0^10
+2547^Succussion of Shadows^0^139
+2548^Crippling Claudication^0^3
+2550^Zevfeer's Theft of Vitae^0^140
+2551^O'Keils Embers^1^157
+2554^Elnerick's Entombment of Ice^0^163
+2556^Firetree's Familiar Augment^1^156
+2559^Spellshield^1^98
+2561^Intellectual Advancement^1^141
+2562^Intellectual Superiority^1^141
+2563^Haunting Visage^1^154
+2564^Calming Visage^1^15
+2565^Illusion: Imp^1^163
+2566^Trickster's Augmentation^2^163
+2567^Beguiling Visage^1^15
+2568^Horrifying Visage^1^154
+2569^Glamorous Visage^1^15
+2570^Koadic's Endless Intellect^1^21
+2571^Despair^0^3
+2572^Scream of Hate^0^3
+2573^Scream of Pain^0^1
+2574^Scream of Death^1^140
+2575^Abduction of Strength^0^7
+2576^Mental Corruption^1^27
+2577^Torrent of Hate^0^3
+2578^Torrent of Pain^0^1
+2579^Torrent of Fatigue^0^29
+2580^Cloak of the Akheva^1^140
+2583^Instrument of Nife^1^104
+2584^Divine Vigor^1^90
+2585^Valor of Marr^1^16
+2588^Breath of Tunare^1^0
+2590^Brell's Mountainous Barrier^1^90
+2591^Tangling Weeds^0^5
+2592^Hawk Eye^1^127
+2593^Riftwind's Protection^1^158
+2594^Nature's Precision^1^123
+2595^Force of Nature^1^158
+2596^Falcon Eye^1^127
+2597^Jolting Blades^1^104
+2598^Mark of the Predator^1^123
+2599^Eagle Eye^1^127
+2600^Warder's Protection^1^158
+2601^Magical Monologue^1^104
+2602^Song of Sustenance^1^9
+2603^Amplification^1^95
+2604^Katta's Song of Sword Dancing^1^104
+2605^Selo`s Accelerating Chorus^1^4
+2606^Battlecry of the Vah Shir^1^72
+2607^Elemental Chorus^1^148
+2608^Purifying Chorus^1^149
+2609^Chorus of Replenishment^1^99
+2610^Warsong of the Vah Shir^1^72
+2619^Yekan's Quickening^1^134
+2625^Omakin's Alacrity^1^134
+2628^Sha's Ferocity^1^134
+2629^Spiritual Purity^1^72
+2630^Spiritual Strength^1^1
+2634^Sha's Lethargy^0^17
+2635^Spirit of Lightning^1^162
+2636^Spirit of the Blizzard^1^60
+2637^Spirit of Inferno^1^55
+2638^Spirit of the Scorpion^1^42
+2639^Spirit of Vermin^1^41
+2640^Spirit of Wind^1^72
+2641^Spirit of the Storm^1^162
+2645^Thought Drain^1^14
+2646^Venomous Blast^0^42
+2647^Rotting Bile^0^41
+2649^Penetrating Roots^0^117
+2655^Tendon slice^0^161
+2657^Terrifying Darkness^0^160
+2659^Blood Bath^1^99
+2660^Burning Pain^0^51
+2661^Despairing Darkness^0^160
+2666^Crippling Snare^0^161
+2668^Skeletal Curse^0^161
+2671^Choking Spores^0^137
+2672^Fiery Curse^0^51
+2673^Unity of Fire^1^161
+2677^Paralyzing Curse^0^139
+2679^Sha's Vengeance^0^17
+2680^Beta Brell's^1^0
+2681^Beta Seasons^1^148
+2682^Beta Epuration^1^149
+2685^Curse of the Ikaav^0^137
+2686^Regeneration I^1^49
+2687^Regeneration II^1^49
+2688^Regeneration III^1^49
+2691^Beta Health^1^10
+2692^Beta Shissar^1^134
+2693^Beta Koadic's^1^21
+2694^Beta Glades^1^131
+2695^Beta Regrowth^1^99
+2696^Beta Khura^1^130
+2699^Beta Blessing of Aegolism^1^132
+2700^Quicksand^0^5
+2701^Rock Mites^0^41
+2702^Smothering Sands^0^85
+2703^Ritualistic Bloodlust^1^50
+2704^Entanglement^0^99
+2715^Stone Daze^0^169
+2719^Rich's Test spell^1^95
+2727^Vampyre Invis^1^18
+2730^Stone Feet^0^169
+2733^Summon Horse^1^112
+2737^Taelosian Guard^1^89
+2739^Invisibility versus Undead^1^33
+2740^Celestial Regeneration^1^118
+2741^Sacred Barrier^1^46
+2743^Mana Regeneration^1^21
+2744^Resistance Tonic^1^161
+2745^Focused Mind^1^161
+2746^Dead Aim^1^161
+2748^Strong Root^0^117
+2750^Rabid Bear^1^49
+2751^Manaburn^0^153
+2754^Frenzied Burnout^1^53
+2755^Lifeburn^0^47
+2756^Words of the Undead King^0^36
+2757^Wave of Revulsion^0^28
+2765^Camouflage^1^18
+2769^Spreading Crud^0^161
+2773^Sonic Feedback^1^161
+2776^Turn Undead^0^164
+2777^Turn Undead^0^164
+2778^Turn Undead^0^164
+2779^Rebuke Summoned^0^47
+2780^Rebuke Summoned^0^47
+2781^Rebuke Summoned^0^47
+2782^Holy Steed^1^112
+2783^Unholy Steed^1^112
+2784^Tainted Bite^0^41
+2785^Screech Immunity^1^161
+2786^In Irons^0^116
+2787^Rag`Zhezum's Deathly Embrace^0^161
+2788^Breath of Rag'Mozdezh^0^41
+2789^Air Elemental Form I^1^163
+2790^Air Elemental Form II^1^163
+2791^Air Elemental Form III^1^163
+2792^Earth Elemental Form I^1^163
+2793^Earth Elemental Form II^1^163
+2794^Earth Elemental Form III^1^163
+2795^Fire Elemental Form I^1^163
+2796^Fire Elemental Form II^1^163
+2797^Fire Elemental Form III^1^163
+2798^Water Elemental Form I^1^163
+2799^Water Elemental Form II^1^163
+2800^Water Elemental Form III^1^163
+2803^Granite Crush^0^161
+2804^Boulder Smash^0^117
+2805^Sermon of Ssraeshza^0^25
+2806^Touch of Zebuxoruk^0^139
+2808^Kneel Test^0^35
+2810^Glowing Glyphs^1^161
+2811^Abysmal Banishment^0^122
+2812^Pyrokinetic Hallucinations^0^51
+2813^Mass Insanity^0^27
+2814^Caustic Mist^0^137
+2815^Shower of Blood^0^137
+2818^Shadow Fog^0^160
+2819^Madness^1^28
+2823^Gravel Rain^0^85
+2824^Spire Strike^0^23
+2825^Applied Singularity^0^161
+2826^Illusion: Vah Shir^1^163
+2827^Golem Smash^0^85
+2828^FrenzyNova^0^51
+2829^Golem Smash2^0^85
+2831^Golem Coat^1^161
+2832^Tendrils of Madness^0^163
+2834^Blade Dance^0^161
+2835^Blade DanceSK^0^161
+2837^Grimling Death Chant^0^28
+2838^Grimling Possession^0^27
+2839^Grimling Mesmerize^0^35
+2840^Shrieker's Curse^0^41
+2841^Shrieker Slow^0^16
+2843^Vampyre Regeneration^1^99
+2844^Rockhopper Spit^0^160
+2845^Lightcrawler Flash^0^23
+2846^Itraer Vius Touch^0^116
+2848^Concentration^1^21
+2849^Greater Concentration^1^21
+2850^Mystical Aptitude^1^116
+2851^Hawk's Eye Tonic^1^127
+2852^Mystical Infusion^1^115
+2853^Greater Mystical Infusion^1^115
+2855^Divine Endurance^1^152
+2856^Fungal Net^0^5
+2860^Shackles^0^116
+2862^Summon Horse^1^112
+2863^Summon Horse^1^112
+2864^Summon Horse^1^112
+2865^Summon Horse^1^112
+2866^Summon Horse^1^112
+2867^Summon Horse^1^112
+2868^Summon Horse^1^112
+2869^Summon Horse^1^112
+2870^Summon Horse^1^112
+2871^Summon Horse^1^112
+2872^Summon Horse^1^112
+2873^Summon Horse^1^112
+2874^Summon Holy Steed^1^112
+2875^Summon Death Charger^1^112
+2879^Phantasmal Armor^1^152
+2881^Everlasting Breath^1^20
+2882^Firetree's Familiar Enhancement^1^156
+2885^Funeral Pyre of Kelador^0^51
+2886^Acumen of Dar Khura^1^138
+2887^Mask of the Stalker^1^21
+2888^Spirit of Flame^1^55
+2890^Spirit of Snow^1^60
+2892^Deathly Temptation^1^164
+2893^Marzin's Mark^1^150
+2894^Levitation^1^80
+2895^Speed of the Brood^1^134
+2897^Pebble Rain^0^85
+2899^Feeblemind^0^12
+2900^Stone Gaze^0^169
+2903^Breath of the Shissar^0^42
+2904^Serpentine Curse^0^25
+2905^Touch of the Mistress^0^139
+2906^Soul Curse^0^161
+2907^Spirit Curse^0^139
+2909^Soul Tap^0^153
+2910^Call of Shadows^0^23
+2911^Mana Shroud^0^161
+2912^Call of Darkness^0^160
+2913^Balance of Zebuxoruk^0^139
+2916^Summon Horse^1^112
+2917^Summon Horse^1^112
+2918^Summon Horse^1^112
+2919^Summon Horse^1^112
+2920^Summon Horse^1^112
+2921^Summon Horse^1^112
+2922^Summon Horse^1^112
+2923^Summon Horse^1^112
+2925^Curse of Rhag`Zadune^0^139
+2926^Aura of Vinitras^1^155
+2928^Tangling Worms^0^117
+2931^Arx Foris^1^116
+2932^Thought Horror Charm^0^161
+2933^Fungal Spore Cloud^0^41
+2934^Curse of Eternal Suffering^0^139
+2937^Syncopation^1^95
+2938^Resonance^1^95
+2939^Harmonize^1^95
+2941^Savagery^1^81
+2942^Sha's Advantage^0^17
+2947^Vas Ren Slow^0^161
+2948^Vas Ren Slow^0^161
+2949^Hinderance of the Vas Ren^0^161
+2953^Cral Ligi Attack^0^85
+2954^Cral Ligi Attack^0^85
+2955^Attack of the Cral Ligi^0^85
+2958^Earth Elemental Strike^0^117
+2959^Earth Elemental Strike^0^117
+2960^Sun Revenant's Curse^0^139
+2961^Curse of the Revenant^0^139
+2962^Curse of Lord Wedazi^0^139
+2963^Group Primal Essence^1^134
+2964^Touch of the Plaguebringer^0^41
+2966^Invigoration of Rytan^1^99
+2969^Shadow Creep^0^1
+2970^Koadic's Expansive Mind^1^11
+2971^Marvelous Visions^1^134
+2974^Shield of Auras^1^77
+2975^Enlightening Barrier^1^77
+2976^Smoldering Bulwark^1^161
+2977^Boon of Recovery^1^77
+2978^Koadic's Heightened Focus^1^21
+2980^Lunar Whispers^1^21
+2981^Diminutive Stature^1^108
+2985^Wormspore Stick^0^161
+2986^Blessing of Ssraeshza^1^99
+2987^Aura of Scale^1^52
+2989^Needlite Fever^0^41
+2990^Chromatic Disruption^0^161
+3001^Instill Nightmare^0^154
+3002^Hand from the Grave^0^117
+3003^Curse of the Fiend^0^139
+3006^Corona of Sol^1^157
+3007^Solar Flame^0^51
+3008^Solar Winds^0^51
+3009^Reckless Mutterings^0^2
+3011^Sorrow Song^0^114
+3012^Rot of the Plaguebringer^0^154
+3014^Phoenix Charm^0^51
+3016^Poisoned Flames^0^42
+3019^Disjunction of Flame^0^51
+3022^Beta VoQ^1^21
+3023^Beta Boar^1^6
+3024^Beta VoG^1^134
+3025^Beta Virtue^1^132
+3026^Beta SoP^1^123
+3027^Beta 7th^1^130
+3028^Beta Brell's Stalwart^1^90
+3030^Dreams of Thule^0^35
+3031^Xegony's Phantasmal Guard^1^152
+3039^Protection of the Wild^1^158
+3047^Kazad`s Mark^1^150
+3048^Plague Silk^0^42
+3049^Infernal Darkness^0^114
+3050^Ravaging Rage of the Fiends^1^134
+3052^Rising Suns^0^114
+3053^Web of Flame^0^117
+3055^Cataclysm of Ro^0^111
+3056^Shield of Eternal Flame^1^157
+3058^Engulfing Ink^0^114
+3059^Battle Cry of Regrua^0^51
+3060^Mists of Enlightenment^0^111
+3061^Curse of the Triumvirate^0^111
+3063^Illusion: Froglok^1^163
+3065^Portal Flames^1^157
+3066^Requiem of Time^0^17
+3069^Seething Hatred^0^140
+3070^Timeless Panic^0^28
+3072^Torrential Torment^0^154
+3074^Earthen Vengeance^0^161
+3075^Wind of Xegony^0^85
+3076^NPCSpellHaste15^1^161
+3078^NPCSpellHaste25^1^161
+3079^NPCSpellHaste50^1^161
+3080^Condemnation of Time^1^161
+3081^Summer's Anger^1^161
+3082^Saryrn's Venom^1^161
+3083^Neurocus^1^161
+3084^Fires of Sol^1^161
+3085^Chromosphere^1^161
+3086^Insanity Storm^1^161
+3100^Mark of Retaliation^0^158
+3101^Enchantment of Destruction^1^161
+3102^Focus of Flame^1^161
+3103^Chill of the Umbra^1^161
+3104^Secret of Power^1^161
+3105^Insidious Dreams^1^161
+3106^Focus of Mediocrity^1^161
+3107^Cry of Fire^1^104
+3108^Accursed Affliction^1^161
+3109^Focus of Distance^1^161
+3110^Touch of Judgment^1^161
+3111^Starfall Symbol^1^161
+3112^Obsidian Requiem^1^161
+3113^Focus of the Orb^1^161
+3114^Preservation of the Akheva^1^161
+3115^no spell^1^161
+3116^Sanguine Enchantment^1^161
+3117^Darkened Preservation^1^161
+3118^Conundrum of Speed^1^161
+3119^Pernicious Focus^1^161
+3120^Alluring Preservation^1^161
+3121^Wind of Mana^1^161
+3122^Sanguine Preservation^1^161
+3123^Contemplative Alacrity^1^161
+3124^Speeding Thought^1^161
+3125^Wind of the Nightcrawler^1^161
+3126^no spell^1^161
+3127^Shade Stone Focus^1^161
+3128^Blaze of the Lightbringer^1^161
+3151^Nightmare Stasis^0^5
+3154^Air Strike^0^135
+3155^Elemental Judgment^0^161
+3157^Creeping Vengeance^0^117
+3158^Moss Venom^0^42
+3159^Ravaging Venom^0^42
+3160^Needle Strike^0^42
+3161^Froaking Mist^0^42
+3165^Silence of Marr^0^117
+3166^Blinding Essence of Purity^0^117
+3169^Champion's Protection^0^5
+3170^Blinding Beauty^0^160
+3173^Protection of Marr^0^117
+3174^Screeching Bellow^0^117
+3175^Crystal Roar^0^154
+3178^Vallon's Quickening^1^134
+3185^Flight of Eagles^1^4
+3186^Yaulp VI^1^6
+3187^Sermon of Penitence^0^153
+3192^Earthen Roots^0^117
+3193^EarthElementalStrike2^0^117
+3194^Greater Fetter^0^117
+3195^Greater Immobilize^0^117
+3196^Petrifying Earth^0^117
+3197^Pacification^1^39
+3198^Flameshield of Ro^1^157
+3199^Arcane Rune^1^77
+3200^Jedah's Superior Conservation^1^161
+3201^Tavee's Superior Diuturnity^1^161
+3202^Gallenite's Chaos^1^161
+3203^Naki's Superior Pernicity^1^161
+3204^Jolum's Superior Abatement^1^161
+3224^Sleep Walker's Haze^0^161
+3225^Glass Roar^0^154
+3226^Glass Shards^0^17
+3227^Shroud of Chaos^1^140
+3234^Protection of the Nine^1^131
+3235^Focus of Soul^1^130
+3237^Burnout V^1^53
+3240^Speed of Vallon^1^134
+3241^Night`s Dark Terror^1^163
+3242^Guard of Druzzil^1^69
+3246^Shackles of Tunare^0^117
+3247^Aura of the Crusader^1^133
+3250^Celestial Renewal^1^118
+3251^Celestial Renewal^1^118
+3255^Wrath of the Wild^1^77
+3256^Wrath of the Wild^1^77
+3257^Wrath of the Wild^1^77
+3258^Eldritch Rune^1^77
+3259^Eldritch Rune^1^77
+3260^Eldritch Rune^1^77
+3271^Guardian of the Forest^1^49
+3272^Guardian of the Forest^1^49
+3273^Guardian of the Forest^1^49
+3274^Virulent Paralysis^0^117
+3275^Virulent Paralysis^0^117
+3276^Virulent Paralysis^0^117
+3277^Spirit of the Wood^1^49
+3278^Spirit of the Wood^1^49
+3279^Spirit of the Wood^1^49
+3280^Hobble of Spirits Eff^0^5
+3289^Frenzy of Spirit^1^49
+3290^Hobble of Spirits^1^60
+3291^Paragon of Spirit^1^72
+3295^Legacy of Bracken^1^155
+3296^Faith^1^132
+3300^Shield of the Arcane^1^133
+3301^Force Shield^1^78
+3302^Shield of Maelin^1^133
+3303^Blood of Thule^0^42
+3305^Rune of Death^1^74
+3306^Saryrn's Kiss^0^154
+3307^Saryrn's Kiss Recourse^1^154
+3308^Death's Silence^0^35
+3309^Embracing Darkness^0^160
+3311^Seduction of Saryrn^1^164
+3315^Dark Plague^0^41
+3316^Word of Terris^0^27
+3326^Resistant Armor^1^149
+3329^Elemental Barrier^1^148
+3337^Iceflame of E`ci^1^56
+3341^Apathy^0^35
+3342^Howl of Tashan^0^72
+3343^Rune of Zebuxoruk^1^77
+3345^Strangle^0^137
+3347^Beckon^0^26
+3348^Torment of Scio^0^25
+3350^Tranquility^1^21
+3351^Uproar^1^6
+3354^Sleep^0^35
+3355^Command of Druzzil^0^26
+3358^Bliss^0^35
+3359^Word of Morell^0^25
+3360^Voice of Quellious^1^21
+3361^Silent Song of Quellious^1^40
+3362^Rizlona's Call of Flame^1^143
+3363^Tuyen`s Chant of the Plague^0^41
+3365^Melody of Mischief^0^143
+3367^Tuyen`s Chant of Fire^0^51
+3368^Psalm of Veeshan^1^156
+3369^Dreams of Terris^0^35
+3370^Tuyen`s Chant of Venom^0^42
+3371^Call of the Banshee^0^27
+3372^Chorus of Marr^1^99
+3373^Tuyen`s Chant of Ice^0^56
+3374^Warsong of Zek^1^49
+3375^Harmony of Sound^0^148
+3376^Lullaby of Morell^0^35
+3378^Agility of the Wrulan^1^9
+3380^Cloud of Grummus^0^17
+3381^Ancestral Guard^1^151
+3382^Endurance of the Boar^1^10
+3383^Talisman of the Wrulan^1^9
+3384^Talisman of the Tribunal^1^68
+3386^Malicious Decay^0^41
+3387^Malosinia^0^55
+3388^Strength of the Diaku^1^6
+3389^Talisman of the Boar^1^10
+3391^Talisman of Alacrity^1^16
+3392^Talisman of the Diaku^1^6
+3394^Breath of Ultor^0^41
+3395^Malos^0^55
+3396^Blood of Saryrn^0^42
+3397^Focus of the Seventh^1^130
+3398^Quiescence^1^118
+3399^Ferine Avatar^1^2
+3400^Festering Darkness^0^160
+3404^Aura of Pain Recourse^1^1
+3406^Aura of Darkness^0^139
+3407^Aura of Darkness Recourse^1^139
+3410^Voice of Thule^1^91
+3412^Aura of Hate Recourse^1^2
+3415^Nature's Rebuke^1^104
+3417^Spirit of the Predator^1^123
+3419^Call of the Rathe^1^158
+3420^Cry of Thunder^1^104
+3422^Ward of Nife^1^104
+3424^Pious Might^1^104
+3432^Brell's Stalwart Shield^1^90
+3433^Replenishment^1^118
+3435^Hand of Ro^0^53
+3437^Immolation of Ro^0^51
+3439^Nature's Might^1^6
+3440^Ro's Illumination^0^51
+3441^Blessing of Replenishment^1^118
+3442^E'ci's Frosty Breath^0^56
+3444^Protection of Seasons^1^148
+3445^Command of Tunare^0^72
+3446^Swarming Death^0^159
+3447^Savage Roots^0^117
+3448^Shield of Bracken^1^155
+3450^Brackencoat^1^155
+3451^Blessing of the Nine^1^131
+3453^Mask of the Forest^1^21
+3454^Infusion of Spirit^1^130
+3456^Spiritual Vigor^1^1
+3458^Arag`s Celerity^1^134
+3459^Spirit of Rellic^1^72
+3460^Spiritual Dominion^1^72
+3462^Sha's Revenge^0^17
+3463^Ferocity^1^81
+3466^Symbol of Kazad^1^150
+3467^Virtue^1^132
+3469^Mark of Kings^0^156
+3470^Ward of Gallantry^1^151
+3472^Blessing of Reverence^1^138
+3474^Armor of the Zealot^1^133
+3475^Supernal Elixir^1^118
+3477^Mark of the Righteous^0^158
+3479^Hand of Virtue^1^132
+3483^Elemental Silence^0^35
+3484^Call of the Arch Mage^0^27
+3485^Supernal Cleansing^1^118
+3486^Maelstrom of Ro^1^157
+3487^Strength of Tunare^1^123
+3488^Pact of Hate^1^164
+3489^Blood of Hate^0^51
+3490^Cloak of Luclin^1^140
+3492^Scorpion Venom^0^42
+3500^Ward of Degeneration^0^137
+3501^Improved Healing IV^1^161
+3502^Marr's Gift^1^161
+3503^Marr's Blessing^1^161
+3504^Extended Enhancement IV^1^161
+3505^Patience of Time^1^161
+3506^Patience of Eternity^1^161
+3507^Burning Affliction IV^1^161
+3508^Vengeance of Time^1^161
+3509^Vengeance of Eternity^1^161
+3510^Extended Range IV^1^161
+3511^Druzzil's Distance^1^161
+3512^Druzzil's Range^1^161
+3513^Improved Damage IV^1^161
+3514^Anger of Solusek^1^161
+3515^Fury of Solusek^1^161
+3516^Anger of Ro^1^161
+3517^Fury of Ro^1^161
+3518^Wrath of Ro^1^161
+3519^Anger of E`ci^1^161
+3520^Fury of E`ci^1^161
+3521^Wrath of E`ci^1^161
+3522^Anger of Druzzil^1^161
+3523^Fury of Druzzil^1^161
+3524^Wrath of Druzzil^1^161
+3525^Spell Haste IV^1^161
+3526^Haste of Druzzil^1^161
+3527^Quickening of Druzzil^1^161
+3528^Haste of Solusek^1^161
+3529^Speed of Solusek^1^161
+3530^Quickening of Solusek^1^161
+3531^Haste of Mithaniel^1^161
+3532^Speed of Mithaniel^1^161
+3533^Quickening of Mithaniel^1^161
+3534^Affliction Haste IV^1^161
+3535^Enhancement Haste IV^1^161
+3536^Summoning Haste IV^1^161
+3537^Mana Preservation IV^1^161
+3538^Preservation of Xegony^1^161
+3539^Conservation of Xegony^1^161
+3540^Focus of Solusek^1^161
+3541^Conservation of Solusek^1^161
+3542^Preservation of Solusek^1^161
+3543^Focus of Mithaniel^1^161
+3544^Conservation of Mithaniel^1^161
+3545^Preservation of Mithaniel^1^161
+3546^Affliction Efficiency IV^1^161
+3547^Conservation of Bertoxxulous^1^161
+3548^Summoning Efficiency IV^1^161
+3549^Innoruuk's Sarcasm^1^161
+3550^Innoruuk's Irony^1^161
+3551^Aura of Courage^1^161
+3552^Aura of Daring^1^161
+3553^Aura of Bravery^1^161
+3554^Aura of Valor^1^161
+3555^Aura of Resolution^1^161
+3566^Tuyen`s Chant of Poison^0^42
+3567^Tuyen`s Chant of Disease^0^41
+3575^Blessing of Piety^1^138
+3576^Blessing of Faith^1^138
+3578^Brell's Steadfast Aegis^1^90
+3579^Share Form of the Great Wolf^1^81
+3580^Spirit of Ash^1^163
+3581^O`Keils Levity^1^137
+3582^Elemental Cloak^1^148
+3585^Entrancing Lights^0^25
+3586^Illusion: Scaled Wolf^1^81
+3596^Ward of the Feebleminded^0^137
+3597^Ward of the Weak^0^137
+3598^Ward of Confrontation^0^137
+3601^Harmony of Nature^1^39
+3602^Tempest Wrath^0^161
+3603^Arachnae Venom^0^41
+3605^Mending^1^118
+3608^Shield of Pain^1^56
+3609^Shield of Torment^1^56
+3614^Entrap^0^5
+3617^Eclipse Aura^1^104
+3620^Shadow Burst^1^164
+3621^Frost Claw^0^60
+3625^Assassin's Blood^0^51
+3627^Aura of Eternity^1^21
+3628^Symphony of Battle^1^116
+3629^Runic^1^77
+3631^Eternal Ward^1^89
+3632^Timespin^1^161
+3642^Grip of Unlife^0^56
+3643^Grip of Mortal Reality^0^56
+3644^Grip of Mental Reality^0^56
+3651^Wind of Marr^1^99
+3652^Condemnation of the Ages^1^161
+3653^Summer's Vengeance^1^161
+3654^Saryrn's Torment^1^161
+3655^Neurocism^1^161
+3656^Inferno of Sol^1^161
+3657^Chromospheric^1^161
+3658^Insanity Sphere^1^161
+3659^Refreshment^1^161
+3660^Faerune^1^19
+3663^Earthen Decay^0^155
+3664^Cosmic Phenomenon^0^23
+3667^Malevolence of Mel^0^42
+3668^Pawn's Plight^0^41
+3669^Puppet Master's Malady^0^42
+3671^Scent of Gloom^0^42
+3673^Tumultuous Hysteria^0^161
+3674^Turmoil of Charyb^0^85
+3675^Vortex of Cetacea^0^85
+3676^Whirlpool^0^85
+3683^Ethereal Cleansing^1^118
+3686^Blood of Pain^0^51
+3687^Swarm of Pain^0^159
+3689^Malaria^0^41
+3690^Bond of the Wild^1^134
+3691^Bond of the Wild R.^1^130
+3692^Temperance^1^132
+3694^Stoicism^1^118
+3695^Frost Zephyr^0^56
+3696^Leviathan Eyes^1^19
+3697^Scryer's Trespass^0^40
+3698^Scryer's Trespass R.^1^40
+3699^Primal Remedy^1^99
+3700^Elemental Empathy^1^53
+3701^Elemental Empathy R.^1^133
+3702^Auspice^0^140
+3703^Auspice Recourse^1^140
+3704^Soul Empathy^1^74
+3705^Soul Empathy Recourse^1^133
+3710^Miraculous Visions^1^134
+3712^Maelin's Meditation^1^11
+3713^Maelin's Methodical Mind^1^21
+3714^Primal Guard^1^89
+3715^Rytan's Revenge^1^89
+3717^Heat Awareness I^1^51
+3718^Heat Awareness II^1^51
+3719^Heat Awareness III^1^51
+3720^Heat Awareness IV^1^51
+3721^Cold Awareness I^1^56
+3722^Cold Awareness II^1^56
+3723^Cold Awareness III^1^56
+3724^Cold Awareness IV^1^56
+3725^Magic Awareness I^1^161
+3726^Magic Awareness II^1^161
+3727^Magic Awareness III^1^161
+3728^Magic Awareness IV^1^161
+3729^Poison Awareness I^1^42
+3730^Poison Awareness II^1^42
+3731^Poison Awareness III^1^42
+3732^Poison Awareness IV^1^42
+3733^Disease Awareness I^1^41
+3734^Disease Awareness II^1^41
+3735^Disease Awareness III^1^41
+3736^Disease Awareness IV^1^41
+3737^Benefit Awareness I^1^115
+3738^Benefit Awareness II^1^115
+3739^Benefit Awareness III^1^115
+3740^Benefit Awareness IV^1^115
+3741^Pyrokinetic Aura^1^157
+3742^Black Pyre^0^42
+3743^Aquatic Aura^1^161
+3744^Aqueous flux^0^157
+3745^Caustic Aura^1^157
+3746^Caustic Atmosphere^0^42
+3747^Insidious Calamity^0^157
+3749^Unholy Aura^0^2
+3750^Curse of the Dead^0^42
+3751^Quivering Nightmares^0^42
+3752^Phantasmal Torment^0^2
+3753^Torrent of Agony^0^91
+3754^Horrifying Affliction^0^42
+3757^Strategic Blow^0^161
+3758^Planeshift^0^161
+3759^Call of the Faceless^0^42
+3760^Aura of Fear^0^42
+3761^Blind Rage^1^2
+3763^Black Plague^0^42
+3765^Seething Hatred^0^161
+3766^Barrier of Hatred^1^157
+3767^Epoch Conviction^0^136
+3769^Glacier Breath^0^56
+3770^Venomed Mist^0^42
+3771^Plagued Earth^0^41
+3772^Epoch Conviction^0^136
+3774^Venomed Mist^0^42
+3775^Plagued Earth^0^41
+3776^Epoch Conviction^0^136
+3778^Plagued Earth^0^41
+3779^Epoch Conviction^0^136
+3783^Languish of the Sea^0^56
+3784^Drowning Panic^0^56
+3786^Bleeding Ether^0^56
+3797^Ire^1^49
+3798^Tergiverse^1^49
+3800^Acrimony^0^42
+3801^Miasma^0^42
+3802^Rack of Balance^0^42
+3804^Attenuate^0^50
+3808^Intuition^1^21
+3809^Reclamation^1^118
+3811^Vision Shift^1^19
+3813^Summon Drogmor^1^112
+3814^Summon Drogmor^1^112
+3815^Summon Drogmor^1^112
+3816^Summon Drogmor^1^112
+3817^Summon Drogmor^1^112
+3818^Summon Drogmor^1^112
+3819^Summon Drogmor^1^112
+3820^Summon Drogmor^1^112
+3821^Summon Drogmor^1^112
+3822^Summon Drogmor^1^112
+3823^Summon Drogmor^1^112
+3824^Summon Drogmor^1^112
+3825^Summon Drogmor^1^112
+3826^Summon Drogmor^1^112
+3827^Summon Drogmor^1^112
+3828^Summon Drogmor^1^112
+3829^Summon Drogmor^1^112
+3830^Summon Drogmor^1^112
+3831^Summon Drogmor^1^112
+3832^Summon Drogmor^1^112
+3835^Anemone Feedback^1^41
+3836^Nematocyst Poison^1^41
+3837^Paralyzing Neurotoxin^1^41
+3840^Paralyzing Neurotoxin^0^50
+3841^Temper^1^21
+3843^Timeburn^1^161
+3844^Chronoburn^1^161
+3845^Eterninostrum^1^161
+3846^Chrononostrum^1^161
+3847^Cloak of Khala Dun^1^163
+3850^Cursed Visions I^0^-1
+3851^Cursed Visions II^0^-1
+3852^Cloud of Oblivion^0^153
+3853^Mind Flay^0^-1
+3854^Form of Protection^1^81
+3855^Form of Defense^1^81
+3856^Form of Endurance^1^81
+3857^Form of Rejuvenation^1^81
+3858^Thistle Ward^1^81
+3859^Bramble Ward^1^155
+3860^Spike Ward^1^155
+3861^Pestilence Shock^1^104
+3864^Soul Claw^1^104
+3865^Soul Claw Strike^0^161
+3866^Soul Claw Strike^0^161
+3867^Spiritual Fury^1^2
+3868^Corporeal Fury^1^2
+3871^Vengeful Guard^1^56
+3872^Savage Guard^1^56
+3873^Time Distortion^1^161
+3874^Serenity^1^161
+3877^Nightmares^0^51
+3879^Aura of the Defender^1^161
+3880^Aura of the Berserker^1^161
+3883^Cleave I^1^2
+3884^Cleave II^1^2
+3885^Cleave III^1^2
+3886^Ferocity I^1^2
+3887^Ferocity II^1^2
+3888^Ferocity III^1^2
+3889^Improved Dodge I^1^2
+3890^Improved Dodge II^1^2
+3891^Improved Dodge III^1^2
+3892^Improved Parry I^1^2
+3893^Improved Parry II^1^2
+3894^Improved Parry III^1^2
+3895^Hidden Speed^1^2
+3896^Sharpshooting I^1^2
+3897^Sharpshooting II^1^2
+3898^Sharpshooting III^1^2
+3899^Composure^1^161
+3900^Free spell^1^161
+3901^Free spell^1^161
+3902^Free spell^1^161
+3903^Free spell^1^161
+3904^Free spell^1^161
+3905^Arcane Conservation^1^161
+3906^Scorn's Beckon^0^27
+3907^Mana Lens^1^161
+3908^Mana Spectrum^0^42
+3909^Clinging Clay^0^17
+3911^Quicksand^0^117
+3913^Ashen Form^0^139
+3914^Marl^0^160
+3915^Chill of Undeath^0^51
+3916^Plagued Torment^1^158
+3922^Echo of Anger^1^91
+3923^Fury of Bertoxxulous^1^161
+3926^Infection^0^41
+3927^Dark Infection^0^41
+3928^Venom^0^42
+3929^Dark Venom^0^42
+3934^Darkened Blood^0^51
+3935^Blackened Blood^0^51
+3936^Dark Aura^0^161
+3937^Dark Corona^0^161
+3938^Frost Coat^0^5
+3939^Ice Coat^0^5
+3946^Ghoul Instill^0^117
+3947^Ghoul Fetter^0^117
+3948^Gaze^0^35
+3949^Dominate^0^35
+3951^Poxan's Pox o Power^1^161
+3954^Corporeal Torment^0^136
+3955^Defiled Insanity^0^154
+3956^Sands of Time^0^117
+3957^Time scorch^0^51
+3958^Hands of the Desert^0^147
+3959^Deafening Silence^0^154
+3961^Stone touch^0^-1
+3965^Static Burn^0^162
+3966^Epidemic^0^41
+3968^Discord^0^161
+3969^Exhaustion^0^7
+3974^Levity^1^80
+3977^Soul Consumption R.^1^163
+3978^Greenmist Recourse^1^137
+3980^Soul Well Recourse^1^154
+4011^Kindle^1^21
+4012^Grieg's Vengeance^0^153
+4014^Viscous Venom^0^42
+4015^Korucust's Vengeance^0^161
+4016^Reagent Conservation IV^1^161
+4017^Illusion: Guktan^1^163
+4018^RytanGuard1^1^46
+4019^RytanGuard2^1^46
+4020^RytanGuard3^1^46
+4021^RytanGuard4^1^46
+4026^Time warp^0^17
+4049^Circle of Cooling^1^52
+4050^Circle of Warmth^1^57
+4051^Talisman of Purity^1^61
+4052^Talisman of Vitality^1^65
+4053^Blessing of Temperance^1^132
+4054^Spirit of the Shrew^1^4
+4055^Pack Shrew^1^4
+4058^Feral Pack^1^81
+4059^Call of Ice^1^104
+4062^Dark Temptation^1^164
+4063^Call of Darkness^1^164
+4064^Austerity^1^132
+4065^Blessing of Austerity^1^132
+4067^Ward of Calrena^1^98
+4068^Guard of Calrena^1^98
+4069^Protection of Calrena^1^98
+4070^Magi Ward^1^98
+4071^Mana Ward^1^98
+4072^Deception^1^163
+4073^Ward of Alendar^1^98
+4074^Guard of Alendar^1^98
+4075^Protection of Alendar^1^98
+4076^Bulwark of Alendar^1^98
+4077^Ordinance^0^26
+4079^Ward of Calliav^1^46
+4080^Guard of Calliav^1^46
+4081^Protection of Calliav^1^46
+4083^Rizlona's Embers^1^143
+4084^Rizlona's Fire^1^143
+4085^Forpar's Aria of Affliction^1^143
+4086^Forpar's Psalm of Pain^1^143
+4087^Forpar's Verse of Venom^1^143
+4088^Ward of Vie^1^128
+4089^Guard of Vie^1^128
+4090^Protection of Vie^1^128
+4091^Bulwark of Vie^1^128
+4092^Curse^0^165
+4093^Odium^0^165
+4094^Anathema^0^165
+4095^Bane^0^165
+4096^Dark Soul^0^164
+4097^Imprecation^0^164
+4098^Horror^0^164
+4099^Bounce^1^82
+4100^Reflect^1^82
+4104^Vengeance of the Wild^0^55
+4105^Vengeance of Nature^0^55
+4106^Vengeance of Tunare^0^55
+4107^Feral Form^1^81
+4108^Aura of Reverence^1^138
+4109^Guidance^1^132
+4111^Fire Swarm^0^159
+4112^Call of the Muse^1^143
+4114^Dark Shackles^0^145
+4115^Acid Aura^1^155
+4118^Feral Breath^0^165
+4122^Life Vortex^0^154
+4123^Blurring Focus^0^160
+4124^Everlasting Essence^1^46
+4125^Infinite Mass^0^145
+4126^Curse of the Cauldron^0^51
+4127^Scent of Hatred^0^42
+4128^Touch of the Witnessed^0^56
+4129^Ember of Despise^0^41
+4130^Mischievous Mayhem^0^14
+4131^Delightful Dance^0^51
+4132^Hearth Shield^1^52
+4134^Seneschal's Petrification^0^42
+4137^Crystal Shield^1^82
+4138^Vindication^1^156
+4140^Ojun Roar^0^28
+4141^Acid Spray^0^42
+4142^Acidic Mist^0^42
+4143^Coffin's Curse^0^7
+4144^Poison Darts^0^42
+4145^Embalming Fumes^0^137
+4147^Haunting Curse^0^28
+4148^Burning Dust^0^51
+4149^Possession^0^27
+4151^Plague Mites^0^41
+4153^Poison Needle^0^42
+4154^Pressurized Acid^0^42
+4155^Raging Sand^0^85
+4156^Razor Mesh^0^155
+4157^Runes of Warding^0^139
+4158^Sand Blast^0^85
+4159^Sonic Blast^0^114
+4161^Wretched Cloud^0^41
+4162^Poison Gas^0^42
+4163^Curse of the Desert^0^85
+4191^Nortlav's Vengeance^1^3
+4192^Orc Breath^0^154
+4194^Blood Burn^0^42
+4195^Festering Bile^0^17
+4200^Vengeance of Ice^1^161
+4201^Vengeance of Fire^1^161
+4202^Vengeance of Plague^1^161
+4203^Vengeance of Magic^1^161
+4204^Burning Poison^1^161
+4205^Burning Fire^1^161
+4206^Burning Plague^1^161
+4207^Burning Magic^1^161
+4208^Blessed Healing^1^161
+4209^Blessed Aura of Health^1^161
+4210^Fufil`s Diminishing Dirge^0^161
+4212^Regeneration IV^1^21
+4213^Regeneration V^1^21
+4214^Regeneration VI^1^21
+4215^Regeneration VII^1^21
+4216^Regeneration VIII^1^21
+4217^Regeneration IX^1^21
+4218^Regeneration X^1^21
+4219^Shield of Pain I^1^161
+4220^Shield of Pain II^1^161
+4221^Shield of Pain III^1^161
+4222^Shield of Pain IV^1^161
+4223^Shield of Pain V^1^161
+4224^Shield of Pain VI^1^161
+4225^Shield of Pain VII^1^161
+4226^Shield of Pain VIII^1^161
+4227^Shield of Pain IX^1^161
+4228^Shield of Pain X^1^161
+4229^Minor Improved Healing IV^1^161
+4230^Minor Extended Enhancement IV^1^161
+4231^Minor Burning Affliction IV^1^161
+4232^Minor Extended Range IV^1^161
+4233^Minor Improved Damage IV^1^161
+4234^Minor Spell Haste IV^1^161
+4235^Minor Affliction Haste IV^1^161
+4236^Minor Enhancement Haste IV^1^161
+4237^Minor Summoning Haste IV^1^161
+4238^Minor Mana Preservation IV^1^161
+4239^Breathless Mist^1^20
+4240^Essence of Concealment^1^18
+4241^Weightless Mist^1^80
+4242^Mist of the Wolf^1^4
+4243^Intoxication I^1^4
+4244^Intoxication II^1^4
+4245^Intoxication III^1^4
+4246^Intoxication IV^1^4
+4247^Intoxication V^1^4
+4248^Intoxication VI^1^4
+4249^Minor Affliction Efficiency IV^1^161
+4250^Minor Summoning Efficiency IV^1^161
+4251^Minor Reagent Conservation IV^1^161
+4288^Curse of Takish-Hiz^0^136
+4289^Icicle Shield^1^161
+4291^Aura of Quellious^1^21
+4292^Minor Reagent Conservation I^1^161
+4293^Minor Reagent Conservation II^1^161
+4294^Minor Reagent Conservation III^1^161
+4295^Minor Extended Enhancement I^1^161
+4296^Minor Extended Enhancement II^1^161
+4297^Minor Extended Enhancement III^1^161
+4298^Minor Improved Damage I^1^161
+4299^Minor Improved Damage II^1^161
+4300^Minor Improved Damage III^1^161
+4301^Minor Spell Haste I^1^161
+4302^Minor Spell Haste II^1^161
+4303^Minor Spell Haste III^1^161
+4304^Minor Mana Preservation I^1^161
+4305^Minor Mana Preservation II^1^161
+4306^Minor Mana Preservation III^1^161
+4307^Minor Improved Healing I^1^161
+4308^Minor Improved Healing II^1^161
+4309^Minor Improved Healing III^1^161
+4310^Minor Extended Range I^1^161
+4311^Minor Extended Range II^1^161
+4312^Minor Extended Range III^1^161
+4313^Minor Summoning Haste I^1^161
+4314^Minor Summoning Haste II^1^161
+4315^Minor Summoning Haste III^1^161
+4316^Minor Summoning Efficiency I^1^161
+4317^Minor Summoning Efficiency II^1^161
+4318^Minor Summoning Efficiency III^1^161
+4319^Minor Enhancement Haste I^1^161
+4320^Minor Enhancement Haste II^1^161
+4321^Minor Enhancement Haste III^1^161
+4322^Minor Affliction Haste I^1^161
+4323^Minor Affliction Haste II^1^161
+4324^Minor Affliction Haste III^1^161
+4325^Minor Affliction Efficiency I^1^161
+4326^Minor Affliction Efficiency II^1^161
+4327^Minor Affliction Efficiency III^1^161
+4328^Minor Burning Affliction I^1^161
+4329^Minor Burning Affliction II^1^161
+4330^Minor Burning Affliction III^1^161
+4331^Minor Reanimation Haste I^1^161
+4332^Minor Reanimation Haste II^1^161
+4333^Minor Reanimation Haste III^1^161
+4334^Minor Reanimation Efficiency I^1^161
+4335^Minor Reanimation Efficiency II^1^161
+4336^Minor Reanimation Efficiency III^1^161
+4337^Mind Burn I^1^40
+4338^Mind Burn II^1^40
+4339^Mind Burn III^1^40
+4340^Mind Burn IV^1^40
+4341^Mind Burn V^1^40
+4342^Mind Burn VI^1^40
+4343^Mind Burn VII^1^40
+4344^Mind Burn VIII^1^40
+4345^Mind Burn IX^1^40
+4346^Mind Burn X^1^40
+4348^Speed^1^161
+4349^Quickening^1^161
+4380^Mirror I^1^82
+4381^Mirror II^1^82
+4382^Mirror III^1^82
+4383^Mirror IV^1^82
+4384^Guard I^1^128
+4385^Guard II^1^128
+4386^Guard III^1^128
+4387^Guard IV^1^128
+4388^Spell Guard I^1^128
+4389^Spell Guard II^1^128
+4390^Spell Guard III^1^128
+4391^Spell Guard IV^1^128
+4395^Selo's Rhythm of Speed^1^4
+4396^Minion of Air^1^161
+4397^Minion of Fire^1^161
+4398^Minion of Water^1^161
+4399^Minion of Earth^1^161
+4400^Servant of Air^1^161
+4401^Servant of Fire^1^161
+4402^Servant of Water^1^161
+4403^Servant of Earth^1^161
+4404^Minion of Hate^1^161
+4405^Minion of Eternity^1^161
+4406^Minion of the Jarsath^1^161
+4407^Minion of Darkness^1^161
+4409^Summoner's Boon^1^161
+4410^Ritual Summoning^1^161
+4411^Experimental Contamination^0^41
+4412^Experimental Visions^0^42
+4416^Gaze of Talkor^0^42
+4417^Warden's Roar^0^85
+4418^Illusion: Frost Bone^1^163
+4424^Soul Clasp^1^164
+4425^Lich's Embrace^0^161
+4426^Flash of Hate^0^161
+4427^Lich's Void^0^161
+4428^Burn of Innoruuk^1^161
+4429^Remission of Strength^0^41
+4430^Cessation of Health^0^42
+4431^Cessation of Power^0^161
+4432^Cessation of Movement^0^161
+4434^Cessation of Vitality^0^42
+4437^Cursed Keeper's Siphon^0^41
+4438^Trance of Innoruuk^0^161
+4440^Assail of Innoruuk^0^161
+4441^Allure of Hatred^0^161
+4442^Strike of Innoruuk^0^161
+4444^Cursed Keeper's Anger^0^161
+4445^Cursed Keeper's Hatred^0^161
+4446^Cursed Keeper's Fury^0^161
+4449^Flesh Pile^0^161
+4450^Explosion of Mist^0^161
+4451^Explosion of Bone^0^161
+4452^Explosion of Slime^0^161
+4454^Cursed Keeper's Blight^0^161
+4457^Cursed Keeper's Drain^0^161
+4459^Cessation of Motility^0^161
+4461^Extended Blessing IV^1^161
+4462^Extended Torment IV^1^161
+4464^Poisoned Barbs of the Cavern^0^42
+4466^Arcane Venom^0^42
+4468^Arcane Venom Spray^0^42
+4472^Darkened Decay^0^42
+4474^Freeze^0^56
+4475^Soul Fury^1^2
+4476^Radiant Vexation^0^142
+4479^Senseless Sands^0^139
+4480^Entrapping Sands^0^5
+4483^Grip of Stone^0^47
+4484^Swirling Sandstorm^0^85
+4485^Sand Curse of Life^0^140
+4486^Sand Curse of Knowledge^0^139
+4487^Greater Sand Curse of Life^0^140
+4488^Greater Sand Curse of Knowledge^0^139
+4489^Taelosian Vengeance^0^17
+4491^Clinging Stone^0^169
+4494^Geotension^0^117
+4495^Clinging Mud^0^145
+4498^Aggressive Discipline^1^6
+4499^Defensive Discipline^1^1
+4500^Holyforge Discipline^1^46
+4501^Precision Discipline^1^8
+4502^Voiddance Discipline^1^161
+4503^Evasive Discipline^1^1
+4504^Leechcurse Discipline^1^153
+4505^Deadeye Discipline^1^28
+4506^Trueshot Discipline^1^127
+4507^Silentfist Discipline^1^49
+4508^Ashenhand Discipline^1^6
+4509^Whirlwind Discipline^1^49
+4510^Stonestance Discipline^1^1
+4511^Thunderkick Discipline^1^9
+4512^Innerflame Discipline^1^6
+4513^Hundred Fists Discipline^1^6
+4514^Mighty Strike Discipline^1^6
+4515^Nimble Discipline^1^8
+4516^Deftdance Discipline^1^9
+4517^Kinesthetics Discipline^1^6
+4518^Sanctification Discipline^1^46
+4519^Weapon Shield Discipline^1^49
+4520^Unholy Aura Discipline^1^47
+4521^Bestial Alignment I^1^81
+4522^Bestial Alignment II^1^81
+4523^Bestial Alignment III^1^81
+4524^Bestial Alignment I^1^81
+4525^Bestial Alignment II^1^81
+4526^Bestial Alignment III^1^81
+4527^Bestial Alignment I^1^81
+4528^Bestial Alignment II^1^81
+4529^Bestial Alignment III^1^81
+4530^Bestial Alignment I^1^81
+4531^Bestial Alignment II^1^81
+4532^Bestial Alignment III^1^81
+4533^Bestial Alignment I^1^81
+4534^Bestial Alignment II^1^81
+4535^Bestial Alignment III^1^81
+4536^Frenzied Aura^1^49
+4537^Icy Grasp^1^72
+4549^Divine Avatar I^1^2
+4550^Divine Avatar II^1^2
+4551^Divine Avatar III^1^2
+4556^Air Elemental Form IV^1^163
+4557^Air Elemental Form V^1^163
+4558^Earth Elemental Form IV^1^163
+4559^Earth Elemental Form V^1^163
+4560^Fire Elemental Form IV^1^163
+4561^Fire Elemental Form V^1^163
+4562^Water Elemental Form IV^1^163
+4563^Water Elemental Form V^1^163
+4567^Aneuk Grasp^0^160
+4570^Chaos Claws^0^42
+4571^Chaos Guard^1^98
+4573^Grasp of Muram^0^160
+4575^Mastruq Bellow^0^154
+4576^Stonemite Acid^0^41
+4579^Ukun Chains^0^160
+4585^Resistant Discipline^1^78
+4586^Puretone Discipline^1^116
+4587^Fearless Discipline^1^154
+4588^Infuriate^1^91
+4589^Barrier^1^56
+4590^Cover^0^91
+4591^Guard^1^91
+4593^Crippling Strike^0^161
+4594^Test^0^161
+4595^Muscle Shock^0^161
+4596^Armor Slice^0^161
+4597^Gauntlet Strike^0^161
+4599^Rally Cry^1^161
+4601^Rage^0^161
+4606^Hamstring^0^161
+4608^Provoke^0^47
+4612^Enrage^0^161
+4615^Fortitude^1^91
+4616^Pain Tolerance^1^91
+4617^Test^1^161
+4618^Fortune^1^161
+4619^Quick Feet^1^161
+4620^Ton Po's Defense^1^161
+4621^Focused Aura^1^161
+4622^Overwhelm^1^161
+4624^Grapple^0^161
+4625^Armor Crush^0^161
+4626^Leg Sweep^0^161
+4627^Nerve Strike^0^161
+4628^Nerve Spasm^0^161
+4630^Master's Fury^1^161
+4632^Aura of Speed^1^161
+4634^Dragon Strike^0^161
+4635^Tranquil Focus^0^161
+4639^Indirection^0^91
+4640^Focus^1^161
+4641^Reflexes^1^161
+4642^Mental Block^1^161
+4644^Bind^0^161
+4645^Armor Pierce^0^161
+4646^Eye Gouge^0^161
+4647^Tendon Slice^0^161
+4648^Wrist Slice^0^161
+4649^Assassin's Focus^1^161
+4651^Direct Assault^1^161
+4652^Vital Cut^0^161
+4653^Blood Feast^1^161
+4654^Blood Slice^1^161
+4655^Energy Sap^1^161
+4656^Mind Snap^1^161
+4657^Burning Spasm^0^161
+4659^Sneak Attack^1^208
+4662^Crumbling Stone^0^85
+4664^Bolt of Eternal Slumber^0^127
+4665^Wrath of the Slavemaster^0^91
+4666^Call of the Ikaav^0^154
+4667^Rebuke of the Ikaav^0^85
+4670^Fortitude Discipline^1^1
+4671^Protective Spirit Discipline^1^1
+4672^Charge Discipline^1^8
+4673^Counterattack Discipline^1^50
+4674^Furious Discipline^1^49
+4675^Fellstrike Discipline^1^6
+4676^Duelist Discipline^1^6
+4677^Blinding Speed Discipline^1^6
+4678^Bestial Fury Discipline^1^6
+4679^Energy Sap Recourse^1^161
+4680^Cover Recourse^1^91
+4681^Bellow^0^47
+4682^Berate^0^47
+4685^Thief's Vengeance^1^208
+4686^Assassin's Strike^1^208
+4687^Healing Will Discipline^1^0
+4688^Stonewall Discipline^1^1
+4689^Spirit of Rage Discipline^1^91
+4690^Earthwalk Discipline^1^1
+4691^Speed Focus Discipline^1^6
+4692^Planeswalk Discipline^1^4
+4693^Concentration Discipline^1^46
+4694^Deadly Precision Discipline^1^8
+4695^Twisted Chance Discipline^1^8
+4696^Weapon Affinity Discipline^1^16
+4697^Incite^0^47
+4700^Claw of the Beast^0^42
+4701^Warhound's Affliction^0^42
+4703^Blood Shield^1^56
+4705^Blood Cloud^0^42
+4706^Mindless Rage^1^161
+4708^Tempest^0^85
+4709^Slumber^0^42
+4710^Shocking Aura^0^42
+4711^Blade of the Muramite^0^3
+4712^Flail of the Muramite^0^3
+4713^Axe of the Muramite^0^3
+4714^Iron Gauntlet of the Muramite^0^3
+4715^Gleaming Armor^1^1
+4716^Call of Rav^0^27
+4717^Diseased Maw^0^41
+4718^Infected Claw^0^41
+4719^Rav's Claw^0^42
+4720^Packmaster's Curse^0^139
+4721^Focused Will Discipline^1^0
+4723^Chaos Affliction^0^153
+4724^Abysmal Replenishment^1^1
+4725^Rage of Keras^1^6
+4728^Wave of Rage^0^8
+4729^Spirit Cleaver^0^173
+4732^Lull of the Aneuk I^0^36
+4733^Lull of the Aneuk II^0^36
+4734^Lull of the Aneuk III^0^36
+4735^Commander's Call^0^27
+4736^Force of the Commander^0^47
+4737^Commander's Weakening Touch^0^7
+4738^Commander's Nefarious Touch^0^7
+4740^Haste of the Tunat'Muram^0^141
+4741^Reflection of Discord I^1^82
+4742^Reflection of Discord II^1^82
+4743^Reflection of Discord III^1^82
+4744^Protection of Discord I^1^77
+4745^Protection of Discord II^1^77
+4746^Protection of Discord III^1^77
+4748^Discordant Feedback^0^162
+4749^Cloud of Attrition^0^41
+4786^Icy Grasp^1^60
+4787^Icy Grasp Effect^0^56
+4789^Touch of the Divine^1^46
+4795^Aura of Restoration^1^99
+4802^Flames of Kesh`yk I^1^182
+4803^Flames of Kesh`yk II^1^182
+4804^Flames of Kesh`yk III^1^182
+4805^Frost of Kesh`yk I^1^184
+4806^Frost of Kesh`yk II^1^184
+4807^Frost of Kesh`yk III^1^184
+4808^Lightning of Kesh`yk I^1^185
+4809^Lightning of Kesh`yk II^1^185
+4810^Lightning of Kesh`yk III^1^185
+4811^Flames of Kesh`yk Effect I^0^182
+4812^Flames of Kesh`yk Effect II^0^182
+4813^Flames of Kesh`yk Effect III^0^182
+4820^Rabid Companion I^1^60
+4821^Rabid Companion II^1^60
+4822^Rabid Companion III^1^60
+4841^Aura of Fire^0^167
+4849^Heartstopper^0^183
+4850^Skullpierce^0^183
+4851^Kneeshatter^0^183
+4852^Whirl of Claws^0^180
+4853^Listless Strength^0^50
+4854^Discordant Clarity^1^191
+4855^Discordant Speed^1^191
+4856^Discordant Guard^1^191
+4857^Discordant Thoughts^1^193
+4858^Discordant Time^1^193
+4859^Discordant Malaise^1^193
+4860^Discordant Range^1^189
+4861^Discordant Distance^1^189
+4862^Discordant Ice^1^191
+4863^Discordant Flame^1^193
+4864^Discordant Plague^1^190
+4865^Discordant Magic^1^189
+4866^Discordant Venom^1^194
+4867^Discordant Fire^1^193
+4868^Discordant Disease^1^190
+4869^Discordant Energy^1^189
+4870^Aura of Rage^1^3
+4871^War March of the Mastruq^1^49
+4872^Echo of the Trusik^1^143
+4873^Dark Echo^1^82
+4874^Turepta Blood^0^42
+4877^Apathy of the Nihil^0^35
+4878^Bliss of the Nihil^0^35
+4882^Holy Elixir^1^118
+4885^Sylvan Embers^0^51
+4889^Night Stalker^0^140
+4890^Night Fire^0^51
+4891^Night's Beckon^0^154
+4892^Night's Beckon Recourse^1^154
+4895^Holy Order^1^104
+4898^Sylvan Call^1^104
+4899^Breath of Trushar^1^118
+4900^Balance of the Nihil^0^17
+4902^Mental Horror^1^27
+4903^Black Shroud^1^140
+4914^Trushar's Anger^1^161
+4915^Force of Ikkibi^1^161
+4916^Order of Trushar^1^161
+4917^Sylvan Anger^1^161
+4918^Taelosian Geomancy^1^161
+4919^Burning Night^1^161
+4920^Anger of Taelosia^1^161
+4921^Sylvan Kindle^1^161
+4922^Daluda's Health^1^161
+4923^Plagued Darkness^1^161
+4924^Clear Fire^1^161
+4925^Warlord's Tenacity I^0^140
+4926^Warlord's Tenacity II^0^140
+4927^Warlord's Tenacity III^0^140
+4928^Leg Strike^0^202
+4929^Leg Cut^0^202
+4930^Leg Slice^0^202
+4951^Balance I^1^161
+4952^Balance II^1^161
+4953^Balance III^1^161
+4954^Soul Fury I^1^2
+4955^Soul Fury II^1^2
+4956^Soul Fury IV^1^2
+4957^Shock of Discord^1^104
+4971^Ancient: Chaos Chant^0^139
+4978^Ancient: Seduction of Chaos^1^164
+4984^Night Stalker Recourse^1^140
+4985^Vengeance of Venom^1^194
+4986^Discordant Poison^1^194
+4987^Elemental Siphon Recourse^1^21
+4992^Malevolent Assault^0^164
+4993^Malevolent Vex^0^161
+4994^Searing Blood Arrow I^0^183
+4995^Searing Blood Arrow II^0^183
+4996^Searing Blood Arrow III^0^183
+4999^Arrow of Intensity^1^185
+5004^Tamuik's Suggestion^0^27
+5006^Tamuik's Spectral Step^0^154
+5007^Curse of Tunik Tamuik^0^161
+5010^Strike of Glory^0^161
+5015^Bellow of the Mastruq^0^211
+5016^Ancient: Chaos Cry^0^211
+5017^Kyv Strike^1^208
+5018^Ancient: Chaos Strike^1^208
+5021^Dark Vengeance^0^139
+5023^Chaos Epidemic^0^27
+5027^Battle Cry^1^211
+5028^War Cry^1^211
+5029^Battle Cry of Dravel^1^211
+5030^War Cry of Dravel^1^211
+5031^Battle Cry of the Mastruq^1^211
+5032^Ancient: Cry of Chaos^1^211
+5033^Berserker Rage^1^211
+5034^Burning Rage Discipline^1^6
+5035^Focused Fury Discipline^1^8
+5036^Battle Sense Discipline^1^1
+5037^Cleaving Rage Discipline^1^6
+5038^Battle Focus Discipline^1^1
+5039^Inspired Anger Discipline^1^8
+5040^Reckless Discipline^1^49
+5041^Blind Rage Discipline^1^6
+5042^Indomitable Discipline^1^6
+5043^Cleaving Anger Discipline^1^6
+5044^Sprint Discipline^1^4
+5046^Test2^0^161
+5047^Test3^0^161
+5048^Test4^0^161
+5050^Test6^1^1
+5052^Spirit's Touch^0^161
+5055^Creeping Fury^0^153
+5058^Barxt's Mental Corruption^0^40
+5059^Wave of Absolute Power^0^89
+5061^Minion of Discord^1^190
+5062^Summoner's Blessing^1^190
+5064^Hastened Thoughts^1^138
+5065^Reyfin's Racing Thoughts^1^11
+5066^Reyfin's Random Musings^1^21
+5067^Twitching Speed^1^161
+5068^Crippling Bite^0^5
+5069^Reflective Scales^1^82
+5070^Armor Shatter^0^161
+5071^Energy Siphon^0^161
+5072^Shocking Feedback^1^82
+5074^Black Pox^0^161
+5075^test attack^1^2
+5076^test haste^1^2
+5077^test ft^1^2
+5078^test regen^1^2
+5079^test critical melee^1^2
+5080^test skill damage^1^2
+5081^test skill to hit^1^2
+5082^test hundred hands^1^2
+5083^test dual wield^1^2
+5084^test double attack^1^2
+5085^test riposte^1^2
+5086^test dodge^1^2
+5087^test parry^1^2
+5088^test block^1^2
+5089^test defensive^1^2
+5090^test evasion^1^2
+5091^test life leech^1^2
+5092^test critical spell^1^2
+5093^test immunity^1^2
+5094^test ac^1^1
+5097^Trushar's Recovery^1^0
+5098^Frost Shield^1^161
+5099^Frost Guard^1^161
+5100^Aura of Taelosia^1^21
+5105^Geomantra^1^169
+5106^Adventurer's Aura^1^138
+5108^Discordant Healing^1^191
+5109^Discordant Health^1^191
+5115^Destructive Will^0^154
+5116^Afterthoughts of Anger^0^154
+5117^Wave of Fury^0^154
+5120^Withering Destruction^0^153
+5121^Pyromancy^1^161
+5122^Aquamancy^1^161
+5123^Aeromancy^1^161
+5124^Geomancy^1^161
+5126^Cragbeast Roar^0^153
+5128^Brainburn^0^42
+5129^Bloodedge^0^42
+5134^Elemental Draw Recourse^1^21
+5135^SpellTheft4^1^46
+5146^Bootstrutter's Blessing^1^4
+5149^INH-Cloak^1^19
+5150^Gloomingdeep Guard^1^132
+5151^Cloud of Infirmity^0^41
+5153^Dragon Dictate^0^28
+5157^Siphon Breath^0^153
+5160^Gelid Breath^0^56
+5162^Dragon Bellow^0^154
+5165^Bulwark of Veeshan^1^133
+5166^Drake Cripple^0^50
+5167^Drake Torrent^0^56
+5168^Drake Scourge^0^42
+5169^Drake Decay^0^41
+5171^Basilisk Aura^1^157
+5172^Cinder Toxin^0^51
+5174^Emerald Sap^0^42
+5175^Onyx Darkness^0^160
+5176^Chromatic Subversion^0^7
+5177^Skywing's Blessing^1^138
+5179^Slime Shield^1^41
+5181^Wyvern Flash^0^23
+5185^Flame Wurm Blessing^1^138
+5186^Torrent of Veeshan^0^7
+5190^PvPSilTest1^0^25
+5191^PvPSilTest2^0^25
+5192^PvPSilTest3^0^25
+5193^PvPSilTest4^0^25
+5194^PvPSilTest5^0^25
+5195^PvPSil2Test1^0^25
+5196^PvPSil2Test2^0^25
+5197^PvPSil2Test3^0^25
+5198^PvPSil2Test4^0^25
+5199^PvPSil2Test5^0^25
+5200^PvPStunTest1^1^182
+5201^PvPStunTest2^1^182
+5202^PvPStunTest3^1^182
+5203^PvPStunTest4^1^182
+5204^PvPStunTest5^1^182
+5210^PvPSnareTest1^1^182
+5211^PvPSnareTest2^1^182
+5212^PvPSnareTest3^1^182
+5213^PvPSnareTest4^1^182
+5214^PvPSnareTest5^1^182
+5215^5210 Strike^0^184
+5220^Jarsath Frenzy^1^49
+5222^Morternum^0^154
+5223^Morternum Recourse^1^154
+5226^Arias' Guard^1^118
+5249^Resurrection Effects^0^154
+5250^Confidence^1^132
+5252^Symbol of Balikor^1^150
+5253^Ward of Valiance^1^151
+5255^Sermon of Reproach^0^153
+5257^Conviction^1^132
+5258^Blessing of Devotion^1^138
+5259^Pious Elixir^1^118
+5261^Panoply of Vie^1^128
+5262^Omen-Cleric-PH^1^138
+5263^Omen-Cleric-PH^0^156
+5267^Omen-Cleric-PH^0^117
+5269^Mark of the Blameless^0^156
+5272^Aura of Devotion^1^138
+5273^Yaulp VII^1^6
+5274^Placate^1^39
+5276^Armor of the Pious^1^133
+5277^Balikor's Mark^1^150
+5278^Hand of Conviction^1^132
+5280^Direction^1^132
+5281^Omen-Paladin-PH^0^117
+5285^Silvered Fury^1^104
+5287^Symbol of Jeron^1^150
+5288^Pious Fury^1^104
+5290^Hand of Direction^1^132
+5291^Armor of the Champion^1^133
+5293^Pious Cleansing^1^118
+5294^Bulwark of Piety^1^151
+5295^Jeron's Mark^1^150
+5297^Brell's Brawny Bulwark^1^90
+5298^Affirmation^1^132
+5300^Nature Veil^1^128
+5302^Shield of Briar^1^155
+5303^Locust Swarm^0^159
+5305^Guard of the Earth^1^158
+5306^Strength of the Hunter^1^123
+5307^Briarcoat^1^155
+5310^Hunter's Vigor^1^118
+5311^Nature's Denial^1^104
+5312^Howl of the Predator^1^123
+5315^Onyx Skin^1^131
+5316^Tranquility of the Glade^1^39
+5317^Ward of the Hunter^1^158
+5318^Call of Lightning^1^104
+5320^Blood of Discord^0^51
+5321^Dark Tendrils^0^160
+5322^Dark Constriction^0^41
+5323^Bond of Inruku^0^140
+5327^Shroud of Discord^1^140
+5330^Blood of Inruku^0^51
+5332^Rune of Decay^1^74
+5333^Pact of Decay^1^164
+5339^Cloak of Discord^1^140
+5341^Omen-Druid-PH^0^117
+5342^Oaken Vigor^1^118
+5344^Hand of the Sun^0^53
+5347^Nature's Serenity^1^39
+5348^Immolation of the Sun^0^51
+5349^Hungry Vines^0^5
+5350^Lion's Strength^1^6
+5351^Sun's Corona^0^51
+5352^Steeloak Skin^1^131
+5353^Blessing of Oak^1^118
+5354^Glacier Breath^0^56
+5356^Oaken Guard^1^128
+5357^Wasp Swarm^0^159
+5358^Nettle Shield^1^155
+5359^Nature's Beckon^0^72
+5360^Omen-Druid-PH^0^117
+5362^Nettlecoat^1^155
+5363^Vengeance of the Sun^0^55
+5365^Circle of Nettles^1^155
+5366^Blessing of Steeloak^1^131
+5368^Mask of the Wild^1^21
+5370^Luvwen's Aria of Serenity^1^40
+5371^Vulka's Chant of Disease^0^41
+5373^Luvwen's Lullaby^0^35
+5374^Verse of Vesagran^1^98
+5375^Zuriki's Song of Shenanigans^0^143
+5376^War March of Muram^1^49
+5377^Cantata of Life^1^99
+5378^Vulka's Chant of Poison^0^42
+5379^Vulka's Chant of Frost^0^56
+5380^Yelhun's Mystic Call^1^143
+5381^Dirge of Metala^0^5
+5382^Eriki's Psalm of Power^1^143
+5383^Voice of the Vampire^0^27
+5384^Chorus of Life^1^99
+5385^Vulka's Chant of Flame^0^51
+5386^Omen-Bard-PH^0^148
+5387^Vulka's Lullaby^0^35
+5388^Ancient: Call of Power^1^143
+5390^Spirit of Sense^1^9
+5392^Putrid Decay^0^41
+5393^Spirit of Perseverance^1^118
+5394^Crippling Spasm^0^50
+5396^Wunshi's Focusing^1^130
+5397^Ancestral Bulwark^1^151
+5398^Spirit of Fortitude^1^10
+5399^Talisman of Sense^1^9
+5400^Vindictive Spirit^0^16
+5402^Spirit Veil^1^18
+5404^Spirit of Might^1^6
+5405^Talisman of Fortitude^1^10
+5406^Talisman of Perseverance^1^118
+5407^Shroud of Erana^1^156
+5409^Talisman of Might^1^16
+5411^Breath of Wunshi^0^41
+5412^Curse of Sisslak^0^165
+5413^Shroud of Erana Parry^0^55
+5414^Blood of Yoppa^0^42
+5415^Talisman of Wunshi^1^130
+5416^Spiritual Serenity^1^118
+5417^Champion^1^2
+5421^Shadow Guard^1^133
+5423^Chaos Plague^0^41
+5424^Grip of Mori^0^41
+5425^Glyph of Darkness^1^74
+5426^Fang of Death^0^154
+5427^Scent of Midnight^0^117
+5428^Dull Pain^1^78
+5429^Dark Hold^0^35
+5430^Desecrating Darkness^0^160
+5432^Dark Nightmare^0^164
+5433^Chaos Venom^0^42
+5434^Dark Possession^1^164
+5436^Bulwark of Calliav^1^46
+5437^Pyre of Mori^0^51
+5439^Word of Chaos^0^27
+5441^Ancient: Curse of Mori^0^164
+5443^Ether Shield^1^133
+5448^Ether Skin^1^78
+5453^Ether Ward^1^98
+5459^Bulwark of Calrena^1^98
+5466^Fireskin^1^157
+5472^Elemental Aura^1^133
+5476^Phantom Shield^1^152
+5478^Elemental Fury^1^53
+5487^Omen-Mage-PH^0^35
+5488^Circle of Fireskin^1^157
+5494^Bulwark of Calliav^1^46
+5499^Synapsis Spasm^0^50
+5500^Ethereal Rune^1^77
+5502^Mystic Shield^1^133
+5503^Felicity^0^35
+5504^Rune of Salik^1^77
+5506^Placate^1^39
+5507^Speed of Salik^1^134
+5508^Omen-Enc-PH^1^69
+5509^Arcane Noose^0^137
+5510^Compel^0^26
+5511^Wake of Felicity^0^25
+5512^Omen-Enc-PH^0^25
+5513^Clairvoyance^1^21
+5514^Mayhem^1^6
+5515^Wall of Alendar^1^98
+5517^Circle of Alendar^1^98
+5519^True Name^0^26
+5520^Euphoria^0^35
+5521^Hastening of Salik^1^134
+5522^Voice of Clairvoyance^1^21
+5525^Omen-Bst-PH^1^130
+5527^Chimera Blood^0^42
+5529^Focus of Alladnu^1^130
+5530^Spiritual Vitality^1^1
+5532^Omen-Bst-PH^1^16
+5533^Growl of the Beast^1^134
+5534^Spirit of Irionu^1^72
+5536^Feral Vigor^1^118
+5537^Spiritual Ascendance^1^72
+5539^Feral Guard^1^46
+5540^Festering Malady^0^41
+5541^Omen-Bst-PH^0^17
+5542^Ferocity of Irionu^1^81
+5545^Touch of the Tunat'Muram^0^141
+5546^Gaze of the Tunat'Muram^0^141
+5547^5322 Recourse - Res^1^139
+5548^Bond of Inruku Recourse^1^140
+5550^Theft of Pain Recourse^1^1
+5551^Theft of Hate Recourse^1^2
+5553^Fang of Death Recourse^1^154
+5557^Elder Razul Bite^0^42
+5559^Bazu Breath^0^42
+5561^Bitter Feedback^1^41
+5563^Freezing Feedback^1^41
+5565^Seeping Haze^1^41
+5567^Mind Shock^1^41
+5571^Tangle^0^5
+5572^Entangle^0^5
+5574^Goblin Disguise^1^163
+5575^Bloodpyre^1^41
+5577^Heart Blaze^1^41
+5579^Spinning Confusion^1^41
+5581^Spinal Disorientation^1^41
+5583^Mind Stir^1^41
+5585^Mental Discord^1^41
+5587^Vascular Inferno^1^41
+5588^Vascular Inferno^0^42
+5589^Systemic Destruction^1^41
+5590^Systemic Destruction^0^42
+5591^Heart Rot^1^41
+5592^Heart Rot^0^42
+5593^Flesh Rot^1^41
+5594^Flesh Rot^0^42
+5596^Electrical Charge^0^162
+5597^Squid's Ink^0^160
+5599^Binding Tentacle^0^5
+5600^Galdorin's Alluring Lullaby^0^35
+5601^Canticle of Captivation^0^26
+5602^Deafening Tritone^0^114
+5603^Dissonant Screech^0^95
+5606^Flurry I^1^161
+5607^Flurry II^1^161
+5608^Flurry III^1^161
+5609^Accuracy I^1^161
+5610^Accuracy II^1^161
+5611^Accuracy III^1^161
+5612^Divine Res I^1^161
+5613^Divine Res II^1^161
+5614^Divine Res III^1^161
+5615^DD Critical I^1^161
+5616^DD Critical II^1^161
+5617^DD Critical III^1^161
+5618^Heal Critical I^1^161
+5619^Heal Critical II^1^161
+5620^Heal Critical III^1^161
+5621^DoT Critical I^1^161
+5622^DoT Critical II^1^161
+5623^DoT Critical III^1^161
+5624^Slashing Crit I^1^2
+5625^Slashing Crit II^1^2
+5626^Slashing Crit III^1^2
+5627^Blunt Crit I^1^2
+5628^Blunt Crit II^1^2
+5629^Blunt Crit III^1^2
+5630^Piercing Crit I^1^2
+5631^Piercing Crit II^1^2
+5632^Piercing Crit III^1^2
+5633^Hand To Hand Crit I^1^2
+5634^Hand To Hand Crit II^1^2
+5635^Hand To Hand Crit III^1^2
+5636^Melee Crit I^1^2
+5637^Melee Crit II^1^2
+5638^Melee Crit III^1^2
+5639^Strength Increase I^1^161
+5640^Strength Increase II^1^161
+5641^Strength Increase III^1^161
+5642^Strength Increase IV^1^161
+5643^Strength Increase V^1^161
+5644^Stamina Increase I^1^161
+5645^Stamina Increase II^1^161
+5646^Stamina Increase III^1^161
+5647^Stamina Increase IV^1^161
+5648^Stamina Increase V^1^161
+5649^Agility Increase I^1^161
+5650^Agility Increase II^1^161
+5651^Agility Increase III^1^161
+5652^Agility Increase IV^1^161
+5653^Agility Increase V^1^161
+5654^Dexterity Increase I^1^161
+5655^Dexterity Increase II^1^161
+5656^Dexterity Increase III^1^161
+5657^Dexterity Increase IV^1^161
+5658^Dexterity Increase V^1^161
+5659^Wisdom Increase I^1^161
+5660^Wisdom Increase II^1^161
+5661^Wisdom Increase III^1^161
+5662^Wisdom Increase IV^1^161
+5663^Wisdom Increase V^1^161
+5664^Intelligence Increase I^1^161
+5665^Intelligence Increase II^1^161
+5666^Intelligence Increase III^1^161
+5667^Intelligence Increase IV^1^161
+5668^Intelligence Increase V^1^161
+5669^Charisma Increase I^1^161
+5670^Charisma Increase II^1^161
+5671^Charisma Increase III^1^161
+5672^Charisma Increase IV^1^161
+5673^Charisma Increase IV^1^161
+5674^Blessing of Jelvan^1^131
+5675^Relinquish Spirit^0^139
+5676^Torment of Body^0^136
+5677^Void of Suppression^0^108
+5679^Touch of Anguish^0^41
+5680^Gaze of Anguish^0^93
+5681^Feedback Dispersion^0^161
+5682^Chains of Anguish^0^17
+5683^Crushing Presence^0^161
+5684^Mark of Death^0^154
+5685^Mata Muram's Gaze^0^26
+5686^Eight-Loop Lasso^1^5
+5687^Bolt of Faith^0^162
+5688^Epidermal Rot^0^41
+5689^Song of Sorrow^0^143
+5691^Curse of the Cloud^0^41
+5695^Crippling Clamp^0^50
+5697^Scalding Steam^0^51
+5699^Lacerating Aura^1^105
+5700^Imprecision^0^135
+5701^Rigidity^0^135
+5702^Curse of Misfortune^0^135
+5703^Impurity^0^135
+5704^Glint of Ice^1^82
+5705^Flickering Fire^1^51
+5706^Gaze of the Pyrilen^0^26
+5707^Breath of the Gelidran^0^91
+5708^Test of Efficiency^0^50
+5709^Gleaming Skin^1^82
+5710^Melee and Spell Crit I^1^2
+5711^Melee and Spell Crit II^1^2
+5712^Melee and Spell Crit III^1^2
+5713^Plague of Hulcror^0^139
+5716^Weak Murkglider Venom^0^42
+5717^Murkglider Venom^0^42
+5718^Strong Murkglider Venom^0^42
+5719^Murky Cloud^0^42
+5720^Piercing Shot^0^139
+5721^Entangling Shot^0^139
+5722^Shackleroot^0^139
+5727^Clockwork Doom^0^154
+5728^Crackling Static^0^-1
+5729^Deathly Ward^0^41
+5736^Beacon's Glare^0^160
+5738^Chailak Venom^0^42
+5739^Chailak Breath^0^51
+5743^Feratha Aura^0^56
+5744^Kiss of the Pyrilen^0^51
+5750^Precision Arrow^0^139
+5758^Tentacle Snap^0^139
+5761^Heart of Frost^0^56
+5770^Beta Extended 15^1^161
+5771^Beta Extended 20^1^161
+5772^Beta Extended 25^1^161
+5773^Beta Extended 30^1^161
+5774^Beta Improved Damage 25^1^161
+5775^Beta Improved Damage 30^1^161
+5776^Beta Improved Damage 35^1^161
+5777^Beta Improved Damage 40^1^161
+5778^Beta Improved Damage 45^1^161
+5779^Beta Haste Beneficial 20^1^161
+5780^Beta Haste Beneficial 25^1^161
+5781^Beta Haste Beneficial 30^1^161
+5782^Beta Haste Detrimental 15^1^161
+5783^Beta Haste Detrimental 18^1^161
+5784^Beta Haste Detrimental 23^1^161
+5785^Beta Mana Preservation 10^1^161
+5786^Beta Mana Preservation 15^1^161
+5787^Beta Mana Preservation 20^1^161
+5788^Beta Healing 20^1^161
+5789^Beta Healing 25^1^161
+5790^Beta Healing 30^1^161
+5791^Beta Healing 40^1^161
+5792^Beta Healing 45^1^161
+5793^Beta Range 15^1^161
+5794^Beta Range 20^1^161
+5795^Beta Range 25^1^161
+5796^Beta Range 30^1^161
+5797^test puretone^1^2
+5801^Withering Glare^0^7
+5802^Splinters^1^155
+5806^Swamp Breath^0^42
+5808^Mind Warp^0^135
+5810^Electric Shock^1^155
+5811^Static Shield^1^155
+5815^Matter Dispersal^0^161
+5817^Flamegore's Fire^1^155
+5821^Zun`Muram's Terror^0^114
+5822^Reflective Sheen^1^82
+5823^Whipping Dust^0^85
+5830^Dance of Blades^1^16
+5831^Dance of Blades^1^16
+5832^Dance of Blades^1^16
+5837^Shield of Notes^1^128
+5838^Shield of Notes^1^128
+5839^Shield of Notes^1^128
+5841^Roar of Thunder^0^161
+5842^Roar of Thunder^0^161
+5843^Roar of Thunder^0^161
+5848^Untamed Rage^1^161
+5849^Untamed Rage^1^161
+5850^Untamed Rage^1^161
+5853^Desperation^1^6
+5854^Perfection of Spirit^1^72
+5855^Perfection of Spirit^1^72
+5856^Perfection of Spirit^1^72
+5857^Blood Pact^1^47
+5858^Blood Pact^1^47
+5859^Blood Pact^1^47
+5866^Divine Retribution^1^151
+5869^Celestial Rejuvenation^1^118
+5870^Celestial Rejuvenation^1^118
+5881^Spirit of the Grove^1^49
+5882^Spirit of the Grove^1^49
+5883^Spirit of the Grove^1^49
+5887^Stasis^0^161
+5888^Stasis^0^161
+5889^Stasis^0^161
+5900^Rune of Discord^1^77
+5901^Rune of Discord^1^77
+5902^Rune of Discord^1^77
+5903^Color Shock^1^151
+5906^Mind Over Matter^1^39
+5907^Mind Over Matter^1^39
+5908^Mind Over Matter^1^39
+5912^Sanctuary^1^46
+5913^Heart of Vapor^1^163
+5914^Heart of Stone^1^163
+5915^Heart of Flame^1^163
+5916^Heart of Ice^1^163
+5930^Shadow Meld^1^48
+5931^Embrace of Shadows^1^18
+5932^Spiritual Channeling^1^115
+5933^Ancestral Aid^1^49
+5934^Ancestral Aid^1^49
+5935^Ancestral Aid^1^49
+5936^Resolute Defiance^0^140
+5937^Resolute Defiance^0^140
+5938^Resolute Defiance^0^140
+5977^Venom of Vesthon^0^42
+5978^Howl of Korach^0^170
+5988^Celestial Rejuvenation^1^118
+5990^Shade Mantle^0^160
+5991^Binding Cloud^0^160
+5998^Pyrilen Charm^0^27
+6000^Pyrilen Fury^0^51
+6010^Freezing Touch^0^56
+6011^Frost Field^0^56
+6015^Feran Breath^0^160
+6017^Darkbreath^0^160
+6018^Shadow Breath^0^160
+6019^Clinging Apathy^0^160
+6022^Corrosive Breath^0^41
+6027^Chaotica^0^89
+6028^Seething Bite^0^41
+6029^Sinking Fangs^0^140
+6040^Tireless Sprint^1^4
+6041^Tireless Sprint^1^4
+6042^Tireless Sprint^1^4
+6047^Breath of Muram^0^139
+6048^Breath of Muram^0^139
+6052^Ice Strike^0^56
+6053^Bane of Dranik^0^154
+6054^Bane of Dranik^0^154
+6055^Bane of Dranik^0^154
+6056^Gas Cloud^0^41
+6057^Gas Cloud^0^41
+6058^Gas Cloud^0^41
+6061^Murk Mites^0^41
+6062^Murk Mites^0^41
+6063^Murk Mites^0^41
+6064^Murk Mites^0^41
+6065^Murk Acid^0^42
+6066^Murk Acid^0^42
+6067^Crippling Strike^0^50
+6068^Crippling Strike^0^50
+6069^Crippling Strike^0^50
+6073^Eye Gouge^0^161
+6074^Eye Gouge^0^161
+6075^Eye Gouge^0^161
+6079^Guardian of the Glade^1^49
+6080^Guardian of the Glade^1^49
+6081^Guardian of the Glade^1^49
+6089^Servant of Chaos^1^190
+6090^Savage Spirit^1^6
+6091^Savage Spirit^1^6
+6092^Savage Spirit^1^6
+6095^Incapacitating Darkness^0^160
+6096^Rage of the Zun'Muram^0^8
+6100^Curse of the Protector^0^85
+6107^Illusion: Scarecrow^1^163
+6109^Gaze of the All-Seeing Eye^0^26
+6111^Swarmfiend's Scream^0^85
+6113^Disconcerting Presence^0^154
+6115^Decaying Foliage^0^41
+6116^Freezing Winds^0^56
+6120^Phase Walk^1^18
+6121^Shroud of Air^1^18
+6122^Cloud of Indifference^1^18
+6123^Cloak of Nature^1^18
+6124^Shadow of Death^1^33
+6125^Sun Cloak^1^33
+6127^Pyrilen Aura^1^51
+6128^Gelidran Aura^1^56
+6129^Hazy Cloudcurse^0^14
+6130^Jagged Rust^0^1
+6131^Disorienting Vortex^0^85
+6132^Auspice of the Hunter^1^123
+6133^Auspice of the Hunter^1^123
+6134^Auspice of the Hunter^1^123
+6144^Ancient: Voice of Muram^0^26
+6145^Ancient: Veil of Pyrilonus^1^157
+6147^Elemental Spike Recourse^1^21
+6152^Vindictive Spirit Recourse^1^128
+6153^Elemental Simulcram Recourse^1^21
+6154^Hungry Vines Recourse^1^128
+6157^Dragorn Screech^0^154
+6159^Ukun Breath^0^41
+6160^Discordant Spikes^1^155
+6161^Murk Ink^0^160
+6162^Chaotic Spray^0^41
+6164^Feran Swipe^0^85
+6166^Damage Test %^0^161
+6167^Damage Test Amt^0^161
+6168^test resist caps^1^2
+6169^Crippling Strike^0^202
+6173^Bazu Bellow^0^211
+6174^Daggerfall^1^208
+6186^Limit Test Focus^1^161
+6187^Limit Test Hit^1^47
+6188^Defiance of the Lightningcaller^0^51
+6189^Cursed Touch of the Lightningcaller^0^139
+6190^Shocking Defense Discipline^1^6
+6191^Aura of Runes Discipline^1^6
+6192^Savage Onslaught Discipline^1^6
+6193^Dreamwalk Discipline^1^6
+6194^Rapid Kick Discipline^1^6
+6195^Counterforce Discipline^1^6
+6196^Deadly Aim Discipline^1^6
+6197^Frenzied Stabbing Discipline^1^6
+6198^Imperceptible Discipline^1^6
+6199^Vengeful Flurry Discipline^1^6
+6200^Unpredictable Rage Discipline^1^6
+6201^Unflinching Will Discipline^1^6
+6203^Rune Effect^1^6
+6204^Slow Effect^0^6
+6207^Increase Damage Effect^1^6
+6208^Test Heal Focus^1^161
+6209^Test Doom Rune^1^77
+6229^Double Attack Tribute I^1^2
+6230^Double Attack Tribute II^1^2
+6231^Double Attack Tribute III^1^2
+6232^Krekk's Presence^1^96
+6234^Flames of Redemption^1^138
+6235^Hawk Strike^1^136
+6236^Reaper Strike^1^153
+6237^Nature's Blight^0^89
+6238^Grace of the Order^1^134
+6239^Kinsong^1^179
+6240^Assassin's Taint^1^42
+6241^Fateseer's Boon^1^134
+6243^Sorcerer's Spell Guard^1^148
+6244^Elemental Conjunction^1^152
+6245^Protection of the Eye^1^88
+6246^Savage Wildcaller's Blessing^1^123
+6250^Crusader's Health^1^190
+6251^Grinbik's Blessing^1^190
+6253^Silence of the Snake^1^190
+6257^Spirit Shroud^1^190
+6258^Shadow Whisper^1^190
+6259^Sorcerer's Distortion^1^190
+6260^Whisper of Tvish^1^190
+6261^Persuasive Gaze^1^190
+6262^Eternal Animist's Icestorm^1^190
+6264^Kreljnok's Fury^1^96
+6266^Flames of the Valiant^1^138
+6267^Falcon Strike^1^136
+6268^Lich Sting^1^153
+6269^Season's Fury^0^89
+6270^Peace of the Disciple^1^134
+6271^Spirit of Vesagran^1^179
+6272^Deceiver's Blight^1^42
+6273^Prophet's Gift of the Ruchu^1^76
+6275^Sorcerer's Guard of Perception^1^148
+6276^Primal Fusion^1^152
+6277^Aegis of Abstraction^1^88
+6278^Might of the Wild Spirits^1^123
+6282^Touch of Ablution^1^190
+6283^Oshimai's Blessing^1^190
+6285^Serpent's Silence^1^190
+6289^Reverence of the Heyokah^1^190
+6290^Dark Whisper^1^190
+6291^Sorcerer's Veil of Defiance^1^190
+6292^Silence of Tvish^1^190
+6293^Eternal Eloquence^1^190
+6294^Eternal Animist's Fury^1^190
+6296^Mata Muram's Gaze Recourse^1^6
+6297^Krekk's Presence Recourse^1^96
+6299^Reaper Strike Recourse^1^153
+6309^Kreljnok's Fury Recourse^1^96
+6311^Lich Sting Recourse^1^153
+6313^Peace of the Disciple Parry^1^4
+6321^Cleave IV^1^2
+6322^Cleave V^1^2
+6323^Ferocity IV^1^2
+6324^Ferocity V^1^2
+6325^Sharpshooting IV^1^2
+6326^Sharpshooting V^1^2
+6327^Improved Block I^1^2
+6328^Improved Block II^1^2
+6329^Improved Block III^1^2
+6359^Form of Defense I^1^81
+6360^Form of Defense III^1^81
+6361^Form of Protection I^1^81
+6362^Form of Protection III^1^81
+6363^Form of Endurance I^1^81
+6364^Form of Endurance III^1^81
+6365^Form of Rejuvenation I^1^81
+6366^Form of Rejuvenation III^1^81
+6367^Chaotic Enlightenment^1^21
+6368^Shield of Dreams^1^77
+6369^Salik's Expansive Mind^1^11
+6370^Furious Might^1^56
+6371^Minor Ward^1^89
+6372^Chaotic Ward^1^89
+6373^Hateful Guard^1^56
+6374^Hidden Power^1^49
+6375^Ancient Power^1^49
+6376^Guardian's Boon^1^128
+6377^Pious Shield^1^156
+6378^Leeching Touch^1^154
+6380^Weakening^0^7
+6381^Blood Fury^1^140
+6382^Wild Spirit Infusion^1^134
+6383^Rhythmic Reflexes^1^8
+6384^Lightning Channeling^1^162
+6385^Blessed Healing Touch^1^90
+6386^Nature's Proving^1^136
+6387^Prophet's Guide^1^148
+6388^Bedazzling Eyes^1^93
+6389^Academic's Foresight^1^88
+6390^Bane of Muram^1^74
+6391^Thaumaturgist's Focus^1^134
+6392^Guardian's Bravery^1^128
+6393^Blessed Shield^1^128
+6394^Leeching Embrace^1^154
+6396^Full Weakening^0^7
+6397^Raging Blood Fury^1^140
+6398^Savage Spirit Infusion^1^134
+6399^Superior Rhythmic Reflexes^1^8
+6400^Storm Channeling^1^162
+6401^Blessed Healing Aura^1^90
+6402^Nature's Presence^1^136
+6403^Prophet's Channeling^1^148
+6404^Bedazzling Aura^1^93
+6405^Academic's Intellect^1^88
+6406^Curse of Muram^1^74
+6407^Thaumaturgist's Infusion^1^89
+6410^Improved Healing V^1^161
+6411^Extended Enhancement V^1^161
+6412^Burning Affliction V^1^161
+6413^Extended Range V^1^161
+6414^Improved Damage V^1^161
+6415^Spell Haste V^1^161
+6416^Affliction Haste V^1^161
+6417^Enhancement Haste V^1^161
+6418^Summoning Haste V^1^161
+6419^Mana Preservation V^1^161
+6420^Affliction Efficiency V^1^161
+6421^Summoning Efficiency V^1^161
+6424^Complex Gravity^0^161
+6425^Boon of the Pious^1^161
+6426^Muram's Anger^1^161
+6427^Pyrilen Anger^1^161
+6428^Gelidran Anger^1^161
+6429^Murk Bile^1^161
+6430^Bazu Bile^1^161
+6431^Ward of the Dragorn^1^161
+6432^Affliction of the Dragorn^1^161
+6433^Aneuk Sight^1^161
+6434^Ikaav Sight^1^161
+6435^Speed of the Aneuk^1^161
+6436^Speed of the Ikaav^1^161
+6437^Conservation of the Aneuk^1^161
+6438^Conservation of the Ikaav^1^161
+6439^Blessing of the Holy^1^161
+6440^Muram's Fury^1^161
+6441^Pyrilen Fury^1^161
+6442^Gelidran Fury^1^161
+6443^Murk Blood^1^161
+6444^Bazu Blood^1^161
+6445^Guard of the Dragorn^1^161
+6446^Curse of the Dragorn^1^161
+6447^Aneuk Vision^1^161
+6448^Ikaav Vision^1^161
+6449^Hastening of the Aneuk^1^161
+6450^Hastening of the Ikaav^1^161
+6451^Preservation of the Aneuk^1^161
+6452^Preservation of the Ikaav^1^161
+6453^Favor of the Pious^1^161
+6454^Muram's Rage^1^161
+6455^Pyrilen Rage^1^161
+6456^Gelidran Rage^1^161
+6457^Murk Poison^1^161
+6458^Bazu Infection^1^161
+6459^Protection of the Dragorn^1^161
+6460^Bane of the Dragorn^1^161
+6461^Aneuk Gaze^1^161
+6462^Ikaav Gaze^1^161
+6463^Quickening of the Aneuk^1^161
+6464^Quickening of the Ikaav^1^161
+6465^Penuriousness of the Aneuk^1^161
+6466^Penuriousness of the Ikaav^1^161
+6467^Blessing of the Pious^1^161
+6468^Muram's Vengeance^1^161
+6469^Pyrilen Vengeance^1^161
+6470^Gelidran Vengeance^1^161
+6471^Murk Venom^1^161
+6472^Bazu Plague^1^161
+6473^Bulwark of the Dragorn^1^161
+6474^Vindication of the Dragorn^1^161
+6475^Aneuk Glare^1^161
+6476^Ikaav Glare^1^161
+6477^Alacrity of the Aneuk^1^161
+6478^Alacrity of the Ikaav^1^161
+6479^Avariciousness of the Aneuk^1^161
+6480^Avariciousness of the Ikaav^1^161
+6481^Blessing of Anguish^1^161
+6482^Thunder of Anguish^1^161
+6483^Fire of Anguish^1^161
+6484^Frost of Anguish^1^161
+6485^Venom of Anguish^1^161
+6486^Plague of Anguish^1^161
+6487^Crystalline Madness^0^42
+6488^Bite of the Ikaav^0^42
+6490^Miser's Boon^1^161
+6491^Reagent Conservation V^1^161
+6492^Jolum's Continual Abatement^1^161
+6493^Flame of the Lightbringer^1^161
+6494^Reflective Skin^1^-1
+6496^Tugging Whirlpool^0^85
+6499^Gelid Claw^0^60
+6506^Improve All Damage I^1^161
+6507^Improve All Damage II^1^161
+6508^Improve All Damage III^1^161
+6509^Improve All Damage IV^1^161
+6510^Improve All Damage V^1^161
+6511^Wave of Hatred^0^161
+6531^Gaze of Tserrina^0^28
+6532^Makural's Curse^2^163
+6533^RB_reflect_test^1^82
+6534^Makural's Torment^0^51
+6535^Makural's TormentSK^0^51
+6536^Tirranun's Incinerating Aura^0^51
+6537^Breath of Tirranun^0^51
+6539^Blinding Ash^0^48
+6540^Form of Lava^1^134
+6544^Eye of Kessdona^0^27
+6545^Sheen of Golden Scales^1^82
+6547^Chlorine Cloud^0^51
+6549^Sheen of Platinum Scales^1^82
+6550^Denial of Flight^0^161
+6551^Explosion of Sand^0^161
+6556^Blinding Light^0^160
+6557^Crystal Chill Fog^0^51
+6558^Malleable Ice^1^134
+6559^Choking Gascloud^0^139
+6560^Golem Slow^0^139
+6561^Acid Breath^0^139
+6562^Slime Breath^0^139
+6563^Mass Illusion: Human^1^163
+6564^Mass Illusion: Barbarian^1^163
+6565^Mass Illusion: Erudite^1^163
+6566^Mass Illusion: Wood Elf^1^163
+6567^Mass Illusion: Fier`dal^1^163
+6568^Mass Illusion: High Elf^1^163
+6569^Mass Illusion: Dark Elf^1^163
+6570^Mass Illusion: Half-Elf^1^163
+6571^Mass Illusion: Dwarf^1^163
+6572^Mass Illusion: Troll^1^163
+6573^Mass Illusion: Ogre^1^163
+6574^Mass Illusion: Halfling^1^163
+6575^Mass Illusion: Gnome^1^163
+6576^Mass Illusion: Werewolf^1^163
+6577^Mass Illusion: Froglok^1^163
+6578^Mass Illusion: Imp^1^163
+6579^Mass Illusion: Earth Elemental^1^163
+6580^Mass Illusion: Air Elemental^1^163
+6581^Mass Illusion: Fire Elemental^1^163
+6582^Mass Illusion: Water Elemental^1^163
+6583^Mass Illusion: Scarecrow^1^163
+6584^Mass Illusion: Spirit Wolf^1^163
+6585^Mass Illusion: Iksar^1^163
+6586^Mass Illusion: Vah Shir^1^163
+6587^Mass Illusion: Guktan^1^163
+6588^Mass Illusion: Scaled Wolf^1^81
+6589^Mass Illusion: Skeleton^1^163
+6590^Mass Illusion: Dry Bone^1^163
+6591^Mass Illusion: Frost Bone^1^163
+6595^Doubt^0^161
+6600^Ensnaring Concoction IV^0^5
+6601^Ensnaring Concoction V^0^5
+6602^Ensnaring Concoction VI^0^5
+6604^Forcequake^0^161
+6607^Wind Shear^0^85
+6611^Molten Iron^0^51
+6612^Smoldering Cinders^0^104
+6614^Stone Blood^0^169
+6617^Acid Breath^0^61
+6620^Bile Breath^0^61
+6621^Spider Venom^0^61
+6622^Burning Blood^0^61
+6626^Dark Breath^0^2
+6627^Corrupted Claw^0^89
+6628^Goblin Hamstring^0^89
+6631^Black Cyclone^0^85
+6633^Feral Roar^1^89
+6638^Devouring Flames of Al'Kabor^0^51
+6640^Vishimtar's Shadow^0^160
+6641^Withering Corruption^0^161
+6642^Vishimtar's Corruption^0^160
+6643^Vishimtar's Aura^1^154
+6645^Festering Bite^0^41
+6646^Creeping Doom^0^160
+6648^Grip of Fear^0^51
+6649^Burning Hatred^0^51
+6650^Embrace of Life^1^133
+6651^Hammer of Absolution^0^51
+6653^Seething Embers^0^51
+6654^Frozen In Time^0^51
+6657^Infernal Web^0^160
+6658^Freezing Blast^0^56
+6660^Decaying Stench^0^41
+6662^Ward of Retribution^1^153
+6663^Guard of Righteousness^1^128
+6664^Earthen Shackles^0^5
+6665^Serpent Vines^0^5
+6667^Spirit of the Panther^1^2
+6671^Rune of Rikkukin^1^77
+6672^Growl of the Panther^1^2
+6673^Soul Shield^1^128
+6679^Benefit Awareness V^1^115
+6680^Cold Awareness V^1^56
+6681^Disease Awareness V^1^41
+6682^Heat Awareness V^1^51
+6683^Magic Awareness V^1^161
+6684^Poison Awareness V^1^42
+6685^Distance Awareness I^1^42
+6686^Distance Awareness II^1^42
+6687^Distance Awareness III^1^42
+6688^Distance Awareness IV^1^42
+6689^Distance Awareness V^1^42
+6690^NO SPELL^1^42
+6691^Efficiency Awareness I^1^161
+6692^Efficiency Awareness II^1^161
+6693^Efficiency Awareness III^1^161
+6694^Efficiency Awareness IV^1^161
+6695^Efficiency Awareness V^1^161
+6696^Regeneration Awareness I^1^118
+6697^Regeneration Awareness II^1^118
+6698^Regeneration Awareness III^1^118
+6699^Regeneration Awareness IV^1^118
+6700^Regeneration Awareness V^1^118
+6708^Dazzling Concoction I^0^23
+6709^Dazzling Concoction II^0^23
+6710^Dazzling Concoction III^0^23
+6711^Concoction of Corrosion I^0^42
+6712^Concoction of Corrosion II^0^42
+6713^Concoction of Corrosion III^0^42
+6714^Concoction of Corrosion IV^0^42
+6715^Concoction of Corrosion V^0^42
+6716^Concoction of Corrosion VI^0^42
+6717^Growl of the Panther^1^2
+6723^Enhanced Learning^1^12
+6726^Assassin's Feint^0^48
+6730^Ward of Vengeance^1^153
+6731^Guard of Humility^1^128
+6732^Earthen Embrace^0^5
+6733^Mire Thorns^0^5
+6735^Spirit of the Leopard^1^2
+6739^Rune of the Scale^1^77
+6740^Growl of the Leopard^1^2
+6741^Soul Guard^1^128
+6747^Growl of the Leopard^1^2
+6751^Rogue's Ploy^0^48
+6755^Blast of Sand^0^85
+6756^Swamp Stench^0^42
+6758^Magma Burst^0^51
+6759^Basilisk Gaze^0^35
+6760^Spider's Bite^0^42
+6761^Vengeance of the Undying^0^161
+6762^Dragon Health^1^161
+6763^Dragon Thunder^1^161
+6764^Dragon Fire^1^161
+6765^Dragon Frost^1^161
+6766^Dragon Malady^1^161
+6767^Dragon Bile^1^161
+6768^Breath of Kessdona^1^85
+6769^Storm Guard^1^161
+6770^Breath of Rikkukin^1^21
+6771^Geomantra II^1^169
+6772^Echo of Anger I^1^91
+6773^Echo of Anger II^1^91
+6774^Echo of Anger IV^1^91
+6775^Echo of Anger V^1^91
+6776^Poison Cloud^0^42
+6783^Vortex of Lava^0^85
+6784^Quickening of the Dead^1^161
+6785^Preservation of the Dead^1^161
+6786^Sovereign Rage^1^161
+6787^Preservation of the Scale^1^161
+6788^Talendor's Immolating Breath^0^51
+6789^Talendor's Petrifying Fear^0^154
+6790^Terrifying Roar^0^154
+6792^Trakanon's Blinding Fear^0^23
+6793^Trakanon's Poisonous Breath^0^42
+6795^Bond of Venril Sathir^0^154
+6798^Gorenaire's Freezing Breath^0^56
+6800^Heightened Learning^1^12
+6801^Meddler's Misfortune^0^135
+6802^Deafening Strike^1^161
+6803^Keldovan's Light^1^161
+6804^Pious Acquiescence^1^161
+6805^Flurry of the North Wind^1^161
+6806^Empowerment of the Devourer^1^161
+6807^Guard of the Chlorobon^1^161
+6808^Wail of the Dragon^1^161
+6809^Fury of the Duelist^1^161
+6810^Jelvan's Mending^1^161
+6811^Muram's Touch^1^161
+6812^Vangl's Fire^1^161
+6813^Encompassed Nova^1^161
+6814^Absolute Neurosis^1^161
+6815^Hanvar's Savage Strike^1^161
+6816^Ture's Anger^1^161
+6826^Desolate Deeds^0^17
+6827^Balance of Discord^0^17
+6828^Sha's Legacy^0^17
+6830^Grip of the Grave^0^117
+6834^Grave Spores^0^17
+6835^Ancient Plague^0^41
+6838^Fear^0^154
+6879^Dissipation of Power^0^42
+6880^Lesson of the Devoted^1^12
+6881^Infusion of the Faithful^1^7
+6886^Intensity of the Resolute^1^2
+6887^Ithiasor's Aura^1^154
+6888^Putrid Cloud of Decay^0^51
+6890^Servant's Shield^1^151
+6891^Servant's Touch^1^118
+6892^Bristlebane's Tasty Bread^1^118
+6893^Bristlebane's Tasty Bread^0^118
+6894^Bristlebane's Soothing Wine^1^118
+6895^Bristlebane's Soothing Wine^0^118
+6898^Servant's Breath^1^21
+6900^Gloom Poison^0^42
+6902^Ward of the Divine^1^153
+6903^Ward of Rebuke^1^153
+6906^Spirit of the Puma^1^2
+6907^Spirit of the Jaguar^1^2
+6910^Elixir of Healing I^1^118
+6911^Elixir of Healing II^1^118
+6912^Elixir of Healing III^1^118
+6913^Elixir of Healing IV^1^118
+6914^Elixir of Healing V^1^118
+6915^Elixir of Healing VI^1^118
+6916^Elixir of Healing VII^1^118
+6917^Elixir of Healing VIII^1^118
+6918^Elixir of Healing IX^1^118
+6919^Elixir of Healing X^1^118
+6930^Elixir of Health I^1^132
+6931^Elixir of Health II^1^132
+6932^Elixir of Health III^1^132
+6933^Elixir of Health IV^1^132
+6934^Elixir of Health V^1^132
+6935^Elixir of Health VI^1^132
+6936^Elixir of Health VII^1^132
+6937^Elixir of Health VIII^1^132
+6938^Elixir of Health IX^1^132
+6939^Elixir of Health X^1^132
+6940^Elixir of Speed I^1^16
+6941^Elixir of Speed II^1^16
+6942^Elixir of Speed III^1^16
+6943^Elixir of Speed IV^1^16
+6944^Elixir of Speed V^1^16
+6945^Elixir of Speed VI^1^16
+6946^Elixir of Speed VII^1^16
+6947^Elixir of Speed VIII^1^16
+6948^Elixir of Speed IX^1^16
+6949^Elixir of Speed X^1^16
+6950^Elixir of Clarity I^1^21
+6951^Elixir of Clarity II^1^21
+6952^Elixir of Clarity III^1^21
+6953^Elixir of Clarity IV^1^21
+6954^Elixir of Clarity V^1^21
+6955^Elixir of Clarity VI^1^21
+6956^Elixir of Clarity VII^1^21
+6957^Elixir of Clarity VIII^1^21
+6958^Elixir of Clarity IX^1^21
+6959^Elixir of Clarity X^1^21
+6960^Grip of Zanivar^0^41
+6962^Zanivar's Poison Bolt^0^42
+6964^Crystal Chill Vapors^0^51
+6970^Sonic Screech^0^51
+6973^Intangibility^1^46
+6976^Retch Weed^0^41
+6977^Deistic Voice^0^154
+6978^Deistic Bellow^0^154
+6979^Deistic Howl^0^154
+6980^Unholy Voice^0^154
+6981^Unholy Bellow^0^154
+6982^Unholy Howl^0^154
+6983^Phobia^0^154
+6984^Jitterskin^0^154
+6985^Anxiety Attack^0^154
+6986^Shadow Voice^0^154
+6987^Shadow Bellow^0^154
+6988^Shadow Howl^0^154
+6989^Cower the Dead^0^154
+6990^Death's Despair^0^154
+6991^Revulsion of Death^0^154
+6992^Eidolon Voice^0^154
+6993^Eidolon Bellow^0^154
+6994^Eidolon Howl^0^154
+6995^Soulless Fear^0^154
+6996^Soulless Panic^0^154
+6997^Soulless Terror^0^154
+6998^Instinctual Fear^0^154
+6999^Instinctual Panic^0^154
+7000^Instinctual Terror^0^154
+7001^Angstlich's Echo of Terror^0^154
+7002^Angstlich's Wail of Panic^0^154
+7003^Circle of Dreams^0^25
+7004^Guard of Piety^1^128
+7005^Ichor Guard^1^128
+7006^Greater Learning^1^12
+7007^Expanded Learning^1^12
+7008^Omar's Fungal Curse^0^139
+7009^Omar's Burning Tar^0^51
+7011^Omar's Poison Arrow Cloud^0^42
+7013^Poison Laced Oil^0^154
+7015^Shield Reflect^1^82
+7016^Whip Choke^0^154
+7020^Thicken Water^0^5
+7023^Aura of Crimson Mists I^0^154
+7024^Aura of Crimson Mists II^0^154
+7025^Aura of Crimson Mists III^0^154
+7026^Aura of Crimson Mists IV^0^154
+7027^Entrancing Glance^0^35
+7028^Compelling Glance^0^26
+7030^Frothing Curse^0^27
+7031^Rusting Clamp^0^43
+7035^Invasion of the Mind^0^41
+7036^Cursed Thoughts^0^74
+7038^Shiliskin Might^1^16
+7040^Evermind^0^39
+7042^Bolster^1^49
+7044^Wrenched Vitality^0^42
+7048^Mind's Apparition^0^160
+7049^Dead's Reflection^1^82
+7051^Dead Threat^0^137
+7052^Grasp of Draygun^0^160
+7054^Shroud of Spirits^1^161
+7055^Tortured Soul^0^1
+7058^Swift Limbs^1^16
+7059^Scuttle^1^4
+7060^Vile Web^0^160
+7062^Blood Hex^0^51
+7063^Woven Ire^0^160
+7065^Spinning Health^1^118
+7067^Spore Crawl^0^161
+7068^Germinate^0^136
+7069^Growroot^1^118
+7071^Decomposing Spores^0^155
+7072^Sporali Cloud^0^35
+7076^Sporali Fright^0^154
+7078^Feral Gouge^0^89
+7079^Wurine Ferocity^1^81
+7080^Gift of Darkness^1^161
+7081^Prowler's Talent^1^9
+7082^Clan Aura^1^155
+7084^Raking of the Werewolf^0^32
+7086^Wurine Rage^1^130
+7087^Resilient Rage^1^82
+7090^Sprocket Smash^0^89
+7091^Tick Tock Trap^0^51
+7092^Gizmo Grinder^0^1
+7093^Wind-Up Whirligig^0^161
+7094^Mathmatron Megahammer^0^27
+7097^Gargoyle Swipe^0^42
+7099^Gravelly Grip^0^114
+7100^Animation Boon^1^152
+7101^Stone Death^0^169
+7104^Witheran Sting^0^42
+7107^Grim Breath^0^51
+7109^Blink of Horror^0^28
+7112^Larva Breath^0^41
+7114^Writhing Sting^0^51
+7115^Retching Cloud^0^161
+7117^Deathmark^0^139
+7120^Endless Poison^0^42
+7121^Panicked Spirit^0^91
+7122^Grimblood Feast^0^47
+7123^Eaten Flesh^0^41
+7127^Darkhollow Plague^0^41
+7128^Murky Breath^0^41
+7129^Orcish Bulwark^1^151
+7131^Aura of Rot^0^42
+7133^Grisly Embrace^0^149
+7134^Foul Chant^1^161
+7138^Sturdy Stance^1^49
+7139^Violent Shake^0^161
+7143^Gasket Gash^0^161
+7144^Mech-O-Rat Attack^1^81
+7148^Mech-O-Sting^0^161
+7149^Booster Oil^1^81
+7152^Mech-O-Breakdown^0^161
+7153^Oiled Bearings^1^81
+7155^Dripping Fangs^0^42
+7162^Curse of Darkness^0^160
+7163^Dreadful Allure^0^26
+7164^Waking Dream^0^12
+7167^Blood Infusion^1^149
+7168^Obscuring Sporecloud^1^18
+7169^Root of Weakness^0^117
+7170^Rage of the Root^1^49
+7172^Spore Snooze^0^35
+7173^Fungal Sheen^1^1
+7176^Diseased Spore^0^42
+7177^Blind Fury I^1^16
+7178^Blind Fury II^1^16
+7179^Blind Fury III^1^16
+7183^Blood Rage I^1^2
+7184^Blood Rage II^1^2
+7185^Blood Rage III^1^2
+7186^Dark Bellow I^0^3
+7187^Dark Bellow II^0^3
+7188^Dark Bellow III^0^3
+7190^Tide of Sloth I^0^17
+7191^Tide of Sloth II^0^17
+7192^Tide of Sloth III^0^17
+7196^Grim Submission I^0^35
+7197^Grim Submission II^0^35
+7198^Grim Submission III^0^35
+7199^Soothing Remedy^1^118
+7200^Orcish Regeneration I^1^118
+7201^Orcish Regeneration II^1^118
+7202^Orcish Regeneration III^1^118
+7203^Weak Knees^0^5
+7205^Hand of Darkness^1^132
+7209^Voice of Vule^1^21
+7210^Speed of the Spider^1^161
+7211^Skinwalker's Mindwave^0^35
+7212^Dire Musings^0^17
+7215^Bite of Night^0^42
+7216^Chanted Doom^0^160
+7218^Spiteful Hex^0^164
+7221^Ethereal Carapace^1^78
+7222^Master's Shadow^1^98
+7226^Reserved Innates 188^0^-1
+7227^Reserved Innates 189^0^-1
+7228^Reserved Innates 190^0^-1
+7229^Reserved Innates 191^0^-1
+7230^Reserved Innates 192^0^-1
+7300^Ghoul Root I^0^117
+7301^Ghoul Root II^0^117
+7302^Ghoul Root III^0^117
+7303^Ghoul Root IV^0^117
+7308^Grasping Weeds^0^5
+7312^Subvert^0^26
+7313^Spider's Curse^0^140
+7316^Venemous Fog^0^42
+7318^Tangled Webbing^0^5
+7321^Polluting Spores^0^161
+7322^Grease Fire^0^160
+7324^Will of the Council^0^114
+7326^Wrath of the Mother^0^41
+7328^Corrupted Water^0^154
+7329^Jagged Wound^0^154
+7331^Corrupted Water Smash^0^154
+7332^Splintered Wood^0^154
+7462^Curse of the Lich^0^110
+7465^Smoke Bomb I^0^85
+7466^Smoke Bomb II^0^85
+7467^Smoke Bomb III^0^85
+7468^Smoke Bomb IV^0^85
+7469^Smoke Bomb V^0^85
+7470^Smoke Bomb VI^0^85
+7471^Smoke Bomb VII^0^85
+7472^Smoke Bomb VIII^0^85
+7473^Smoke Bomb IX^0^85
+7474^Smoke Bomb X^0^85
+7475^Smoke Screen^0^85
+7476^Pain Tolerance^1^1
+7481^Hamstring I^0^215
+7482^Hamstring II^0^215
+7483^Lesion I^0^208
+7484^Lesion II^0^208
+7485^Lesion III^0^208
+7486^Lesion IV^0^208
+7487^Lesion V^0^208
+7488^Lesion VI^0^208
+7489^Lesion VII^0^208
+7490^Lesion VIII^0^208
+7491^Lesion IX^0^208
+7492^Lesion X^0^208
+7496^Frost of the Ancients I^0^56
+7497^Frost of the Ancients II^0^56
+7498^Frost of the Ancients III^0^56
+7499^Frost of the Ancients IV^0^56
+7500^Frost of the Ancients V^0^56
+7501^Frost of the Ancients VI^0^56
+7502^Frost of the Ancients VII^0^56
+7503^Frost of the Ancients VIII^0^56
+7504^Frost of the Ancients IX^0^56
+7505^Frost of the Ancients X^0^56
+7528^War Bellow^0^16
+7529^War Bellow Recourse^1^2
+7530^Flight^1^80
+7531^Sleep I^0^35
+7532^Sleep II^0^35
+7533^Sleep III^0^35
+7534^Sleep IV^0^35
+7535^Sleep V^0^35
+7536^Lethargy I^0^17
+7537^Lethargy II^0^17
+7538^Lethargy III^0^17
+7539^Lethargy IV^0^17
+7540^Lethargy V^0^17
+7541^Plane Shift: Ethereal^1^161
+7542^Plane Shift: Material^1^46
+7543^Blink^1^46
+7544^Levitation^1^80
+7545^Swarm of Pain I^0^159
+7546^Swarm of Pain II^0^159
+7547^Swarm of Pain III^0^159
+7548^Swarm of Pain IV^0^159
+7549^Swarm of Pain V^0^159
+7550^Swarm of Pain VI^0^159
+7551^Swarm of Pain VII^0^159
+7552^Swarm of Pain VIII^0^159
+7553^Swarm of Pain IX^0^159
+7554^Swarm of Pain X^0^159
+7555^Fungal Malady I^0^41
+7556^Fungal Malady II^0^41
+7557^Fungal Malady III^0^41
+7558^Fungal Malady IV^0^41
+7559^Fungal Malady V^0^41
+7560^Fungal Malady VI^0^41
+7561^Fungal Malady VII^0^41
+7562^Fungal Malady VIII^0^41
+7563^Fungal Malady IX^0^41
+7564^Fungal Malady X^0^41
+7565^Ward of the Bear I^1^9
+7566^Ward of the Bear II^1^9
+7567^Ward of the Bear III^1^9
+7568^Ward of the Wolf I^1^9
+7569^Ward of the Wolf II^1^9
+7570^Ward of the Wolf III^1^9
+7571^Ward of the Tiger I^1^9
+7572^Ward of the Tiger II^1^9
+7573^Ward of the Tiger III^1^9
+7574^Ward of the Crocodile I^1^9
+7575^Ward of the Crocodile II^1^9
+7576^Ward of the Crocodile III^1^9
+7577^Ward of the Scaled Wolf I^1^9
+7578^Ward of the Scaled Wolf II^1^9
+7579^Ward of the Scaled Wolf III^1^9
+7580^Ward of the Raptor I^1^9
+7581^Ward of the Raptor II^1^9
+7582^Ward of the Raptor III^1^9
+7583^Ward of the Garou I^1^9
+7584^Ward of the Garou II^1^9
+7585^Ward of the Garou III^1^9
+7586^Earth Bind I^0^117
+7587^Earth Bind II^0^117
+7588^Earth Bind III^0^117
+7589^Fire Skin I^1^157
+7590^Fire Skin II^1^157
+7591^Fire Skin III^1^157
+7592^Fire Skin IV^1^157
+7593^Fire Skin V^1^157
+7594^Fire Skin VI^1^157
+7595^Fire Skin VII^1^157
+7596^Fire Skin VIII^1^157
+7597^Fire Skin IX^1^157
+7598^Fire Skin X^1^157
+7701^Weakening Roots^0^117
+7702^Root Rage^1^49
+7704^Sleeping Spore^0^35
+7705^Fungal Coat^1^98
+7708^Diseased Sporelings^0^41
+7710^Fairy Fire^0^51
+7711^Fairy Fright^0^154
+7712^Fairy's Embrace^1^118
+7715^Last Stand^1^56
+7716^Elixir of Recovery^1^118
+7717^Rage of Ultrok^1^118
+7718^Spirit Claws^0^17
+7721^Contagion of Fate^0^42
+7725^Silence of the Great Wuria^0^108
+7726^Bloodeye's Curse^0^41
+7728^Bloodeye's Bellow^0^12
+7729^Stealth^1^18
+7740^Confining Web^0^160
+7742^Holding Strands^0^117
+7743^Deadly Cloud^0^42
+7746^Whirlwind^1^49
+7748^Skeletal Spirit Sap^0^154
+7750^Vampire Bat Screech^0^85
+7751^Lycanthropic Fury^0^27
+7752^Jagged Bite Wound^0^154
+7753^Werewolf Howl^0^161
+7754^Sticky Netting^0^161
+7755^Blinding Venom^0^48
+7756^Stage Fright^0^25
+7757^Cloud of Viscous Venom^0^161
+7758^Flesh Rot^0^161
+7800^Draygun's Touch^0^139
+7801^Draygun's Touch^0^139
+7802^Draygun's Touch^0^139
+7803^Draygun's Touch^0^139
+7804^Draygun's Touch^0^139
+7805^Curse of the Nine^0^139
+7806^Curse of the Nine^0^139
+7807^Curse of the Nine^0^139
+7808^Curse of the Nine^0^139
+7809^Curse of the Nine^0^139
+7810^Blood of the Shadowmane^0^139
+7811^Blood of the Shadowmane^0^139
+7812^Blood of the Shadowmane^0^139
+7813^Blood of the Shadowmane^0^139
+7814^Blood of the Shadowmane^0^139
+7815^Theft of Rage^0^139
+7816^Theft of Rage^0^139
+7817^Theft of Rage^0^139
+7818^Theft of Rage^0^139
+7819^Theft of Rage^0^139
+7820^Curse of the Hivequeen^0^139
+7821^Curse of the Hivequeen^0^139
+7822^Curse of the Hivequeen^0^139
+7823^Curse of the Hivequeen^0^139
+7824^Curse of the Hivequeen^0^139
+7825^Mind Race^1^-1
+7826^Aura of Burning Arcanum^1^53
+7827^Aura of Freezing Arcanum^1^69
+7828^Aura of Chromatic Arcanum^1^58
+7829^Aura of Venemous Arcanum^1^61
+7830^Aura of Blight Arcanum^1^66
+7831^Aura of Pure Arcanum^1^66
+7832^Improved Dodge IV^1^2
+7833^Improved Parry IV^1^2
+7834^Cleave VI^1^2
+7835^Ferocity VI^1^2
+7836^Sharpshooting VI^1^2
+7837^Improved Block IV^1^2
+7838^Form of Defense IV^1^81
+7839^Form of Protection IV^1^81
+7840^Form of Endurance IV^1^81
+7841^Form of Rejuvenation IV^1^81
+7842^Unliving Ward^1^89
+7843^Zombie Malaise^1^161
+7844^Wurine Guard^1^161
+7845^Zombie Range^1^161
+7846^Wurine Distance^1^161
+7847^Vampiric Health^1^161
+7848^Vampiric Thunder^1^161
+7849^Vampiric Fire^1^161
+7850^Vampiric Frost^1^161
+7851^Vampiric Malady^1^161
+7852^Vampiric Bile^1^161
+7857^Empowerment of Shadows^1^190
+7858^Empowerment of Shadows^1^190
+7859^Empowerment of Shadows^1^190
+7860^Empowerment of Shadows^1^190
+7861^Empowerment of Shadows^1^190
+7862^Empowerment of Shadows^1^190
+7917^Spreading Stone^0^154
+7918^Spreading Stone Trigger^0^161
+7994^Dread Pyre^0^51
+7997^Chaotic Power^1^140
+7998^Chaotic Weakness^0^140
+7999^Corath Venom^0^42
+8000^Commanding Voice^1^9
+8001^Thief's eyes^1^9
+8002^Fists of Wu^1^9
+8003^Cry Havoc^1^9
+8005^Bind Death^0^153
+8008^Skin of the Reptile^1^138
+8010^Spore Spiral^0^5
+8013^Fire of Dawn^1^21
+8014^Shadow of Dawn^0^139
+8015^Lingering Sloth^1^17
+8016^Lingering Sloth Trigger^0^17
+8017^Hungry Plague^0^17
+8019^Warder's Wrath^1^6
+8024^Shadow Rage^1^139
+8026^Gift of Draygun^1^140
+8028^Last Rites Trigger^0^153
+8029^Silent Piety^1^9
+8030^Thousand Blades^1^6
+8031^Creeping Dreams^0^35
+8032^Mana Flare^1^21
+8035^Echoing Madness^0^35
+8036^Illusion: Orc^1^163
+8038^Burning Aura^1^51
+8042^Clinging Frost Trigger^0^56
+8046^Weave of Power^1^141
+8047^Weave of Weakness^0^142
+8048^Turn Undead^0^164
+8049^Turn Undead^0^164
+8050^Turn Undead^0^164
+8052^Wrack Undead^0^164
+8053^Eradicate Undead^0^164
+8054^Silent Casting^1^164
+8055^Silent Casting^1^164
+8056^Silent Casting^1^164
+8057^Silent Casting^1^164
+8058^Silent Casting^1^164
+8059^Whirlwind Strike^0^85
+8060^Cascading Rage^0^161
+8061^Cascading Rage^0^161
+8062^Cascading Rage^0^161
+8063^Cascading Rage^0^161
+8064^Cascading Rage^0^161
+8065^Cascading Rage^0^161
+8066^Cascading Rage^0^161
+8067^Cascading Rage^0^161
+8068^Cascading Rage^0^161
+8069^Cascading Rage^0^161
+8070^Cascading Rage^0^161
+8071^Cascading Rage^0^161
+8072^Cascading Rage^0^161
+8073^Cascading Rage^0^161
+8074^Cascading Rage^0^161
+8076^Flames of Power^1^51
+8077^Flames of Weakness^0^51
+8084^Blood Elixir^1^118
+8085^Seductive Charm^0^26
+8086^Fangs of Night^0^42
+8089^Shadow Atrophy^0^139
+8090^Armor Cleave I^0^53
+8091^Armor Cleave II^0^53
+8092^Armor Cleave III^0^53
+8093^Armor Cleave IV^0^53
+8094^Armor Cleave V^0^53
+8095^Armor Cleave VI^0^53
+8096^Armor Cleave VII^0^53
+8097^Armor Cleave VIII^0^53
+8098^Armor Cleave IX^0^53
+8099^Armor Cleave X^0^53
+8105^Gift of Mana^1^161
+8109^Rune of Shadows^1^77
+8110^Rune of Shadows^1^77
+8111^Rune of Shadows^1^77
+8112^Rune of Shadows^1^77
+8113^Rune of Shadows^1^77
+8120^Retch Spore^0^41
+8121^Retch Spore^0^41
+8122^Retch Spore^0^41
+8133^Turn Summoned^0^164
+8134^Turn Summoned^0^164
+8135^Turn Summoned^0^164
+8137^Wrack Summoned^0^164
+8138^Eradicate Summoned^0^164
+8144^Net^0^5
+8145^Clinging Net^0^5
+8146^Translocational Anchor^0^122
+8147^Translocational Anchor^0^122
+8148^Translocational Anchor^0^122
+8153^Eternal Thought^1^21
+8155^Bound Limbs^0^117
+8156^Greater Avatar^1^2
+8157^Greater Avatar^1^2
+8158^Greater Avatar^1^2
+8160^Pyromantic Ignition^0^161
+8161^Pyromantic Ignition^0^161
+8162^Pyromantic Ignition^0^161
+8163^Pyromantic Ignition^0^161
+8164^Pyromantic Ignition^0^161
+8165^Abundant Healing^1^118
+8166^Abundant Healing^1^118
+8167^Abundant Healing^1^118
+8168^Abundant Healing^1^118
+8169^Abundant Healing^1^118
+8170^Shared Camouflage^1^18
+8171^Pure Thought I^1^21
+8172^Pure Thought II^1^21
+8173^Pure Thought III^1^21
+8174^Pure Thought IV^1^21
+8175^Pure Thought V^1^21
+8176^Pure Thought VI^1^21
+8177^Pure Thought VII^1^21
+8178^Pure Thought VIII^1^21
+8179^Pure Thought IX^1^21
+8180^Pure Thought X^1^21
+8182^Coral Skin^1^77
+8186^Immolate^0^51
+8187^Bindings of Terror^0^5
+8188^Mindshine^1^21
+8189^Reaper's Stance^1^56
+8190^Convergence of Spirits^1^49
+8191^Convergence of Spirits^1^49
+8192^Convergence of Spirits^1^49
+8196^Edict of Command^0^26
+8197^Edict of Command^0^26
+8198^Edict of Command^0^26
+8199^Gift of Temperance^1^132
+8200^Gift of Illsalin^1^21
+8205^Blood Magic^0^115
+8206^Blood Magic^0^115
+8207^Blood Magic^0^115
+8208^Blood Magic^0^115
+8209^Blood Magic^0^115
+8210^Feral Roar I^0^211
+8211^Feral Roar II^0^211
+8212^Feral Roar III^0^211
+8213^Feral Roar IV^0^211
+8214^Greater Rabid Bear^1^49
+8215^Greater Rabid Bear^1^49
+8216^Greater Rabid Bear^1^49
+8217^Diseased Bite^0^41
+8218^Ancestral Guard^1^128
+8219^Ancestral Guard^1^128
+8220^Ancestral Guard^1^128
+8221^Cloak of Light^1^18
+8222^Devouring Mites^0^41
+8223^Cloak of Shadows^1^18
+8233^Empathic Fury^1^6
+8234^Empathic Fury^1^6
+8241^Fine Red Mist^0^41
+8242^Hand of the Unseen^0^41
+8243^Prick of a Poisoned Pin^0^41
+8244^Ultravision^1^86
+8245^Wildspeed^1^4
+8246^Spiritfury^1^49
+8248^Illsalin's Protection^1^132
+8251^Shiliskin Vigor^1^1
+8252^Draygun's Psyche^1^21
+8260^Spore Sting^0^42
+8261^Deep Sleep^0^35
+8262^Deep Sleep^0^35
+8263^Deep Sleep^0^35
+8264^Deep Sleep^0^35
+8265^Deep Sleep^0^35
+8267^Feral Roar V^0^211
+8268^Feral Roar VI^0^211
+8269^Blight of Hate^0^41
+8271^Call of Challenge^0^161
+8272^Cacophony^0^51
+8273^Cacophony^0^51
+8274^Cacophony^0^51
+8275^Infection Test 1^0^35
+8276^Infection Test 2^0^35
+8278^Fetter of Spirits^1^60
+8279^Fetter of Spirits Eff^0^5
+8280^Boon of Vitality I^1^132
+8281^Boon of Vitality II^1^132
+8282^Boon of Vitality III^1^132
+8283^Boon of Vitality IV^1^132
+8284^Boon of Vitality V^1^132
+8285^Boon of Vitality VI^1^132
+8286^Boon of Vitality VII^1^132
+8287^Boon of Vitality VIII^1^132
+8288^Boon of Vitality IX^1^132
+8289^Boon of Vitality X^1^132
+8290^Gift of Speed I^1^16
+8291^Gift of Speed II^1^16
+8292^Gift of Speed III^1^16
+8293^Gift of Speed IV^1^16
+8294^Gift of Speed V^1^16
+8295^Gift of Speed VI^1^16
+8296^Gift of Speed VII^1^16
+8297^Gift of Speed VIII^1^16
+8298^Gift of Speed IX^1^16
+8299^Gift of Speed X^1^16
+8300^Malaise I^0^55
+8301^Malaise II^0^55
+8302^Malaise III^0^55
+8303^Malaise IV^0^55
+8304^Malaise V^0^55
+8310^Gaze of the Beholder I^0^26
+8311^Gaze of the Beholder II^0^26
+8312^Gaze of the Beholder III^0^26
+8313^Gaze of the Beholder IV^0^26
+8314^Gaze of the Beholder V^0^26
+8315^Gaze of the Beholder VI^0^26
+8316^Gaze of the Beholder VII^0^26
+8317^Gaze of the Beholder VIII^0^26
+8318^Gaze of the Beholder IX^0^26
+8319^Gaze of the Beholder X^0^26
+8320^Gaze of the Beholder XI^0^26
+8321^Gaze of the Beholder XII^0^26
+8322^Gaze of the Beholder XIII^0^26
+8323^Gaze of the Beholder XIV^0^26
+8329^Fungal Regrowth I^1^118
+8330^Fungal Regrowth II^1^118
+8331^Fungal Regrowth III^1^118
+8332^Fungal Regrowth IV^1^118
+8333^Fungal Regrowth V^1^118
+8334^Creeping Plague^1^17
+8335^Creeping Plague Trigger^0^17
+8341^Dark Gift I^1^164
+8342^Dark Gift II^1^164
+8343^Dark Gift III^1^164
+8344^Dark Gift IV^1^164
+8345^Dark Gift V^1^164
+8346^Dark Gift VI^1^164
+8347^Dark Gift VII^1^164
+8355^Activate Roboboar^1^112
+8356^Chromatic Fury IV^1^161
+8357^Chromatic Fury V^1^161
+8358^Chromatic Rage IV^1^161
+8359^Chromatic Rage V^1^161
+8360^Chromatic Vengeance IV^1^161
+8361^Chromatic Vengeance V^1^161
+8362^Chromatic Power IV^1^161
+8363^Chromatic Power V^1^161
+8364^Chromatic Energy IV^1^161
+8365^Chromatic Energy V^1^161
+8366^Chromatic Pulse IV^1^161
+8367^Chromatic Pulse V^1^161
+8368^Chromatic Wave IV^1^161
+8369^Chromatic Wave V^1^161
+8370^Chromatic Arc IV^1^161
+8371^Chromatic Arc V^1^161
+8372^Stone Skin I^1^77
+8373^Stone Skin II^1^77
+8374^Stone Skin III^1^77
+8375^Stone Skin IV^1^77
+8376^Stone Skin V^1^77
+8377^Stone Skin VI^1^77
+8378^Shadowed Dark Hold^0^35
+8379^Shadowed Word of Chaos^0^27
+8380^Shadowed Curse of Mori^0^164
+8384^Blood of the Spire^1^161
+8385^Desperate Light^1^161
+8386^Gift of the Serpent^1^161
+8387^Ravenous Hunger^1^161
+8388^Arcane Flare^1^161
+8389^Servant of Fury^1^161
+8390^Ethereal Conservation^1^161
+8391^Enduring Voice^1^161
+8392^Enduring Vision^1^161
+8393^Enduring Fists^1^161
+8394^Enduring Havoc^1^161
+8395^Enduring Wrath^1^161
+8396^Voice of the Garou^1^161
+8397^Rite of Draygun^1^161
+8398^Final Reckoning^1^161
+8399^Spire Servant^1^190
+8402^LowerElement II^0^161
+8404^Master's Beckon^0^12
+8405^Once Bitten^0^12
+8420^Drachnid Drone's Shadow^0^160
+8423^Breath of Wind^1^21
+8424^Armor Rend^0^1
+8427^Solar Strike^0^51
+8428^Rotting of the Plaguebringer^0^154
+8430^Chant of Terris^0^27
+8431^Nightmares of Terris^0^154
+8432^Resolute Gift^1^132
+8433^Immortal Elixir^1^118
+8434^Quiet of Marr^0^117
+8435^Essence of the Pure^0^117
+8437^Judgment^0^153
+8439^Hand of the Seventh^1^130
+8443^Caressing Winds^1^99
+8444^Blinding Dust^0^161

@@ -1,0 +1,455 @@
+﻿using System;
+using System.IO;
+using System.IO.Pipes;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+using System.Threading;
+
+namespace Memory
+{
+    public class Mem
+    {
+        #region DllImports
+        [DllImport("kernel32.dll")]
+        public static extern IntPtr OpenProcess(
+            UInt32 dwDesiredAccess,
+            Int32 bInheritHandle,
+            Int32 dwProcessId
+            );
+
+        [DllImport("kernel32.dll")]
+        static extern bool WriteProcessMemory(
+            IntPtr hProcess,
+            IntPtr lpBaseAddress,
+            string lpBuffer,
+            UIntPtr nSize,
+            out IntPtr lpNumberOfBytesWritten
+        );
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        static extern uint GetPrivateProfileString(
+           string lpAppName,
+           string lpKeyName,
+           string lpDefault,
+           StringBuilder lpReturnedString,
+           uint nSize,
+           string lpFileName);
+
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        static extern bool VirtualFreeEx(
+            IntPtr hProcess,
+            IntPtr lpAddress,
+            UIntPtr dwSize,
+            uint dwFreeType
+            );
+
+        [DllImport("kernel32.dll")]
+        private static extern bool ReadProcessMemory(IntPtr hProcess, UIntPtr lpBaseAddress, [Out] byte[] lpBuffer, UIntPtr nSize, IntPtr lpNumberOfBytesRead);
+
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        static extern IntPtr VirtualAllocEx(
+            IntPtr hProcess,
+            IntPtr lpAddress,
+            uint dwSize,
+            uint flAllocationType,
+            uint flProtect
+        );
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Ansi, ExactSpelling = true)]
+        public static extern UIntPtr GetProcAddress(
+            IntPtr hModule,
+            string procName
+        );
+
+        [DllImport("kernel32.dll", EntryPoint = "CloseHandle")]
+        private static extern bool _CloseHandle(IntPtr hObject);
+
+        [DllImport("kernel32.dll")]
+        public static extern Int32 CloseHandle(
+        IntPtr hObject
+        );
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr GetModuleHandle(
+            string lpModuleName
+        );
+
+        [DllImport("kernel32", SetLastError = true, ExactSpelling = true)]
+        internal static extern Int32 WaitForSingleObject(
+            IntPtr handle,
+            Int32 milliseconds
+        );
+
+        [DllImport("kernel32.dll")]
+        private static extern bool WriteProcessMemory(IntPtr hProcess, UIntPtr lpBaseAddress, byte[] lpBuffer, UIntPtr nSize, IntPtr lpNumberOfBytesWritten);
+
+        [DllImport("kernel32")]
+        public static extern IntPtr CreateRemoteThread(
+          IntPtr hProcess,
+          IntPtr lpThreadAttributes,
+          uint dwStackSize,
+          UIntPtr lpStartAddress, // raw Pointer into remote process  
+          IntPtr lpParameter,
+          uint dwCreationFlags,
+          out IntPtr lpThreadId
+        );
+        #endregion
+
+        public void OpenProcess(string eqgameID)
+        {
+            Int32 ProcID = Convert.ToInt32(eqgameID);
+            Process procs = Process.GetProcessById(ProcID);
+            IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, 1, ProcID);
+
+            pHandle = OpenProcess(0x1F0FFF, 1, ProcID);
+            mainModule = procs.MainModule;
+            foreach (ProcessModule Module in procs.Modules)
+            {
+                if (Module.ModuleName.Contains("dpvs"))
+                    dpvsModule = Module.BaseAddress;
+                if (Module.ModuleName.Contains("DSETUP"))
+                    dsetupModule = Module.BaseAddress;
+            }
+            if (procs.Responding == false)
+                return;
+        }
+
+        public static IntPtr pHandle;
+
+        public string LoadCode(string name, string path)
+        {
+            StringBuilder returnCode = new StringBuilder(1024);
+            uint read_ini_result = GetPrivateProfileString("codes", name, "", returnCode, (uint)path.Length, path);
+            return returnCode.ToString();
+        }
+
+        public Int32 LoadIntCode(string name, string path)
+        {
+            int intValue = Convert.ToInt32(LoadCode(name, path), 16);
+            if (intValue >= 0)
+                return intValue;
+            else
+                return 0;
+        }
+
+        public void ThreadStartClient(object obj)
+        {
+            ManualResetEvent SyncClientServer = (ManualResetEvent)obj;
+            using (NamedPipeClientStream pipeStream = new NamedPipeClientStream("PipesOfPiece"))
+            {
+                pipeStream.Connect();
+
+                //MessageBox.Show("[Client] Pipe connection established");
+                using (StreamWriter sw = new StreamWriter(pipeStream))
+                {
+                    sw.AutoFlush = true;
+                    sw.WriteLine("warp");
+                }
+            }
+        }
+
+        public UIntPtr LoadUIntPtrCode(string name, string path)
+        {
+            uint uintValue = Convert.ToUInt32(LoadCode(name, path), 16);
+            if (uintValue >= 0)
+                return (UIntPtr)uintValue;
+            else
+                return (UIntPtr)0;
+        }
+
+        public ProcessModule mainModule;
+        public IntPtr dpvsModule;
+        public IntPtr dsetupModule;
+
+        public UIntPtr getPointer(int[] offsets)
+        {
+            byte[] memory = new byte[4];
+            ReadProcessMemory(pHandle, (UIntPtr)((int)mainModule.BaseAddress + offsets[0]), memory, (UIntPtr)4, IntPtr.Zero);
+            uint num1 = BitConverter.ToUInt32(memory, 0);
+
+            UIntPtr base1 = (UIntPtr)0;
+
+            for (int i = 1; i < offsets.Length; i++)
+            {
+                base1 = new UIntPtr(num1 + Convert.ToUInt32(offsets[i]));
+                ReadProcessMemory(pHandle, base1, memory, (UIntPtr)4, IntPtr.Zero);
+                num1 = BitConverter.ToUInt32(memory, 0);
+            }
+
+            return base1;
+        }
+
+        public string CutString(string mystring)
+        {
+            char[] chArray = mystring.ToCharArray();
+            string str = "";
+            for (int i = 0; i < mystring.Length; i++)
+            {
+                if ((chArray[i] == ' ') && (chArray[i + 1] == ' '))
+                {
+                    return str;
+                }
+                if (chArray[i] == '\0')
+                {
+                    return str;
+                }
+                str = str + chArray[i].ToString();
+            }
+            return mystring.TrimEnd(new char[] { '0' });
+        }
+
+        public string RemoveSpecialCharacters(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= 'a' && c <= 'z') || (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z'))
+                    sb.Append(c);
+                else
+                    break;
+            }
+            return sb.ToString();
+        }
+
+        #region readMemory
+        public float readFloat(string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, getCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+            {
+                float address = BitConverter.ToSingle(memory, 0);
+                return (float)Math.Round(address, 2);
+            }
+            else
+                return 0;
+        }
+
+        public string readString(string code, string file)
+        {
+            byte[] memoryNormal = new byte[32];
+            if (ReadProcessMemory(pHandle, getCode(code, file), memoryNormal, (UIntPtr)32, IntPtr.Zero))
+                return CutString(System.Text.Encoding.UTF8.GetString(memoryNormal));
+            else
+                return "";
+        }
+
+        public string readBigString(string code, string file)
+        {
+            byte[] memoryNormal = new byte[20];
+            if (ReadProcessMemory(pHandle, getCode(code, file), memoryNormal, (UIntPtr)20, IntPtr.Zero))
+                return System.Text.Encoding.UTF8.GetString(memoryNormal);
+            else
+                return "";
+        }
+
+        public int readInt(string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, getCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public int readIntMove(int[] moveCode)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, (UIntPtr)getPointer(moveCode), memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public int readByte(string code, string file)
+        {
+            byte[] memoryTiny = new byte[4];
+            if (ReadProcessMemory(pHandle, getCode(code, file), memoryTiny, (UIntPtr)1, IntPtr.Zero))
+                return BitConverter.ToInt32(memoryTiny, 0);
+            else
+                return 0;
+        }
+
+        public int readUInt(UIntPtr code)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, code, memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public float readPFloat(UIntPtr address, string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, address + LoadIntCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+            {
+                float spawn = BitConverter.ToSingle(memory, 0);
+                return (float)Math.Round(spawn, 2);
+            }
+            else
+                return 0;
+        }
+
+        public int readPInt(UIntPtr address, string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, address + LoadIntCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public string readPString(UIntPtr address, string code, string file)
+        {
+            byte[] memoryNormal = new byte[32];
+            if (ReadProcessMemory(pHandle, address + LoadIntCode(code, file), memoryNormal, (UIntPtr)32, IntPtr.Zero))
+                return CutString(System.Text.Encoding.ASCII.GetString(memoryNormal));
+            else
+                return "";
+        }
+
+        public float readUintPtrFloat(string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, LoadUIntPtrCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+            {
+                float spawn = BitConverter.ToSingle(memory, 0);
+                return (float)Math.Round(spawn, 2);
+            }
+            else
+                return 0;
+        }
+
+        public int readUIntPtr(string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, LoadUIntPtrCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public string readUIntPtrStr(string code, string file)
+        {
+            byte[] memoryNormal = new byte[32];
+            if (memoryNormal == null)
+                return "";
+            if (ReadProcessMemory(pHandle, LoadUIntPtrCode(code, file), memoryNormal, (UIntPtr)32, IntPtr.Zero))
+                return System.Text.Encoding.ASCII.GetString(memoryNormal);
+            else
+                return "";
+        }
+        #endregion
+
+        #region writeMemory
+        public void writeMemory(string code, string file, string type, string write)
+        {
+            byte[] memory = new byte[4];
+            if (type == "float")
+                memory = BitConverter.GetBytes(Convert.ToSingle(write));
+            if (type == "bytes")
+                memory = BitConverter.GetBytes(Convert.ToInt32(write));
+            WriteProcessMemory(pHandle, getCode(code, file), memory, (UIntPtr)4, IntPtr.Zero);
+        }
+
+        public void writeUIntPtr(string code, string file, byte[] write)
+        {
+            WriteProcessMemory(pHandle, LoadUIntPtrCode(code, file), write, (UIntPtr)write.Length, IntPtr.Zero);
+        }
+
+        public void writeByte(UIntPtr code, byte[] write, int size)
+        {
+            WriteProcessMemory(pHandle, code, write, (UIntPtr)size, IntPtr.Zero);
+        }
+        #endregion
+
+        public UIntPtr getCode(string name, string path)
+        {
+            string theCode = LoadCode(name, path);
+            if (theCode == "")
+                return UIntPtr.Zero;
+            bool main = false;
+            bool dpvs = false;
+            bool dsetup = false;
+            string newOffsets = theCode;
+            if (theCode.Contains("base") || theCode.Contains("dpvs") || theCode.Contains("dsetup"))
+                newOffsets = theCode.Substring(theCode.IndexOf('+') + 1);
+            if (theCode.Contains("base") )
+                main = true;
+            else if (theCode.Contains("dpvs"))
+                dpvs = true;
+            else if (theCode.Contains("dsetup"))
+                dsetup = true;
+
+            List<int> offsetsList = new List<int>();
+            List<string> testlist = new List<string>();
+
+            string[] newerOffsets = newOffsets.Split(',');
+            foreach (string oldOffsets in newerOffsets)
+            {
+                offsetsList.Add(Convert.ToInt32(oldOffsets, 16));
+            }
+            int[] offsets = offsetsList.ToArray();
+
+            byte[] memoryAddress = new byte[4];
+            if (main == true)
+                ReadProcessMemory(pHandle, (UIntPtr)((int)mainModule.BaseAddress + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+            else if (dpvs == true)
+                ReadProcessMemory(pHandle, (UIntPtr)((int)dpvsModule + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+            else if (dsetup == true)
+                ReadProcessMemory(pHandle, (UIntPtr)((int)dsetupModule + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+            else
+                ReadProcessMemory(pHandle, (UIntPtr)(offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+
+            uint num1 = BitConverter.ToUInt32(memoryAddress, 0);
+
+            //if (offsetsList.Count < 1)
+            //    return (UIntPtr)Convert.ToUInt32(theCode);
+
+            UIntPtr base1 = (UIntPtr)0;
+
+            for (int i = 1; i < offsets.Length; i++)
+            {
+                base1 = new UIntPtr(num1 + Convert.ToUInt32(offsets[i]));
+                ReadProcessMemory(pHandle, base1, memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                num1 = BitConverter.ToUInt32(memoryAddress, 0);
+            }
+            return base1;
+        }
+
+        public void InjectDLL(IntPtr hProcess, String strDLLName)
+        {
+            IntPtr bytesout;
+
+            Int32 LenWrite = strDLLName.Length + 1;
+            IntPtr AllocMem = (IntPtr)VirtualAllocEx(hProcess, (IntPtr)null, (uint)LenWrite, 0x1000, 0x40);
+
+            WriteProcessMemory(hProcess, AllocMem, strDLLName, (UIntPtr)LenWrite, out bytesout);
+            UIntPtr Injector = (UIntPtr)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+
+            if (Injector == null)
+                return;
+
+            IntPtr hThread = (IntPtr)CreateRemoteThread(hProcess, (IntPtr)null, 0, Injector, AllocMem, 0, out bytesout);
+            if (hThread == null)
+                return;
+
+            int Result = WaitForSingleObject(hThread, 10 * 1000);
+            if (Result == 0x00000080L || Result == 0x00000102L)
+            {
+                if (hThread != null)
+                    CloseHandle(hThread);
+                return;
+            }
+            VirtualFreeEx(hProcess, AllocMem, (UIntPtr)0, 0x8000);
+
+            if (hThread != null)
+                CloseHandle(hThread);
+
+            return;
+        }
+    }
+}

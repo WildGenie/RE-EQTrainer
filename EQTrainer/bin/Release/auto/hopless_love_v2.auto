@@ -1,0 +1,31 @@
+checkzone freportw
+teleport -236 77 -25 501
+target Plagus_Ladeson000
+say milea is in east karana
+teleport -20 800 -24.25 0
+checkzone ecommons
+teleport -105 5055 -75.86 112.5
+checkzone commons
+teleport 885.73 4228.48 -47.72 240.32
+checkzone kithicor
+teleport 563.81 4889.96 694.28 10.43
+checkzone highpass
+teleport 847 110 4.38 490
+checkzone eastkarana
+teleport -1802 -6075 5.56 41.19
+mouse 630 750 left
+checkgive open
+checkcursor no
+mouse 625 424 left
+checkgive closed
+//heading back
+teleport -3100 -8338 694.28 239.13
+checkzone highpass
+teleport -987 91 4.38 241.38
+checkzone kithicor
+teleport 1484 -1088 -47.72 459.16
+checkzone commons
+teleport 550 -1659 -38.24 381.57
+checkzone ecommons
+teleport -102 -1602 -50.09 373.56
+checkzone freportw

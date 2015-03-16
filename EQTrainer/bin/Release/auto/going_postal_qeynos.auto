@@ -1,0 +1,27 @@
+checkzone qeynos
+teleport 475 -440 3.71 261
+checkzone qeynos2
+teleport 1400 1093 3.13 496
+checkzone qeytoqrg
+teleport 1228 -2469 -1.22 324
+checkzone qey2hh1
+CheckPCNearby -3668 -2001 24 85
+talktonpc Mistrana_Two_Notes deliver to qeynos
+checkcursor yes
+press down down
+pause 50
+press down up
+teleport 46 65 -3.87 60
+checkzone qeytoqrg
+teleport -360 95 4.37 250
+checkzone qeynos2
+teleport -165 -7 3.71 261
+checkzone qeynos
+CheckPCNearby 520.19 -120.47 3.75 20
+teleport 520.19 -120.47 3.75 347
+pause 400
+mouse 200 293 left
+checkgive open
+checkcursor no
+mouse 33 341 left
+checkgive closed

@@ -1,0 +1,28 @@
+//start in north felwithe
+checkzone felwithea
+pause 2000
+teleport 177.59 -348.86 17.13 444.24
+pause 2000
+CheckPCNearby -77 -300 3 50
+teleport -89 -321 4 394
+target Tacar Tissleplay
+mouse 28 344 left
+pause 500
+checkcursor yes
+teleport 177.59 -348.86 17.13 444.24
+pause 2000
+teleport 42.25 210.78 3.13 114.37
+pause 4000
+checkzone gfaydark
+pause 2000
+teleport -86.45 -563.1 161.1 2
+pause 2000
+CheckPCNearby -209 221 77.1 60
+teleport -226.73 269.03 77.1 310
+mouse 169 244 left
+checkgive open
+checkcursor no
+mouse 60 391 left
+checkgive closed
+teleport -1933.69 -2641.59 24.16 350
+pause 6000

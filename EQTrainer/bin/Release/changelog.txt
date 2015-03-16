@@ -1,0 +1,55 @@
+Version 5.7
+---------------
+Changed injectdll2.dll to inject.dll
+Changed injected dll to now stay injected and communicate via named pipes
+
+
+Version 5.6
+---------------
+Added more EQMac codes. You can now switch between EQMac and Titanium
+Added auto detect build by build date (new file builds.ini)
+Fixed MP showing 4byte data instead of byte
+Fixed buffs/debuffs table for EQMac
+Fixed possible crash in backgroundWorker missing label invoke
+Fixed spawn list level, class and type mix up
+Moved injectdll2.dll to specific build folders
+Changed buffs/debuffs timers to show MIN:SEC format
+Changed follow hot button to CTRL+T
+Changed C++ Redistributable(x86) link
+Changed when codes.ini files are changed they are autoloaded
+
+
+Version 5.5
+---------------
+Added EQTitanium codes
+Added codes.ini dependant on eqgame build version
+Added teleto autobot command
+Added relog autobot command
+Added walkto autobot command
+Fixed autobot running on windowsXP
+Changed searching for spawn names now removes underscore
+Changed autobot commands are no longer case sensative
+Changed autobot ignores syntax errors and comment code "//"
+Changed autobot from console program to WinForm
+
+
+Version 5.4
+----------------
+Replaced Ultravision button with script
+Fixed several minor bugs
+
+
+Version 5.3
+----------------
+Changed spawnlist textbox hit enter to search
+Changed spawnlist no longer case sensative
+Changed follow target to include heading and distance
+Changed timers to background workers to fix window lag
+Added multiple eqgame process selection
+Added character name to easily find eqgame windows
+Added autobot automation program
+Added more hacking scripts
+Added target information heading, x, y, z and health
+Added labels to teleport coordinates
+Removed memory dependant library files
+Fixed several bugs

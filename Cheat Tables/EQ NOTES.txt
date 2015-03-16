@@ -1,0 +1,20 @@
+instant gate is 0 until you die it becomes 2. 
+stays 2 when you first die for about 5-10 seconds
+
+safe x y z coordinates are given at http://eqpathfinders.guildportal.com/Guild.aspx?GuildID=9508&TabID=77837&ForumID=614583&TopicID=6833250
+
+mouse x y is 0 0 when in upper left corner. Gets bigger going right and down
+
+runspeed is always 0.6999999881
+
+
+TO FIND WARP
+-------------
+Program: ollydbg
+1) open eqgame.exe 
+2) right click > View > Module "eqgame.exe"
+3) right click > search for > all referenced text strings
+4) right click in new "text strings referenced in eqgame:.text" window > search for text
+5) type in "finished MoveLocalPlayerToSafeCoords.\n"
+6) after finding the line, double click on it, scroll up 1 line
+7) where it says CALL eqgame.00###### that is your function address

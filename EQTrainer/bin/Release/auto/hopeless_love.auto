@@ -1,0 +1,34 @@
+checkzone freportw
+teleport -236 77 -25 501
+target Plagus_Ladeson000
+say milea is in east karana
+checkcursor yes
+teleport -20 800 -24.25 0
+pause 20000
+teleport -105 5055 -75.86 112.5
+pause 20000
+teleport 885.73 4228.48 -47.72 240.32
+pause 20000
+teleport 563.81 4889.96 694.28 10.43
+pause 20000
+teleport 847 110 4.38 490
+pause 20000
+teleport -1803.18 -6073.63 6.81 0.54
+pause 1000
+mouse 641 290 left
+checkgive open
+checkcursor no
+mouse 299 449 left
+checkgive closed
+//heading back
+teleport -3100 -8338 694.28 239.13
+pause 20000
+teleport -987 91 4.38 241.38
+pause 20000
+teleport 1484 -1088 -47.72 459.16
+pause 20000
+teleport 550 -1659 -38.24 381.57
+pause 20000
+teleport -102 -1602 -50.09 373.56
+pause 20000
+teleport -238.71 76.93 -23.62 511.45
