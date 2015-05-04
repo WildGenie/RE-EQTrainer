@@ -1,3 +1,9 @@
+Version 5.71
+---------------
+Repositioned Ad
+Changed UI to fit smaller monitors
+
+
 Version 5.7
 ---------------
 Changed injectdll2.dll to inject.dll

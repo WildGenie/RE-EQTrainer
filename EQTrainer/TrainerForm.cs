@@ -1383,7 +1383,7 @@ namespace EQTrainer
 
         void WebDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            webBrowser1.Document.Window.ScrollTo(500, 9999);
+            webBrowser1.Document.Window.ScrollTo(0, 9999);
         }
     }
 }
