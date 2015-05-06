@@ -1121,8 +1121,8 @@
             this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolStripStatusLabel2.IsLink = true;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(140, 17);
-            this.toolStripStatusLabel2.Text = "www.newagesoldier.com";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 17);
+            this.toolStripStatusLabel2.Text = "newagesoldier.com";
             this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // toolStripStatusLabel3
@@ -1141,9 +1141,9 @@
             this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.Green;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(141, 20);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(151, 20);
             this.toolStripDropDownButton1.Tag = "Teleport Dependencies";
-            this.toolStripDropDownButton1.Text = "Teleport Dependencies";
+            this.toolStripDropDownButton1.Text = "Download Dependencies";
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // x64CDependenciesToolStripMenuItem
