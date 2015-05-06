@@ -11,7 +11,6 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Threading;
 using Memory;
-using AutoItX3Lib;
 
 namespace EQTrainer
 {
@@ -77,7 +76,6 @@ namespace EQTrainer
         public static int proccID;
         public static IntPtr pHandle;
         Mem MemLib = new Mem();
-        AutoItX3Lib.AutoItX3 aix3c = new AutoItX3Lib.AutoItX3();
 
         private static Boolean Follow = false;
         protected ProcessModule myProcessModule;
@@ -114,52 +112,72 @@ namespace EQTrainer
 
         private void TrainerForm_Load(object sender, EventArgs e)
         {
-            webBrowser1.DocumentCompleted += new WebBrowserDocumentCompletedEventHandler(WebDocumentCompleted);
-            ToolTip tt = new ToolTip();
-            tt.SetToolTip(this.pictureBox1, "Bank Money");
-            tt.SetToolTip(this.teleportBtn1, "CTRL+1");
-            tt.SetToolTip(this.teleportBtn2, "CTRL+2");
-            tt.SetToolTip(this.teleportBtn3, "CTRL+3");
-            tt.SetToolTip(this.teleportBtn4, "CTRL+4");
-            tt.SetToolTip(this.followBtn, "CTRL+T");
-            tt.SetToolTip(this.gateBtn, "CTRL+G");
-            tt.SetToolTip(this.x_label, "forward and backwards");
-            tt.SetToolTip(this.y_label, "left and right");
-            tt.SetToolTip(this.z_label, "up and down");
-            tt.SetToolTip(this.map_label, "CTRL+M");
-            tt.SetToolTip(this.button5, "Set current X Y Z (set 1)");
-            tt.SetToolTip(this.button6, "Set current X Y Z (set 2)");
-            tt.SetToolTip(this.button7, "Set current X Y Z (set 3)");
-            tt.SetToolTip(this.button8, "Set current X Y Z (set 4)");
-            tt.SetToolTip(this.button9, "Erase X Y Z (set 1)");
-            tt.SetToolTip(this.button10, "Erase X Y Z (set 2)");
-            tt.SetToolTip(this.button11, "Erase X Y Z (set 3)");
-            tt.SetToolTip(this.button12, "Erase X Y Z (set 4)");
-            tt.SetToolTip(this.button13, "Save X Y Z to file (set 1)");
-            tt.SetToolTip(this.button14, "Save X Y Z to file (set 2)");
-            tt.SetToolTip(this.button15, "Save X Y Z to file (set 3)");
-            tt.SetToolTip(this.button16, "Save X Y Z to file (set 4)");
-            tt.SetToolTip(this.button17, "Load X Y Z from file (set 1)");
-            tt.SetToolTip(this.button18, "Load X Y Z from file (set 2)");
-            tt.SetToolTip(this.button19, "Load X Y Z from file (set 3)");
-            tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
+            try
+            {
+                ToolTip tt = new ToolTip();
+                tt.SetToolTip(this.pictureBox1, "Bank Money");
+                tt.SetToolTip(this.teleportBtn1, "CTRL+1");
+                tt.SetToolTip(this.teleportBtn2, "CTRL+2");
+                tt.SetToolTip(this.teleportBtn3, "CTRL+3");
+                tt.SetToolTip(this.teleportBtn4, "CTRL+4");
+                tt.SetToolTip(this.followBtn, "CTRL+T");
+                tt.SetToolTip(this.gateBtn, "CTRL+G");
+                tt.SetToolTip(this.x_label, "forward and backwards");
+                tt.SetToolTip(this.y_label, "left and right");
+                tt.SetToolTip(this.z_label, "up and down");
+                tt.SetToolTip(this.map_label, "CTRL+M");
+                tt.SetToolTip(this.button5, "Set current X Y Z (set 1)");
+                tt.SetToolTip(this.button6, "Set current X Y Z (set 2)");
+                tt.SetToolTip(this.button7, "Set current X Y Z (set 3)");
+                tt.SetToolTip(this.button8, "Set current X Y Z (set 4)");
+                tt.SetToolTip(this.button9, "Erase X Y Z (set 1)");
+                tt.SetToolTip(this.button10, "Erase X Y Z (set 2)");
+                tt.SetToolTip(this.button11, "Erase X Y Z (set 3)");
+                tt.SetToolTip(this.button12, "Erase X Y Z (set 4)");
+                tt.SetToolTip(this.button13, "Save X Y Z to file (set 1)");
+                tt.SetToolTip(this.button14, "Save X Y Z to file (set 2)");
+                tt.SetToolTip(this.button15, "Save X Y Z to file (set 3)");
+                tt.SetToolTip(this.button16, "Save X Y Z to file (set 4)");
+                tt.SetToolTip(this.button17, "Load X Y Z from file (set 1)");
+                tt.SetToolTip(this.button18, "Load X Y Z from file (set 2)");
+                tt.SetToolTip(this.button19, "Load X Y Z from file (set 3)");
+                tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Cant set tool tips!");
+            }
 
-            sd1.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
-            sd2.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
-            sd3.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
-            sd4.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
-            RegisterHotKey(this.Handle, 1, 2, (int)'1');
-            RegisterHotKey(this.Handle, 2, 2, (int)'2');
-            RegisterHotKey(this.Handle, 3, 2, (int)'3');
-            RegisterHotKey(this.Handle, 4, 2, (int)'4');
-            RegisterHotKey(this.Handle, 5, 2, (int)'M'); //must be uppercase?
-            RegisterHotKey(this.Handle, 6, 2, (int)'G');
-            RegisterHotKey(this.Handle, 7, 2, (int)'T');
+            try
+            {
+                sd1.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
+                sd2.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
+                sd3.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
+                sd4.InitialDirectory = Path.Combine(Application.StartupPath, @"saves");
+                RegisterHotKey(this.Handle, 1, 2, (int)'1');
+                RegisterHotKey(this.Handle, 2, 2, (int)'2');
+                RegisterHotKey(this.Handle, 3, 2, (int)'3');
+                RegisterHotKey(this.Handle, 4, 2, (int)'4');
+                RegisterHotKey(this.Handle, 5, 2, (int)'M'); //must be uppercase?
+                RegisterHotKey(this.Handle, 6, 2, (int)'G');
+                RegisterHotKey(this.Handle, 7, 2, (int)'T');
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Cant set hot keys!");
+            }
 
-            List<string> list1 = new List<string>(){" "};
-            List<string> dirs = new List<string>(Directory.GetDirectories(Application.StartupPath + @"\builds").Select(d => new DirectoryInfo(d).Name));
-            list1.AddRange(dirs);
-            comboBox1.DataSource = list1;
+            try
+            {
+                List<string> list1 = new List<string>() { " " };
+                List<string> dirs = new List<string>(Directory.GetDirectories(Application.StartupPath + @"\builds").Select(d => new DirectoryInfo(d).Name));
+                list1.AddRange(dirs);
+                comboBox1.DataSource = list1;
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Cant find builds ini data or processes!");
+            }
         }
 
         private string charClass(int t_class)
@@ -1381,9 +1399,5 @@ namespace EQTrainer
             MemLib.OpenProcess(eqgameID);
         }
 
-        void WebDocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-            webBrowser1.Document.Window.ScrollTo(0, 9999);
-        }
     }
 }

@@ -193,11 +193,8 @@
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.xp_stats = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // y_tele
@@ -727,7 +724,7 @@
             this.listView1.Location = new System.Drawing.Point(7, 244);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(225, 381);
+            this.listView1.Size = new System.Drawing.Size(225, 301);
             this.listView1.TabIndex = 500;
             this.listView1.TabStop = false;
             this.listView1.UseCompatibleStateImageBehavior = false;
@@ -1105,9 +1102,9 @@
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
             this.toolStripDropDownButton1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 628);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1323, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1069, 22);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.Stretch = false;
             this.statusStrip1.TabIndex = 538;
@@ -1132,7 +1129,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(73, 17);
-            this.toolStripStatusLabel3.Text = "Version: 5.71";
+            this.toolStripStatusLabel3.Text = "Version: 5.72";
             // 
             // toolStripDropDownButton1
             // 
@@ -1366,7 +1363,7 @@
             // 
             // buttonTargetSpawn
             // 
-            this.buttonTargetSpawn.Location = new System.Drawing.Point(931, 601);
+            this.buttonTargetSpawn.Location = new System.Drawing.Point(931, 522);
             this.buttonTargetSpawn.Name = "buttonTargetSpawn";
             this.buttonTargetSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonTargetSpawn.TabIndex = 566;
@@ -1402,7 +1399,7 @@
             this.listViewSpawnList.Location = new System.Drawing.Point(517, 274);
             this.listViewSpawnList.MultiSelect = false;
             this.listViewSpawnList.Name = "listViewSpawnList";
-            this.listViewSpawnList.Size = new System.Drawing.Size(542, 321);
+            this.listViewSpawnList.Size = new System.Drawing.Size(542, 242);
             this.listViewSpawnList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.listViewSpawnList.TabIndex = 564;
             this.listViewSpawnList.UseCompatibleStateImageBehavior = false;
@@ -1483,7 +1480,7 @@
             // 
             // buttonWarpToSpawn
             // 
-            this.buttonWarpToSpawn.Location = new System.Drawing.Point(796, 602);
+            this.buttonWarpToSpawn.Location = new System.Drawing.Point(796, 522);
             this.buttonWarpToSpawn.Name = "buttonWarpToSpawn";
             this.buttonWarpToSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonWarpToSpawn.TabIndex = 570;
@@ -1493,7 +1490,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(425, 547);
+            this.button26.Location = new System.Drawing.Point(427, 522);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(85, 23);
             this.button26.TabIndex = 571;
@@ -1506,11 +1503,11 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(361, 579);
+            this.checkBox1.Location = new System.Drawing.Point(348, 525);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(121, 17);
+            this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 573;
-            this.checkBox1.Text = "Loop AutoBot Script";
+            this.checkBox1.Text = "Loop Script";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // target_h
@@ -1560,7 +1557,7 @@
             this.listView2.Location = new System.Drawing.Point(347, 408);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(164, 133);
+            this.listView2.Size = new System.Drawing.Size(164, 82);
             this.listView2.TabIndex = 578;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
@@ -1582,7 +1579,7 @@
             // 
             // refreshProcessesBtn
             // 
-            this.refreshProcessesBtn.Location = new System.Drawing.Point(346, 547);
+            this.refreshProcessesBtn.Location = new System.Drawing.Point(346, 493);
             this.refreshProcessesBtn.Name = "refreshProcessesBtn";
             this.refreshProcessesBtn.Size = new System.Drawing.Size(75, 23);
             this.refreshProcessesBtn.TabIndex = 579;
@@ -1612,7 +1609,7 @@
             // 
             // buttonCameraOnSpawn
             // 
-            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(517, 601);
+            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(517, 522);
             this.buttonCameraOnSpawn.Name = "buttonCameraOnSpawn";
             this.buttonCameraOnSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonCameraOnSpawn.TabIndex = 583;
@@ -1622,7 +1619,7 @@
             // 
             // buttonResetCamera
             // 
-            this.buttonResetCamera.Location = new System.Drawing.Point(651, 601);
+            this.buttonResetCamera.Location = new System.Drawing.Point(651, 522);
             this.buttonResetCamera.Name = "buttonResetCamera";
             this.buttonResetCamera.Size = new System.Drawing.Size(128, 24);
             this.buttonResetCamera.TabIndex = 584;
@@ -1671,7 +1668,7 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(425, 602);
+            this.button1.Location = new System.Drawing.Point(427, 493);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 23);
             this.button1.TabIndex = 589;
@@ -1679,32 +1676,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.webBrowser1);
-            this.panel1.Location = new System.Drawing.Point(1066, 5);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 620);
-            this.panel1.TabIndex = 590;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.ScrollBarsEnabled = false;
-            this.webBrowser1.Size = new System.Drawing.Size(257, 620);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Url = new System.Uri("https://newagesoldier.com/bing-rewards-program-thanks/", System.UriKind.Absolute);
-            // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1323, 650);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1069, 572);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.xp_stats);
             this.Controls.Add(this.progressBar1);
@@ -1841,7 +1817,6 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2012,8 +1987,6 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label xp_stats;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
 
     }
 }
