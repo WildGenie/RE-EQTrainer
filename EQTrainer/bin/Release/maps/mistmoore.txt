@@ -1,0 +1,22 @@
+1 "Graveyard" where Imp Familiar spawns, who drops Sacrificial Dagger (Common) and Bloodstone Eyepatch (Rare), and Glyphed Ghoul, who drops Vial of Vampire Blood (Common) and Crested Mistmoore Shield (Rare)
+2 Tomb with Coffin, out back is Ssynthi, an outcast Shadowed Man, drops Robe of the Keeper, Secret Entrance leading one way to the Jail
+3 "The Pit"
+4 "The Canyon" where Enynti spawns, drops Rune of Fortune and Black Dire
+5 "Jail" where Deathly Usher spawns, who drops Black Silk Gloves, secret door has trap that strips off invisibility spells, Stairs is where Avenging Caitiff spawns who drops Crested Spaulders (Common) and Crested Helmet (Rare), also Cleric Quest Item spawns here
+6 "Courtyard" where Hemo Enologists spawn, drop Blood Spirits
+7 Fountain where Cloaked Dhampyre spawns, drops Blood of the Dhampyre (Common) and Hooded Black Cloak (Rare)
+8 Entry Hall
+9 "Piano"
+10 "Ballroom" where gypsies and Mynthi Davissi spawn, drops Lute of the Gypsy Princess (Common) and Mistmoore Battle Drums (Rare)
+11 "Ambassador Room" where Negotiator and Gypsy Ambassador spawn
+12 "The Corner"
+13 "The Tower" where Garton Viswin spawns, drops Glowing Iron Pike (Common) and Chestplate of the Dark Flame (Rare)
+14 Torture Chamber
+15 Mayong Mistmoore's Coffin Room
+16 Kitchen
+17 Servant Room where Maid Issis spawns, drops Nightshade Wreath (Common) and Maid Fang (Rare)
+18 Servant Room where Butler Syncall spawns, drops Cape of Midnight Mist (Common) and Butler Fang (Rare)
+19 Library, in room to south spawns Advisor who drops Advisor Robe
+20 Throne Room where Princess Cherista spawns
+21 "The Bath" where Lasna Cheroon spawns, who drops Diamondine Earring (Common) and Platinum Skullring (Rare), and Xicotl, who drops Hilt of Soulfire
+22 Bedroom

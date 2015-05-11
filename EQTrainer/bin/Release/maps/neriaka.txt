@@ -1,0 +1,17 @@
+1 Guard Hall
+2 The Smugglers Inn - Merchants selling Alcohol, Brewing Supplies, Food Items and other goods
+3 Silk Underground - Merchants Small and Large Cloth Armor and Sewing Kits
+4 Dranas Bread and Butcher - Merchants selling Food Items and Baking Supplies, Oven outside
+5 Slugs Tavern - Merchants selling Alcohol, Food and Other Goods, Brew Barrel outside
+6 Market View with Gambel's Greens with Merchant selling Potions and Crystals, also Merchant selling High Quality Ore, Small and Large Bricks
+7 Merchants who sell Shoes and Bags, as well as Kiln and Pottery Wheel, Soulbinder
+8 Merchant outside who sells Various Weapons
+9 Two Ogres who sell all Blacksmithing books, Large Chainmail Patterns, Weapon Part Molds, File Molds and other Molds
+10 Bank, Armor Shop selling Large Chainmail Armor, Forge outside
+11 Pig Stickers - Merchants selling Various Weapons, Forge outside
+12 Building with secret entrance to Underground and Troll NPC
+13 Merchant selling Food and Alcohol
+14 Merchants selling Weapons, Shaman Spells, Shadowknight Spells, Beastlord Spells, Beastlord and Shaman Trainers
+15 PvP Area, Merchants who sell Food and other Goods, Various Weapons, and Alcohol
+16 Bites n Pieces - Merchants selling Food Items and other Goods, Oven outside
+17 Shinie Tings - Merchant selling Jewelry Metals and Rare Gems

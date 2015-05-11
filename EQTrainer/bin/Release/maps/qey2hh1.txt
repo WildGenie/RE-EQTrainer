@@ -1,0 +1,28 @@
+1 Shops selling Cloth Armor, Cooking Supplies, Clay and Firing Sheets
+2 Shops selling Throwing Daggers and Tailoring Patterns
+3 Bandit Camp
+4 Guard Tower ("Tower 1")
+5 Guard Tower ("Tower 2")
+6 Farm taken over by Bandits and a Brigand
+7 Cleet Miller Farm
+8 Empty farm
+9 Guard Tower
+10 Fields with Scarecrows
+11 Henina Miller Farm with Furball, also sells items
+12 Empty farm
+13 Barbarian Village, selling Fletching Kit, Arrows, Bows, and Nocks, Large Blacksmithing Molds and Books, Shaman Summon Spells
+14 Tiny Miller's House
+15 Farm with ex-Druid, Linaya Sowlin
+16 Mountains filled with Bandits
+17 Caninel with Gnoll Allies
+18 Ogre Shrine guarded by Ogres
+19 Froon and Choon on a hill
+20 Barbarian shop selling Bows
+21 Shops selling Blacksmithing Books and Molds, also Food
+22 Farms
+23 Farms
+24 Bandit Camp
+25 Farms with Poison Merchant
+26 Pyramid
+27 Undead Ruins
+There is a Bandit camp located at +800, -11570 where Thracken Grifton appears.

@@ -1,0 +1,5 @@
+1 Gate Room to Guild Halls
+2 Wizard Guild
+3 Magician Guild
+4 Enchanter Guild
+5 Merchants selling Cloth Armor and Sewing Kits, Jewelry Supplies (Common Gems), Common Spells, Potions and Crystals, Loom inside

@@ -1,0 +1,4 @@
+1 "The Barracks"
+2 Secret Safe Room
+3 "The Dining Room" with Undead Crusader who drops Skull with an X (Common for non-Lore version, Rare for Lore version) and an Odd Mole
+4 Entry Hall

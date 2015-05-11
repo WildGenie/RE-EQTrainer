@@ -1,0 +1,9 @@
+1 The Caves filled with Bears and Mammoth
+2 Ranger Trainer
+3 Archery Range with Ranger Trainer and Merchant who sells Arrow-making Supplies
+4 Ranger Hall with Ranger Guildmaster and Bard
+5 Shop with Ranger Trainer and Merchants who sell Bow-making Supplies, Bows, Throwing Weapons, Spells, Sharp Weapons, Food and Other Goods
+6 Merchant selling Basic Smithing Molds
+7 Jaggedpine Treefolk with Druid Trainer and Merchants who sell Arrow-making Supplies, Druid Weapons, Spells, Food and Other Goods
+8 Druid Guildmaster and Surefall Druid Teleport destination
+9 Teleporter to Jaggedpine Forest

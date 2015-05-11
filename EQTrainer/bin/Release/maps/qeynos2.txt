@@ -1,0 +1,12 @@
+1 Order of the Silent Fist - Monk Guild, Merchant who sells Monk Weapons, Bags, and Bandages
+2 Kliknik Tunnel - leads to Qeynos Underground
+3 Reflecting Pond - tunnel leads to Qeynos Underground
+4 Crow's Pub & Casino - Merchant selling Alcohol, Brew Barrel, secret tunnel to Rogues' Guild
+5 Galliway's Trading Post - Merchants selling Food and other Goods, Priest of Discord outside
+6 Ironforge's - Merchants selling Sharp Weapons, Medicine Bags, and Weapon Molds, Forge out back
+7 Jewelbox - Merchants selling Jewelry supplies (Metals and Gems)
+8 Ironforges' Estate
+9 Merchants selling Medium Cloth Armor and Medium Chainmail Molds
+10 The Cobbler - Merchant selling Boots of all types
+11 Merchants selling Blunt Weapons and Cleric/Paladin spells
+12 Teleport leading to Temple of Life, Cleric and Paladin Trainers throughout area

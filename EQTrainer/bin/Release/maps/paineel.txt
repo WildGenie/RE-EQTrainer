@@ -1,0 +1,22 @@
+1 Darkglow Palace
+2 Athenaeum Necromantia - Library
+3 Fortunes' Fancy - Merchant selling Jewelry Metals and Rare Gems
+4 Tabernacle of Terror - Cleric Guild
+5 Merchants selling Chain Mail Armor and Blunt Weapons
+6 Merchants selling Shields and Blunt Weapons
+7 False Idols - Merchant with Pottery Supplies, Clay, and Ore, Kiln inside
+8 The Final Reckoning - Bank
+9 Shackled Spirits - Dancing Skeletons, Merchant selling Alcohol, Brew Barrel inside, Inn upstairs
+10 Superior Supplies (Poison Petal on top floor) - Merchants selling Food and other Goods and Alchemy Supplies, Key to the Hole
+11 Sinfully Handsome - Merchants selling Cloth and Leather Armor, Loom
+12 Good Iva's Tasty Treats - Merchants selling Food and Cooking Supplies, Oven inside
+13 The Abbatoir - Necromancer Guild
+14 The Fell Blade - Shadow Knight Guild, Merchants selling Leather Armor and Two-Handed Slashing Weapons
+15 Merchant selling Plate Armor, Forge and Erud Forge inside
+16 PvP area
+17 Observatory
+Teleporters are located at A, B, and C and teleport to the spot with the matching letter.
+Soulbinder is located in entrance hallway with multiple stairs just inside locked elevator.
+
+Newbie zone has roaming low-level monsters to hunt.
+Note: The door to the hole requires that you lockpick it open at present.

@@ -1,25 +1,14 @@
-Neriak Third Gate
+Neriak Commons
 
-1. Temple of Innoruuk - Cleric Guild Hall, Merchants selling Blunt Weapons, Fulligrans Soulstone
-
-2. Necromancer and Shadow Knight Guild Hall - Merchants selling appropriate equipment for these classes
-
-3. Library - Merchants selling Various Spells, including Wizard Portal spells, Enchanter Vision and Enchant metal spells, and Magician Summon spells
-
-4. Furrier Royale - Merchant selling Small Leather Armor, Patterns and Kit
-
-5. Rogue Guild Hall with Merchants selling Rogue Weapons
-
-6. The Maidens Fancy - Merchants selling Alcohol, Brew Barrel inside, also has Dark Elf Ambassador and Ironforge Prisoner
-
-7. The Bauble - Merchant selling Gems for Jewelcraft
-
-8. Cuisine Excelsior - Merchants selling Alcohol, Oven outside
-
-9. The Rack - Merchant selling Wine
-
-10. Merchant outside selling Small Plate and Shield Molds
-
-11. X'Lottl Private Mansion
-
-12. J'Narus Private Mansion with Merchant selling Adamantite and Chain Patterns
+1 Priest of Discord
+2 Entrance to the Neriak Underground - found within is the Neriak Bank, The Burnished Coin, The Refined Palate, The Bounty of the Earth, and the Blind Fish, these places sell between them Sharpening Stones, Clay, Ore, Smithy Hammers, Weapons Blade Molds, Alcohol, Food Items and other Books, Baking Supplies, Potions and Crystals, also has Brew Barrel and Oven
+3 Smithy - Merchants selling Small Chain Armor and Various Weapons
+4 Adamant Armor - Merchant who sells Small Plate Armor, Forge outside
+5 Forge House
+6 Wizard, Magician, and Enchanter Guild Hall - Merchants selling all items for those classes
+7 Toadstools - Merchants selling Alcohol and Small Armor Molds, Fishing Supplies outside
+8 The Bleek Fletcher - Merchant selling Fletching supplies (arrows)
+9 The House of D'abth - Merchant selling Food Items and other Goods
+10 The Dashing Form - Merchant selling Small Cloth Armor and Sewing Kits
+11 Warriors Guild Hall with merchants who sell Weapons and Alcohol
+Note the above map is missing a secret area that lies behind the waterfall north of 1, and a Wizard Rod spawns as well

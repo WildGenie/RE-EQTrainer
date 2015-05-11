@@ -25,12 +25,9 @@ CTRL+M = Open Map Window
 
 TROUBLESHOOTING
 =======
-Disable Anti-Virus programs
-Disable UAC (User Acccount Control) NOTE: Only if you have Windows Vista, 7, 8 or 8.1
+Try disabling Anti-Virus programs, UAC (User Acccount Control) and firewall.
 
 
 SUPPORT
 =======
 Post on the website http://newagesoldier.com
-- or -
-IRC chat support at irc.newagesoldier.com #main

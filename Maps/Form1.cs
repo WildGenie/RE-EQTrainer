@@ -37,6 +37,8 @@ namespace WindowsFormsApplication1
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
             MemLib.OpenProcess(args[1]);
+            string old_map_name = "";
+
             while (true)
             {
                 try {
@@ -44,69 +46,88 @@ namespace WindowsFormsApplication1
                     string map_name = MemLib.readUIntPtrStr("mapShortName", codeFile);
                     map_name = MemLib.RemoveSpecialCharacters(map_name);
 
-                    string locfile = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar + map_name + ".loc";
-                    FileInfo fi = new FileInfo(locfile);
-                    display2.Location = new Point(0, 0);
+                    if (map_name == "" || string.IsNullOrEmpty(map_name))
+                        continue;
 
                     float y_address = MemLib.readFloat("playerY", codeFile);
                     float x_address = MemLib.readFloat("playerX", codeFile);
                     float z_address = MemLib.readFloat("playerZ", codeFile);
 
+                    string filesPath = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar;
+                    string locfile = filesPath + map_name + ".loc";
+                    string imgfile = filesPath + map_name + ".jpg";
+                    string txtfile = filesPath + map_name + ".txt";
                     //MessageBox.Show("Y:" + y_address.ToString() + " X:" + x_address.ToString() + " Z:" + z_address.ToString() + " map: " + map_name);// DEBUG
 
-                    string path = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar + map_name + ".jpg";
-                
-                    Bitmap bmp = new Bitmap(path);
-                    Graphics g = Graphics.FromImage(bmp);
-                    float scale_x = bmp.Width;
-                    float scale_y = bmp.Height;
-                    g.RotateTransform(180.0F);
-                    int x = 0;
-                    int y = 0;
-                    int actualx = bmp.Width + 346;
-                    int actualy = bmp.Height + 38;
-                    if (fi.Exists)
+                    if (File.Exists(txtfile))
                     {
-                        int[] s = new int[4];
-                        using (StreamReader sr = fi.OpenText())
-                        {
-                            int i;
-                            for (i = 0; i < 4; i++)
-                            {
-                                s[i] = Convert.ToInt32(sr.ReadLine());
-                            }
-                        }
-
-                        scale_x = s[2] / bmp.Width;
-                        scale_y = s[3] / bmp.Height;
-                        x = s[0]; //offsets
-                        y = s[1];
+                        string text = File.ReadAllText(txtfile);
+                        textBox1.Text = text;
                     }
-                    g.DrawString("X", new Font("Calibri", 12), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
-                    
-                    string old_map_name = "";
-                    if (map_name != old_map_name) //cant keep pulling images this fast. Causes a crash.
-                    {
-                        display2.Image = bmp;
-                        this.Width = actualx;
-                        this.Height = actualy;
-                        display2.Width = bmp.Width;
-                        display2.Height = bmp.Height;
-                        this.Controls.Add(display2);
+                    else
+                        textBox1.Text = "No data file for this map.";
 
-                        textBox1.Location = new Point(bmp.Width, 0);
-                        textBox1.Height = bmp.Height;
-                        string txt = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar + map_name + ".txt";
-                        fi = new FileInfo(txt);
-                        if (fi.Exists)
+                    if (File.Exists(imgfile))
+                    {
+                        Bitmap bmp = new Bitmap(imgfile);
+                        Graphics g = Graphics.FromImage(bmp);
+                        float scale_x = bmp.Width;
+                        float scale_y = bmp.Height;
+                        g.RotateTransform(180.0F);
+                        int x = 0;
+                        int y = 0;
+                        int actualx = bmp.Width + 346;
+                        int actualy = bmp.Height + 38;
+
+                        if (File.Exists(locfile))
                         {
-                            string text = File.ReadAllText(txt);
-                            textBox1.Text = text;
+                            FileInfo fi = new FileInfo(locfile);
+                            display2.Location = new Point(0, 0);
+                            if (fi.Exists)
+                            {
+                                int[] s = new int[4];
+                                using (StreamReader sr = fi.OpenText())
+                                {
+                                    int i;
+                                    for (i = 0; i < 4; i++)
+                                    {
+                                        s[i] = Convert.ToInt32(sr.ReadLine());
+                                    }
+                                }
+
+                                scale_x = s[2] / bmp.Width;
+                                scale_y = s[3] / bmp.Height;
+                                x = s[0]; //offsets
+                                y = s[1];
+                            }
+
+                            g.DrawString("X", new Font("Calibri", 12), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
                         }
+
+                        if (map_name != old_map_name) //cant keep pulling images this fast. Causes a crash.
+                        {
+                            display2.Image = bmp;
+                            this.Width = actualx;
+                            this.Height = actualy;
+                            display2.Width = bmp.Width;
+                            display2.Height = bmp.Height;
+                            this.Controls.Add(display2);
+
+                            textBox1.Location = new Point(bmp.Width, 0);
+                            textBox1.Height = bmp.Height;
+                        }
+                        else
+                            old_map_name = map_name;
                     }
                     else
                     {
-                        old_map_name = map_name;
+                        Bitmap bmp = new Bitmap(filesPath + "NA.jpg");
+                        Graphics g = Graphics.FromImage(bmp);
+                        float scale_x = bmp.Width;
+                        float scale_y = bmp.Height;
+                        g.RotateTransform(180.0F);
+                        int actualx = bmp.Width + 346;
+                        int actualy = bmp.Height + 38;
                     }
 
                     Thread.Sleep(200);
