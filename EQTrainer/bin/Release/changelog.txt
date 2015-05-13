@@ -1,3 +1,15 @@
+Version 5.7.3
+---------------
+Fixed map system
+Removed "areas of interest" and "fast travel" folders and put zone folders in telescripts folder
+Changed telescripts file names and folders to be more clean and correct
+Changed autobot open default location to the auto folder (if it exists)
+Changed some tooltips
+Changed window and process names
+Changed teleport open/save default locations to current zone folder (if it exists)
+Changed version numbering system
+
+
 Version 5.72
 ---------------
 Fixed AutoIt running when EQTrainer launches

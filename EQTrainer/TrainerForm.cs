@@ -116,16 +116,16 @@ namespace EQTrainer
             {
                 ToolTip tt = new ToolTip();
                 tt.SetToolTip(this.pictureBox1, "Bank Money");
-                tt.SetToolTip(this.teleportBtn1, "CTRL+1");
-                tt.SetToolTip(this.teleportBtn2, "CTRL+2");
-                tt.SetToolTip(this.teleportBtn3, "CTRL+3");
-                tt.SetToolTip(this.teleportBtn4, "CTRL+4");
-                tt.SetToolTip(this.followBtn, "CTRL+T");
-                tt.SetToolTip(this.gateBtn, "CTRL+G");
+                tt.SetToolTip(this.teleportBtn1, "Teleport to Coordinates 1 (CTRL+1)");
+                tt.SetToolTip(this.teleportBtn2, "Teleport to Coordinates 2 (CTRL+2)");
+                tt.SetToolTip(this.teleportBtn3, "Teleport to Coordinates 3 (CTRL+3)");
+                tt.SetToolTip(this.teleportBtn4, "Teleport to Coordinates 4 (CTRL+4)");
+                tt.SetToolTip(this.followBtn, "Warp Follow Target (CTRL+T)");
+                tt.SetToolTip(this.gateBtn, "Instant Gate (CTRL+G)");
                 tt.SetToolTip(this.x_label, "forward and backwards");
                 tt.SetToolTip(this.y_label, "left and right");
                 tt.SetToolTip(this.z_label, "up and down");
-                tt.SetToolTip(this.map_label, "CTRL+M");
+                tt.SetToolTip(this.map_label, "Open Map System (CTRL+M)");
                 tt.SetToolTip(this.button5, "Set current X Y Z (set 1)");
                 tt.SetToolTip(this.button6, "Set current X Y Z (set 2)");
                 tt.SetToolTip(this.button7, "Set current X Y Z (set 3)");
@@ -142,6 +142,8 @@ namespace EQTrainer
                 tt.SetToolTip(this.button18, "Load X Y Z from file (set 2)");
                 tt.SetToolTip(this.button19, "Load X Y Z from file (set 3)");
                 tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
+                if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "auto"))
+                    autoLoad.InitialDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "auto";
             }
             catch
             {
@@ -158,7 +160,7 @@ namespace EQTrainer
                 RegisterHotKey(this.Handle, 2, 2, (int)'2');
                 RegisterHotKey(this.Handle, 3, 2, (int)'3');
                 RegisterHotKey(this.Handle, 4, 2, (int)'4');
-                RegisterHotKey(this.Handle, 5, 2, (int)'M'); //must be uppercase?
+                RegisterHotKey(this.Handle, 5, 2, (int)'M'); //must be uppercase
                 RegisterHotKey(this.Handle, 6, 2, (int)'G');
                 RegisterHotKey(this.Handle, 7, 2, (int)'T');
             }
@@ -901,7 +903,7 @@ namespace EQTrainer
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
                     sb.Append(c);
             }
             return sb.ToString();
@@ -934,7 +936,33 @@ namespace EQTrainer
                 string map_address = MemLib.readUIntPtrStr("mapLongName", codeFile);
                 string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
                 if (map_label.InvokeRequired)
-                    map_label.Invoke(new MethodInvoker(delegate { map_label.Text = mapShortName; }));
+                    map_label.Invoke(new MethodInvoker(delegate { /*map_label.Text = mapShortName;*/ map_label.Text = map_address; }));
+
+                string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
+                string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
+
+                if (Directory.Exists(currentZone))
+                {
+                    od1.InitialDirectory = currentZone;
+                    od2.InitialDirectory = currentZone;
+                    od3.InitialDirectory = currentZone;
+                    od4.InitialDirectory = currentZone;
+                    sd1.InitialDirectory = currentZone;
+                    sd2.InitialDirectory = currentZone;
+                    sd3.InitialDirectory = currentZone;
+                    sd4.InitialDirectory = currentZone;
+                }
+                else
+                {
+                    od1.InitialDirectory = scriptDirectory;
+                    od2.InitialDirectory = scriptDirectory;
+                    od3.InitialDirectory = scriptDirectory;
+                    od4.InitialDirectory = scriptDirectory;
+                    sd1.InitialDirectory = scriptDirectory;
+                    sd2.InitialDirectory = scriptDirectory;
+                    sd3.InitialDirectory = scriptDirectory;
+                    sd4.InitialDirectory = scriptDirectory;
+                }
 
                 int bank_plat_int = MemLib.readInt("bankPlat", codeFile);
                 int bank_gold_int = MemLib.readInt("bankGold", codeFile);
@@ -947,7 +975,6 @@ namespace EQTrainer
                     x_label.Invoke(new MethodInvoker(delegate {x_label.Text = x_address.ToString(); }));
                 if (z_label.InvokeRequired)
                     z_label.Invoke(new MethodInvoker(delegate { z_label.Text = z_address.ToString(); }));
-                //map_label.Text = mem.ReadString(map_address);
 
                 if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {bank_plat.Text = bank_plat_int.ToString(); }));

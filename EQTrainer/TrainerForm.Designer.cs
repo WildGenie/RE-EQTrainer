@@ -1128,8 +1128,8 @@
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(73, 17);
-            this.toolStripStatusLabel3.Text = "Version: 5.72";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 17);
+            this.toolStripStatusLabel3.Text = "Version: 5.7.3";
             // 
             // toolStripDropDownButton1
             // 
@@ -1812,7 +1812,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TrainerForm";
-            this.Text = "EQTrainer";
+            this.Text = "EQTrainer - Hacking Utility";
             this.Load += new System.EventHandler(this.TrainerForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

@@ -34,6 +34,17 @@ namespace WindowsFormsApplication1
             backgroundWorker2.RunWorkerAsync();
         }
 
+        public string RemoveSpecialCharactersTwo(string str)
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in str)
+            {
+                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
+                    sb.Append(c);
+            }
+            return sb.ToString();
+        }
+
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
             MemLib.OpenProcess(args[1]);
@@ -44,7 +55,9 @@ namespace WindowsFormsApplication1
                 try {
                     string codeFile = Application.StartupPath + Path.DirectorySeparatorChar + @"builds" + Path.DirectorySeparatorChar + args[2] + @"\codes.ini";
                     string map_name = MemLib.readUIntPtrStr("mapShortName", codeFile);
+                    string map_longname = MemLib.readUIntPtrStr("mapLongName", codeFile);
                     map_name = MemLib.RemoveSpecialCharacters(map_name);
+                    map_longname = RemoveSpecialCharactersTwo(map_longname);
 
                     if (map_name == "" || string.IsNullOrEmpty(map_name))
                         continue;
@@ -59,6 +72,13 @@ namespace WindowsFormsApplication1
                     string txtfile = filesPath + map_name + ".txt";
                     //MessageBox.Show("Y:" + y_address.ToString() + " X:" + x_address.ToString() + " Z:" + z_address.ToString() + " map: " + map_name);// DEBUG
 
+                    int x = 0;
+                    int y = 0;
+                    float scale_x = 0;
+                    float scale_y = 0;
+                    Bitmap bmp = new Bitmap(filesPath + "NA.jpg");
+                    Graphics g = Graphics.FromImage(bmp);
+
                     if (File.Exists(txtfile))
                     {
                         string text = File.ReadAllText(txtfile);
@@ -69,15 +89,30 @@ namespace WindowsFormsApplication1
 
                     if (File.Exists(imgfile))
                     {
-                        Bitmap bmp = new Bitmap(imgfile);
-                        Graphics g = Graphics.FromImage(bmp);
-                        float scale_x = bmp.Width;
-                        float scale_y = bmp.Height;
-                        g.RotateTransform(180.0F);
-                        int x = 0;
-                        int y = 0;
-                        int actualx = bmp.Width + 346;
-                        int actualy = bmp.Height + 38;
+                        if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
+                        {
+                            bmp = new Bitmap(imgfile);
+                            scale_x = bmp.Width;
+                            scale_y = bmp.Height;
+                            g.RotateTransform(180.0F);
+                            int actualx = bmp.Width + 346;
+                            int actualy = bmp.Height + 38;
+
+                            display2.Image = bmp;
+                            this.Width = actualx;
+                            this.Height = actualy;
+                            display2.Width = bmp.Width;
+                            display2.Height = bmp.Height;
+                            this.Controls.Add(display2);
+
+                            this.Text = map_longname + " (" + map_name + ") - EQTrainer Map System";
+
+                            display2.Location = new Point(0, 0);
+                            textBox1.Location = new Point(bmp.Width, 0);
+                            textBox1.Height = bmp.Height;
+                            textBox1.Width = this.Width - bmp.Width;
+                            old_map_name = map_name;
+                        }
 
                         if (File.Exists(locfile))
                         {
@@ -101,30 +136,14 @@ namespace WindowsFormsApplication1
                                 y = s[1];
                             }
 
-                            g.DrawString("X", new Font("Calibri", 12), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
+                            g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
                         }
-
-                        if (map_name != old_map_name) //cant keep pulling images this fast. Causes a crash.
-                        {
-                            display2.Image = bmp;
-                            this.Width = actualx;
-                            this.Height = actualy;
-                            display2.Width = bmp.Width;
-                            display2.Height = bmp.Height;
-                            this.Controls.Add(display2);
-
-                            textBox1.Location = new Point(bmp.Width, 0);
-                            textBox1.Height = bmp.Height;
-                        }
-                        else
-                            old_map_name = map_name;
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(filesPath + "NA.jpg");
-                        Graphics g = Graphics.FromImage(bmp);
-                        float scale_x = bmp.Width;
-                        float scale_y = bmp.Height;
+                        bmp = new Bitmap(filesPath + "NA.jpg");
+                        scale_x = bmp.Width;
+                        scale_y = bmp.Height;
                         g.RotateTransform(180.0F);
                         int actualx = bmp.Width + 346;
                         int actualy = bmp.Height + 38;

@@ -31,3 +31,11 @@ Try disabling Anti-Virus programs, UAC (User Acccount Control) and firewall.
 SUPPORT
 =======
 Post on the website http://newagesoldier.com
+
+
+LOC FILE FORMAT
+=======
+x (width offset)
+y (height offset)
+scale x (width)
+scale y (height)
