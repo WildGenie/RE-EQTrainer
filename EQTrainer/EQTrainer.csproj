@@ -50,6 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="teleport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="teleport.Designer.cs">
+      <DependentUpon>teleport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="main.cs" />
+    <Compile Include="miniToolbar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="miniToolbar.Designer.cs">
+      <DependentUpon>miniToolbar.cs</DependentUpon>
+    </Compile>
     <Compile Include="TrainerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +71,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="teleport.resx">
+      <DependentUpon>teleport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="miniToolbar.resx">
+      <DependentUpon>miniToolbar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TrainerForm.resx">
       <DependentUpon>TrainerForm.cs</DependentUpon>
       <SubType>Designer</SubType>

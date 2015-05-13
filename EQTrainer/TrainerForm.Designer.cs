@@ -184,15 +184,17 @@
             this.ProcessID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.refreshProcessesBtn = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
             this.name_label = new System.Windows.Forms.Label();
             this.buttonCameraOnSpawn = new System.Windows.Forms.Button();
             this.buttonResetCamera = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.progressBarXP = new System.Windows.Forms.ProgressBar();
             this.xp_stats = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.progressBarHP = new System.Windows.Forms.ProgressBar();
+            this.progressBarMP = new System.Windows.Forms.ProgressBar();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -203,6 +205,7 @@
             this.y_tele.Name = "y_tele";
             this.y_tele.Size = new System.Drawing.Size(44, 20);
             this.y_tele.TabIndex = 2;
+            this.y_tele.TextChanged += new System.EventHandler(this.y_tele_TextChanged);
             // 
             // x_tele
             // 
@@ -210,6 +213,7 @@
             this.x_tele.Name = "x_tele";
             this.x_tele.Size = new System.Drawing.Size(44, 20);
             this.x_tele.TabIndex = 1;
+            this.x_tele.TextChanged += new System.EventHandler(this.x_tele_TextChanged);
             // 
             // label1
             // 
@@ -219,6 +223,7 @@
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Y";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -228,6 +233,7 @@
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "X";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // timer1
             // 
@@ -251,6 +257,7 @@
             this.z_tele.Name = "z_tele";
             this.z_tele.Size = new System.Drawing.Size(44, 20);
             this.z_tele.TabIndex = 3;
+            this.z_tele.TextChanged += new System.EventHandler(this.z_tele_TextChanged);
             // 
             // label3
             // 
@@ -260,6 +267,7 @@
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Z";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -269,6 +277,7 @@
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "MAP:";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // y_label
             // 
@@ -278,6 +287,7 @@
             this.y_label.Size = new System.Drawing.Size(53, 13);
             this.y_label.TabIndex = 10;
             this.y_label.Text = "(Y coord.)";
+            this.y_label.Click += new System.EventHandler(this.y_label_Click);
             // 
             // x_label
             // 
@@ -287,6 +297,7 @@
             this.x_label.Size = new System.Drawing.Size(53, 13);
             this.x_label.TabIndex = 11;
             this.x_label.Text = "(X coord.)";
+            this.x_label.Click += new System.EventHandler(this.x_label_Click);
             // 
             // z_label
             // 
@@ -296,6 +307,7 @@
             this.z_label.Size = new System.Drawing.Size(53, 13);
             this.z_label.TabIndex = 12;
             this.z_label.Text = "(Z coord.)";
+            this.z_label.Click += new System.EventHandler(this.z_label_Click);
             // 
             // map_label
             // 
@@ -318,6 +330,7 @@
             this.label7.Size = new System.Drawing.Size(14, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "X";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -327,6 +340,7 @@
             this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "Y";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -336,6 +350,7 @@
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Z";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // bank_plat
             // 
@@ -395,7 +410,7 @@
             // hp_stats
             // 
             this.hp_stats.AutoSize = true;
-            this.hp_stats.Location = new System.Drawing.Point(367, 23);
+            this.hp_stats.Location = new System.Drawing.Point(436, 23);
             this.hp_stats.Name = "hp_stats";
             this.hp_stats.Size = new System.Drawing.Size(25, 13);
             this.hp_stats.TabIndex = 39;
@@ -415,7 +430,7 @@
             // mp_stats
             // 
             this.mp_stats.AutoSize = true;
-            this.mp_stats.Location = new System.Drawing.Point(367, 42);
+            this.mp_stats.Location = new System.Drawing.Point(436, 42);
             this.mp_stats.Name = "mp_stats";
             this.mp_stats.Size = new System.Drawing.Size(27, 13);
             this.mp_stats.TabIndex = 41;
@@ -439,6 +454,7 @@
             this.label23.Size = new System.Drawing.Size(14, 13);
             this.label23.TabIndex = 73;
             this.label23.Text = "Z";
+            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // z_tele2
             // 
@@ -446,6 +462,7 @@
             this.z_tele2.Name = "z_tele2";
             this.z_tele2.Size = new System.Drawing.Size(44, 20);
             this.z_tele2.TabIndex = 6;
+            this.z_tele2.TextChanged += new System.EventHandler(this.z_tele2_TextChanged);
             // 
             // teleportBtn2
             // 
@@ -465,6 +482,7 @@
             this.label24.Size = new System.Drawing.Size(14, 13);
             this.label24.TabIndex = 70;
             this.label24.Text = "X";
+            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label25
             // 
@@ -474,6 +492,7 @@
             this.label25.Size = new System.Drawing.Size(14, 13);
             this.label25.TabIndex = 69;
             this.label25.Text = "Y";
+            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // x_tele2
             // 
@@ -481,6 +500,7 @@
             this.x_tele2.Name = "x_tele2";
             this.x_tele2.Size = new System.Drawing.Size(44, 20);
             this.x_tele2.TabIndex = 4;
+            this.x_tele2.TextChanged += new System.EventHandler(this.x_tele2_TextChanged);
             // 
             // y_tele2
             // 
@@ -488,6 +508,7 @@
             this.y_tele2.Name = "y_tele2";
             this.y_tele2.Size = new System.Drawing.Size(44, 20);
             this.y_tele2.TabIndex = 5;
+            this.y_tele2.TextChanged += new System.EventHandler(this.y_tele2_TextChanged);
             // 
             // label26
             // 
@@ -497,6 +518,7 @@
             this.label26.Size = new System.Drawing.Size(14, 13);
             this.label26.TabIndex = 80;
             this.label26.Text = "Z";
+            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // z_tele3
             // 
@@ -504,6 +526,7 @@
             this.z_tele3.Name = "z_tele3";
             this.z_tele3.Size = new System.Drawing.Size(44, 20);
             this.z_tele3.TabIndex = 9;
+            this.z_tele3.TextChanged += new System.EventHandler(this.z_tele3_TextChanged);
             // 
             // teleportBtn3
             // 
@@ -523,6 +546,7 @@
             this.label27.Size = new System.Drawing.Size(14, 13);
             this.label27.TabIndex = 77;
             this.label27.Text = "X";
+            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -532,6 +556,7 @@
             this.label28.Size = new System.Drawing.Size(14, 13);
             this.label28.TabIndex = 76;
             this.label28.Text = "Y";
+            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // x_tele3
             // 
@@ -539,6 +564,7 @@
             this.x_tele3.Name = "x_tele3";
             this.x_tele3.Size = new System.Drawing.Size(44, 20);
             this.x_tele3.TabIndex = 7;
+            this.x_tele3.TextChanged += new System.EventHandler(this.x_tele3_TextChanged);
             // 
             // y_tele3
             // 
@@ -546,6 +572,7 @@
             this.y_tele3.Name = "y_tele3";
             this.y_tele3.Size = new System.Drawing.Size(44, 20);
             this.y_tele3.TabIndex = 8;
+            this.y_tele3.TextChanged += new System.EventHandler(this.y_tele3_TextChanged);
             // 
             // label29
             // 
@@ -555,6 +582,7 @@
             this.label29.Size = new System.Drawing.Size(14, 13);
             this.label29.TabIndex = 87;
             this.label29.Text = "Z";
+            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // z_tele4
             // 
@@ -562,6 +590,7 @@
             this.z_tele4.Name = "z_tele4";
             this.z_tele4.Size = new System.Drawing.Size(44, 20);
             this.z_tele4.TabIndex = 12;
+            this.z_tele4.TextChanged += new System.EventHandler(this.z_tele4_TextChanged);
             // 
             // teleportBtn4
             // 
@@ -581,6 +610,7 @@
             this.label30.Size = new System.Drawing.Size(14, 13);
             this.label30.TabIndex = 84;
             this.label30.Text = "X";
+            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // label31
             // 
@@ -590,6 +620,7 @@
             this.label31.Size = new System.Drawing.Size(14, 13);
             this.label31.TabIndex = 83;
             this.label31.Text = "Y";
+            this.label31.Click += new System.EventHandler(this.label31_Click);
             // 
             // x_tele4
             // 
@@ -597,6 +628,7 @@
             this.x_tele4.Name = "x_tele4";
             this.x_tele4.Size = new System.Drawing.Size(44, 20);
             this.x_tele4.TabIndex = 10;
+            this.x_tele4.TextChanged += new System.EventHandler(this.x_tele4_TextChanged);
             // 
             // y_tele4
             // 
@@ -604,6 +636,7 @@
             this.y_tele4.Name = "y_tele4";
             this.y_tele4.Size = new System.Drawing.Size(44, 20);
             this.y_tele4.TabIndex = 11;
+            this.y_tele4.TextChanged += new System.EventHandler(this.y_tele4_TextChanged);
             // 
             // label32
             // 
@@ -1168,6 +1201,7 @@
             this.label5.Size = new System.Drawing.Size(15, 13);
             this.label5.TabIndex = 540;
             this.label5.Text = "H";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // heading_label
             // 
@@ -1177,6 +1211,7 @@
             this.heading_label.Size = new System.Drawing.Size(40, 13);
             this.heading_label.TabIndex = 541;
             this.heading_label.Text = "(head.)";
+            this.heading_label.Click += new System.EventHandler(this.heading_label_Click);
             // 
             // mousex
             // 
@@ -1254,6 +1289,7 @@
             this.tele_label1.Name = "tele_label1";
             this.tele_label1.Size = new System.Drawing.Size(85, 20);
             this.tele_label1.TabIndex = 550;
+            this.tele_label1.TextChanged += new System.EventHandler(this.tele_label1_TextChanged);
             // 
             // tele_label2
             // 
@@ -1261,6 +1297,7 @@
             this.tele_label2.Name = "tele_label2";
             this.tele_label2.Size = new System.Drawing.Size(85, 20);
             this.tele_label2.TabIndex = 551;
+            this.tele_label2.TextChanged += new System.EventHandler(this.tele_label2_TextChanged);
             // 
             // tele_label3
             // 
@@ -1268,6 +1305,7 @@
             this.tele_label3.Name = "tele_label3";
             this.tele_label3.Size = new System.Drawing.Size(85, 20);
             this.tele_label3.TabIndex = 552;
+            this.tele_label3.TextChanged += new System.EventHandler(this.tele_label3_TextChanged);
             // 
             // tele_label4
             // 
@@ -1275,6 +1313,7 @@
             this.tele_label4.Name = "tele_label4";
             this.tele_label4.Size = new System.Drawing.Size(85, 20);
             this.tele_label4.TabIndex = 553;
+            this.tele_label4.TextChanged += new System.EventHandler(this.tele_label4_TextChanged);
             // 
             // label16
             // 
@@ -1284,6 +1323,7 @@
             this.label16.Size = new System.Drawing.Size(33, 13);
             this.label16.TabIndex = 554;
             this.label16.Text = "Label";
+            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // h_tele1
             // 
@@ -1291,6 +1331,7 @@
             this.h_tele1.Name = "h_tele1";
             this.h_tele1.Size = new System.Drawing.Size(44, 20);
             this.h_tele1.TabIndex = 555;
+            this.h_tele1.TextChanged += new System.EventHandler(this.h_tele1_TextChanged);
             // 
             // label17
             // 
@@ -1300,6 +1341,7 @@
             this.label17.Size = new System.Drawing.Size(15, 13);
             this.label17.TabIndex = 556;
             this.label17.Text = "H";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label18
             // 
@@ -1309,6 +1351,7 @@
             this.label18.Size = new System.Drawing.Size(15, 13);
             this.label18.TabIndex = 558;
             this.label18.Text = "H";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // h_tele2
             // 
@@ -1316,6 +1359,7 @@
             this.h_tele2.Name = "h_tele2";
             this.h_tele2.Size = new System.Drawing.Size(44, 20);
             this.h_tele2.TabIndex = 557;
+            this.h_tele2.TextChanged += new System.EventHandler(this.h_tele2_TextChanged);
             // 
             // label19
             // 
@@ -1325,6 +1369,7 @@
             this.label19.Size = new System.Drawing.Size(15, 13);
             this.label19.TabIndex = 560;
             this.label19.Text = "H";
+            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // h_tele3
             // 
@@ -1332,6 +1377,7 @@
             this.h_tele3.Name = "h_tele3";
             this.h_tele3.Size = new System.Drawing.Size(44, 20);
             this.h_tele3.TabIndex = 559;
+            this.h_tele3.TextChanged += new System.EventHandler(this.h_tele3_TextChanged);
             // 
             // label33
             // 
@@ -1341,6 +1387,7 @@
             this.label33.Size = new System.Drawing.Size(15, 13);
             this.label33.TabIndex = 562;
             this.label33.Text = "H";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // h_tele4
             // 
@@ -1348,6 +1395,7 @@
             this.h_tele4.Name = "h_tele4";
             this.h_tele4.Size = new System.Drawing.Size(44, 20);
             this.h_tele4.TabIndex = 561;
+            this.h_tele4.TextChanged += new System.EventHandler(this.h_tele4_TextChanged);
             // 
             // label34
             // 
@@ -1587,23 +1635,14 @@
             this.refreshProcessesBtn.UseVisualStyleBackColor = true;
             this.refreshProcessesBtn.Click += new System.EventHandler(this.refreshProcessesBtn_Click);
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.OliveDrab;
-            this.label36.Location = new System.Drawing.Point(341, 4);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(46, 13);
-            this.label36.TabIndex = 580;
-            this.label36.Text = "NAME:";
-            // 
             // name_label
             // 
             this.name_label.AutoSize = true;
-            this.name_label.Location = new System.Drawing.Point(385, 4);
+            this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name_label.ForeColor = System.Drawing.Color.OliveDrab;
+            this.name_label.Location = new System.Drawing.Point(367, 3);
             this.name_label.Name = "name_label";
-            this.name_label.Size = new System.Drawing.Size(39, 13);
+            this.name_label.Size = new System.Drawing.Size(45, 13);
             this.name_label.TabIndex = 581;
             this.name_label.Text = "(name)";
             // 
@@ -1646,20 +1685,21 @@
             this.label37.TabIndex = 586;
             this.label37.Text = "BUILD";
             // 
-            // progressBar1
+            // progressBarXP
             // 
-            this.progressBar1.Location = new System.Drawing.Point(370, 59);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(66, 18);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 587;
+            this.progressBarXP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarXP.Location = new System.Drawing.Point(370, 59);
+            this.progressBarXP.Name = "progressBarXP";
+            this.progressBarXP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarXP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarXP.TabIndex = 587;
             // 
             // xp_stats
             // 
             this.xp_stats.AutoSize = true;
             this.xp_stats.BackColor = System.Drawing.Color.Transparent;
             this.xp_stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xp_stats.Location = new System.Drawing.Point(438, 61);
+            this.xp_stats.Location = new System.Drawing.Point(437, 61);
             this.xp_stats.Name = "xp_stats";
             this.xp_stats.Size = new System.Drawing.Size(24, 13);
             this.xp_stats.TabIndex = 588;
@@ -1676,20 +1716,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(1017, 550);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(52, 22);
+            this.button2.TabIndex = 590;
+            this.button2.Text = "Mini UI";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // progressBarHP
+            // 
+            this.progressBarHP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarHP.Location = new System.Drawing.Point(370, 21);
+            this.progressBarHP.Name = "progressBarHP";
+            this.progressBarHP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarHP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarHP.TabIndex = 591;
+            // 
+            // progressBarMP
+            // 
+            this.progressBarMP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarMP.Location = new System.Drawing.Point(370, 40);
+            this.progressBarMP.Name = "progressBarMP";
+            this.progressBarMP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarMP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBarMP.TabIndex = 592;
+            // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1069, 572);
+            this.Controls.Add(this.progressBarMP);
+            this.Controls.Add(this.progressBarHP);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.xp_stats);
-            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.progressBarXP);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonResetCamera);
             this.Controls.Add(this.buttonCameraOnSpawn);
             this.Controls.Add(this.name_label);
-            this.Controls.Add(this.label36);
             this.Controls.Add(this.refreshProcessesBtn);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.label35);
@@ -1829,7 +1900,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button teleportBtn1;
         private System.Windows.Forms.TextBox z_tele;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1851,21 +1921,18 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.TextBox z_tele2;
-        private System.Windows.Forms.Button teleportBtn2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox x_tele2;
         private System.Windows.Forms.TextBox y_tele2;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox z_tele3;
-        private System.Windows.Forms.Button teleportBtn3;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox x_tele3;
         private System.Windows.Forms.TextBox y_tele3;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox z_tele4;
-        private System.Windows.Forms.Button teleportBtn4;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox x_tele4;
@@ -1891,10 +1958,6 @@
         private System.Windows.Forms.SaveFileDialog sd2;
         private System.Windows.Forms.SaveFileDialog sd3;
         private System.Windows.Forms.SaveFileDialog sd4;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
         private System.Windows.Forms.OpenFileDialog autoLoad;
         private System.Windows.Forms.OpenFileDialog od1;
         private System.Windows.Forms.OpenFileDialog od2;
@@ -1935,7 +1998,6 @@
         private System.Windows.Forms.Label target_x;
         private System.Windows.Forms.Label target_y;
         private System.Windows.Forms.Label target_z;
-        private System.Windows.Forms.TextBox tele_label1;
         private System.Windows.Forms.TextBox tele_label2;
         private System.Windows.Forms.TextBox tele_label3;
         private System.Windows.Forms.TextBox tele_label4;
@@ -1974,8 +2036,6 @@
         private System.Windows.Forms.ColumnHeader ProcessID;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button refreshProcessesBtn;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListLevel;
         private System.Windows.Forms.Button buttonCameraOnSpawn;
         private System.Windows.Forms.Button buttonResetCamera;
@@ -1984,9 +2044,22 @@
         private System.Windows.Forms.ToolStripMenuItem autoItV3ToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListClass;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListType;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ProgressBar progressBarXP;
         private System.Windows.Forms.Label xp_stats;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Label name_label;
+        private System.Windows.Forms.ProgressBar progressBarHP;
+        private System.Windows.Forms.ProgressBar progressBarMP;
+        public System.Windows.Forms.Button button17;
+        public System.Windows.Forms.Button button18;
+        public System.Windows.Forms.Button button19;
+        public System.Windows.Forms.Button button20;
+        public System.Windows.Forms.Button teleportBtn1;
+        public System.Windows.Forms.Button teleportBtn2;
+        public System.Windows.Forms.Button teleportBtn3;
+        public System.Windows.Forms.Button teleportBtn4;
+        public System.Windows.Forms.TextBox tele_label1;
 
     }
 }

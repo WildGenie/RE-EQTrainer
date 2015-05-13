@@ -25,9 +25,6 @@ namespace EQTrainer
         [DllImport("user32.dll")]
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
-
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool FreeLibrary([In] IntPtr hModule);
 
@@ -37,21 +34,8 @@ namespace EQTrainer
             string procName
             );
 
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass, string lpszWindow);
-
-        [DllImport("user32.dll")]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        //public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
-        //public static extern int SendMessage(IntPtr hWnd, int uMsg, int wParam, string lParam);
-
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr GetModuleHandle(
-            string lpModuleName
-            );
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
   
         [DllImport("kernel32", SetLastError = true, ExactSpelling = true)]  
         internal static extern Int32 WaitForSingleObject(  
@@ -77,13 +61,16 @@ namespace EQTrainer
         public static IntPtr pHandle;
         Mem MemLib = new Mem();
 
+        public teleport RefToTeleForm { get; set; }
+        public miniToolbar RefToMiniForm { get; set; }
+
         private static Boolean Follow = false;
         protected ProcessModule myProcessModule;
         public static string eqgameID = "";
         byte[] memory = new byte[4];
         byte[] memoryBig = new byte[64];
         byte[] memoryGiant = new byte[255];
-        string codeFile = "";
+        public string codeFile = "";
 
         protected override void WndProc(ref Message m) //hotbuttons
         {
@@ -144,6 +131,8 @@ namespace EQTrainer
                 tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
                 if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "auto"))
                     autoLoad.InitialDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "auto";
+                teleport teleForm = new teleport();
+                teleForm.Visible = false;
             }
             catch
             {
@@ -180,15 +169,6 @@ namespace EQTrainer
             {
                 MessageBox.Show("ERROR: Cant find builds ini data or processes!");
             }
-        }
-
-        private string charClass(int t_class)
-        {
-            string[] classes = new string[] { "", "Warrior", "Cleric", "Paladin", "Ranger", "Shadow Knight", "Druid", "Monk", "Bard", "Rogue", "Shaman", "Necromancer", "Wizard", "Magician", "Enchanter", "Beastlord", "Banker", "Warrior Trainer", "Cleric Trainer", "Paladin Trainer", "Ranger Trainer", "Shadow Knight Trainer", "Druid Trainer", "Monk Trainer", "Bard Trainer", "Rogue Trainer", "Shaman Trainer", "Necromancer Trainer", "Wizard Trainer", "Magician Trainer", "Enchanter Trainer", "Beastlord Trainer", "Merchant" };
-            if (t_class > 0 && t_class < 33)
-                return classes[t_class];
-            else
-                return "Unknown";
         }
 
         private void stopFollow()
@@ -396,7 +376,7 @@ namespace EQTrainer
                 }
 
 
-                string[] listViewSpawnListRow = { spawn_info_name, spawn_info_address.ToString("X8"), spawn_info_x.ToString(), spawn_info_y.ToString(), spawn_info_z.ToString(), spawn_info_heading.ToString(), spawn_info_level.ToString(), charClass(spawn_info_class), spawn_info_type.ToString() };
+                string[] listViewSpawnListRow = { spawn_info_name, spawn_info_address.ToString("X8"), spawn_info_x.ToString(), spawn_info_y.ToString(), spawn_info_z.ToString(), spawn_info_heading.ToString(), spawn_info_level.ToString(), main.charClass(spawn_info_class), spawn_info_type.ToString() };
                 var listViewSpawnListItem = new ListViewItem(listViewSpawnListRow);
                 listViewSpawnList.Items.Add(listViewSpawnListItem);
 
@@ -426,51 +406,8 @@ namespace EQTrainer
 
             string heading_text = listViewSpawnList.SelectedItems[0].SubItems[5].Text;
 
-            Teleport(float.Parse(y_text),float.Parse(x_text),float.Parse(z_text),float.Parse(heading_text));
-        }
-
-        void Teleport(float value_x, float value_y, float value_z, float value_h) //it's actually y,x,z
-        {
-            byte[] write_y = BitConverter.GetBytes(value_y);
-            byte[] write_x = BitConverter.GetBytes(value_x);
-            byte[] write_z = BitConverter.GetBytes(value_z);
-
-            MemLib.writeUIntPtr("safeY", codeFile, write_y);
-            MemLib.writeUIntPtr("safeX", codeFile, write_x);
-            MemLib.writeUIntPtr("safeZ", codeFile, write_z);
-
-            float readSafeZ = MemLib.readUintPtrFloat("safeZ", codeFile);
-            float readSafeX = MemLib.readUintPtrFloat("safeX", codeFile);
-            float readSafeY = MemLib.readUintPtrFloat("safeY", codeFile);
-
-            MemLib.writeMemory("playerHeading", codeFile, "float", value_h.ToString());
-
-            if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z)){
-                Thread ClientThread = new Thread(MemLib.ThreadStartClient);
-                ClientThread.Start();
-            } else
-                Teleport(value_x, value_y, value_z, value_h); //try again.
-        }
-
-        void inject()
-        {
-            Int32 ProcID = Convert.ToInt32(eqgameID);
-            Process procs = Process.GetProcessById(ProcID);
-            IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, true, ProcID);
-
-            if (procs.Responding == false)
-                return;
-
-            try
-            {
-                String strDLLName = Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll";
-                MemLib.InjectDLL(hProcess, strDLLName);
-            }
-            catch
-            {
-                MessageBox.Show("Injection failed! Program needs administration privileges!");
-            }
-        }
+            main.Teleport(codeFile, float.Parse(y_text),float.Parse(x_text),float.Parse(z_text),float.Parse(heading_text));
+        }        
 
         private void teleportBtn1_Click(object sender, EventArgs e)
         {
@@ -478,7 +415,7 @@ namespace EQTrainer
             if (x_tele.Text == "" || y_tele.Text == "" || z_tele.Text == "")
                 MessageBox.Show("ERROR: You need X Y and Z coordinates!");
             else
-                Teleport(float.Parse(x_tele.Text), float.Parse(y_tele.Text), float.Parse(z_tele.Text), float.Parse(h_tele1.Text));
+                main.Teleport(codeFile, float.Parse(x_tele.Text), float.Parse(y_tele.Text), float.Parse(z_tele.Text), float.Parse(h_tele1.Text));
         }
 
         private void teleportBtn2_Click(object sender, EventArgs e)
@@ -487,7 +424,7 @@ namespace EQTrainer
             if (x_tele2.Text == "" || y_tele2.Text == "" || z_tele2.Text == "")
                 MessageBox.Show("ERROR: You need X Y and Z coordinates!");
             else
-                Teleport(float.Parse(x_tele2.Text), float.Parse(y_tele2.Text), float.Parse(z_tele2.Text), float.Parse(h_tele2.Text));
+                main.Teleport(codeFile, float.Parse(x_tele2.Text), float.Parse(y_tele2.Text), float.Parse(z_tele2.Text), float.Parse(h_tele2.Text));
         }
 
         private void teleportBtn3_Click(object sender, EventArgs e)
@@ -496,7 +433,7 @@ namespace EQTrainer
             if (x_tele3.Text == "" || y_tele3.Text == "" || z_tele3.Text == "")
                 MessageBox.Show("ERROR: You need X Y and Z coordinates!");
             else
-                Teleport(float.Parse(x_tele3.Text), float.Parse(y_tele3.Text), float.Parse(z_tele3.Text), float.Parse(h_tele3.Text));
+                main.Teleport(codeFile, float.Parse(x_tele3.Text), float.Parse(y_tele3.Text), float.Parse(z_tele3.Text), float.Parse(h_tele3.Text));
         }
 
         private void teleportBtn4_Click(object sender, EventArgs e)
@@ -505,7 +442,7 @@ namespace EQTrainer
             if (x_tele4.Text == "" || y_tele4.Text == "" || z_tele4.Text == "")
                 MessageBox.Show("ERROR: You need X Y and Z coordinates!");
             else
-                Teleport(float.Parse(x_tele4.Text), float.Parse(y_tele4.Text), float.Parse(z_tele4.Text), float.Parse(h_tele4.Text));
+                main.Teleport(codeFile, float.Parse(x_tele4.Text), float.Parse(y_tele4.Text), float.Parse(z_tele4.Text), float.Parse(h_tele4.Text));
         }
 
         private void map_label_Click(object sender, EventArgs e)
@@ -674,7 +611,7 @@ namespace EQTrainer
             }
         }
 
-        private void od1_FileOk(object sender, CancelEventArgs e)
+        public void od1_FileOk(object sender, CancelEventArgs e)
         {
             using (StreamReader sr = new StreamReader(od1.FileName))
             {
@@ -804,9 +741,7 @@ namespace EQTrainer
         private void gateBtn_Click(object sender, EventArgs e)
         { //only works in mac
             if (comboBox1.Text == "EQMac")
-            {
                 MemLib.writeMemory("gate", codeFile, "bytes", "2");
-            }
         }
 
         private void followBtn_Click(object sender, EventArgs e)
@@ -898,17 +833,6 @@ namespace EQTrainer
             return true;
         }
 
-        public string RemoveSpecialCharactersTwo(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
-                    sb.Append(c);
-            }
-            return sb.ToString();
-        }
-
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
@@ -939,7 +863,7 @@ namespace EQTrainer
                     map_label.Invoke(new MethodInvoker(delegate { /*map_label.Text = mapShortName;*/ map_label.Text = map_address; }));
 
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
-                string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
+                string currentZone = scriptDirectory + main.RemoveSpecialCharactersTwo(map_address);
 
                 if (Directory.Exists(currentZone))
                 {
@@ -1043,34 +967,36 @@ namespace EQTrainer
                 int t_class = MemLib.readByte("targetClass", codeFile);
 
                 if (label12.InvokeRequired)
-                    label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
+                    label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + main.charClass(t_class); }));
                 if (name_label.InvokeRequired)
                     name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name; }));
-                if (hp_stats.InvokeRequired)
-                    hp_stats.Invoke(new MethodInvoker(delegate { 
-                        if (max_hp > 0)
-                            hp_stats.Text = current_hp + " / " + max_hp; 
-                    }));
-                if (mp_stats.InvokeRequired)
-                    mp_stats.Invoke(new MethodInvoker(delegate { mp_stats.Text = current_mp + " / " + max_mp; }));
 
                 int cur_xp;
                 if (current_xp > 330)
                     cur_xp = 0;
                 else
                     cur_xp = current_xp;
+
+
+                double xpProgressPercentage = ((double)current_xp / (double)330);
+                int xpProgressBar = (int)(xpProgressPercentage * 100);
+
+                double hpProgressPercentage = ((double)current_hp / (double)max_hp);
+                int hpProgressBar = (int)(hpProgressPercentage * 100);
+
+                double mpProgressPercentage = ((double)current_mp / (double)max_mp);
+                int mpProgressBar = (int)(mpProgressPercentage * 100);
+
                 if (xp_stats.InvokeRequired)
-                {
-                    double dIndex = (double)current_xp;
-                    double dTotal = (double)330;
-                    double dProgressPercentage = (dIndex / dTotal);
-                    int iProgressPercentage = (int)(dProgressPercentage * 100);
-                    if (dIndex > 0 && dIndex < 331 && dTotal > 0)
-                    {
-                        xp_stats.Invoke(new MethodInvoker(delegate { xp_stats.Text = "["+dIndex.ToString() + "/" + dTotal.ToString() + "] " + iProgressPercentage.ToString() + "%"; }));
-                        progressBar1.Invoke(new MethodInvoker(delegate { progressBar1.Value = iProgressPercentage; }));
-                    }
-                }
+                    xp_stats.Invoke(new MethodInvoker(delegate { xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
+                if (hp_stats.InvokeRequired)
+                    hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 0) hp_stats.Text = "[" + current_hp + "/" + max_hp + "] " + hpProgressBar.ToString() + "%"; }));
+                if (mp_stats.InvokeRequired)
+                    mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp > 0) mp_stats.Text = "[" + current_mp + "/" + max_mp + "] " + mpProgressBar.ToString() + "%"; }));
+
+                progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
+                progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero); }));
+                progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero); }));
 
                 float run_speed = MemLib.readFloat("runSpeed", codeFile);
                 if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
@@ -1109,7 +1035,7 @@ namespace EQTrainer
                 if (comboBox1.InvokeRequired)
                     comboBox1.Invoke(new MethodInvoker(delegate { buildVer = comboBox1.Text; }));
 
-                inject();
+                main.inject(eqgameID, Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
 
                 //only works in EQMac until I find Titanium codes
                 if (buildVer == "EQMac")
@@ -1419,11 +1345,250 @@ namespace EQTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            inject();
+            main.inject(eqgameID, Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
         }
         private void changeProcess()
         {
             MemLib.OpenProcess(eqgameID);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            miniToolbar obj2 = new miniToolbar();
+            obj2.RefToForm1 = this;
+            //this.Visible = false;
+            obj2.Show();
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void h_tele4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void h_tele3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void h_tele2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label17_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void h_tele1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tele_label4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tele_label3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tele_label2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tele_label1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void heading_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label29_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void z_tele4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label30_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label31_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void x_tele4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void y_tele4_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label26_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void z_tele3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label27_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label28_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void x_tele3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void y_tele3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void z_tele2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label24_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label25_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void x_tele2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void y_tele2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void z_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void x_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void y_label_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void z_tele_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void x_tele_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void y_tele_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
     }
