@@ -25,7 +25,6 @@ namespace EQTrainer
             this.Width = Screen.PrimaryScreen.Bounds.Width;
             tt.SetToolTip(this.closeBtn, "Close EQTrainer");
             tt.SetToolTip(this.minimizeBtn, "Minimize Window");
-            nameLabel.Text = this.RefToForm1.name_label.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,10 +37,8 @@ namespace EQTrainer
         {
             foreach (Form form in Application.OpenForms)
             {
-                if (!form.Name.Equals("miniToolbar"))
-                {
-                    form.Close();
-                }
+                if (form.Name.Equals("miniToolbar") == false && form.Name.Equals("TrainerForm") == false)
+                    form.Visible = false;
             }
         }
 
@@ -67,7 +64,7 @@ namespace EQTrainer
                 
                 if (closedFrm == false)
                 {
-                    teleport obj3 = new teleport();
+                    teleForm obj3 = new teleForm();
                     obj3.RefToForm1 = this.RefToForm1;
                     obj3.Show();
                     obj3.Location = new Point(tpBtn.Location.X, this.Height);
@@ -84,6 +81,13 @@ namespace EQTrainer
         private void button1_Click(object sender, EventArgs e)
         {
             toggleSubForms("teleport");
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            closeSubForms();
+            this.Close();
+            this.RefToForm1.WindowState = FormWindowState.Normal;
         }
     }
 }

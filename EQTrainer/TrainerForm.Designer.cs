@@ -205,7 +205,6 @@
             this.y_tele.Name = "y_tele";
             this.y_tele.Size = new System.Drawing.Size(44, 20);
             this.y_tele.TabIndex = 2;
-            this.y_tele.TextChanged += new System.EventHandler(this.y_tele_TextChanged);
             // 
             // x_tele
             // 
@@ -213,7 +212,6 @@
             this.x_tele.Name = "x_tele";
             this.x_tele.Size = new System.Drawing.Size(44, 20);
             this.x_tele.TabIndex = 1;
-            this.x_tele.TextChanged += new System.EventHandler(this.x_tele_TextChanged);
             // 
             // label1
             // 
@@ -223,7 +221,6 @@
             this.label1.Size = new System.Drawing.Size(14, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Y";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -233,7 +230,6 @@
             this.label2.Size = new System.Drawing.Size(14, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "X";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // timer1
             // 
@@ -257,7 +253,6 @@
             this.z_tele.Name = "z_tele";
             this.z_tele.Size = new System.Drawing.Size(44, 20);
             this.z_tele.TabIndex = 3;
-            this.z_tele.TextChanged += new System.EventHandler(this.z_tele_TextChanged);
             // 
             // label3
             // 
@@ -267,7 +262,6 @@
             this.label3.Size = new System.Drawing.Size(14, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Z";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -277,7 +271,6 @@
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 7;
             this.label4.Text = "MAP:";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // y_label
             // 
@@ -287,7 +280,6 @@
             this.y_label.Size = new System.Drawing.Size(53, 13);
             this.y_label.TabIndex = 10;
             this.y_label.Text = "(Y coord.)";
-            this.y_label.Click += new System.EventHandler(this.y_label_Click);
             // 
             // x_label
             // 
@@ -297,7 +289,6 @@
             this.x_label.Size = new System.Drawing.Size(53, 13);
             this.x_label.TabIndex = 11;
             this.x_label.Text = "(X coord.)";
-            this.x_label.Click += new System.EventHandler(this.x_label_Click);
             // 
             // z_label
             // 
@@ -307,7 +298,6 @@
             this.z_label.Size = new System.Drawing.Size(53, 13);
             this.z_label.TabIndex = 12;
             this.z_label.Text = "(Z coord.)";
-            this.z_label.Click += new System.EventHandler(this.z_label_Click);
             // 
             // map_label
             // 
@@ -330,7 +320,6 @@
             this.label7.Size = new System.Drawing.Size(14, 13);
             this.label7.TabIndex = 17;
             this.label7.Text = "X";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -340,7 +329,6 @@
             this.label8.Size = new System.Drawing.Size(14, 13);
             this.label8.TabIndex = 18;
             this.label8.Text = "Y";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -350,7 +338,6 @@
             this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 19;
             this.label9.Text = "Z";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // bank_plat
             // 
@@ -454,7 +441,6 @@
             this.label23.Size = new System.Drawing.Size(14, 13);
             this.label23.TabIndex = 73;
             this.label23.Text = "Z";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
             // 
             // z_tele2
             // 
@@ -462,7 +448,6 @@
             this.z_tele2.Name = "z_tele2";
             this.z_tele2.Size = new System.Drawing.Size(44, 20);
             this.z_tele2.TabIndex = 6;
-            this.z_tele2.TextChanged += new System.EventHandler(this.z_tele2_TextChanged);
             // 
             // teleportBtn2
             // 
@@ -482,7 +467,6 @@
             this.label24.Size = new System.Drawing.Size(14, 13);
             this.label24.TabIndex = 70;
             this.label24.Text = "X";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
             // 
             // label25
             // 
@@ -492,7 +476,6 @@
             this.label25.Size = new System.Drawing.Size(14, 13);
             this.label25.TabIndex = 69;
             this.label25.Text = "Y";
-            this.label25.Click += new System.EventHandler(this.label25_Click);
             // 
             // x_tele2
             // 
@@ -500,7 +483,6 @@
             this.x_tele2.Name = "x_tele2";
             this.x_tele2.Size = new System.Drawing.Size(44, 20);
             this.x_tele2.TabIndex = 4;
-            this.x_tele2.TextChanged += new System.EventHandler(this.x_tele2_TextChanged);
             // 
             // y_tele2
             // 
@@ -508,7 +490,6 @@
             this.y_tele2.Name = "y_tele2";
             this.y_tele2.Size = new System.Drawing.Size(44, 20);
             this.y_tele2.TabIndex = 5;
-            this.y_tele2.TextChanged += new System.EventHandler(this.y_tele2_TextChanged);
             // 
             // label26
             // 
@@ -518,7 +499,6 @@
             this.label26.Size = new System.Drawing.Size(14, 13);
             this.label26.TabIndex = 80;
             this.label26.Text = "Z";
-            this.label26.Click += new System.EventHandler(this.label26_Click);
             // 
             // z_tele3
             // 
@@ -526,7 +506,6 @@
             this.z_tele3.Name = "z_tele3";
             this.z_tele3.Size = new System.Drawing.Size(44, 20);
             this.z_tele3.TabIndex = 9;
-            this.z_tele3.TextChanged += new System.EventHandler(this.z_tele3_TextChanged);
             // 
             // teleportBtn3
             // 
@@ -546,7 +525,6 @@
             this.label27.Size = new System.Drawing.Size(14, 13);
             this.label27.TabIndex = 77;
             this.label27.Text = "X";
-            this.label27.Click += new System.EventHandler(this.label27_Click);
             // 
             // label28
             // 
@@ -556,7 +534,6 @@
             this.label28.Size = new System.Drawing.Size(14, 13);
             this.label28.TabIndex = 76;
             this.label28.Text = "Y";
-            this.label28.Click += new System.EventHandler(this.label28_Click);
             // 
             // x_tele3
             // 
@@ -564,7 +541,6 @@
             this.x_tele3.Name = "x_tele3";
             this.x_tele3.Size = new System.Drawing.Size(44, 20);
             this.x_tele3.TabIndex = 7;
-            this.x_tele3.TextChanged += new System.EventHandler(this.x_tele3_TextChanged);
             // 
             // y_tele3
             // 
@@ -572,7 +548,6 @@
             this.y_tele3.Name = "y_tele3";
             this.y_tele3.Size = new System.Drawing.Size(44, 20);
             this.y_tele3.TabIndex = 8;
-            this.y_tele3.TextChanged += new System.EventHandler(this.y_tele3_TextChanged);
             // 
             // label29
             // 
@@ -582,7 +557,6 @@
             this.label29.Size = new System.Drawing.Size(14, 13);
             this.label29.TabIndex = 87;
             this.label29.Text = "Z";
-            this.label29.Click += new System.EventHandler(this.label29_Click);
             // 
             // z_tele4
             // 
@@ -590,7 +564,6 @@
             this.z_tele4.Name = "z_tele4";
             this.z_tele4.Size = new System.Drawing.Size(44, 20);
             this.z_tele4.TabIndex = 12;
-            this.z_tele4.TextChanged += new System.EventHandler(this.z_tele4_TextChanged);
             // 
             // teleportBtn4
             // 
@@ -610,7 +583,6 @@
             this.label30.Size = new System.Drawing.Size(14, 13);
             this.label30.TabIndex = 84;
             this.label30.Text = "X";
-            this.label30.Click += new System.EventHandler(this.label30_Click);
             // 
             // label31
             // 
@@ -620,7 +592,6 @@
             this.label31.Size = new System.Drawing.Size(14, 13);
             this.label31.TabIndex = 83;
             this.label31.Text = "Y";
-            this.label31.Click += new System.EventHandler(this.label31_Click);
             // 
             // x_tele4
             // 
@@ -628,7 +599,6 @@
             this.x_tele4.Name = "x_tele4";
             this.x_tele4.Size = new System.Drawing.Size(44, 20);
             this.x_tele4.TabIndex = 10;
-            this.x_tele4.TextChanged += new System.EventHandler(this.x_tele4_TextChanged);
             // 
             // y_tele4
             // 
@@ -636,7 +606,6 @@
             this.y_tele4.Name = "y_tele4";
             this.y_tele4.Size = new System.Drawing.Size(44, 20);
             this.y_tele4.TabIndex = 11;
-            this.y_tele4.TextChanged += new System.EventHandler(this.y_tele4_TextChanged);
             // 
             // label32
             // 
@@ -1201,7 +1170,6 @@
             this.label5.Size = new System.Drawing.Size(15, 13);
             this.label5.TabIndex = 540;
             this.label5.Text = "H";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // heading_label
             // 
@@ -1211,7 +1179,6 @@
             this.heading_label.Size = new System.Drawing.Size(40, 13);
             this.heading_label.TabIndex = 541;
             this.heading_label.Text = "(head.)";
-            this.heading_label.Click += new System.EventHandler(this.heading_label_Click);
             // 
             // mousex
             // 
@@ -1289,7 +1256,7 @@
             this.tele_label1.Name = "tele_label1";
             this.tele_label1.Size = new System.Drawing.Size(85, 20);
             this.tele_label1.TabIndex = 550;
-            this.tele_label1.TextChanged += new System.EventHandler(this.tele_label1_TextChanged);
+            //this.tele_label1.TextChanged += new System.EventHandler(this.tele_label1_TextChanged);
             // 
             // tele_label2
             // 
@@ -1297,7 +1264,6 @@
             this.tele_label2.Name = "tele_label2";
             this.tele_label2.Size = new System.Drawing.Size(85, 20);
             this.tele_label2.TabIndex = 551;
-            this.tele_label2.TextChanged += new System.EventHandler(this.tele_label2_TextChanged);
             // 
             // tele_label3
             // 
@@ -1305,7 +1271,6 @@
             this.tele_label3.Name = "tele_label3";
             this.tele_label3.Size = new System.Drawing.Size(85, 20);
             this.tele_label3.TabIndex = 552;
-            this.tele_label3.TextChanged += new System.EventHandler(this.tele_label3_TextChanged);
             // 
             // tele_label4
             // 
@@ -1313,7 +1278,6 @@
             this.tele_label4.Name = "tele_label4";
             this.tele_label4.Size = new System.Drawing.Size(85, 20);
             this.tele_label4.TabIndex = 553;
-            this.tele_label4.TextChanged += new System.EventHandler(this.tele_label4_TextChanged);
             // 
             // label16
             // 
@@ -1323,7 +1287,6 @@
             this.label16.Size = new System.Drawing.Size(33, 13);
             this.label16.TabIndex = 554;
             this.label16.Text = "Label";
-            this.label16.Click += new System.EventHandler(this.label16_Click);
             // 
             // h_tele1
             // 
@@ -1331,7 +1294,6 @@
             this.h_tele1.Name = "h_tele1";
             this.h_tele1.Size = new System.Drawing.Size(44, 20);
             this.h_tele1.TabIndex = 555;
-            this.h_tele1.TextChanged += new System.EventHandler(this.h_tele1_TextChanged);
             // 
             // label17
             // 
@@ -1341,7 +1303,6 @@
             this.label17.Size = new System.Drawing.Size(15, 13);
             this.label17.TabIndex = 556;
             this.label17.Text = "H";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // label18
             // 
@@ -1351,7 +1312,6 @@
             this.label18.Size = new System.Drawing.Size(15, 13);
             this.label18.TabIndex = 558;
             this.label18.Text = "H";
-            this.label18.Click += new System.EventHandler(this.label18_Click);
             // 
             // h_tele2
             // 
@@ -1359,7 +1319,6 @@
             this.h_tele2.Name = "h_tele2";
             this.h_tele2.Size = new System.Drawing.Size(44, 20);
             this.h_tele2.TabIndex = 557;
-            this.h_tele2.TextChanged += new System.EventHandler(this.h_tele2_TextChanged);
             // 
             // label19
             // 
@@ -1369,7 +1328,6 @@
             this.label19.Size = new System.Drawing.Size(15, 13);
             this.label19.TabIndex = 560;
             this.label19.Text = "H";
-            this.label19.Click += new System.EventHandler(this.label19_Click);
             // 
             // h_tele3
             // 
@@ -1377,7 +1335,6 @@
             this.h_tele3.Name = "h_tele3";
             this.h_tele3.Size = new System.Drawing.Size(44, 20);
             this.h_tele3.TabIndex = 559;
-            this.h_tele3.TextChanged += new System.EventHandler(this.h_tele3_TextChanged);
             // 
             // label33
             // 
@@ -1387,7 +1344,6 @@
             this.label33.Size = new System.Drawing.Size(15, 13);
             this.label33.TabIndex = 562;
             this.label33.Text = "H";
-            this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // h_tele4
             // 
@@ -1395,7 +1351,6 @@
             this.h_tele4.Name = "h_tele4";
             this.h_tele4.Size = new System.Drawing.Size(44, 20);
             this.h_tele4.TabIndex = 561;
-            this.h_tele4.TextChanged += new System.EventHandler(this.h_tele4_TextChanged);
             // 
             // label34
             // 
@@ -1883,7 +1838,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TrainerForm";
-            this.Text = "EQTrainer - Hacking Utility";
+            this.Text = "EQTrainer";
             this.Load += new System.EventHandler(this.TrainerForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -1895,12 +1850,9 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox y_tele;
-        private System.Windows.Forms.TextBox x_tele;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox z_tele;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label y_label;
@@ -1920,40 +1872,19 @@
         private System.Windows.Forms.Label mp_stats;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox z_tele2;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox x_tele2;
-        private System.Windows.Forms.TextBox y_tele2;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox z_tele3;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox x_tele3;
-        private System.Windows.Forms.TextBox y_tele3;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox z_tele4;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox x_tele4;
-        private System.Windows.Forms.TextBox y_tele4;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button12;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Timer;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
         private System.Windows.Forms.SaveFileDialog sd1;
         private System.Windows.Forms.SaveFileDialog sd2;
         private System.Windows.Forms.SaveFileDialog sd3;
@@ -1998,18 +1929,11 @@
         private System.Windows.Forms.Label target_x;
         private System.Windows.Forms.Label target_y;
         private System.Windows.Forms.Label target_z;
-        private System.Windows.Forms.TextBox tele_label2;
-        private System.Windows.Forms.TextBox tele_label3;
-        private System.Windows.Forms.TextBox tele_label4;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox h_tele1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox h_tele2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox h_tele3;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.TextBox h_tele4;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem x64CDependenciesToolStripMenuItem;
         private System.Windows.Forms.Label label34;
@@ -2060,6 +1984,37 @@
         public System.Windows.Forms.Button teleportBtn3;
         public System.Windows.Forms.Button teleportBtn4;
         public System.Windows.Forms.TextBox tele_label1;
+        public System.Windows.Forms.TextBox y_tele;
+        public System.Windows.Forms.TextBox x_tele;
+        public System.Windows.Forms.TextBox z_tele;
+        public System.Windows.Forms.TextBox z_tele2;
+        public System.Windows.Forms.TextBox x_tele2;
+        public System.Windows.Forms.TextBox y_tele2;
+        public System.Windows.Forms.TextBox z_tele3;
+        public System.Windows.Forms.TextBox x_tele3;
+        public System.Windows.Forms.TextBox y_tele3;
+        public System.Windows.Forms.TextBox z_tele4;
+        public System.Windows.Forms.TextBox x_tele4;
+        public System.Windows.Forms.TextBox y_tele4;
+        public System.Windows.Forms.TextBox tele_label2;
+        public System.Windows.Forms.TextBox tele_label3;
+        public System.Windows.Forms.TextBox tele_label4;
+        public System.Windows.Forms.TextBox h_tele1;
+        public System.Windows.Forms.TextBox h_tele2;
+        public System.Windows.Forms.TextBox h_tele3;
+        public System.Windows.Forms.TextBox h_tele4;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button button6;
+        public System.Windows.Forms.Button button7;
+        public System.Windows.Forms.Button button8;
+        public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.Button button10;
+        public System.Windows.Forms.Button button11;
+        public System.Windows.Forms.Button button12;
+        public System.Windows.Forms.Button button13;
+        public System.Windows.Forms.Button button14;
+        public System.Windows.Forms.Button button15;
+        public System.Windows.Forms.Button button16;
 
     }
 }

@@ -170,7 +170,7 @@ namespace AutoBot
                     //AppendOutputText("teleporting to " + "X:" + words[1] + " Y:" + words[2] + " Z:" + words[3] + " H:" + words[4]);
                     try
                     {
-                        rtry = false;
+                        //rtry = false;
                         Teleport(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]));
                     }
                     catch
@@ -224,7 +224,7 @@ namespace AutoBot
                         AppendOutputText("ERROR: checkzone crashed.");
                         WriteLog("[ERROR] checkzone Try/Catch return (" + DateTime.Now + ")");
                     }
-                    lastCmd = "checkzone " + words;
+                    //lastCmd = "checkzone " + words;
                 }
                 else if (Regex.Match(line, "pause", RegexOptions.IgnoreCase).Success == true)
                 {
@@ -825,12 +825,11 @@ namespace AutoBot
 
            System.Threading.Thread.Sleep(250);
 
-           if (tpPlayerCheck(value_x, value_y, value_z) == false && rtry == false)
+           /*if (tpPlayerCheck(value_x, value_y, value_z) == false)
             {
                 System.Threading.Thread.Sleep(1000);
                 Teleport(value_x, value_y, value_z, value_h);
-                rtry = true;
-            }
+            }*/
         }
 
         static void CheckDistance(string target, float y, float x, float z, int dist)
@@ -907,7 +906,7 @@ namespace AutoBot
 
             try
             {
-                rtry = true; //dont retry teleport
+                //rtry = true; //dont retry teleport
                 string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
                 //curZone = Regex.Replace(curZone, @"[^a-zA-Z0-9]*", string.Empty, /*RegexOptions.CultureInvariant |*/ RegexOptions.IgnoreCase);
 

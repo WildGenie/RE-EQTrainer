@@ -37,13 +37,13 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.tpBtn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, -1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 27);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 40);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // tpBtn
@@ -52,7 +52,7 @@
             this.tpBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.tpBtn.Location = new System.Drawing.Point(3, 3);
             this.tpBtn.Name = "tpBtn";
-            this.tpBtn.Size = new System.Drawing.Size(60, 22);
+            this.tpBtn.Size = new System.Drawing.Size(60, 37);
             this.tpBtn.TabIndex = 0;
             this.tpBtn.Text = "teleport";
             this.tpBtn.UseVisualStyleBackColor = false;
@@ -86,21 +86,23 @@
             this.closeBtn.TabIndex = 4;
             this.closeBtn.Text = "X";
             this.closeBtn.UseVisualStyleBackColor = false;
+            this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
             // miniToolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1535, 27);
+            this.ClientSize = new System.Drawing.Size(1535, 39);
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "miniToolbar";
             this.Opacity = 0.85D;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "new ui beta";
+            this.Text = "EQTrainer Toolbar";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.miniToolbar_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
