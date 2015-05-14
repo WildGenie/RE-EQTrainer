@@ -1256,7 +1256,6 @@
             this.tele_label1.Name = "tele_label1";
             this.tele_label1.Size = new System.Drawing.Size(85, 20);
             this.tele_label1.TabIndex = 550;
-            //this.tele_label1.TextChanged += new System.EventHandler(this.tele_label1_TextChanged);
             // 
             // tele_label2
             // 
@@ -1678,7 +1677,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 22);
             this.button2.TabIndex = 590;
-            this.button2.Text = "Mini UI";
+            this.button2.Text = "toolbar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -1907,10 +1906,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button resetRunBtn;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ListView listViewScripts;
-        private System.Windows.Forms.CheckBox checkBoxScripts;
-        private System.Windows.Forms.Button buttonAllScriptsEnabled;
-        private System.Windows.Forms.Button buttonAllScriptsDisabled;
+        public System.Windows.Forms.CheckBox checkBoxScripts;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.ColumnHeader columnHeaderDescription;
         private System.Windows.Forms.ColumnHeader columnHeaderEnable;
@@ -2015,6 +2011,9 @@
         public System.Windows.Forms.Button button14;
         public System.Windows.Forms.Button button15;
         public System.Windows.Forms.Button button16;
+        public System.Windows.Forms.ListView listViewScripts;
+        public System.Windows.Forms.Button buttonAllScriptsEnabled;
+        public System.Windows.Forms.Button buttonAllScriptsDisabled;
 
     }
 }

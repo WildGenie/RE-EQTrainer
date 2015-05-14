@@ -762,7 +762,7 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // teleport
+            // teleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -836,10 +836,10 @@
             this.Controls.Add(this.x_tele);
             this.Controls.Add(this.y_tele);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "teleport";
+            this.Name = "teleForm";
             this.Opacity = 0.85D;
             this.ShowInTaskbar = false;
-            this.Text = "teleport";
+            this.Text = "teleForm";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.teleport_Load);
             this.ResumeLayout(false);

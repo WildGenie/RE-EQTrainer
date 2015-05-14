@@ -44,8 +44,8 @@ namespace EQTrainer
 
         private void toggleSubForms(string btn)
         {
-            if (btn.Equals("teleport"))
-            {
+            //if (btn.Equals(btn))
+            //{
                 FormCollection fc = Application.OpenForms;
                 bool closedFrm = false;
 
@@ -53,7 +53,7 @@ namespace EQTrainer
                 {
                     foreach (Form frm in fc)
                     {
-                        if (frm.Name.Equals("teleport"))
+                        if ((frm.Name.Equals("teleForm") && btn.Equals("teleport")) || (frm.Name.Equals("scriptsForm") && btn.Equals("scripts")))
                         {
                             frm.Close();
                             closedFrm = true;
@@ -64,12 +64,22 @@ namespace EQTrainer
                 
                 if (closedFrm == false)
                 {
-                    teleForm obj3 = new teleForm();
-                    obj3.RefToForm1 = this.RefToForm1;
-                    obj3.Show();
-                    obj3.Location = new Point(tpBtn.Location.X, this.Height);
+                    if (btn.Equals("teleport"))
+                    {
+                        teleForm obj3 = new teleForm();
+                        obj3.RefToForm1 = this.RefToForm1;
+                        obj3.Show();
+                        obj3.Location = new Point(tpBtn.Location.X, this.Height);
+                    }
+                    if (btn.Equals("scripts"))
+                    {
+                        scriptsForm obj3 = new scriptsForm();
+                        obj3.RefToForm1 = this.RefToForm1;
+                        obj3.Show();
+                        obj3.Location = new Point(scriptsBtn.Location.X, this.Height);
+                    }
                 }
-            }
+            //}
         }
 
         private void minimizeBtn_Click(object sender, EventArgs e)
@@ -88,6 +98,11 @@ namespace EQTrainer
             closeSubForms();
             this.Close();
             this.RefToForm1.WindowState = FormWindowState.Normal;
+        }
+
+        private void scriptsBtn_Click(object sender, EventArgs e)
+        {
+            toggleSubForms("scripts");
         }
     }
 }

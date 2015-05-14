@@ -32,15 +32,17 @@
             this.tpBtn = new System.Windows.Forms.Button();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
+            this.scriptsBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.tpBtn);
+            this.flowLayoutPanel1.Controls.Add(this.scriptsBtn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, -1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 40);
@@ -88,6 +90,18 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
+            // scriptsBtn
+            // 
+            this.scriptsBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.scriptsBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.scriptsBtn.Location = new System.Drawing.Point(69, 3);
+            this.scriptsBtn.Name = "scriptsBtn";
+            this.scriptsBtn.Size = new System.Drawing.Size(60, 37);
+            this.scriptsBtn.TabIndex = 1;
+            this.scriptsBtn.Text = "scripts";
+            this.scriptsBtn.UseVisualStyleBackColor = false;
+            this.scriptsBtn.Click += new System.EventHandler(this.scriptsBtn_Click);
+            // 
             // miniToolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -116,6 +130,7 @@
         private System.Windows.Forms.Button minimizeBtn;
         public System.Windows.Forms.Button tpBtn;
         private System.Windows.Forms.Button closeBtn;
+        public System.Windows.Forms.Button scriptsBtn;
 
     }
 }

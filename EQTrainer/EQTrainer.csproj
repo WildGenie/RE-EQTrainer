@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="scriptsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="scriptsForm.Designer.cs">
+      <DependentUpon>scriptsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="teleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="scriptsForm.resx">
+      <DependentUpon>scriptsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="teleForm.resx">
       <DependentUpon>teleForm.cs</DependentUpon>
     </EmbeddedResource>
