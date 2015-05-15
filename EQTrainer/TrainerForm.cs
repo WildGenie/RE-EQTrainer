@@ -22,9 +22,6 @@ namespace EQTrainer
         }
 
         #region DllImports
-        [DllImport("user32.dll")]
-        static extern bool SetForegroundWindow(IntPtr hWnd);
-
         [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool FreeLibrary([In] IntPtr hModule);
 
@@ -182,7 +179,7 @@ namespace EQTrainer
                 return "Unknown";
         }
 
-        private string RemoveSpecialCharactersTwo(string str)
+        public string RemoveSpecialCharactersTwo(string str)
         {
             StringBuilder sb = new StringBuilder();
             foreach (char c in str)
@@ -929,10 +926,10 @@ namespace EQTrainer
                 float z_address = MemLib.readFloat("playerZ", codeFile);
                 float heading = MemLib.readFloat("playerHeading", codeFile);
 
-                string map_address = MemLib.readUIntPtrStr("mapLongName", codeFile);
+                string map_address = RemoveSpecialCharactersTwo(MemLib.readUIntPtrStr("mapLongName", codeFile));
                 string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
                 if (map_label.InvokeRequired)
-                    map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address; }));
+                    map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address + " (" + mapShortName + ")"; }));
 
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
                 string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
@@ -1184,8 +1181,8 @@ namespace EQTrainer
                     }
                 }
 
-                if (checkBoxScripts.Checked == false)
-                    return;
+                //if (checkBoxScripts.Checked == false)
+                //    return;
 
                 if (listViewScripts.InvokeRequired)
                     listViewScripts.Invoke(new MethodInvoker(delegate {

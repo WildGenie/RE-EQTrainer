@@ -30,9 +30,10 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tpBtn = new System.Windows.Forms.Button();
-            this.minimizeBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.scriptsBtn = new System.Windows.Forms.Button();
+            this.spawnBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.mapBtn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,46 +44,60 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.tpBtn);
             this.flowLayoutPanel1.Controls.Add(this.scriptsBtn);
+            this.flowLayoutPanel1.Controls.Add(this.spawnBtn);
+            this.flowLayoutPanel1.Controls.Add(this.mapBtn);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, -1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 40);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 32);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // tpBtn
             // 
             this.tpBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.tpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tpBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.tpBtn.Location = new System.Drawing.Point(3, 3);
             this.tpBtn.Name = "tpBtn";
-            this.tpBtn.Size = new System.Drawing.Size(60, 37);
+            this.tpBtn.Size = new System.Drawing.Size(95, 25);
             this.tpBtn.TabIndex = 0;
-            this.tpBtn.Text = "teleport";
+            this.tpBtn.Text = "TELEPORT";
             this.tpBtn.UseVisualStyleBackColor = false;
             this.tpBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // minimizeBtn
+            // scriptsBtn
             // 
-            this.minimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizeBtn.BackColor = System.Drawing.Color.DarkBlue;
-            this.minimizeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.minimizeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minimizeBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.minimizeBtn.Location = new System.Drawing.Point(1466, -1);
-            this.minimizeBtn.Name = "minimizeBtn";
-            this.minimizeBtn.Size = new System.Drawing.Size(35, 27);
-            this.minimizeBtn.TabIndex = 3;
-            this.minimizeBtn.Text = "_";
-            this.minimizeBtn.UseVisualStyleBackColor = false;
-            this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
+            this.scriptsBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.scriptsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scriptsBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.scriptsBtn.Location = new System.Drawing.Point(104, 3);
+            this.scriptsBtn.Name = "scriptsBtn";
+            this.scriptsBtn.Size = new System.Drawing.Size(95, 25);
+            this.scriptsBtn.TabIndex = 1;
+            this.scriptsBtn.Text = "SCRIPTS";
+            this.scriptsBtn.UseVisualStyleBackColor = false;
+            this.scriptsBtn.Click += new System.EventHandler(this.scriptsBtn_Click);
+            // 
+            // spawnBtn
+            // 
+            this.spawnBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.spawnBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spawnBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.spawnBtn.Location = new System.Drawing.Point(205, 3);
+            this.spawnBtn.Name = "spawnBtn";
+            this.spawnBtn.Size = new System.Drawing.Size(95, 25);
+            this.spawnBtn.TabIndex = 2;
+            this.spawnBtn.Text = "SPAWN LIST";
+            this.spawnBtn.UseVisualStyleBackColor = false;
+            this.spawnBtn.Click += new System.EventHandler(this.spawnBtn_Click);
             // 
             // closeBtn
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBtn.BackColor = System.Drawing.Color.DarkRed;
+            this.closeBtn.BackColor = System.Drawing.Color.Maroon;
             this.closeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.closeBtn.Location = new System.Drawing.Point(1500, -1);
+            this.closeBtn.Location = new System.Drawing.Point(1498, 1);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(35, 27);
             this.closeBtn.TabIndex = 4;
@@ -90,25 +105,25 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // scriptsBtn
+            // mapBtn
             // 
-            this.scriptsBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.scriptsBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.scriptsBtn.Location = new System.Drawing.Point(69, 3);
-            this.scriptsBtn.Name = "scriptsBtn";
-            this.scriptsBtn.Size = new System.Drawing.Size(60, 37);
-            this.scriptsBtn.TabIndex = 1;
-            this.scriptsBtn.Text = "scripts";
-            this.scriptsBtn.UseVisualStyleBackColor = false;
-            this.scriptsBtn.Click += new System.EventHandler(this.scriptsBtn_Click);
+            this.mapBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.mapBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.mapBtn.Location = new System.Drawing.Point(306, 3);
+            this.mapBtn.Name = "mapBtn";
+            this.mapBtn.Size = new System.Drawing.Size(95, 25);
+            this.mapBtn.TabIndex = 3;
+            this.mapBtn.Text = "MAP SYSTEM";
+            this.mapBtn.UseVisualStyleBackColor = false;
+            this.mapBtn.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // miniToolbar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1535, 39);
-            this.Controls.Add(this.minimizeBtn);
+            this.ClientSize = new System.Drawing.Size(1535, 29);
             this.Controls.Add(this.closeBtn);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -127,10 +142,11 @@
         #endregion
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button minimizeBtn;
         public System.Windows.Forms.Button tpBtn;
         private System.Windows.Forms.Button closeBtn;
         public System.Windows.Forms.Button scriptsBtn;
+        public System.Windows.Forms.Button spawnBtn;
+        public System.Windows.Forms.Button mapBtn;
 
     }
 }

@@ -1,3 +1,9 @@
+Version 5.7.4
+---------------
+Added Health and mana progress bars
+Added toolbar UI and button
+
+
 Version 5.7.3
 ---------------
 Fixed map system

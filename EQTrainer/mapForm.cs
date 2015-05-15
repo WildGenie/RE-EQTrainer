@@ -1,63 +1,47 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using System.Threading;
-using Memory;
+using System.Text.RegularExpressions;
 
-namespace WindowsFormsApplication1
+namespace EQTrainer
 {
-    public partial class Form1 : Form
+    public partial class mapForm : Form
     {
-        public static int proccID;
-        public static IntPtr pHandle;
-        public static int base_address;
-        Mem MemLib = new Mem();
-
-        string[] args = Environment.GetCommandLineArgs();
-
-        public Form1()
+        public mapForm()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public TrainerForm RefToForm1 { get; set; }
+
+        private void mapForm_Load(object sender, EventArgs e)
         {
-            backgroundWorker2.DoWork += new DoWorkEventHandler(backgroundWorker2_DoWork);
-            backgroundWorker2.RunWorkerAsync();
+            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+            backgroundWorker1.RunWorkerAsync();
         }
 
-        public string RemoveSpecialCharactersTwo(string str)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
-                    sb.Append(c);
-            }
-            return sb.ToString();
-        }
-
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
-        {
-            MemLib.OpenProcess(args[1]);
             string old_map_name = "";
 
             while (true)
             {
-                try {
-                    string codeFile = Application.StartupPath + Path.DirectorySeparatorChar + @"builds" + Path.DirectorySeparatorChar + args[2] + @"\codes.ini";
-                    string map_name = MemLib.readUIntPtrStr("mapShortName", codeFile);
-                    string map_longname = MemLib.readUIntPtrStr("mapLongName", codeFile);
-                    map_name = MemLib.RemoveSpecialCharacters(map_name);
-                    map_longname = RemoveSpecialCharactersTwo(map_longname);
+                try
+                {
+                    string map_name = Regex.Match(this.RefToForm1.map_label.Text, @"\(([^)]*)\)").Groups[1].Value;
+                    
+                    if (map_name == "" || string.IsNullOrEmpty(map_name))
+                        continue;
+
+                    float y_address = Convert.ToSingle(this.RefToForm1.y_label.Text);
+                    float x_address = Convert.ToSingle(this.RefToForm1.x_label.Text);
+                    float z_address = Convert.ToSingle(this.RefToForm1.z_label.Text);
 
                     string filesPath = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar;
                     string locfile = filesPath + map_name + ".loc";
@@ -66,10 +50,6 @@ namespace WindowsFormsApplication1
 
                     FileInfo fi = new FileInfo(locfile);
                     display2.Location = new Point(0, 0);
-
-                    float y_address = MemLib.readFloat("playerY", codeFile);
-                    float x_address = MemLib.readFloat("playerX", codeFile);
-                    float z_address = MemLib.readFloat("playerZ", codeFile);
 
                     //MessageBox.Show("Y:" + y_address.ToString() + " X:" + x_address.ToString() + " Z:" + z_address.ToString() + " map: " + map_name);// DEBUG
 
@@ -114,8 +94,6 @@ namespace WindowsFormsApplication1
                         textBox1.Height = bmp.Height;
                         textBox1.Width = this.Width - bmp.Width;
 
-                        this.Text = map_longname + " (" + map_name + ") - EQTrainer Map System";
-
                         fi = new FileInfo(txtfile);
                         if (fi.Exists)
                         {
@@ -124,11 +102,10 @@ namespace WindowsFormsApplication1
                         }
                         old_map_name = map_name;
                     }
-
-                    Thread.Sleep(200);
-                } catch 
+                }
+                catch
                 {
-                    MessageBox.Show("BackgroundWorker2 Failed");
+                    //MessageBox.Show("BackgroundWorker2 Failed");
                 }
             }
         }

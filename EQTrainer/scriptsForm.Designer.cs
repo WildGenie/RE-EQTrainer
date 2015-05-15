@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.buttonAllScriptsDisabled = new System.Windows.Forms.Button();
             this.buttonAllScriptsEnabled = new System.Windows.Forms.Button();
-            this.checkBoxScripts = new System.Windows.Forms.CheckBox();
             this.listViewScripts = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -42,7 +41,7 @@
             // 
             // buttonAllScriptsDisabled
             // 
-            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(427, 39);
+            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(477, 10);
             this.buttonAllScriptsDisabled.Name = "buttonAllScriptsDisabled";
             this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(128, 24);
             this.buttonAllScriptsDisabled.TabIndex = 541;
@@ -52,26 +51,13 @@
             // 
             // buttonAllScriptsEnabled
             // 
-            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(293, 39);
+            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(343, 10);
             this.buttonAllScriptsEnabled.Name = "buttonAllScriptsEnabled";
             this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(128, 24);
             this.buttonAllScriptsEnabled.TabIndex = 540;
             this.buttonAllScriptsEnabled.Text = "All Scripts Enabled";
             this.buttonAllScriptsEnabled.UseVisualStyleBackColor = true;
             this.buttonAllScriptsEnabled.Click += new System.EventHandler(this.buttonAllScriptsEnabled_Click);
-            // 
-            // checkBoxScripts
-            // 
-            this.checkBoxScripts.AutoSize = true;
-            this.checkBoxScripts.Checked = true;
-            this.checkBoxScripts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxScripts.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.checkBoxScripts.Location = new System.Drawing.Point(219, 46);
-            this.checkBoxScripts.Name = "checkBoxScripts";
-            this.checkBoxScripts.Size = new System.Drawing.Size(58, 17);
-            this.checkBoxScripts.TabIndex = 539;
-            this.checkBoxScripts.Text = "Scripts";
-            this.checkBoxScripts.UseVisualStyleBackColor = true;
             // 
             // listViewScripts
             // 
@@ -84,9 +70,9 @@
             this.listViewScripts.FullRowSelect = true;
             this.listViewScripts.GridLines = true;
             this.listViewScripts.HideSelection = false;
-            this.listViewScripts.Location = new System.Drawing.Point(12, 68);
+            this.listViewScripts.Location = new System.Drawing.Point(12, 40);
             this.listViewScripts.Name = "listViewScripts";
-            this.listViewScripts.Size = new System.Drawing.Size(543, 201);
+            this.listViewScripts.Size = new System.Drawing.Size(593, 453);
             this.listViewScripts.TabIndex = 538;
             this.listViewScripts.UseCompatibleStateImageBehavior = false;
             this.listViewScripts.View = System.Windows.Forms.View.Details;
@@ -114,6 +100,7 @@
             // 
             // timer1
             // 
+            this.timer1.Interval = 400;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // scriptsForm
@@ -121,19 +108,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(566, 278);
+            this.ClientSize = new System.Drawing.Size(617, 505);
             this.Controls.Add(this.buttonAllScriptsDisabled);
             this.Controls.Add(this.buttonAllScriptsEnabled);
-            this.Controls.Add(this.checkBoxScripts);
             this.Controls.Add(this.listViewScripts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "scriptsForm";
             this.Opacity = 0.85D;
             this.ShowInTaskbar = false;
             this.Text = "scriptsForm";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.scriptsForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -141,7 +127,6 @@
 
         private System.Windows.Forms.Button buttonAllScriptsDisabled;
         private System.Windows.Forms.Button buttonAllScriptsEnabled;
-        private System.Windows.Forms.CheckBox checkBoxScripts;
         private System.Windows.Forms.ListView listViewScripts;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.ColumnHeader columnHeaderDescription;

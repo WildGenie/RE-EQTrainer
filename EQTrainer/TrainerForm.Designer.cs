@@ -38,7 +38,6 @@
             this.teleportBtn1 = new System.Windows.Forms.Button();
             this.z_tele = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.y_label = new System.Windows.Forms.Label();
             this.x_label = new System.Windows.Forms.Label();
             this.z_label = new System.Windows.Forms.Label();
@@ -123,7 +122,6 @@
             this.columnHeaderDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderEnable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderDisable = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.checkBoxScripts = new System.Windows.Forms.CheckBox();
             this.buttonAllScriptsEnabled = new System.Windows.Forms.Button();
             this.buttonAllScriptsDisabled = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -263,15 +261,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Z";
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "MAP:";
-            // 
             // y_label
             // 
             this.y_label.AutoSize = true;
@@ -305,7 +294,7 @@
             this.map_label.Cursor = System.Windows.Forms.Cursors.Hand;
             this.map_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.map_label.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.map_label.Location = new System.Drawing.Point(369, 86);
+            this.map_label.Location = new System.Drawing.Point(342, 86);
             this.map_label.Name = "map_label";
             this.map_label.Size = new System.Drawing.Size(33, 13);
             this.map_label.TabIndex = 13;
@@ -1065,23 +1054,11 @@
             this.columnHeaderDisable.Text = "Disable";
             this.columnHeaderDisable.Width = 21;
             // 
-            // checkBoxScripts
-            // 
-            this.checkBoxScripts.AutoSize = true;
-            this.checkBoxScripts.Checked = true;
-            this.checkBoxScripts.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxScripts.Location = new System.Drawing.Point(724, 12);
-            this.checkBoxScripts.Name = "checkBoxScripts";
-            this.checkBoxScripts.Size = new System.Drawing.Size(58, 17);
-            this.checkBoxScripts.TabIndex = 535;
-            this.checkBoxScripts.Text = "Scripts";
-            this.checkBoxScripts.UseVisualStyleBackColor = true;
-            // 
             // buttonAllScriptsEnabled
             // 
-            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(798, 5);
+            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(788, 5);
             this.buttonAllScriptsEnabled.Name = "buttonAllScriptsEnabled";
-            this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(128, 24);
+            this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(106, 24);
             this.buttonAllScriptsEnabled.TabIndex = 536;
             this.buttonAllScriptsEnabled.Text = "All Scripts Enabled";
             this.buttonAllScriptsEnabled.UseVisualStyleBackColor = true;
@@ -1089,9 +1066,9 @@
             // 
             // buttonAllScriptsDisabled
             // 
-            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(932, 5);
+            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(896, 5);
             this.buttonAllScriptsDisabled.Name = "buttonAllScriptsDisabled";
-            this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(128, 24);
+            this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(107, 24);
             this.buttonAllScriptsDisabled.TabIndex = 537;
             this.buttonAllScriptsDisabled.Text = "All Scripts Disabled";
             this.buttonAllScriptsDisabled.UseVisualStyleBackColor = true;
@@ -1131,7 +1108,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 17);
-            this.toolStripStatusLabel3.Text = "Version: 5.7.3";
+            this.toolStripStatusLabel3.Text = "Version: 5.7.4";
             // 
             // toolStripDropDownButton1
             // 
@@ -1375,7 +1352,7 @@
             // 
             // buttonRefreshSpawnList
             // 
-            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(987, 244);
+            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(995, 245);
             this.buttonRefreshSpawnList.Name = "buttonRefreshSpawnList";
             this.buttonRefreshSpawnList.Size = new System.Drawing.Size(65, 24);
             this.buttonRefreshSpawnList.TabIndex = 565;
@@ -1476,7 +1453,7 @@
             this.textBoxSpawnListFilter.AcceptsReturn = true;
             this.textBoxSpawnListFilter.Location = new System.Drawing.Point(674, 247);
             this.textBoxSpawnListFilter.Name = "textBoxSpawnListFilter";
-            this.textBoxSpawnListFilter.Size = new System.Drawing.Size(307, 20);
+            this.textBoxSpawnListFilter.Size = new System.Drawing.Size(315, 20);
             this.textBoxSpawnListFilter.TabIndex = 569;
             this.textBoxSpawnListFilter.GotFocus += new System.EventHandler(this.textBoxSpawnListFilter_GotFocus);
             // 
@@ -1624,7 +1601,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(554, 5);
+            this.comboBox1.Location = new System.Drawing.Point(554, 7);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 585;
@@ -1633,7 +1610,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(514, 9);
+            this.label37.Location = new System.Drawing.Point(514, 11);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(39, 13);
             this.label37.TabIndex = 586;
@@ -1673,9 +1650,10 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1017, 550);
+            this.button2.ForeColor = System.Drawing.Color.SteelBlue;
+            this.button2.Location = new System.Drawing.Point(1009, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 22);
+            this.button2.Size = new System.Drawing.Size(52, 24);
             this.button2.TabIndex = 590;
             this.button2.Text = "toolbar";
             this.button2.UseVisualStyleBackColor = true;
@@ -1756,7 +1734,6 @@
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.buttonAllScriptsDisabled);
             this.Controls.Add(this.buttonAllScriptsEnabled);
-            this.Controls.Add(this.checkBoxScripts);
             this.Controls.Add(this.listViewScripts);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.resetRunBtn);
@@ -1825,7 +1802,6 @@
             this.Controls.Add(this.z_label);
             this.Controls.Add(this.x_label);
             this.Controls.Add(this.y_label);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.z_tele);
             this.Controls.Add(this.teleportBtn1);
@@ -1853,11 +1829,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label y_label;
-        private System.Windows.Forms.Label x_label;
-        private System.Windows.Forms.Label z_label;
-        private System.Windows.Forms.Label map_label;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -1906,7 +1877,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button resetRunBtn;
         private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.CheckBox checkBoxScripts;
         private System.Windows.Forms.ColumnHeader columnHeaderName;
         private System.Windows.Forms.ColumnHeader columnHeaderDescription;
         private System.Windows.Forms.ColumnHeader columnHeaderEnable;
@@ -1916,7 +1886,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label heading_label;
         private System.Windows.Forms.TextBox mousex;
         private System.Windows.Forms.TextBox mousey;
         private System.Windows.Forms.Label label6;
@@ -1933,19 +1902,14 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem x64CDependenciesToolStripMenuItem;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Button buttonTargetSpawn;
-        private System.Windows.Forms.Button buttonRefreshSpawnList;
-        private System.Windows.Forms.ListView listViewSpawnList;
         private System.Windows.Forms.Label labelSpawnList;
         private System.Windows.Forms.Label labelSpawnListFilter;
-        private System.Windows.Forms.TextBox textBoxSpawnListFilter;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListName;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListAddress;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListX;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListY;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListZ;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListHeading;
-        private System.Windows.Forms.Button buttonWarpToSpawn;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label target_h;
@@ -2014,6 +1978,16 @@
         public System.Windows.Forms.ListView listViewScripts;
         public System.Windows.Forms.Button buttonAllScriptsEnabled;
         public System.Windows.Forms.Button buttonAllScriptsDisabled;
+        public System.Windows.Forms.Label x_label;
+        public System.Windows.Forms.Label y_label;
+        public System.Windows.Forms.Label z_label;
+        public System.Windows.Forms.Label heading_label;
+        public System.Windows.Forms.Button buttonTargetSpawn;
+        public System.Windows.Forms.Button buttonRefreshSpawnList;
+        public System.Windows.Forms.ListView listViewSpawnList;
+        public System.Windows.Forms.Button buttonWarpToSpawn;
+        public System.Windows.Forms.TextBox textBoxSpawnListFilter;
+        public System.Windows.Forms.Label map_label;
 
     }
 }

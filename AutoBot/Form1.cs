@@ -52,7 +52,7 @@ namespace AutoBot
         Mem MemLib = new Mem();
         AutoItX3Lib.AutoItX3 aix3c = new AutoItX3Lib.AutoItX3();
         private bool stop = false;
-        bool rtry = false;
+        //bool rtry = false;
 
         static string lastCmd = "";
 

@@ -6,11 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace EQTrainer
 {
     public partial class miniToolbar : Form
     {
+        [DllImport("user32.dll")]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
         public miniToolbar()
         {
             InitializeComponent();
@@ -18,13 +23,23 @@ namespace EQTrainer
 
         public TrainerForm RefToForm1 { get; set; }
 
+        void setFocus()
+        {
+            IntPtr hWnd = IntPtr.Zero;
+            if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
+            {
+                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
+                Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
+                SetForegroundWindow(EQProc.MainWindowHandle);
+            }
+        }
+
         private void miniToolbar_Load(object sender, EventArgs e)
         {
             ToolTip tt = new ToolTip();
             this.Top = 0;
             this.Width = Screen.PrimaryScreen.Bounds.Width;
-            tt.SetToolTip(this.closeBtn, "Close EQTrainer");
-            tt.SetToolTip(this.minimizeBtn, "Minimize Window");
+            tt.SetToolTip(this.closeBtn, "Close Toolbar");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -53,7 +68,7 @@ namespace EQTrainer
                 {
                     foreach (Form frm in fc)
                     {
-                        if ((frm.Name.Equals("teleForm") && btn.Equals("teleport")) || (frm.Name.Equals("scriptsForm") && btn.Equals("scripts")))
+                        if (frm.Name.Equals(btn))
                         {
                             frm.Close();
                             closedFrm = true;
@@ -64,19 +79,33 @@ namespace EQTrainer
                 
                 if (closedFrm == false)
                 {
-                    if (btn.Equals("teleport"))
+                    if (btn.Equals("teleForm"))
                     {
                         teleForm obj3 = new teleForm();
                         obj3.RefToForm1 = this.RefToForm1;
                         obj3.Show();
                         obj3.Location = new Point(tpBtn.Location.X, this.Height);
                     }
-                    if (btn.Equals("scripts"))
+                    if (btn.Equals("scriptsForm"))
                     {
                         scriptsForm obj3 = new scriptsForm();
                         obj3.RefToForm1 = this.RefToForm1;
                         obj3.Show();
                         obj3.Location = new Point(scriptsBtn.Location.X, this.Height);
+                    }
+                    if (btn.Equals("spawnsForm"))
+                    {
+                        spawnsForm obj3 = new spawnsForm();
+                        obj3.RefToForm1 = this.RefToForm1;
+                        obj3.Show();
+                        obj3.Location = new Point(spawnBtn.Location.X, this.Height);
+                    }
+                    if (btn.Equals("mapForm"))
+                    {
+                        mapForm obj3 = new mapForm();
+                        obj3.RefToForm1 = this.RefToForm1;
+                        obj3.Show();
+                        obj3.Location = new Point(mapBtn.Location.X, this.Height);
                     }
                 }
             //}
@@ -90,7 +119,8 @@ namespace EQTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            toggleSubForms("teleport");
+            setFocus();
+            toggleSubForms("teleForm");
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -102,7 +132,20 @@ namespace EQTrainer
 
         private void scriptsBtn_Click(object sender, EventArgs e)
         {
-            toggleSubForms("scripts");
+            setFocus();
+            toggleSubForms("scriptsForm");
+        }
+
+        private void spawnBtn_Click(object sender, EventArgs e)
+        {
+            setFocus();
+            toggleSubForms("spawnsForm");
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            setFocus();
+            toggleSubForms("mapForm");
         }
     }
 }
