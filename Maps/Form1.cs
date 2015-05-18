@@ -48,7 +48,7 @@ namespace WindowsFormsApplication1
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
             MemLib.OpenProcess(args[1]);
-            string old_map_name = "";
+            //string old_map_name = "";
 
             while (true)
             {
@@ -98,11 +98,13 @@ namespace WindowsFormsApplication1
                         scale_y = s[3] / bmp.Height;
                         x = s[0]; //offsets
                         y = s[1];
-                    }
-                    g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
 
-                    if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
-                    {
+                        g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
+                    }
+                    
+                    
+                    //if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
+                    //{
                         display2.Image = bmp;
                         this.Width = actualx;
                         this.Height = actualy;
@@ -114,7 +116,7 @@ namespace WindowsFormsApplication1
                         textBox1.Height = bmp.Height;
                         textBox1.Width = this.Width - bmp.Width;
 
-                        this.Text = map_longname + " (" + map_name + ") - EQTrainer Map System";
+                        //this.Text = map_longname + " (" + map_name + ") - EQTrainer Map System";
 
                         fi = new FileInfo(txtfile);
                         if (fi.Exists)
@@ -122,13 +124,13 @@ namespace WindowsFormsApplication1
                             string text = File.ReadAllText(txtfile);
                             textBox1.Text = text;
                         }
-                        old_map_name = map_name;
-                    }
+                        //old_map_name = map_name;
+                    //}
 
                     Thread.Sleep(200);
                 } catch 
                 {
-                    MessageBox.Show("BackgroundWorker2 Failed");
+                    //MessageBox.Show("BackgroundWorker2 Failed");
                 }
             }
         }

@@ -1,3 +1,13 @@
+Version 5.7.5
+---------------
+Fixed toolbar focus crashing
+Fixed map not updating constantly
+Fixed toolbar spawn list crashing
+Changed inject only functions when build ver. or game ID changes
+Added new autobot function setfocus to focus on eqgame window
+Added timer to autobot form UI
+
+
 Version 5.7.4
 ---------------
 Added Health and mana progress bars

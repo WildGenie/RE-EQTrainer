@@ -71,6 +71,7 @@ namespace AutoBot
         {
             stop = true;
             AppendOutputText("All AutoBot work has been manually stopped by user!",Color.Red);
+            timer1.Enabled = false;
             WriteLog("All AutoBot work has been manually stopped by user!");
             backgroundWorker1.CancelAsync();
         }
@@ -244,6 +245,19 @@ namespace AutoBot
                 else if (line.Contains("//"))
                 {
                     //skip
+                }
+                else if (Regex.Match(line, "setfocus", RegexOptions.IgnoreCase).Success == true)
+                {
+                    string words = line.Remove(0, line.IndexOf(' ') + 1);
+                    try
+                    {
+                        setFocus();
+                    }
+                    catch
+                    {
+                        AppendOutputText("ERROR: GetFocus crashed.");
+                        WriteLog("[ERROR] GetFocus Try/Catch return (" + DateTime.Now + ")");
+                    }
                 }
                 else if (Regex.Match(line, "checkcursor", RegexOptions.IgnoreCase).Success == true)
                 {
@@ -445,6 +459,17 @@ namespace AutoBot
                     }
                 }
             }
+        }
+
+        public void setFocus()
+        {
+            IntPtr hWnd = IntPtr.Zero;
+            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
+            //{
+            //string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
+            Process EQProc = Process.GetProcessById(Convert.ToInt32(eqgameID));
+            SetForegroundWindow(EQProc.MainWindowHandle);
+            //}
         }
 
         public void TargetPlayer(string name)
@@ -932,7 +957,7 @@ namespace AutoBot
                     //AppendOutputText("Zone Check failed(2), trying again [" + curZone + "," + zone + "]");
                     System.Threading.Thread.Sleep(1000);
                     zoneCheckTimer++; //180 seconds, and we stop.
-                    AppendOutputText("[DEBUG] ZONE CHECK TICK: " + zoneCheckTimer.ToString(), Color.Blue);
+                    //AppendOutputText("[DEBUG] ZONE CHECK TICK: " + zoneCheckTimer.ToString(), Color.Blue); //DEBUG
                     if (zoneCheckTimer == 180)
                     {
                         AppendOutputText("ZONE CHECK FAILED. RELOGGING...", Color.Red);
@@ -1067,7 +1092,9 @@ namespace AutoBot
             //CheckWindowAcive();
             //lastCmd = "say " + message;
             //CheckWindowAcive();
-            aix3c.Send("{ENTER}" + message + "{ENTER}");
+            aix3c.Send
+                
+                ("{ENTER}" + message + "{ENTER}");
             //this was mac. Only opened chat and type in a message, couldnt send.
             //uint openMessage = (uint)0x79856C;
             //uint writeMessage = (uint)mem.ReadPointer(0x00809478) + 0x175FC; //re-write this later.
@@ -1083,6 +1110,7 @@ namespace AutoBot
             TeleportToPlayer(recipient);
             TargetPlayer(recipient);
             //CheckWindowAcive();
+            System.Threading.Thread.Sleep(1000);
             aix3c.Send("{ENTER}" + message + "{ENTER}");
             AppendOutputText("NPC: " + recipient + " MESSAGE:" + message);
             lastCmd = "talktoNPC " + recipient + " " + message;
@@ -1097,6 +1125,12 @@ namespace AutoBot
         private void button1_Click(object sender, EventArgs e)
         {
             cancelWorker();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            int curTime = Convert.ToInt32(timer.Text);
+            timer.Text = (curTime + 1).ToString();
         }
 
     }

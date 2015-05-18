@@ -26,12 +26,12 @@ namespace EQTrainer
         void setFocus()
         {
             IntPtr hWnd = IntPtr.Zero;
-            if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            {
+            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
+            //{
                 string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
                 Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
                 SetForegroundWindow(EQProc.MainWindowHandle);
-            }
+            //}
         }
 
         private void spawnsForm_Load(object sender, EventArgs e)
@@ -60,8 +60,15 @@ namespace EQTrainer
 
         private void listViewSpawnList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int selectedId = listViewSpawnList.SelectedItems[0].Index;
-            this.RefToForm1.listViewSpawnList.SelectedItems[selectedId].Selected = true;
+            if (listViewSpawnList.SelectedItems.Count > 0)
+            {
+                int i = 0;
+                foreach (ListViewItem listViewItem in listViewSpawnList.Items)
+                {
+                    this.RefToForm1.listViewSpawnList.Items[i].Selected = true;
+                    i++;
+                }
+            }
         }
 
         private void listViewSpawnList_DoubleClick(object sender, EventArgs e)

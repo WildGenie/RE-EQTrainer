@@ -28,7 +28,7 @@ namespace EQTrainer
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            string old_map_name = "";
+            //string old_map_name = "";
 
             while (true)
             {
@@ -78,11 +78,12 @@ namespace EQTrainer
                         scale_y = s[3] / bmp.Height;
                         x = s[0]; //offsets
                         y = s[1];
+                        g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
                     }
-                    g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
+                    
 
-                    if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
-                    {
+                    //if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
+                    //{
                         display2.Image = bmp;
                         this.Width = actualx;
                         this.Height = actualy;
@@ -100,8 +101,8 @@ namespace EQTrainer
                             string text = File.ReadAllText(txtfile);
                             textBox1.Text = text;
                         }
-                        old_map_name = map_name;
-                    }
+                       //old_map_name = map_name;
+                    //}
                 }
                 catch
                 {

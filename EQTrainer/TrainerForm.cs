@@ -252,6 +252,7 @@ namespace EQTrainer
                         listView2.Select();
                         eqgameID = listView2.SelectedItems[0].SubItems[1].Text;
                         changeProcess();
+                        inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                         backgroundWorker1.RunWorkerAsync();
                     }
                 }
@@ -906,7 +907,7 @@ namespace EQTrainer
         {
             while (true)
             {
-                if (comboBox1.Text == " ") //no build version selected? Let's try to detect it!
+                if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
                 {
                     string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
                     foreach (string subdirectory in subdirectoryEntries)
@@ -915,8 +916,9 @@ namespace EQTrainer
                         string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
                         if (buildDateCode.Contains(buildDate))
                         {
-                            if (comboBox1.InvokeRequired)
-                                comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                            //if (comboBox1.InvokeRequired)
+                            comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                         }
                     }
                 }
@@ -928,7 +930,7 @@ namespace EQTrainer
 
                 string map_address = RemoveSpecialCharactersTwo(MemLib.readUIntPtrStr("mapLongName", codeFile));
                 string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
-                if (map_label.InvokeRequired)
+                //if (map_label.InvokeRequired)
                     map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address + " (" + mapShortName + ")"; }));
 
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
@@ -962,22 +964,22 @@ namespace EQTrainer
                 int bank_silver_int = MemLib.readInt("bankSilver", codeFile);
                 int bank_copper_int = MemLib.readInt("bankCopper", codeFile);
 
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {y_label.Text = y_address.ToString(); }));
-                if (x_label.InvokeRequired)
+                //if (x_label.InvokeRequired)
                     x_label.Invoke(new MethodInvoker(delegate {x_label.Text = x_address.ToString(); }));
-                if (z_label.InvokeRequired)
+                //if (z_label.InvokeRequired)
                     z_label.Invoke(new MethodInvoker(delegate { z_label.Text = z_address.ToString(); }));
 
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {bank_plat.Text = bank_plat_int.ToString(); }));
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {bank_gold.Text = bank_gold_int.ToString(); }));
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {bank_silver.Text = bank_silver_int.ToString(); }));
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate {bank_copper.Text = bank_copper_int.ToString(); }));
-                if (y_label.InvokeRequired)
+                //if (y_label.InvokeRequired)
                     y_label.Invoke(new MethodInvoker(delegate { heading_label.Text = heading.ToString(); }));
 
                 //good codes, just never used them.
@@ -997,9 +999,9 @@ namespace EQTrainer
                 int mousexVal = MemLib.readUIntPtr("mousex", codeFile);
                 int mouseyVal = MemLib.readUIntPtr("mousey", codeFile);
 
-                if (mousey.InvokeRequired)
+                //if (mousey.InvokeRequired)
                     mousey.Invoke(new MethodInvoker(delegate { mousey.Text = mouseyVal.ToString(); }));
-                if (mousex.InvokeRequired)
+                //if (mousex.InvokeRequired)
                     mousex.Invoke(new MethodInvoker(delegate { mousex.Text = mousexVal.ToString(); }));
 
                 string t_name = MemLib.readString("targetName", codeFile);
@@ -1008,36 +1010,36 @@ namespace EQTrainer
 
                 if (t_level >= 1)
                 {
-                    if (label11.InvokeRequired)
+                    //if (label11.InvokeRequired)
                         label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: " + t_level.ToString(); }));
-                    if (followBtn.InvokeRequired)
+                    //if (followBtn.InvokeRequired)
                         followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = true; }));
                 }
                 else
                 {
-                    if (label11.InvokeRequired)
+                    //if (label11.InvokeRequired)
                         label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: "; }));
                     followBtn.Enabled = false;
                 }
 
                 if (t_level >= 1)
                 {
-                    if (label14.InvokeRequired)
+                    //if (label14.InvokeRequired)
                         label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: " + t_name; }));
                     followBtn.Enabled = true;
                 }
                 else
                 {
-                    if (label14.InvokeRequired)
+                    //if (label14.InvokeRequired)
                         label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: "; }));
                     followBtn.Enabled = false;
                 }
                 
                 int t_class = MemLib.readByte("targetClass", codeFile);
 
-                if (label12.InvokeRequired)
+                //if (label12.InvokeRequired)
                     label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
-                if (name_label.InvokeRequired)
+                //if (name_label.InvokeRequired)
                     name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name; }));
 
                 int cur_xp;
@@ -1049,24 +1051,15 @@ namespace EQTrainer
 
                 double xpProgressPercentage = ((double)current_xp / (double)330);
                 int xpProgressBar = (int)(xpProgressPercentage * 100);
+                if (xpProgressBar < 0) xpProgressBar = 0;
 
                 double hpProgressPercentage = ((double)current_hp / (double)max_hp);
                 int hpProgressBar = (int)(hpProgressPercentage * 100);
+                if (hpProgressBar < 0) hpProgressBar = 0;
 
                 double mpProgressPercentage = ((double)current_mp / (double)max_mp);
                 int mpProgressBar = (int)(mpProgressPercentage * 100);
-
-                
-                //if (xp_stats.InvokeRequired)
-                    xp_stats.Invoke(new MethodInvoker(delegate { xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
-                //if (hp_stats.InvokeRequired)
-                    hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 0) hp_stats.Text = "[" + current_hp + "/" + max_hp + "] " + hpProgressBar.ToString() + "%"; }));
-                //if (mp_stats.InvokeRequired)
-                    mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp > 0) mp_stats.Text = "[" + current_mp + "/" + max_mp + "] " + mpProgressBar.ToString() + "%"; }));
-
-                    progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
-                    progressBarHP.Invoke(new MethodInvoker(delegate { if (max_hp > 0) { progressBarHP.Value = hpProgressBar; SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero); } }));
-                    progressBarMP.Invoke(new MethodInvoker(delegate { if (max_mp > 0) { progressBarMP.Value = mpProgressBar; SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero); }  }));
+                if (mpProgressBar < 0) mpProgressBar = 0;
 
                 float run_speed = MemLib.readFloat("runSpeed", codeFile);
                 if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
@@ -1090,25 +1083,19 @@ namespace EQTrainer
                 else
                     display_thealth = tHealth.ToString() + " / " + thealth_max.ToString();
 
-                if (t_health.InvokeRequired)
+                //if (t_health.InvokeRequired)
                     t_health.Invoke(new MethodInvoker(delegate { t_health.Text = "Health: " + display_thealth; }));
-                if (target_y.InvokeRequired)
+                //if (target_y.InvokeRequired)
                     target_y.Invoke(new MethodInvoker(delegate { target_y.Text = "Y: " + t_y_address.ToString(); }));
-                if (target_x.InvokeRequired)
+                //if (target_x.InvokeRequired)
                     target_x.Invoke(new MethodInvoker(delegate { target_x.Text = "X: " + t_x_address.ToString(); }));
-                if (target_z.InvokeRequired)
+                //if (target_z.InvokeRequired)
                     target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
-                if (target_h.InvokeRequired)
+                //if (target_h.InvokeRequired)
                     target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
 
-                string buildVer = "";
-                if (comboBox1.InvokeRequired)
-                    comboBox1.Invoke(new MethodInvoker(delegate { buildVer = comboBox1.Text; }));
-
-                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
-
                 //only works in EQMac until I find Titanium codes
-                if (buildVer == "EQMac")
+                if (comboBox1.Text.Equals("EQMac"))
                 {
                     List<int> buffSpells = new List<int>();
                     List<int> buffTimer = new List<int>();
@@ -1321,6 +1308,16 @@ namespace EQTrainer
                         }
 
                     }));
+
+                //if (xp_stats.InvokeRequired)
+                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp > 0 && current_xp <= 330) xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
+                progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
+                //if (hp_stats.InvokeRequired)
+                hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = "[" + current_hp + "/" + max_hp + "] " + hpProgressBar.ToString() + "%"; }));
+                progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero); }));
+                //if (mp_stats.InvokeRequired)
+                mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = "[" + current_mp + "/" + max_mp + "] " + mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
+                progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero); }));
 
                 Thread.Sleep(100);
             }

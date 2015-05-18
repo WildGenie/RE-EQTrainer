@@ -26,12 +26,12 @@ namespace EQTrainer
         void setFocus()
         {
             IntPtr hWnd = IntPtr.Zero;
-            if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            {
+            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
+            //{
                 string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
                 Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
                 SetForegroundWindow(EQProc.MainWindowHandle);
-            }
+            //}
         }
 
         private void miniToolbar_Load(object sender, EventArgs e)
@@ -44,6 +44,7 @@ namespace EQTrainer
 
         private void button2_Click(object sender, EventArgs e)
         {
+            setFocus();
             this.RefToForm1.Close();
             this.Close();
         }
@@ -79,6 +80,13 @@ namespace EQTrainer
                 
                 if (closedFrm == false)
                 {
+                    try
+                    {
+                        setFocus();
+                    }
+                    catch
+                    {
+                    }
                     if (btn.Equals("teleForm"))
                     {
                         teleForm obj3 = new teleForm();
@@ -119,7 +127,6 @@ namespace EQTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            setFocus();
             toggleSubForms("teleForm");
         }
 
@@ -132,19 +139,16 @@ namespace EQTrainer
 
         private void scriptsBtn_Click(object sender, EventArgs e)
         {
-            setFocus();
             toggleSubForms("scriptsForm");
         }
 
         private void spawnBtn_Click(object sender, EventArgs e)
         {
-            setFocus();
             toggleSubForms("spawnsForm");
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            setFocus();
             toggleSubForms("mapForm");
         }
     }

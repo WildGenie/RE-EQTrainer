@@ -88,7 +88,6 @@
             this.z_label = new System.Windows.Forms.Label();
             this.x_label = new System.Windows.Forms.Label();
             this.y_label = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.z_tele = new System.Windows.Forms.TextBox();
             this.teleportBtn1 = new System.Windows.Forms.Button();
@@ -648,7 +647,7 @@
             this.map_label.Cursor = System.Windows.Forms.Cursors.Hand;
             this.map_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.map_label.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.map_label.Location = new System.Drawing.Point(380, 27);
+            this.map_label.Location = new System.Drawing.Point(344, 27);
             this.map_label.Name = "map_label";
             this.map_label.Size = new System.Drawing.Size(33, 13);
             this.map_label.TabIndex = 583;
@@ -683,16 +682,6 @@
             this.y_label.Size = new System.Drawing.Size(53, 13);
             this.y_label.TabIndex = 577;
             this.y_label.Text = "(Y coord.)";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label4.Location = new System.Drawing.Point(344, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 572;
-            this.label4.Text = "ZONE:";
             // 
             // label3
             // 
@@ -828,7 +817,6 @@
             this.Controls.Add(this.z_label);
             this.Controls.Add(this.x_label);
             this.Controls.Add(this.y_label);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.z_tele);
             this.Controls.Add(this.teleportBtn1);
@@ -892,7 +880,6 @@
         private System.Windows.Forms.Label z_label;
         private System.Windows.Forms.Label x_label;
         private System.Windows.Forms.Label y_label;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button teleportBtn1;
         private System.Windows.Forms.Label label2;

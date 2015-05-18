@@ -1,27 +1,50 @@
+// start in south qeynos, 800x600 and default UI positioning
 checkzone qeynos
-teleport 475 -440 3.71 261
+setfocus
+teleport 457 -442 2.75 2
+press up down
+pause 1500
+press up up
 checkzone qeynos2
-teleport 1400 1093 3.13 496
+pause 1000
+teleport 1395 1077 3.75 510
+press up down
+pause 1500
+press up up
 checkzone qeytoqrg
-teleport 1228 -2469 -1.22 324
+pause 1000
+teleport 1238 -2449 -0.59 324
+press up down
+pause 3000
+press up up
 checkzone qey2hh1
-CheckPCNearby -3668 -2001 24 85
+pause 1000
+CheckPCNearby -3668 -2001 24 50
 talktonpc Mistrana_Two_Notes deliver to qeynos
 checkcursor yes
-press down down
-pause 50
-press down up
-teleport 46 65 -3.87 60
+teleport 36 45 -4 71
+press up down
+pause 2000
+press up up
 checkzone qeytoqrg
-teleport -360 95 4.37 250
+pause 1000
+teleport -304 94 -4.09 250
+press up down
+pause 3000
+press up up
 checkzone qeynos2
-teleport -165 -7 3.71 261
+pause 1000
+teleport -147 -8 2.75 256
+press up down
+pause 2000
+press up up
 checkzone qeynos
-CheckPCNearby 520.19 -120.47 3.75 20
+CheckPCNearby 520 -99 3.75 10
 teleport 520.19 -120.47 3.75 347
+setfocus
 pause 400
-mouse 200 293 left
+mouse 393 194 left
 checkgive open
 checkcursor no
-mouse 33 341 left
+mouse 61 473 left
 checkgive closed
