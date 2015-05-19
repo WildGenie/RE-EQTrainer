@@ -1310,7 +1310,7 @@ namespace EQTrainer
                     }));
 
                 //if (xp_stats.InvokeRequired)
-                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp > 0 && current_xp <= 330) xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
+                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp >= 0 && current_xp <= 330) xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
                 progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
                 //if (hp_stats.InvokeRequired)
                 hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = "[" + current_hp + "/" + max_hp + "] " + hpProgressBar.ToString() + "%"; }));
