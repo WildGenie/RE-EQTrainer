@@ -789,7 +789,7 @@ namespace AutoBot
 
            AppendOutputText("Checking Safe X:" + value_x + " Y:" + value_y + " Z:" + value_z, Color.Green);
 
-           if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z))
+           if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z) && tpPlayerCheck() == true)
                return true;
            else
            {
@@ -798,13 +798,13 @@ namespace AutoBot
            }
        }
 
-       public bool tpPlayerCheck(float value_x, float value_y, float value_z)
+       public bool tpPlayerCheck(/*float value_x, float value_y, float value_z*/)
        {
            float y_address = MemLib.readFloat("playerY", codeFile);
            float x_address = MemLib.readFloat("playerX", codeFile);
-           float z_address = MemLib.readFloat("playerZ", codeFile);
+           //float z_address = MemLib.readFloat("playerZ", codeFile);
 
-           double value_y_rounded = Math.Round(Convert.ToDouble(value_y));
+           /*double value_y_rounded = Math.Round(Convert.ToDouble(value_y));
            double value_x_rounded = Math.Round(Convert.ToDouble(value_x));
            double value_z_rounded = Math.Round(Convert.ToDouble(value_z));
 
@@ -812,18 +812,20 @@ namespace AutoBot
            double x_diff = Math.Abs(Math.Round((value_x_rounded - x_address)));
            double z_diff = Math.Abs(Math.Round((value_z_rounded - z_address)));
 
-           AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);
+           AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);*/
 
-           if (y_address.Equals(0) /*&&*/|| x_address.Equals(0) /*&& z_address.Equals(0)*/) //zoning...
+           if (y_address.Equals(0) && x_address.Equals(0)) //zoning...
+               return false;
+           else
                return true;
 
-           if ((x_diff > (double)10) || (y_diff > (double)10) || (z_diff > (double)2))
+           /*if ((x_diff > (double)10) || (y_diff > (double)10) || (z_diff > (double)2))
            {
                AppendOutputText("Bad Player X:" + x_address + " Y:" + y_address + " Z:" + z_address, Color.Red);
                return false;
            }
            else
-               return true;
+               return true;*/
        }
 
         public void Teleport(float value_x, float value_y, float value_z, float value_h) //it's actually y,x,z

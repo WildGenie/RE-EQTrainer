@@ -16,9 +16,14 @@ namespace EQTrainer
         [DllImport("user32.dll")]
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+
         public miniToolbar()
         {
             InitializeComponent();
+            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+            backgroundWorker1.RunWorkerAsync();
         }
 
         public TrainerForm RefToForm1 { get; set; }
@@ -26,12 +31,9 @@ namespace EQTrainer
         void setFocus()
         {
             IntPtr hWnd = IntPtr.Zero;
-            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            //{
-                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
-                Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
-                SetForegroundWindow(EQProc.MainWindowHandle);
-            //}
+            string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[0].Text;
+            Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
+            SetForegroundWindow(EQProc.MainWindowHandle);
         }
 
         private void miniToolbar_Load(object sender, EventArgs e)
@@ -80,13 +82,6 @@ namespace EQTrainer
                 
                 if (closedFrm == false)
                 {
-                    try
-                    {
-                        setFocus();
-                    }
-                    catch
-                    {
-                    }
                     if (btn.Equals("teleForm"))
                     {
                         teleForm obj3 = new teleForm();
@@ -115,6 +110,13 @@ namespace EQTrainer
                         obj3.Show();
                         obj3.Location = new Point(mapBtn.Location.X, this.Height);
                     }
+                }
+                try
+                {
+                    setFocus();
+                }
+                catch
+                {
                 }
             //}
         }
@@ -150,6 +152,25 @@ namespace EQTrainer
         private void button1_Click_1(object sender, EventArgs e)
         {
             toggleSubForms("mapForm");
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            while (true)
+            {
+                hpProgressBar.Invoke(new MethodInvoker(delegate { 
+                    hpProgressBar.Value = this.RefToForm1.progressBarHP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)2, IntPtr.Zero);
+                    hpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarHP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(hpProgressBar.Width / 2 - 10, hpProgressBar.Height / 2 - 7));
+                }));
+                mpProgressBar.Invoke(new MethodInvoker(delegate { 
+                    mpProgressBar.Value = this.RefToForm1.progressBarMP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)0, IntPtr.Zero);
+                    mpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarMP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(mpProgressBar.Width / 2 - 10, mpProgressBar.Height / 2 - 7));
+                }));
+                xpProgressBar.Invoke(new MethodInvoker(delegate { 
+                    xpProgressBar.Value = this.RefToForm1.progressBarXP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)3, IntPtr.Zero);
+                    xpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarXP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(xpProgressBar.Width / 2 - 10, xpProgressBar.Height / 2 - 7));
+                }));
+            }
         }
     }
 }

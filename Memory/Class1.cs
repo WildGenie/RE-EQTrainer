@@ -138,7 +138,7 @@ namespace Memory
         public void ThreadStartClient(object obj)
         {
             ManualResetEvent SyncClientServer = (ManualResetEvent)obj;
-            using (NamedPipeClientStream pipeStream = new NamedPipeClientStream("PipesOfPiece"))
+            using (NamedPipeClientStream pipeStream = new NamedPipeClientStream("EQTPipe"))
             {
                 pipeStream.Connect();
 

@@ -28,7 +28,7 @@ namespace EQTrainer
             IntPtr hWnd = IntPtr.Zero;
             //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
             //{
-                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
+                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[0].Text;
                 Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
                 SetForegroundWindow(EQProc.MainWindowHandle);
             //}

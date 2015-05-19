@@ -6,9 +6,9 @@ Created for EverQuest on PC.
 
 SETUP
 ======
-EQTrainer.exe requires Administrative Privileges - Run "GrantAdmin.bat" file
+EQTrainer.exe requires Administrative Privileges - Run "GrantAdmin.bat" file on Windows Vista and above PCs
 Windows XP requires .NET Framework 4 - http://www.microsoft.com/en-us/download/details.aspx?id=17851
-Teleport requires C++ Redistributables - http://www.microsoft.com/en-us/download/details.aspx?id=5555
+Teleport requires C++ Redistributables (x86) - http://www.microsoft.com/en-us/download/details.aspx?id=5555
 AutoBot requires AutoIt - https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe
 
 

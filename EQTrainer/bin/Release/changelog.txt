@@ -1,3 +1,16 @@
+Version 5.7.6
+---------------
+Fixed XP progressbar now shows at 0%
+Fixed WinXP proper directory reset when zone changes
+Fixed game crash if you try to teleport while zoning
+Added settings form and button
+Added old warp method settings option
+Added no popup when coordinates blank settings option
+Changed bank money to include player money and total
+Changed progressbars to overlay current/max or percent information (hp,mp,xp)
+Changed form size to fit 1024 x 768 monitors
+
+
 Version 5.7.5
 ---------------
 Fixed toolbar focus crashing

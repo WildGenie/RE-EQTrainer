@@ -101,7 +101,6 @@ namespace EQTrainer
             try
             {
                 ToolTip tt = new ToolTip();
-                tt.SetToolTip(this.pictureBox1, "Bank Money");
                 tt.SetToolTip(this.teleportBtn1, "Teleport to Coordinates 1 (CTRL+1)");
                 tt.SetToolTip(this.teleportBtn2, "Teleport to Coordinates 2 (CTRL+2)");
                 tt.SetToolTip(this.teleportBtn3, "Teleport to Coordinates 3 (CTRL+3)");
@@ -130,6 +129,12 @@ namespace EQTrainer
                 tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
                 if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "auto"))
                     autoLoad.InitialDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "auto";
+                if (Properties.Settings.Default.old_warp == true)
+                {
+                    tt.SetToolTip(this.button1, "Old warp enabled. Inject happens when you teleport.");
+                    button1.Enabled = false;
+                } else
+                    tt.SetToolTip(this.button1, "Inject DLL to use teleporting.");
                 //teleForm teleForm = new teleForm();
                 //teleForm.Visible = false;
             }
@@ -237,7 +242,7 @@ namespace EQTrainer
                 {
                     if (theprocess.ProcessName == "eqgame")
                     {
-                        string[] listView2Rows = { theprocess.ProcessName, theprocess.Id.ToString() };
+                        string[] listView2Rows = { /*theprocess.ProcessName,*/ theprocess.Id.ToString() };
                         var listView2Items = new ListViewItem(listView2Rows);
                         listView2.Items.Add(listView2Items);
                         if (theprocess.Responding == false)
@@ -250,9 +255,10 @@ namespace EQTrainer
                     {
                         listView2.Items[0].Selected = true;
                         listView2.Select();
-                        eqgameID = listView2.SelectedItems[0].SubItems[1].Text;
+                        eqgameID = listView2.SelectedItems[0].SubItems[0].Text;
                         changeProcess();
-                        inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                        if (Properties.Settings.Default.old_warp == false)
+                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                         backgroundWorker1.RunWorkerAsync();
                     }
                 }
@@ -260,9 +266,9 @@ namespace EQTrainer
 
             if (listView2.SelectedItems.Count > 0)
             {
-                if (eqgameID != listView2.SelectedItems[0].SubItems[1].Text)
+                if (eqgameID != listView2.SelectedItems[0].SubItems[0].Text)
                 {
-                    eqgameID = listView2.SelectedItems[0].SubItems[1].Text; //keep maps up to date
+                    eqgameID = listView2.SelectedItems[0].SubItems[0].Text; //keep maps up to date
                     changeProcess();
                 }
                 if (backgroundWorker1.IsBusy == false)
@@ -458,41 +464,77 @@ namespace EQTrainer
         {
             if (h_tele1.Text == "") h_tele1.Text = "0";
             if (x_tele.Text == "" || y_tele.Text == "" || z_tele.Text == "")
-                MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+            {
+                if (Properties.Settings.Default.no_coords == false)
+                {
+                    MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+                }
+            }
             else
+            {
+                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                    return;
                 Teleport(float.Parse(x_tele.Text), float.Parse(y_tele.Text), float.Parse(z_tele.Text), float.Parse(h_tele1.Text));
+            }
         }
 
         private void teleportBtn2_Click(object sender, EventArgs e)
         {
             if (h_tele2.Text == "") h_tele2.Text = "0";
             if (x_tele2.Text == "" || y_tele2.Text == "" || z_tele2.Text == "")
-                MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+            {
+                if (Properties.Settings.Default.no_coords == false)
+                {
+                    MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+                }
+            }
             else
+            {
+                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                    return;
                 Teleport(float.Parse(x_tele2.Text), float.Parse(y_tele2.Text), float.Parse(z_tele2.Text), float.Parse(h_tele2.Text));
+            }
         }
 
         private void teleportBtn3_Click(object sender, EventArgs e)
         {
             if (h_tele2.Text == "") h_tele2.Text = "0";
             if (x_tele3.Text == "" || y_tele3.Text == "" || z_tele3.Text == "")
-                MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+            {
+                if (Properties.Settings.Default.no_coords == false)
+                {
+                    MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+                }
+            }
             else
+            {
+                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                    return;
                 Teleport(float.Parse(x_tele3.Text), float.Parse(y_tele3.Text), float.Parse(z_tele3.Text), float.Parse(h_tele3.Text));
+            }
         }
 
         private void teleportBtn4_Click(object sender, EventArgs e)
         {
             if (h_tele4.Text == "") h_tele4.Text = "0";
             if (x_tele4.Text == "" || y_tele4.Text == "" || z_tele4.Text == "")
-                MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+            {
+                if (Properties.Settings.Default.no_coords == false)
+                {
+                    MessageBox.Show("ERROR: You need X Y and Z coordinates!");
+                }
+            }
             else
+            {
+                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                    return;
                 Teleport(float.Parse(x_tele4.Text), float.Parse(y_tele4.Text), float.Parse(z_tele4.Text), float.Parse(h_tele4.Text));
+            }
         }
 
         private void map_label_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[1].Text + " " + comboBox1.Text);
+            System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -674,7 +716,7 @@ namespace EQTrainer
             if (checkBox1.Checked == true)
                 loop = "loop";
 
-            string arguments = listView2.SelectedItems[0].SubItems[1].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\"";
+            string arguments = listView2.SelectedItems[0].SubItems[0].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\"";
             Process.Start(Application.StartupPath + Path.DirectorySeparatorChar + "AutoBot.exe", arguments);
         }
 
@@ -896,11 +938,26 @@ namespace EQTrainer
 
             if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z))
             {
-                Thread ClientThread = new Thread(MemLib.ThreadStartClient);
-                ClientThread.Start();
+                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                    return;
+
+                if (Properties.Settings.Default.old_warp == true)
+                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "old_inject.dll");
+                else
+                {
+                    Thread ClientThread = new Thread(MemLib.ThreadStartClient);
+                    ClientThread.Start();
+                }
             }
             else
                 Teleport(value_x, value_y, value_z, value_h); //try again.
+        }
+
+        string TrimPrefixZero(string str)
+        {
+            if (str.StartsWith("0"))
+                str = str.Remove(0, "0".Length);
+            return str;
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -918,7 +975,8 @@ namespace EQTrainer
                         {
                             //if (comboBox1.InvokeRequired)
                             comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
-                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                            if (Properties.Settings.Default.old_warp == false)
+                                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                         }
                     }
                 }
@@ -936,6 +994,15 @@ namespace EQTrainer
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
                 string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
 
+                this.od1.Reset();
+                this.od2.Reset();
+                this.od3.Reset();
+                this.od4.Reset();
+                this.sd1.Reset();
+                this.sd2.Reset();
+                this.sd3.Reset();
+                this.sd4.Reset();
+
                 if (Directory.Exists(currentZone))
                 {
                     od1.InitialDirectory = currentZone;
@@ -949,7 +1016,7 @@ namespace EQTrainer
                 }
                 else
                 {
-                    od1.InitialDirectory = scriptDirectory;
+                    od1.InitialDirectory = scriptDirectory; 
                     od2.InitialDirectory = scriptDirectory;
                     od3.InitialDirectory = scriptDirectory;
                     od4.InitialDirectory = scriptDirectory;
@@ -964,29 +1031,40 @@ namespace EQTrainer
                 int bank_silver_int = MemLib.readInt("bankSilver", codeFile);
                 int bank_copper_int = MemLib.readInt("bankCopper", codeFile);
 
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate {y_label.Text = y_address.ToString(); }));
-                //if (x_label.InvokeRequired)
-                    x_label.Invoke(new MethodInvoker(delegate {x_label.Text = x_address.ToString(); }));
-                //if (z_label.InvokeRequired)
-                    z_label.Invoke(new MethodInvoker(delegate { z_label.Text = z_address.ToString(); }));
+                int player_plat_int = MemLib.readInt("playerPlat", codeFile);
+                int player_gold_int = MemLib.readInt("playerGold", codeFile);
+                int player_silver_int = MemLib.readInt("playerSilver", codeFile);
+                int player_copper_int = MemLib.readInt("playerCopper", codeFile);
 
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate {bank_plat.Text = bank_plat_int.ToString(); }));
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate {bank_gold.Text = bank_gold_int.ToString(); }));
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate {bank_silver.Text = bank_silver_int.ToString(); }));
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate {bank_copper.Text = bank_copper_int.ToString(); }));
-                //if (y_label.InvokeRequired)
-                    y_label.Invoke(new MethodInvoker(delegate { heading_label.Text = heading.ToString(); }));
+                bank_plat.Invoke(new MethodInvoker(delegate { bank_plat.Text = bank_plat_int.ToString(); }));
+                bank_gold.Invoke(new MethodInvoker(delegate { bank_gold.Text = bank_gold_int.ToString(); }));
+                bank_silver.Invoke(new MethodInvoker(delegate { bank_silver.Text = bank_silver_int.ToString(); }));
+                bank_copper.Invoke(new MethodInvoker(delegate { bank_copper.Text = bank_copper_int.ToString(); }));
 
-                //good codes, just never used them.
-                //uint player_plat_int = (uint)mem.ReadPointer(base_address + 0x3F94E8) + 0xb68;
-                //uint player_gold_int = (uint)mem.ReadPointer(base_address + 0x3F94E8) + 0xb6c;
-                //uint player_silver_int = (uint)mem.ReadPointer(base_address + 0x3F94E8) + 0xb70;
-                //uint player_copper_int = (uint)mem.ReadPointer(base_address + 0x3F94E8) + 0xb74;
+                player_plat.Invoke(new MethodInvoker(delegate { player_plat.Text = player_plat_int.ToString(); }));
+                player_gold.Invoke(new MethodInvoker(delegate { player_gold.Text = player_gold_int.ToString(); }));
+                player_silver.Invoke(new MethodInvoker(delegate { player_silver.Text = player_silver_int.ToString(); }));
+                player_copper.Invoke(new MethodInvoker(delegate { player_copper.Text = player_copper_int.ToString(); }));
+
+                decimal cRemaining = ((decimal)(bank_copper_int + player_copper_int) / 10) - Math.Floor((decimal)(bank_copper_int + player_copper_int) / 10);
+                int silverTotal = ((bank_copper_int + player_copper_int) / 10) + (bank_silver_int + player_silver_int);
+                decimal sRemaining = ((decimal)(silverTotal) / 10) - Math.Floor((decimal)(silverTotal) / 10);
+                int goldTotal = ((silverTotal) / 10) + (bank_gold_int + player_gold_int);
+                decimal gRemaining = ((decimal)(goldTotal) / 10) - Math.Floor((decimal)(goldTotal) / 10);
+                int platTotal = ((goldTotal) / 10) + (bank_plat_int + player_plat_int);
+
+                total_plat.Text = platTotal.ToString();
+                total_gold.Text = TrimPrefixZero(gRemaining.ToString().Replace(".", ""));
+                if (total_gold.Text.Equals("")) total_gold.Text = "0";
+                total_silver.Text = TrimPrefixZero(sRemaining.ToString().Replace(".", ""));
+                if (total_silver.Text.Equals("")) total_silver.Text = "0";
+                total_copper.Text = TrimPrefixZero(cRemaining.ToString().Replace(".", ""));
+                if (total_copper.Text.Equals("")) total_copper.Text = "0";
+
+                y_label.Invoke(new MethodInvoker(delegate { y_label.Text = y_address.ToString(); }));
+                x_label.Invoke(new MethodInvoker(delegate { x_label.Text = x_address.ToString(); }));
+                z_label.Invoke(new MethodInvoker(delegate { z_label.Text = z_address.ToString(); }));
+                heading_label.Invoke(new MethodInvoker(delegate { heading_label.Text = heading.ToString(); }));
 
                 string char_name = MemLib.readString("PlayerName", codeFile);
                 int current_hp = MemLib.readInt("PlayerCurrentHP", codeFile);
@@ -999,10 +1077,8 @@ namespace EQTrainer
                 int mousexVal = MemLib.readUIntPtr("mousex", codeFile);
                 int mouseyVal = MemLib.readUIntPtr("mousey", codeFile);
 
-                //if (mousey.InvokeRequired)
-                    mousey.Invoke(new MethodInvoker(delegate { mousey.Text = mouseyVal.ToString(); }));
-                //if (mousex.InvokeRequired)
-                    mousex.Invoke(new MethodInvoker(delegate { mousex.Text = mousexVal.ToString(); }));
+                mousey.Invoke(new MethodInvoker(delegate { mousey.Text = mouseyVal.ToString(); }));
+                mousex.Invoke(new MethodInvoker(delegate { mousex.Text = mousexVal.ToString(); }));
 
                 string t_name = MemLib.readString("targetName", codeFile);
                 
@@ -1010,37 +1086,30 @@ namespace EQTrainer
 
                 if (t_level >= 1)
                 {
-                    //if (label11.InvokeRequired)
-                        label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: " + t_level.ToString(); }));
-                    //if (followBtn.InvokeRequired)
-                        followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = true; }));
+                    label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: " + t_level.ToString(); }));
+                    followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = true; }));
                 }
                 else
                 {
-                    //if (label11.InvokeRequired)
-                        label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: "; }));
+                    label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: "; }));
                     followBtn.Enabled = false;
                 }
 
                 if (t_level >= 1)
                 {
-                    //if (label14.InvokeRequired)
-                        label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: " + t_name; }));
+                    label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: " + t_name; }));
                     followBtn.Enabled = true;
                 }
                 else
                 {
-                    //if (label14.InvokeRequired)
-                        label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: "; }));
+                    label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: "; }));
                     followBtn.Enabled = false;
                 }
                 
                 int t_class = MemLib.readByte("targetClass", codeFile);
 
-                //if (label12.InvokeRequired)
-                    label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
-                //if (name_label.InvokeRequired)
-                    name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name; }));
+                label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
+                name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name; }));
 
                 int cur_xp;
                 if (current_xp > 330)
@@ -1083,16 +1152,11 @@ namespace EQTrainer
                 else
                     display_thealth = tHealth.ToString() + " / " + thealth_max.ToString();
 
-                //if (t_health.InvokeRequired)
-                    t_health.Invoke(new MethodInvoker(delegate { t_health.Text = "Health: " + display_thealth; }));
-                //if (target_y.InvokeRequired)
-                    target_y.Invoke(new MethodInvoker(delegate { target_y.Text = "Y: " + t_y_address.ToString(); }));
-                //if (target_x.InvokeRequired)
-                    target_x.Invoke(new MethodInvoker(delegate { target_x.Text = "X: " + t_x_address.ToString(); }));
-                //if (target_z.InvokeRequired)
-                    target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
-                //if (target_h.InvokeRequired)
-                    target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
+                t_health.Invoke(new MethodInvoker(delegate { t_health.Text = "Health: " + display_thealth; }));
+                target_y.Invoke(new MethodInvoker(delegate { target_y.Text = "Y: " + t_y_address.ToString(); }));
+                target_x.Invoke(new MethodInvoker(delegate { target_x.Text = "X: " + t_x_address.ToString(); }));
+                target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
+                target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
 
                 //only works in EQMac until I find Titanium codes
                 if (comboBox1.Text.Equals("EQMac"))
@@ -1309,15 +1373,17 @@ namespace EQTrainer
 
                     }));
 
-                //if (xp_stats.InvokeRequired)
-                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp >= 0 && current_xp <= 330) xp_stats.Text = "[" + current_xp.ToString() + "/330] " + xpProgressBar.ToString() + "%"; }));
+                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp >= 0 && current_xp <= 330) xp_stats.Text = xpProgressBar.ToString() + "%"; }));
                 progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
-                //if (hp_stats.InvokeRequired)
-                hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = "[" + current_hp + "/" + max_hp + "] " + hpProgressBar.ToString() + "%"; }));
+                progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
+
+                hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = hpProgressBar.ToString() + "%"; }));
                 progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero); }));
-                //if (mp_stats.InvokeRequired)
-                mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = "[" + current_mp + "/" + max_mp + "] " + mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
+                progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
+
+                mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
                 progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero); }));
+                progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
 
                 Thread.Sleep(100);
             }
@@ -1428,6 +1494,14 @@ namespace EQTrainer
             //this.Visible = false;
             obj2.Show();
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void toolStripStatusLabel4_Click(object sender, EventArgs e)
+        {
+            settingsForm obj = new settingsForm();
+            obj.RefToForm1 = this;
+            obj.Show();
+            obj.Location = new Point(this.Location.X, this.Location.Y);
         }
 
         /*private void tele_label1_TextChanged(object sender, EventArgs e)

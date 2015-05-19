@@ -19,26 +19,14 @@ void EQTFunctions (const char *func) {
 }
 
 void OnAttach( HMODULE hModule ) {
-	/*RegisterHotKey(NULL, 1, MOD_ALT|MOD_CONTROL, (int)'1');
-	MSG msg;
-	while(GetMessage(&msg, 0, 0, 0))
-	{
-		PeekMessage(&msg, 0, 0, 0, 0x0001);
-		switch(msg.message)
-		{
-		case WM_HOTKEY:
-			if(msg.wParam == 1)
-				keyPressed();
-		}
-	}*/
 
 	HANDLE hPipe;
     char buffer[1024];
     DWORD dwRead;
 
 
-    hPipe = CreateNamedPipe(TEXT("\\\\.\\pipe\\PipesOfPiece"),
-                            PIPE_ACCESS_DUPLEX | PIPE_TYPE_BYTE | PIPE_READMODE_BYTE,   // FILE_FLAG_FIRST_PIPE_INSTANCE is not needed but forces CreateNamedPipe(..) to fail if the pipe already exists...
+    hPipe = CreateNamedPipe(TEXT("\\\\.\\pipe\\EQTPipe"),
+                            PIPE_ACCESS_DUPLEX/*PIPE_ACCESS_INBOUND*/ | PIPE_TYPE_BYTE | PIPE_READMODE_BYTE,
                             PIPE_WAIT,
                             1,
                             1024 * 16,
@@ -47,7 +35,7 @@ void OnAttach( HMODULE hModule ) {
                             NULL);
     while (hPipe != NULL)
     {
-        if (ConnectNamedPipe(hPipe, NULL) != FALSE)   // wait for someone to connect to the pipe
+        if (ConnectNamedPipe(hPipe, NULL) != FALSE)
         {
             while (ReadFile(hPipe, buffer, sizeof(buffer), &dwRead, NULL) != FALSE)
             {
@@ -58,7 +46,8 @@ void OnAttach( HMODULE hModule ) {
         DisconnectNamedPipe(hPipe);
     }
 
-	// stay injected
+	// old function
+	//EQTFunctions();
 	//FreeLibraryAndExitThread( hModule, 0 );                               
 	//ExitThread( 0 );
 }

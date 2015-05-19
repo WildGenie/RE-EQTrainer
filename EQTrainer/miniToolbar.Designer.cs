@@ -32,20 +32,27 @@
             this.tpBtn = new System.Windows.Forms.Button();
             this.scriptsBtn = new System.Windows.Forms.Button();
             this.spawnBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.mapBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.hpProgressBar = new System.Windows.Forms.ProgressBar();
+            this.mpProgressBar = new System.Windows.Forms.ProgressBar();
+            this.xpProgressBar = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.tpBtn);
             this.flowLayoutPanel1.Controls.Add(this.scriptsBtn);
             this.flowLayoutPanel1.Controls.Add(this.spawnBtn);
             this.flowLayoutPanel1.Controls.Add(this.mapBtn);
+            this.flowLayoutPanel1.Controls.Add(this.hpProgressBar);
+            this.flowLayoutPanel1.Controls.Add(this.mpProgressBar);
+            this.flowLayoutPanel1.Controls.Add(this.xpProgressBar);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, -1);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1535, 32);
@@ -90,6 +97,19 @@
             this.spawnBtn.UseVisualStyleBackColor = false;
             this.spawnBtn.Click += new System.EventHandler(this.spawnBtn_Click);
             // 
+            // mapBtn
+            // 
+            this.mapBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.mapBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mapBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.mapBtn.Location = new System.Drawing.Point(306, 3);
+            this.mapBtn.Name = "mapBtn";
+            this.mapBtn.Size = new System.Drawing.Size(95, 25);
+            this.mapBtn.TabIndex = 3;
+            this.mapBtn.Text = "MAP SYSTEM";
+            this.mapBtn.UseVisualStyleBackColor = false;
+            this.mapBtn.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // closeBtn
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -105,18 +125,30 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // mapBtn
+            // hpProgressBar
             // 
-            this.mapBtn.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.mapBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mapBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.mapBtn.Location = new System.Drawing.Point(306, 3);
-            this.mapBtn.Name = "mapBtn";
-            this.mapBtn.Size = new System.Drawing.Size(95, 25);
-            this.mapBtn.TabIndex = 3;
-            this.mapBtn.Text = "MAP SYSTEM";
-            this.mapBtn.UseVisualStyleBackColor = false;
-            this.mapBtn.Click += new System.EventHandler(this.button1_Click_1);
+            this.hpProgressBar.Location = new System.Drawing.Point(407, 3);
+            this.hpProgressBar.Name = "hpProgressBar";
+            this.hpProgressBar.Size = new System.Drawing.Size(130, 23);
+            this.hpProgressBar.TabIndex = 4;
+            // 
+            // mpProgressBar
+            // 
+            this.mpProgressBar.Location = new System.Drawing.Point(543, 3);
+            this.mpProgressBar.Name = "mpProgressBar";
+            this.mpProgressBar.Size = new System.Drawing.Size(130, 23);
+            this.mpProgressBar.TabIndex = 5;
+            // 
+            // xpProgressBar
+            // 
+            this.xpProgressBar.Location = new System.Drawing.Point(679, 3);
+            this.xpProgressBar.Name = "xpProgressBar";
+            this.xpProgressBar.Size = new System.Drawing.Size(130, 23);
+            this.xpProgressBar.TabIndex = 6;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // miniToolbar
             // 
@@ -147,6 +179,10 @@
         public System.Windows.Forms.Button scriptsBtn;
         public System.Windows.Forms.Button spawnBtn;
         public System.Windows.Forms.Button mapBtn;
+        private System.Windows.Forms.ProgressBar hpProgressBar;
+        private System.Windows.Forms.ProgressBar mpProgressBar;
+        private System.Windows.Forms.ProgressBar xpProgressBar;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
     }
 }

@@ -45,10 +45,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.bank_plat = new System.Windows.Forms.Label();
-            this.bank_gold = new System.Windows.Forms.Label();
-            this.bank_silver = new System.Windows.Forms.Label();
-            this.bank_copper = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.hp_stats = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -131,6 +127,7 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.x64CDependenciesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoItV3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.label5 = new System.Windows.Forms.Label();
             this.heading_label = new System.Windows.Forms.Label();
             this.mousex = new System.Windows.Forms.TextBox();
@@ -154,7 +151,6 @@
             this.h_tele3 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.h_tele4 = new System.Windows.Forms.TextBox();
-            this.label34 = new System.Windows.Forms.Label();
             this.buttonTargetSpawn = new System.Windows.Forms.Button();
             this.buttonRefreshSpawnList = new System.Windows.Forms.Button();
             this.listViewSpawnList = new System.Windows.Forms.ListView();
@@ -176,9 +172,7 @@
             this.target_h = new System.Windows.Forms.Label();
             this.distance = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.ProcName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ProcessID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.refreshProcessesBtn = new System.Windows.Forms.Button();
@@ -193,8 +187,28 @@
             this.button2 = new System.Windows.Forms.Button();
             this.progressBarHP = new System.Windows.Forms.ProgressBar();
             this.progressBarMP = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.bank_copper = new System.Windows.Forms.Label();
+            this.bank_silver = new System.Windows.Forms.Label();
+            this.bank_gold = new System.Windows.Forms.Label();
+            this.bank_plat = new System.Windows.Forms.Label();
+            this.player_copper = new System.Windows.Forms.Label();
+            this.player_silver = new System.Windows.Forms.Label();
+            this.player_gold = new System.Windows.Forms.Label();
+            this.player_plat = new System.Windows.Forms.Label();
+            this.total_copper = new System.Windows.Forms.Label();
+            this.total_silver = new System.Windows.Forms.Label();
+            this.total_gold = new System.Windows.Forms.Label();
+            this.total_plat = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // y_tele
@@ -237,11 +251,12 @@
             // 
             // teleportBtn1
             // 
+            this.teleportBtn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn1.Location = new System.Drawing.Point(344, 108);
             this.teleportBtn1.Name = "teleportBtn1";
-            this.teleportBtn1.Size = new System.Drawing.Size(73, 20);
+            this.teleportBtn1.Size = new System.Drawing.Size(31, 20);
             this.teleportBtn1.TabIndex = 13;
-            this.teleportBtn1.Text = "TELEPORT";
+            this.teleportBtn1.Text = "TP";
             this.teleportBtn1.UseVisualStyleBackColor = true;
             this.teleportBtn1.Click += new System.EventHandler(this.teleportBtn1_Click);
             // 
@@ -328,56 +343,12 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Z";
             // 
-            // bank_plat
-            // 
-            this.bank_plat.AutoSize = true;
-            this.bank_plat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(57)))));
-            this.bank_plat.ForeColor = System.Drawing.Color.White;
-            this.bank_plat.Location = new System.Drawing.Point(40, 34);
-            this.bank_plat.Name = "bank_plat";
-            this.bank_plat.Size = new System.Drawing.Size(19, 13);
-            this.bank_plat.TabIndex = 30;
-            this.bank_plat.Text = "(p)";
-            // 
-            // bank_gold
-            // 
-            this.bank_gold.AutoSize = true;
-            this.bank_gold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(0)))));
-            this.bank_gold.ForeColor = System.Drawing.Color.White;
-            this.bank_gold.Location = new System.Drawing.Point(113, 34);
-            this.bank_gold.Name = "bank_gold";
-            this.bank_gold.Size = new System.Drawing.Size(19, 13);
-            this.bank_gold.TabIndex = 31;
-            this.bank_gold.Text = "(g)";
-            // 
-            // bank_silver
-            // 
-            this.bank_silver.AutoSize = true;
-            this.bank_silver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
-            this.bank_silver.ForeColor = System.Drawing.Color.White;
-            this.bank_silver.Location = new System.Drawing.Point(185, 34);
-            this.bank_silver.Name = "bank_silver";
-            this.bank_silver.Size = new System.Drawing.Size(18, 13);
-            this.bank_silver.TabIndex = 32;
-            this.bank_silver.Text = "(s)";
-            // 
-            // bank_copper
-            // 
-            this.bank_copper.AutoSize = true;
-            this.bank_copper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(49)))), ((int)(((byte)(0)))));
-            this.bank_copper.ForeColor = System.Drawing.Color.White;
-            this.bank_copper.Location = new System.Drawing.Point(257, 34);
-            this.bank_copper.Name = "bank_copper";
-            this.bank_copper.Size = new System.Drawing.Size(19, 13);
-            this.bank_copper.TabIndex = 33;
-            this.bank_copper.Text = "(c)";
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.Maroon;
-            this.label20.Location = new System.Drawing.Point(341, 23);
+            this.label20.Location = new System.Drawing.Point(328, 21);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(28, 13);
             this.label20.TabIndex = 38;
@@ -386,7 +357,7 @@
             // hp_stats
             // 
             this.hp_stats.AutoSize = true;
-            this.hp_stats.Location = new System.Drawing.Point(436, 23);
+            this.hp_stats.Location = new System.Drawing.Point(434, 21);
             this.hp_stats.Name = "hp_stats";
             this.hp_stats.Size = new System.Drawing.Size(25, 13);
             this.hp_stats.TabIndex = 39;
@@ -397,7 +368,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.Navy;
-            this.label21.Location = new System.Drawing.Point(341, 42);
+            this.label21.Location = new System.Drawing.Point(328, 41);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(29, 13);
             this.label21.TabIndex = 40;
@@ -406,7 +377,7 @@
             // mp_stats
             // 
             this.mp_stats.AutoSize = true;
-            this.mp_stats.Location = new System.Drawing.Point(436, 42);
+            this.mp_stats.Location = new System.Drawing.Point(434, 41);
             this.mp_stats.Name = "mp_stats";
             this.mp_stats.Size = new System.Drawing.Size(27, 13);
             this.mp_stats.TabIndex = 41;
@@ -440,11 +411,12 @@
             // 
             // teleportBtn2
             // 
+            this.teleportBtn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn2.Location = new System.Drawing.Point(344, 134);
             this.teleportBtn2.Name = "teleportBtn2";
-            this.teleportBtn2.Size = new System.Drawing.Size(73, 20);
+            this.teleportBtn2.Size = new System.Drawing.Size(31, 20);
             this.teleportBtn2.TabIndex = 14;
-            this.teleportBtn2.Text = "TELEPORT";
+            this.teleportBtn2.Text = "TP";
             this.teleportBtn2.UseVisualStyleBackColor = true;
             this.teleportBtn2.Click += new System.EventHandler(this.teleportBtn2_Click);
             // 
@@ -498,11 +470,12 @@
             // 
             // teleportBtn3
             // 
+            this.teleportBtn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn3.Location = new System.Drawing.Point(344, 160);
             this.teleportBtn3.Name = "teleportBtn3";
-            this.teleportBtn3.Size = new System.Drawing.Size(73, 20);
+            this.teleportBtn3.Size = new System.Drawing.Size(31, 20);
             this.teleportBtn3.TabIndex = 15;
-            this.teleportBtn3.Text = "TELEPORT";
+            this.teleportBtn3.Text = "TP";
             this.teleportBtn3.UseVisualStyleBackColor = true;
             this.teleportBtn3.Click += new System.EventHandler(this.teleportBtn3_Click);
             // 
@@ -556,11 +529,12 @@
             // 
             // teleportBtn4
             // 
+            this.teleportBtn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn4.Location = new System.Drawing.Point(344, 186);
             this.teleportBtn4.Name = "teleportBtn4";
-            this.teleportBtn4.Size = new System.Drawing.Size(73, 20);
+            this.teleportBtn4.Size = new System.Drawing.Size(31, 20);
             this.teleportBtn4.TabIndex = 16;
-            this.teleportBtn4.Text = "TELEPORT";
+            this.teleportBtn4.Text = "TP";
             this.teleportBtn4.UseVisualStyleBackColor = true;
             this.teleportBtn4.Click += new System.EventHandler(this.teleportBtn4_Click);
             // 
@@ -601,7 +575,7 @@
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label32.Location = new System.Drawing.Point(342, 61);
+            this.label32.Location = new System.Drawing.Point(329, 61);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(27, 13);
             this.label32.TabIndex = 88;
@@ -611,7 +585,7 @@
             // 
             this.button5.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button5.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button5.Location = new System.Drawing.Point(420, 108);
+            this.button5.Location = new System.Drawing.Point(377, 108);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(21, 20);
             this.button5.TabIndex = 90;
@@ -623,7 +597,7 @@
             // 
             this.button6.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button6.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button6.Location = new System.Drawing.Point(420, 134);
+            this.button6.Location = new System.Drawing.Point(377, 134);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(21, 20);
             this.button6.TabIndex = 91;
@@ -635,7 +609,7 @@
             // 
             this.button7.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button7.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button7.Location = new System.Drawing.Point(420, 160);
+            this.button7.Location = new System.Drawing.Point(377, 160);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(21, 20);
             this.button7.TabIndex = 92;
@@ -647,7 +621,7 @@
             // 
             this.button8.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button8.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button8.Location = new System.Drawing.Point(420, 186);
+            this.button8.Location = new System.Drawing.Point(377, 186);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(21, 20);
             this.button8.TabIndex = 93;
@@ -659,7 +633,7 @@
             // 
             this.button9.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button9.ForeColor = System.Drawing.Color.Maroon;
-            this.button9.Location = new System.Drawing.Point(444, 108);
+            this.button9.Location = new System.Drawing.Point(398, 108);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(21, 20);
             this.button9.TabIndex = 94;
@@ -671,7 +645,7 @@
             // 
             this.button10.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button10.ForeColor = System.Drawing.Color.Maroon;
-            this.button10.Location = new System.Drawing.Point(444, 134);
+            this.button10.Location = new System.Drawing.Point(398, 134);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(21, 20);
             this.button10.TabIndex = 95;
@@ -683,7 +657,7 @@
             // 
             this.button11.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button11.ForeColor = System.Drawing.Color.Maroon;
-            this.button11.Location = new System.Drawing.Point(444, 160);
+            this.button11.Location = new System.Drawing.Point(398, 160);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(21, 20);
             this.button11.TabIndex = 96;
@@ -695,7 +669,7 @@
             // 
             this.button12.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button12.ForeColor = System.Drawing.Color.Maroon;
-            this.button12.Location = new System.Drawing.Point(444, 186);
+            this.button12.Location = new System.Drawing.Point(398, 186);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(21, 20);
             this.button12.TabIndex = 97;
@@ -735,7 +709,7 @@
             // 
             this.button13.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button13.ForeColor = System.Drawing.Color.Navy;
-            this.button13.Location = new System.Drawing.Point(467, 108);
+            this.button13.Location = new System.Drawing.Point(419, 108);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(21, 20);
             this.button13.TabIndex = 98;
@@ -747,7 +721,7 @@
             // 
             this.button14.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button14.ForeColor = System.Drawing.Color.Navy;
-            this.button14.Location = new System.Drawing.Point(467, 134);
+            this.button14.Location = new System.Drawing.Point(419, 134);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(21, 20);
             this.button14.TabIndex = 99;
@@ -759,7 +733,7 @@
             // 
             this.button15.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button15.ForeColor = System.Drawing.Color.Navy;
-            this.button15.Location = new System.Drawing.Point(467, 160);
+            this.button15.Location = new System.Drawing.Point(419, 160);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(21, 20);
             this.button15.TabIndex = 100;
@@ -771,7 +745,7 @@
             // 
             this.button16.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button16.ForeColor = System.Drawing.Color.Navy;
-            this.button16.Location = new System.Drawing.Point(467, 186);
+            this.button16.Location = new System.Drawing.Point(419, 186);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(21, 20);
             this.button16.TabIndex = 101;
@@ -815,7 +789,7 @@
             // 
             this.button17.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button17.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button17.Location = new System.Drawing.Point(491, 108);
+            this.button17.Location = new System.Drawing.Point(440, 108);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(21, 20);
             this.button17.TabIndex = 102;
@@ -827,7 +801,7 @@
             // 
             this.button18.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button18.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button18.Location = new System.Drawing.Point(491, 134);
+            this.button18.Location = new System.Drawing.Point(440, 134);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(21, 20);
             this.button18.TabIndex = 103;
@@ -839,7 +813,7 @@
             // 
             this.button19.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button19.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button19.Location = new System.Drawing.Point(491, 160);
+            this.button19.Location = new System.Drawing.Point(440, 160);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(21, 20);
             this.button19.TabIndex = 104;
@@ -851,7 +825,7 @@
             // 
             this.button20.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button20.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button20.Location = new System.Drawing.Point(491, 186);
+            this.button20.Location = new System.Drawing.Point(440, 186);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(21, 20);
             this.button20.TabIndex = 105;
@@ -891,7 +865,7 @@
             // 
             // saveAllBtn
             // 
-            this.saveAllBtn.Location = new System.Drawing.Point(242, 244);
+            this.saveAllBtn.Location = new System.Drawing.Point(242, 243);
             this.saveAllBtn.Name = "saveAllBtn";
             this.saveAllBtn.Size = new System.Drawing.Size(95, 23);
             this.saveAllBtn.TabIndex = 501;
@@ -901,7 +875,7 @@
             // 
             // loadAllBtn
             // 
-            this.loadAllBtn.Location = new System.Drawing.Point(242, 273);
+            this.loadAllBtn.Location = new System.Drawing.Point(242, 266);
             this.loadAllBtn.Name = "loadAllBtn";
             this.loadAllBtn.Size = new System.Drawing.Size(95, 23);
             this.loadAllBtn.TabIndex = 502;
@@ -955,11 +929,11 @@
             // 
             this.gateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gateBtn.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.gateBtn.Location = new System.Drawing.Point(244, 436);
+            this.gateBtn.Location = new System.Drawing.Point(296, 312);
             this.gateBtn.Name = "gateBtn";
-            this.gateBtn.Size = new System.Drawing.Size(95, 23);
+            this.gateBtn.Size = new System.Drawing.Size(48, 23);
             this.gateBtn.TabIndex = 506;
-            this.gateBtn.Text = "Instant Gate";
+            this.gateBtn.Text = "GATE";
             this.gateBtn.UseVisualStyleBackColor = true;
             this.gateBtn.Click += new System.EventHandler(this.gateBtn_Click);
             // 
@@ -968,17 +942,17 @@
             this.followBtn.Enabled = false;
             this.followBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.followBtn.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.followBtn.Location = new System.Drawing.Point(242, 346);
+            this.followBtn.Location = new System.Drawing.Point(242, 312);
             this.followBtn.Name = "followBtn";
-            this.followBtn.Size = new System.Drawing.Size(95, 23);
+            this.followBtn.Size = new System.Drawing.Size(52, 23);
             this.followBtn.TabIndex = 507;
-            this.followBtn.Text = "Follow Target";
+            this.followBtn.Text = "Follow";
             this.followBtn.UseVisualStyleBackColor = true;
             this.followBtn.Click += new System.EventHandler(this.followBtn_Click);
             // 
             // runBox
             // 
-            this.runBox.Location = new System.Drawing.Point(243, 409);
+            this.runBox.Location = new System.Drawing.Point(244, 354);
             this.runBox.Name = "runBox";
             this.runBox.Size = new System.Drawing.Size(74, 20);
             this.runBox.TabIndex = 508;
@@ -988,7 +962,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(240, 393);
+            this.label13.Location = new System.Drawing.Point(241, 338);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(79, 13);
             this.label13.TabIndex = 509;
@@ -998,7 +972,7 @@
             // 
             this.resetRunBtn.Font = new System.Drawing.Font("Wingdings", 11.25F);
             this.resetRunBtn.ForeColor = System.Drawing.Color.Maroon;
-            this.resetRunBtn.Location = new System.Drawing.Point(319, 408);
+            this.resetRunBtn.Location = new System.Drawing.Point(320, 353);
             this.resetRunBtn.Name = "resetRunBtn";
             this.resetRunBtn.Size = new System.Drawing.Size(20, 22);
             this.resetRunBtn.TabIndex = 510;
@@ -1027,7 +1001,7 @@
             this.listViewScripts.FullRowSelect = true;
             this.listViewScripts.GridLines = true;
             this.listViewScripts.HideSelection = false;
-            this.listViewScripts.Location = new System.Drawing.Point(517, 34);
+            this.listViewScripts.Location = new System.Drawing.Point(467, 34);
             this.listViewScripts.Name = "listViewScripts";
             this.listViewScripts.Size = new System.Drawing.Size(543, 201);
             this.listViewScripts.TabIndex = 534;
@@ -1056,7 +1030,7 @@
             // 
             // buttonAllScriptsEnabled
             // 
-            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(788, 5);
+            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(738, 5);
             this.buttonAllScriptsEnabled.Name = "buttonAllScriptsEnabled";
             this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(106, 24);
             this.buttonAllScriptsEnabled.TabIndex = 536;
@@ -1066,7 +1040,7 @@
             // 
             // buttonAllScriptsDisabled
             // 
-            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(896, 5);
+            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(846, 5);
             this.buttonAllScriptsDisabled.Name = "buttonAllScriptsDisabled";
             this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(107, 24);
             this.buttonAllScriptsDisabled.TabIndex = 537;
@@ -1080,10 +1054,11 @@
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2,
             this.toolStripStatusLabel3,
-            this.toolStripDropDownButton1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 550);
+            this.toolStripDropDownButton1,
+            this.toolStripStatusLabel4});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 548);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1069, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1011, 24);
             this.statusStrip1.SizingGrip = false;
             this.statusStrip1.Stretch = false;
             this.statusStrip1.TabIndex = 538;
@@ -1092,7 +1067,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(192, 19);
             this.toolStripStatusLabel1.Text = "Created by NeWaGe and sodcheats";
             // 
             // toolStripStatusLabel2
@@ -1100,15 +1075,15 @@
             this.toolStripStatusLabel2.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolStripStatusLabel2.IsLink = true;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(110, 19);
             this.toolStripStatusLabel2.Text = "newagesoldier.com";
             this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
             // 
             // toolStripStatusLabel3
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
-            this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 17);
-            this.toolStripStatusLabel3.Text = "Version: 5.7.5";
+            this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 19);
+            this.toolStripStatusLabel3.Text = "Version: 5.7.6";
             // 
             // toolStripDropDownButton1
             // 
@@ -1120,7 +1095,7 @@
             this.toolStripDropDownButton1.ForeColor = System.Drawing.Color.Green;
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(151, 22);
             this.toolStripDropDownButton1.Tag = "Teleport Dependencies";
             this.toolStripDropDownButton1.Text = "Download Dependencies";
             this.toolStripDropDownButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -1138,6 +1113,19 @@
             this.autoItV3ToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.autoItV3ToolStripMenuItem.Text = "AutoItX v3";
             this.autoItV3ToolStripMenuItem.Click += new System.EventHandler(this.autoItV3ToolStripMenuItem_Click);
+            // 
+            // toolStripStatusLabel4
+            // 
+            this.toolStripStatusLabel4.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.toolStripStatusLabel4.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabel4.BorderStyle = System.Windows.Forms.Border3DStyle.RaisedOuter;
+            this.toolStripStatusLabel4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripStatusLabel4.Name = "toolStripStatusLabel4";
+            this.toolStripStatusLabel4.Size = new System.Drawing.Size(53, 19);
+            this.toolStripStatusLabel4.Text = "Settings";
+            this.toolStripStatusLabel4.Click += new System.EventHandler(this.toolStripStatusLabel4_Click);
             // 
             // label5
             // 
@@ -1160,23 +1148,23 @@
             // mousex
             // 
             this.mousex.Enabled = false;
-            this.mousex.Location = new System.Drawing.Point(291, 470);
+            this.mousex.Location = new System.Drawing.Point(290, 499);
             this.mousex.Name = "mousex";
-            this.mousex.Size = new System.Drawing.Size(32, 20);
+            this.mousex.Size = new System.Drawing.Size(38, 20);
             this.mousex.TabIndex = 542;
             // 
             // mousey
             // 
             this.mousey.Enabled = false;
-            this.mousey.Location = new System.Drawing.Point(291, 500);
+            this.mousey.Location = new System.Drawing.Point(290, 522);
             this.mousey.Name = "mousey";
-            this.mousey.Size = new System.Drawing.Size(32, 20);
+            this.mousey.Size = new System.Drawing.Size(38, 20);
             this.mousey.TabIndex = 543;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(241, 474);
+            this.label6.Location = new System.Drawing.Point(240, 503);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 544;
@@ -1185,7 +1173,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(241, 503);
+            this.label15.Location = new System.Drawing.Point(240, 525);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 13);
             this.label15.TabIndex = 545;
@@ -1328,21 +1316,9 @@
             this.h_tele4.Size = new System.Drawing.Size(44, 20);
             this.h_tele4.TabIndex = 561;
             // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.Maroon;
-            this.label34.Location = new System.Drawing.Point(5, 4);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(19, 68);
-            this.label34.TabIndex = 563;
-            this.label34.Text = "B\r\nA\r\nN\r\nK";
-            // 
             // buttonTargetSpawn
             // 
-            this.buttonTargetSpawn.Location = new System.Drawing.Point(931, 522);
+            this.buttonTargetSpawn.Location = new System.Drawing.Point(881, 522);
             this.buttonTargetSpawn.Name = "buttonTargetSpawn";
             this.buttonTargetSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonTargetSpawn.TabIndex = 566;
@@ -1352,7 +1328,7 @@
             // 
             // buttonRefreshSpawnList
             // 
-            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(995, 245);
+            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(945, 245);
             this.buttonRefreshSpawnList.Name = "buttonRefreshSpawnList";
             this.buttonRefreshSpawnList.Size = new System.Drawing.Size(65, 24);
             this.buttonRefreshSpawnList.TabIndex = 565;
@@ -1375,7 +1351,7 @@
             this.listViewSpawnList.FullRowSelect = true;
             this.listViewSpawnList.GridLines = true;
             this.listViewSpawnList.HideSelection = false;
-            this.listViewSpawnList.Location = new System.Drawing.Point(517, 274);
+            this.listViewSpawnList.Location = new System.Drawing.Point(467, 274);
             this.listViewSpawnList.MultiSelect = false;
             this.listViewSpawnList.Name = "listViewSpawnList";
             this.listViewSpawnList.Size = new System.Drawing.Size(542, 242);
@@ -1433,7 +1409,7 @@
             // labelSpawnList
             // 
             this.labelSpawnList.AutoSize = true;
-            this.labelSpawnList.Location = new System.Drawing.Point(514, 250);
+            this.labelSpawnList.Location = new System.Drawing.Point(464, 250);
             this.labelSpawnList.Name = "labelSpawnList";
             this.labelSpawnList.Size = new System.Drawing.Size(62, 13);
             this.labelSpawnList.TabIndex = 567;
@@ -1442,7 +1418,7 @@
             // labelSpawnListFilter
             // 
             this.labelSpawnListFilter.AutoSize = true;
-            this.labelSpawnListFilter.Location = new System.Drawing.Point(636, 250);
+            this.labelSpawnListFilter.Location = new System.Drawing.Point(586, 250);
             this.labelSpawnListFilter.Name = "labelSpawnListFilter";
             this.labelSpawnListFilter.Size = new System.Drawing.Size(32, 13);
             this.labelSpawnListFilter.TabIndex = 568;
@@ -1451,7 +1427,7 @@
             // textBoxSpawnListFilter
             // 
             this.textBoxSpawnListFilter.AcceptsReturn = true;
-            this.textBoxSpawnListFilter.Location = new System.Drawing.Point(674, 247);
+            this.textBoxSpawnListFilter.Location = new System.Drawing.Point(624, 247);
             this.textBoxSpawnListFilter.Name = "textBoxSpawnListFilter";
             this.textBoxSpawnListFilter.Size = new System.Drawing.Size(315, 20);
             this.textBoxSpawnListFilter.TabIndex = 569;
@@ -1459,7 +1435,7 @@
             // 
             // buttonWarpToSpawn
             // 
-            this.buttonWarpToSpawn.Location = new System.Drawing.Point(796, 522);
+            this.buttonWarpToSpawn.Location = new System.Drawing.Point(746, 522);
             this.buttonWarpToSpawn.Name = "buttonWarpToSpawn";
             this.buttonWarpToSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonWarpToSpawn.TabIndex = 570;
@@ -1469,7 +1445,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(427, 522);
+            this.button26.Location = new System.Drawing.Point(242, 439);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(85, 23);
             this.button26.TabIndex = 571;
@@ -1482,7 +1458,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(348, 525);
+            this.checkBox1.Location = new System.Drawing.Point(243, 418);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 573;
@@ -1500,7 +1476,7 @@
             // 
             // distance
             // 
-            this.distance.Location = new System.Drawing.Point(291, 324);
+            this.distance.Location = new System.Drawing.Point(290, 291);
             this.distance.Name = "distance";
             this.distance.Size = new System.Drawing.Size(32, 20);
             this.distance.TabIndex = 575;
@@ -1509,26 +1485,15 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(242, 328);
+            this.label35.Location = new System.Drawing.Point(241, 295);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(49, 13);
             this.label35.TabIndex = 576;
             this.label35.Text = "Distance";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::EQTrainer.Properties.Resources.moneys;
-            this.pictureBox1.Location = new System.Drawing.Point(24, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(305, 68);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 100;
-            this.pictureBox1.TabStop = false;
-            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProcName,
             this.ProcessID});
             this.listView2.FullRowSelect = true;
             this.listView2.GridLines = true;
@@ -1536,20 +1501,15 @@
             this.listView2.Location = new System.Drawing.Point(347, 408);
             this.listView2.MultiSelect = false;
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(164, 82);
+            this.listView2.Size = new System.Drawing.Size(114, 108);
             this.listView2.TabIndex = 578;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
-            // ProcName
-            // 
-            this.ProcName.Text = "Process";
-            this.ProcName.Width = 88;
-            // 
             // ProcessID
             // 
-            this.ProcessID.Text = "ID";
-            this.ProcessID.Width = 71;
+            this.ProcessID.Text = "EQGame ID";
+            this.ProcessID.Width = 86;
             // 
             // backgroundWorker1
             // 
@@ -1558,9 +1518,9 @@
             // 
             // refreshProcessesBtn
             // 
-            this.refreshProcessesBtn.Location = new System.Drawing.Point(346, 493);
+            this.refreshProcessesBtn.Location = new System.Drawing.Point(347, 522);
             this.refreshProcessesBtn.Name = "refreshProcessesBtn";
-            this.refreshProcessesBtn.Size = new System.Drawing.Size(75, 23);
+            this.refreshProcessesBtn.Size = new System.Drawing.Size(114, 23);
             this.refreshProcessesBtn.TabIndex = 579;
             this.refreshProcessesBtn.Text = "Refresh List";
             this.refreshProcessesBtn.UseVisualStyleBackColor = true;
@@ -1571,7 +1531,7 @@
             this.name_label.AutoSize = true;
             this.name_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name_label.ForeColor = System.Drawing.Color.OliveDrab;
-            this.name_label.Location = new System.Drawing.Point(367, 3);
+            this.name_label.Location = new System.Drawing.Point(329, 3);
             this.name_label.Name = "name_label";
             this.name_label.Size = new System.Drawing.Size(45, 13);
             this.name_label.TabIndex = 581;
@@ -1579,7 +1539,7 @@
             // 
             // buttonCameraOnSpawn
             // 
-            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(517, 522);
+            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(467, 522);
             this.buttonCameraOnSpawn.Name = "buttonCameraOnSpawn";
             this.buttonCameraOnSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonCameraOnSpawn.TabIndex = 583;
@@ -1589,7 +1549,7 @@
             // 
             // buttonResetCamera
             // 
-            this.buttonResetCamera.Location = new System.Drawing.Point(651, 522);
+            this.buttonResetCamera.Location = new System.Drawing.Point(601, 522);
             this.buttonResetCamera.Name = "buttonResetCamera";
             this.buttonResetCamera.Size = new System.Drawing.Size(128, 24);
             this.buttonResetCamera.TabIndex = 584;
@@ -1601,7 +1561,7 @@
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(554, 7);
+            this.comboBox1.Location = new System.Drawing.Point(504, 7);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 585;
@@ -1610,7 +1570,7 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(514, 11);
+            this.label37.Location = new System.Drawing.Point(464, 11);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(39, 13);
             this.label37.TabIndex = 586;
@@ -1619,9 +1579,9 @@
             // progressBarXP
             // 
             this.progressBarXP.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.progressBarXP.Location = new System.Drawing.Point(370, 59);
+            this.progressBarXP.Location = new System.Drawing.Point(355, 59);
             this.progressBarXP.Name = "progressBarXP";
-            this.progressBarXP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarXP.Size = new System.Drawing.Size(80, 18);
             this.progressBarXP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarXP.TabIndex = 587;
             // 
@@ -1630,7 +1590,7 @@
             this.xp_stats.AutoSize = true;
             this.xp_stats.BackColor = System.Drawing.Color.Transparent;
             this.xp_stats.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xp_stats.Location = new System.Drawing.Point(437, 61);
+            this.xp_stats.Location = new System.Drawing.Point(435, 61);
             this.xp_stats.Name = "xp_stats";
             this.xp_stats.Size = new System.Drawing.Size(24, 13);
             this.xp_stats.TabIndex = 588;
@@ -1639,7 +1599,7 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(427, 493);
+            this.button1.Location = new System.Drawing.Point(242, 467);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(85, 23);
             this.button1.TabIndex = 589;
@@ -1651,7 +1611,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button2.Location = new System.Drawing.Point(1009, 5);
+            this.button2.Location = new System.Drawing.Point(958, 5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(52, 24);
             this.button2.TabIndex = 590;
@@ -1662,26 +1622,232 @@
             // progressBarHP
             // 
             this.progressBarHP.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.progressBarHP.Location = new System.Drawing.Point(370, 21);
+            this.progressBarHP.Location = new System.Drawing.Point(355, 19);
             this.progressBarHP.Name = "progressBarHP";
-            this.progressBarHP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarHP.Size = new System.Drawing.Size(80, 18);
             this.progressBarHP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarHP.TabIndex = 591;
             // 
             // progressBarMP
             // 
             this.progressBarMP.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.progressBarMP.Location = new System.Drawing.Point(370, 40);
+            this.progressBarMP.Location = new System.Drawing.Point(355, 39);
             this.progressBarMP.Name = "progressBarMP";
-            this.progressBarMP.Size = new System.Drawing.Size(66, 18);
+            this.progressBarMP.Size = new System.Drawing.Size(80, 18);
             this.progressBarMP.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBarMP.TabIndex = 592;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(43, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(285, 20);
+            this.pictureBox1.TabIndex = 601;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(43, 25);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(285, 20);
+            this.pictureBox2.TabIndex = 602;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(43, 45);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(285, 31);
+            this.pictureBox3.TabIndex = 603;
+            this.pictureBox3.TabStop = false;
+            // 
+            // bank_copper
+            // 
+            this.bank_copper.AutoSize = true;
+            this.bank_copper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(49)))), ((int)(((byte)(0)))));
+            this.bank_copper.ForeColor = System.Drawing.Color.White;
+            this.bank_copper.Location = new System.Drawing.Point(265, 8);
+            this.bank_copper.Name = "bank_copper";
+            this.bank_copper.Size = new System.Drawing.Size(19, 13);
+            this.bank_copper.TabIndex = 607;
+            this.bank_copper.Text = "(c)";
+            // 
+            // bank_silver
+            // 
+            this.bank_silver.AutoSize = true;
+            this.bank_silver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.bank_silver.ForeColor = System.Drawing.Color.White;
+            this.bank_silver.Location = new System.Drawing.Point(193, 8);
+            this.bank_silver.Name = "bank_silver";
+            this.bank_silver.Size = new System.Drawing.Size(18, 13);
+            this.bank_silver.TabIndex = 606;
+            this.bank_silver.Text = "(s)";
+            // 
+            // bank_gold
+            // 
+            this.bank_gold.AutoSize = true;
+            this.bank_gold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(0)))));
+            this.bank_gold.ForeColor = System.Drawing.Color.White;
+            this.bank_gold.Location = new System.Drawing.Point(121, 8);
+            this.bank_gold.Name = "bank_gold";
+            this.bank_gold.Size = new System.Drawing.Size(19, 13);
+            this.bank_gold.TabIndex = 605;
+            this.bank_gold.Text = "(g)";
+            // 
+            // bank_plat
+            // 
+            this.bank_plat.AutoSize = true;
+            this.bank_plat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(57)))));
+            this.bank_plat.ForeColor = System.Drawing.Color.White;
+            this.bank_plat.Location = new System.Drawing.Point(48, 8);
+            this.bank_plat.Name = "bank_plat";
+            this.bank_plat.Size = new System.Drawing.Size(19, 13);
+            this.bank_plat.TabIndex = 604;
+            this.bank_plat.Text = "(p)";
+            // 
+            // player_copper
+            // 
+            this.player_copper.AutoSize = true;
+            this.player_copper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(49)))), ((int)(((byte)(0)))));
+            this.player_copper.ForeColor = System.Drawing.Color.White;
+            this.player_copper.Location = new System.Drawing.Point(265, 28);
+            this.player_copper.Name = "player_copper";
+            this.player_copper.Size = new System.Drawing.Size(19, 13);
+            this.player_copper.TabIndex = 611;
+            this.player_copper.Text = "(c)";
+            // 
+            // player_silver
+            // 
+            this.player_silver.AutoSize = true;
+            this.player_silver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.player_silver.ForeColor = System.Drawing.Color.White;
+            this.player_silver.Location = new System.Drawing.Point(193, 28);
+            this.player_silver.Name = "player_silver";
+            this.player_silver.Size = new System.Drawing.Size(18, 13);
+            this.player_silver.TabIndex = 610;
+            this.player_silver.Text = "(s)";
+            // 
+            // player_gold
+            // 
+            this.player_gold.AutoSize = true;
+            this.player_gold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(0)))));
+            this.player_gold.ForeColor = System.Drawing.Color.White;
+            this.player_gold.Location = new System.Drawing.Point(121, 28);
+            this.player_gold.Name = "player_gold";
+            this.player_gold.Size = new System.Drawing.Size(19, 13);
+            this.player_gold.TabIndex = 609;
+            this.player_gold.Text = "(g)";
+            // 
+            // player_plat
+            // 
+            this.player_plat.AutoSize = true;
+            this.player_plat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(57)))));
+            this.player_plat.ForeColor = System.Drawing.Color.White;
+            this.player_plat.Location = new System.Drawing.Point(48, 28);
+            this.player_plat.Name = "player_plat";
+            this.player_plat.Size = new System.Drawing.Size(19, 13);
+            this.player_plat.TabIndex = 608;
+            this.player_plat.Text = "(p)";
+            // 
+            // total_copper
+            // 
+            this.total_copper.AutoSize = true;
+            this.total_copper.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(66)))), ((int)(((byte)(49)))), ((int)(((byte)(0)))));
+            this.total_copper.ForeColor = System.Drawing.Color.White;
+            this.total_copper.Location = new System.Drawing.Point(265, 48);
+            this.total_copper.Name = "total_copper";
+            this.total_copper.Size = new System.Drawing.Size(19, 13);
+            this.total_copper.TabIndex = 615;
+            this.total_copper.Text = "(c)";
+            // 
+            // total_silver
+            // 
+            this.total_silver.AutoSize = true;
+            this.total_silver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.total_silver.ForeColor = System.Drawing.Color.White;
+            this.total_silver.Location = new System.Drawing.Point(193, 48);
+            this.total_silver.Name = "total_silver";
+            this.total_silver.Size = new System.Drawing.Size(18, 13);
+            this.total_silver.TabIndex = 614;
+            this.total_silver.Text = "(s)";
+            // 
+            // total_gold
+            // 
+            this.total_gold.AutoSize = true;
+            this.total_gold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(0)))));
+            this.total_gold.ForeColor = System.Drawing.Color.White;
+            this.total_gold.Location = new System.Drawing.Point(121, 48);
+            this.total_gold.Name = "total_gold";
+            this.total_gold.Size = new System.Drawing.Size(19, 13);
+            this.total_gold.TabIndex = 613;
+            this.total_gold.Text = "(g)";
+            // 
+            // total_plat
+            // 
+            this.total_plat.AutoSize = true;
+            this.total_plat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(27)))), ((int)(((byte)(57)))));
+            this.total_plat.ForeColor = System.Drawing.Color.White;
+            this.total_plat.Location = new System.Drawing.Point(48, 48);
+            this.total_plat.Name = "total_plat";
+            this.total_plat.Size = new System.Drawing.Size(19, 13);
+            this.total_plat.TabIndex = 612;
+            this.total_plat.Text = "(p)";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(4, 28);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(36, 13);
+            this.label43.TabIndex = 616;
+            this.label43.Text = "Player";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(8, 8);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(32, 13);
+            this.label44.TabIndex = 617;
+            this.label44.Text = "Bank";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(9, 48);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(31, 13);
+            this.label45.TabIndex = 618;
+            this.label45.Text = "Total";
             // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1069, 572);
+            this.ClientSize = new System.Drawing.Size(1011, 572);
+            this.Controls.Add(this.label45);
+            this.Controls.Add(this.label44);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.total_copper);
+            this.Controls.Add(this.total_silver);
+            this.Controls.Add(this.total_gold);
+            this.Controls.Add(this.total_plat);
+            this.Controls.Add(this.player_copper);
+            this.Controls.Add(this.player_silver);
+            this.Controls.Add(this.player_gold);
+            this.Controls.Add(this.player_plat);
+            this.Controls.Add(this.bank_copper);
+            this.Controls.Add(this.bank_silver);
+            this.Controls.Add(this.bank_gold);
+            this.Controls.Add(this.bank_plat);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBarMP);
             this.Controls.Add(this.progressBarHP);
             this.Controls.Add(this.button2);
@@ -1707,7 +1873,6 @@
             this.Controls.Add(this.buttonTargetSpawn);
             this.Controls.Add(this.buttonRefreshSpawnList);
             this.Controls.Add(this.listViewSpawnList);
-            this.Controls.Add(this.label34);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.h_tele4);
             this.Controls.Add(this.label19);
@@ -1754,11 +1919,6 @@
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.bank_copper);
-            this.Controls.Add(this.bank_silver);
-            this.Controls.Add(this.bank_gold);
-            this.Controls.Add(this.bank_plat);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
@@ -1818,6 +1978,8 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1832,10 +1994,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label bank_plat;
-        private System.Windows.Forms.Label bank_gold;
-        private System.Windows.Forms.Label bank_silver;
-        private System.Windows.Forms.Label bank_copper;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label hp_stats;
         private System.Windows.Forms.Label label21;
@@ -1854,7 +2012,6 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Timer;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.SaveFileDialog sd1;
         private System.Windows.Forms.SaveFileDialog sd2;
         private System.Windows.Forms.SaveFileDialog sd3;
@@ -1901,7 +2058,6 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem x64CDependenciesToolStripMenuItem;
-        private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label labelSpawnList;
         private System.Windows.Forms.Label labelSpawnListFilter;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListName;
@@ -1916,7 +2072,6 @@
         private System.Windows.Forms.TextBox distance;
         private System.Windows.Forms.Label label35;
         public System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader ProcName;
         private System.Windows.Forms.ColumnHeader ProcessID;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button refreshProcessesBtn;
@@ -1928,13 +2083,9 @@
         private System.Windows.Forms.ToolStripMenuItem autoItV3ToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListClass;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListType;
-        private System.Windows.Forms.ProgressBar progressBarXP;
         private System.Windows.Forms.Label xp_stats;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         public System.Windows.Forms.Label name_label;
-        private System.Windows.Forms.ProgressBar progressBarHP;
-        private System.Windows.Forms.ProgressBar progressBarMP;
         public System.Windows.Forms.Button button17;
         public System.Windows.Forms.Button button18;
         public System.Windows.Forms.Button button19;
@@ -1988,6 +2139,29 @@
         public System.Windows.Forms.Button buttonWarpToSpawn;
         public System.Windows.Forms.TextBox textBoxSpawnListFilter;
         public System.Windows.Forms.Label map_label;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
+        public System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label bank_copper;
+        private System.Windows.Forms.Label bank_silver;
+        private System.Windows.Forms.Label bank_gold;
+        private System.Windows.Forms.Label bank_plat;
+        private System.Windows.Forms.Label player_copper;
+        private System.Windows.Forms.Label player_silver;
+        private System.Windows.Forms.Label player_gold;
+        private System.Windows.Forms.Label player_plat;
+        private System.Windows.Forms.Label total_copper;
+        private System.Windows.Forms.Label total_silver;
+        private System.Windows.Forms.Label total_gold;
+        private System.Windows.Forms.Label total_plat;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        public System.Windows.Forms.ProgressBar progressBarXP;
+        public System.Windows.Forms.ProgressBar progressBarHP;
+        public System.Windows.Forms.ProgressBar progressBarMP;
 
     }
 }
