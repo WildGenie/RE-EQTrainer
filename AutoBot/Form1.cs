@@ -1096,7 +1096,7 @@ namespace AutoBot
             //CheckWindowAcive();
             aix3c.Send
                 
-                ("{ENTER}" + message + "{ENTER}");
+            ("{ENTER}" + message + "{ENTER}");
             //this was mac. Only opened chat and type in a message, couldnt send.
             //uint openMessage = (uint)0x79856C;
             //uint writeMessage = (uint)mem.ReadPointer(0x00809478) + 0x175FC; //re-write this later.
@@ -1113,7 +1113,7 @@ namespace AutoBot
             TargetPlayer(recipient);
             //CheckWindowAcive();
             System.Threading.Thread.Sleep(1000);
-            aix3c.Send("{ENTER}" + message + "{ENTER}");
+            SayMessage(message);
             AppendOutputText("NPC: " + recipient + " MESSAGE:" + message);
             lastCmd = "talktoNPC " + recipient + " " + message;
         }
@@ -1122,6 +1122,7 @@ namespace AutoBot
         {
             //CheckWindowAcive();
             aix3c.Send("{" + button + "}");
+            lastCmd = "Press " + button;
         }
 
         private void button1_Click(object sender, EventArgs e)

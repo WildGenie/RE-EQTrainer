@@ -1054,12 +1054,24 @@ namespace EQTrainer
                 int platTotal = ((goldTotal) / 10) + (bank_plat_int + player_plat_int);
 
                 total_plat.Text = platTotal.ToString();
-                total_gold.Text = TrimPrefixZero(gRemaining.ToString().Replace(".", ""));
-                if (total_gold.Text.Equals("")) total_gold.Text = "0";
-                total_silver.Text = TrimPrefixZero(sRemaining.ToString().Replace(".", ""));
-                if (total_silver.Text.Equals("")) total_silver.Text = "0";
-                total_copper.Text = TrimPrefixZero(cRemaining.ToString().Replace(".", ""));
-                if (total_copper.Text.Equals("")) total_copper.Text = "0";
+
+                string tGold = TrimPrefixZero(gRemaining.ToString().Replace(".", ""));
+                if (tGold.Equals(""))
+                    total_gold.Text = "0";
+                else
+                    total_gold.Text = tGold;
+
+                string tSilver = TrimPrefixZero(sRemaining.ToString().Replace(".", ""));
+                if (tSilver.Equals(""))
+                    total_silver.Text = "0";
+                else
+                    total_silver.Text = tSilver;
+
+                string tCopper = TrimPrefixZero(cRemaining.ToString().Replace(".", ""));
+                if (tCopper.Equals(""))
+                    total_copper.Text = "0";
+                else
+                    total_copper.Text = tCopper;
 
                 y_label.Invoke(new MethodInvoker(delegate { y_label.Text = y_address.ToString(); }));
                 x_label.Invoke(new MethodInvoker(delegate { x_label.Text = x_address.ToString(); }));
@@ -1398,7 +1410,7 @@ namespace EQTrainer
             {
                 if (theprocess.ProcessName == "eqgame")
                 {
-                    string[] listView2Rows = { theprocess.ProcessName, theprocess.Id.ToString() };
+                    string[] listView2Rows = { /*theprocess.ProcessName,*/ theprocess.Id.ToString() };
                     var listView2Items = new ListViewItem(listView2Rows);
                     listView2.Items.Add(listView2Items);
                 }
