@@ -472,7 +472,7 @@ namespace EQTrainer
             }
             else
             {
-                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                if (Convert.ToSingle(x_label.Text).Equals(0) && Convert.ToSingle(y_label.Text).Equals(0)) // zoning...
                     return;
                 Teleport(float.Parse(x_tele.Text), float.Parse(y_tele.Text), float.Parse(z_tele.Text), float.Parse(h_tele1.Text));
             }
@@ -490,7 +490,7 @@ namespace EQTrainer
             }
             else
             {
-                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                if (Convert.ToSingle(x_label.Text).Equals(0) && Convert.ToSingle(y_label.Text).Equals(0)) // zoning...
                     return;
                 Teleport(float.Parse(x_tele2.Text), float.Parse(y_tele2.Text), float.Parse(z_tele2.Text), float.Parse(h_tele2.Text));
             }
@@ -508,7 +508,7 @@ namespace EQTrainer
             }
             else
             {
-                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                if (Convert.ToSingle(x_label.Text).Equals(0) && Convert.ToSingle(y_label.Text).Equals(0)) // zoning...
                     return;
                 Teleport(float.Parse(x_tele3.Text), float.Parse(y_tele3.Text), float.Parse(z_tele3.Text), float.Parse(h_tele3.Text));
             }
@@ -526,7 +526,7 @@ namespace EQTrainer
             }
             else
             {
-                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                if (Convert.ToSingle(x_label.Text).Equals(0) && Convert.ToSingle(y_label.Text).Equals(0)) // zoning...
                     return;
                 Teleport(float.Parse(x_tele4.Text), float.Parse(y_tele4.Text), float.Parse(z_tele4.Text), float.Parse(h_tele4.Text));
             }
@@ -938,7 +938,7 @@ namespace EQTrainer
 
             if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z))
             {
-                if (Convert.ToInt32(x_label.Text).Equals(0) && Convert.ToInt32(y_label.Text).Equals(0)) // zoning...
+                if (Convert.ToSingle(x_label.Text) == 0 && Convert.ToSingle(y_label.Text) == 0) // zoning...
                     return;
 
                 if (Properties.Settings.Default.old_warp == true)

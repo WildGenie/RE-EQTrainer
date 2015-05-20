@@ -158,18 +158,17 @@ namespace EQTrainer
         {
             while (true)
             {
-                hpProgressBar.Invoke(new MethodInvoker(delegate { 
-                    hpProgressBar.Value = this.RefToForm1.progressBarHP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)2, IntPtr.Zero);
-                    hpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarHP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(hpProgressBar.Width / 2 - 10, hpProgressBar.Height / 2 - 7));
-                }));
-                mpProgressBar.Invoke(new MethodInvoker(delegate { 
-                    mpProgressBar.Value = this.RefToForm1.progressBarMP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)0, IntPtr.Zero);
-                    mpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarMP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(mpProgressBar.Width / 2 - 10, mpProgressBar.Height / 2 - 7));
-                }));
-                xpProgressBar.Invoke(new MethodInvoker(delegate { 
-                    xpProgressBar.Value = this.RefToForm1.progressBarXP.Value; SendMessage(hpProgressBar.Handle, 1040, (IntPtr)3, IntPtr.Zero);
-                    xpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarXP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(xpProgressBar.Width / 2 - 10, xpProgressBar.Height / 2 - 7));
-                }));
+                hpProgressBar.Invoke(new MethodInvoker(delegate { hpProgressBar.Value = this.RefToForm1.progressBarHP.Value; }));
+                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)2, IntPtr.Zero);
+                hpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarHP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(hpProgressBar.Width / 2 - 10, hpProgressBar.Height / 2 - 7));
+
+                mpProgressBar.Invoke(new MethodInvoker(delegate { mpProgressBar.Value = this.RefToForm1.progressBarMP.Value; }));
+                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)0, IntPtr.Zero);
+                mpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarMP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(mpProgressBar.Width / 2 - 10, mpProgressBar.Height / 2 - 7));
+
+                xpProgressBar.Invoke(new MethodInvoker(delegate { xpProgressBar.Value = this.RefToForm1.progressBarXP.Value; }));
+                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)3, IntPtr.Zero);
+                xpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarXP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(xpProgressBar.Width / 2 - 10, xpProgressBar.Height / 2 - 7));
             }
         }
     }

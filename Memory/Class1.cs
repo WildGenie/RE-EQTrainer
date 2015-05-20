@@ -248,7 +248,11 @@ namespace Memory
         public int readInt(string code, string file)
         {
             byte[] memory = new byte[4];
-            if (ReadProcessMemory(pHandle, getCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
                 return BitConverter.ToInt32(memory, 0);
             else
                 return 0;
