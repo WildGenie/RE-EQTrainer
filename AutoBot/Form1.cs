@@ -846,7 +846,7 @@ namespace AutoBot
             }
             else
             {
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
                 Teleport(value_x, value_y, value_z, value_h);
             }
 
@@ -939,15 +939,15 @@ namespace AutoBot
 
                 if (curZone == null || curZone == "" || zone == "")
                 {
-                    AppendOutputText("Zone Check failed(1), trying again [" + curZone + "," + zone + "]");
-                    System.Threading.Thread.Sleep(1000);
-                    zoneCheck(zone);
+                    AppendOutputText("Zone Check failed. Null given.");
+                    //System.Threading.Thread.Sleep(1000);
+                    //zoneCheck(zone);
                 }
 
-                double y_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerY", codeFile)));
-                double x_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerX", codeFile)));
+                //double y_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerY", codeFile)));
+                //double x_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerX", codeFile)));
 
-                if (Equals(curZone, zone) == true && !y_address.Equals((double)0) && !x_address.Equals((double)0))
+                if (Equals(curZone, zone) == true /*&& !y_address.Equals(0) && !x_address.Equals(0)*/)
                 {
                     AppendOutputText("Zone Check successful. Continuing...");
                     zoneCheckTimer = 0;
@@ -962,13 +962,14 @@ namespace AutoBot
                     //AppendOutputText("[DEBUG] ZONE CHECK TICK: " + zoneCheckTimer.ToString(), Color.Blue); //DEBUG
                     if (zoneCheckTimer == 180)
                     {
-                        AppendOutputText("ZONE CHECK FAILED. RELOGGING...", Color.Red);
-                        aix3c.Send("{ENTER}");
+                        AppendOutputText("ZONE CHECK FAILED!", Color.Red);
+                        /*aix3c.Send("{ENTER}");
                         System.Threading.Thread.Sleep(10000);
-                        aix3c.Send("{ENTER}");
+                        aix3c.Send("{ENTER}");*/
                         return;
-                    }
-                    zoneCheck(zone);
+                    } 
+                    else
+                        zoneCheck(zone);
                 }
             }
             catch (Exception e)
