@@ -349,7 +349,7 @@ namespace AutoBot
                 AppendOutputText("checking Player distance");
                 try
                 {
-                    CheckPCNearby(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), Convert.ToInt32(words[4]));
+                    CheckPCNearby(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), Convert.ToInt32(words[4]), words[5]);
                 }
                 catch
                 {
@@ -967,7 +967,7 @@ namespace AutoBot
                     /*if (spawn_info_type == (byte)0)
                         AppendOutputText("Player in zone. " + spawn_info_name );*/
 
-                    if (ignore != null)
+                    if (!string.IsNullOrEmpty(ignore))
                     {
                         string[] ignoreNames = new string[20];
                         if (ignore.Contains(','))
