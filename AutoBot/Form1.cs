@@ -946,7 +946,11 @@ namespace AutoBot
                     spawn_next_spawn_info = MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", codeFile);
 
                     if (spawn_next_spawn_info == 0x00000000)
-                        break;
+                    {
+                        AppendOutputText("CheckPCNearby broke at " + i.ToString() + ". Continuing...");
+                        //break;
+                        return;
+                    }
 
                     string spawn_info_name = MemLib.readPString((UIntPtr)spawn_info_address, "spawnInfoName", codeFile);
                     //int index = spawn_info_name.IndexOf("0");
@@ -966,6 +970,9 @@ namespace AutoBot
                     //DEBUG
                     /*if (spawn_info_type == (byte)0)
                         AppendOutputText("Player in zone. " + spawn_info_name );*/
+
+                    if (i == 4095)
+                        AppendOutputText("CheckPCNearby finished. Continuing...");
 
                     if (!string.IsNullOrEmpty(ignore))
                     {
