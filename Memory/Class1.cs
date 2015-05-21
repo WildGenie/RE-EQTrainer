@@ -96,13 +96,35 @@ namespace Memory
           uint dwCreationFlags,
           out IntPtr lpThreadId
         );
+
+        [DllImport("user32.dll")]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        // privileges
+        const int PROCESS_CREATE_THREAD = 0x0002;
+        const int PROCESS_QUERY_INFORMATION = 0x0400;
+        const int PROCESS_VM_OPERATION = 0x0008;
+        const int PROCESS_VM_WRITE = 0x0020;
+        const int PROCESS_VM_READ = 0x0010;
+
+        // used for memory allocation
+        const uint MEM_COMMIT = 0x00001000;
+        const uint MEM_RESERVE = 0x00002000;
+        const uint PAGE_READWRITE = 4;
         #endregion
 
-        public void OpenProcess(string eqgameID)
+        public static IntPtr pHandle;
+
+        Process procs = null;
+
+        public void OpenGameProcess(string eqgameID)
         {
             Int32 ProcID = Convert.ToInt32(eqgameID);
-            Process procs = Process.GetProcessById(ProcID);
-            IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, 1, ProcID);
+            procs = Process.GetProcessById(ProcID);
+            //IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, 1, ProcID);
+
+            if (procs.Responding == false)
+                return;
 
             pHandle = OpenProcess(0x1F0FFF, 1, ProcID);
             mainModule = procs.MainModule;
@@ -113,11 +135,12 @@ namespace Memory
                 if (Module.ModuleName.Contains("DSETUP"))
                     dsetupModule = Module.BaseAddress;
             }
-            if (procs.Responding == false)
-                return;
         }
 
-        public static IntPtr pHandle;
+        public void setFocus()
+        {
+            SetForegroundWindow(procs.MainWindowHandle);
+        }
 
         public string LoadCode(string name, string path)
         {
@@ -424,12 +447,17 @@ namespace Memory
             return base1;
         }
 
+        public void closeProcess()
+        {
+            CloseHandle(pHandle);
+        }
+
         public void InjectDLL(IntPtr hProcess, String strDLLName)
         {
             IntPtr bytesout;
 
             Int32 LenWrite = strDLLName.Length + 1;
-            IntPtr AllocMem = (IntPtr)VirtualAllocEx(hProcess, (IntPtr)null, (uint)LenWrite, 0x1000, 0x40);
+            IntPtr AllocMem = (IntPtr)VirtualAllocEx(hProcess, (IntPtr)null, (uint)LenWrite, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
 
             WriteProcessMemory(hProcess, AllocMem, strDLLName, (UIntPtr)LenWrite, out bytesout);
             UIntPtr Injector = (UIntPtr)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");

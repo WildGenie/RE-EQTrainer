@@ -1,3 +1,11 @@
+Version 5.7.7
+---------------
+Fixed proper process handle closing and opening
+Moved setFocus to memory.dll
+Added zoneCheck function 1 second buffer
+Added check to see if dll already injected
+
+
 Version 5.7.6
 ---------------
 Fixed XP progressbar now shows at 0%

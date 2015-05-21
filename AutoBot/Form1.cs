@@ -52,7 +52,6 @@ namespace AutoBot
         Mem MemLib = new Mem();
         AutoItX3Lib.AutoItX3 aix3c = new AutoItX3Lib.AutoItX3();
         private bool stop = false;
-        //bool rtry = false;
 
         static string lastCmd = "";
 
@@ -97,7 +96,7 @@ namespace AutoBot
                 outputBox.SelectionLength = 0;
 
                 outputBox.SelectionColor = color;
-                outputBox.AppendText(DateTime.Now + " " + /*RemoveSpecialCharacters2(*/text/*)*/ + Environment.NewLine);
+                outputBox.AppendText(DateTime.Now + " " + text + Environment.NewLine);
                 ScrollToBottom(outputBox);
             }
             catch
@@ -156,253 +155,247 @@ namespace AutoBot
                 else
                     MessageBox.Show("file doesn't exist");
             }
+
+            eqgameID = args[1];
+            AppendOutputText("Opening process " + eqgameID);
+            MemLib.OpenGameProcess(eqgameID);
         }
 
         public void ParseReader(string line)
         {
-            try
-            {
-                if (stop)
-                    return;
+            if (stop)
+                return;
 
-                if (Regex.Match(line, "teleport", RegexOptions.IgnoreCase).Success == true)
+            if (Regex.Match(line, "teleport", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                //AppendOutputText("teleporting to " + "X:" + words[1] + " Y:" + words[2] + " Z:" + words[3] + " H:" + words[4]);
+                try
                 {
-                    string[] words = line.Split(' ');
-                    //AppendOutputText("teleporting to " + "X:" + words[1] + " Y:" + words[2] + " Z:" + words[3] + " H:" + words[4]);
-                    try
-                    {
-                        //rtry = false;
-                        Teleport(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]));
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: Teleport crashed.");
-                        WriteLog("[ERROR] Teleport Try/Catch return (" + DateTime.Now + ")");
-                    }
+                    Teleport(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]));
                 }
-                else if (Regex.Match(line, "target", RegexOptions.IgnoreCase).Success == true)
+                catch
                 {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    AppendOutputText("Targeting " + words);
-                    try
-                    {
-                        TargetPlayer(words);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: TargetPlayer crashed.");
-                        WriteLog("[ERROR] TargetPlayer Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "teleto", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    try
-                    {
-                        TeleportToPlayer(words);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: TeleportToPlayer crashed.");
-                        WriteLog("[ERROR] TeleportToPlayer Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (string.Equals(line, "relog", StringComparison.CurrentCultureIgnoreCase) == true)
-                {
-                    AppendOutputText("Relogging your character. This will take 1 minute.");
-                    RelogChar();
-                }
-                else if (Regex.Match(line, "checkzone", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    AppendOutputText("Checking if in zone " + words);
-                    try
-                    {
-                        zoneCheck(words);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: checkzone crashed.");
-                        WriteLog("[ERROR] checkzone Try/Catch return (" + DateTime.Now + ")");
-                    }
-                    //lastCmd = "checkzone " + words;
-                }
-                else if (Regex.Match(line, "pause", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    AppendOutputText("pausing for " + words[1] + " milliseconds");
-                    try
-                    {
-                        int timer = Convert.ToInt32(words[1]);
-                        System.Threading.Thread.Sleep(timer);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: pause crashed.");
-                        WriteLog("[ERROR] pause Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (line.Contains("//"))
-                {
-                    //skip
-                }
-                else if (Regex.Match(line, "setfocus", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    try
-                    {
-                        setFocus();
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: GetFocus crashed.");
-                        WriteLog("[ERROR] GetFocus Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "checkcursor", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    try
-                    {
-                        CheckCursor(words);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: CheckCursor crashed.");
-                        WriteLog("[ERROR] checkcursor Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "checkgive", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string words = line.Remove(0, line.IndexOf(' ') + 1);
-                    try
-                    {
-                        CheckGive(words);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: CheckGive crashed.");
-                        WriteLog("[ERROR] CheckGive Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "talktoNPC", RegexOptions.IgnoreCase).Success == true)
-                {
-                    char[] spaceChar = " ".ToCharArray(0, 1);
-                    var commands = line.Split(spaceChar, 3);
-                    AppendOutputText("sending message " + commands[2] + " to " + commands[1]);
-                    try
-                    {
-                        SayMessageNPC(commands[1], commands[2]);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: SayMessageNPC crashed.");
-                        WriteLog("[ERROR] SayMessageNPC Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "say", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    char[] spaceChar = " ".ToCharArray(0, 1);
-                    var commands = line.Split(spaceChar, 2);
-                    AppendOutputText("sending message " + words[1]);
-                    try
-                    {
-                        SayMessage(words[1]);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: SayMessage crashed.");
-                        WriteLog("[ERROR] SayMessage Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "press", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string btn = line.Remove(0, line.IndexOf(' ') + 1);
-                    //words = words.Remove('"');
-                    AppendOutputText("pressing button " + btn);
-                    try
-                    {
-                        Press(btn);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: Press crashed.");
-                        WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "CheckTargetDistance", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    AppendOutputText("checking NPC distance for " + words[1]);
-                    CheckDistance(words[1], float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]), Convert.ToInt32(words[5]));
-                }
-                else if (Regex.Match(line, "walkto", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
-                    WalkTo(float.Parse(words[1]), float.Parse(words[2]));
-                }
-                else if (Regex.Match(line, "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    AppendOutputText("checking Player distance");
-                    try
-                    {
-                        CheckPCNearby(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), Convert.ToInt32(words[4]));
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: Press crashed.");
-                        WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "healCheck", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    try
-                    {
-                        healCheck(Convert.ToInt32(words[1]), words[2]);
-                    }
-                    catch
-                    {
-                        AppendOutputText("ERROR: healCheck crashed.");
-                        WriteLog("[ERROR] healCheck Try/Catch return (" + DateTime.Now + ")");
-                    }
-                }
-                else if (Regex.Match(line, "mouse", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    if (words.Length != 4)
-                        AppendOutputText("Warning: Mouse command argument count incorrect. given=" + (words.Length - 1).ToString() + " expected=3", Color.Red);
-                    else
-                    {
-                        Mouse(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), words[3]);
-                        AppendOutputText("moving mouse " + "X:" + words[1] + " Y:" + words[2] + " click:" + words[3]);
-                        lastCmd = "mouse " + words[1] + " " + words[2] + " " + words[3];
-                    }
-                }
-                else if (Regex.Match(line, "checkhealth", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    AppendOutputText("checking health conditions for " + words[1]);
-                    //HealthCheck(words[1], Convert.ToInt32(words[2]));
-                }
-                else if (Regex.Match(line, "warpfollowtarget", RegexOptions.IgnoreCase).Success == true)
-                {
-                    string[] words = line.Split(' ');
-                    FollowWarpTarget(words[1]);
-                }
-                else
-                {
-                    //skip
+                    AppendOutputText("ERROR: Teleport crashed.");
+                    WriteLog("[ERROR] Teleport Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            catch
+            else if (Regex.Match(line, "target", RegexOptions.IgnoreCase).Success == true)
             {
-                AppendOutputText("ERROR: ParseReader Try/Catch return. Game Crashed.", Color.Red);
-                WriteLog("[ERROR] ParseReader Try/Catch return. Game Crashed. (" + DateTime.Now + ")");
-                return;
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                AppendOutputText("Targeting " + words);
+                try
+                {
+                    TargetPlayer(words);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: TargetPlayer crashed.");
+                    WriteLog("[ERROR] TargetPlayer Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "teleto", RegexOptions.IgnoreCase).Success == true)
+            {
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                try
+                {
+                    TeleportToPlayer(words);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: TeleportToPlayer crashed.");
+                    WriteLog("[ERROR] TeleportToPlayer Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (string.Equals(line, "relog", StringComparison.CurrentCultureIgnoreCase) == true)
+            {
+                AppendOutputText("Relogging your character. This will take 1 minute.");
+                RelogChar();
+            }
+            else if (Regex.Match(line, "checkzone", RegexOptions.IgnoreCase).Success == true)
+            {
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                AppendOutputText("Checking if in zone " + words);
+                try
+                {
+                    zoneCheck(words);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: checkzone crashed.");
+                    WriteLog("[ERROR] checkzone Try/Catch return (" + DateTime.Now + ")");
+                }
+                //lastCmd = "checkzone " + words;
+            }
+            else if (Regex.Match(line, "pause", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("pausing for " + words[1] + " milliseconds");
+                try
+                {
+                    int timer = Convert.ToInt32(words[1]);
+                    System.Threading.Thread.Sleep(timer);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: pause crashed.");
+                    WriteLog("[ERROR] pause Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (line.Contains("//"))
+            {
+                //just a comment
+            }
+            else if (Regex.Match(line, "setfocus", RegexOptions.IgnoreCase).Success == true)
+            {
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                try
+                {
+                    MemLib.setFocus();
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: GetFocus crashed.");
+                    WriteLog("[ERROR] GetFocus Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "checkcursor", RegexOptions.IgnoreCase).Success == true)
+            {
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                try
+                {
+                    CheckCursor(words);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: CheckCursor crashed.");
+                    WriteLog("[ERROR] checkcursor Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "checkgive", RegexOptions.IgnoreCase).Success == true)
+            {
+                string words = line.Remove(0, line.IndexOf(' ') + 1);
+                try
+                {
+                    CheckGive(words);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: CheckGive crashed.");
+                    WriteLog("[ERROR] CheckGive Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "talktoNPC", RegexOptions.IgnoreCase).Success == true)
+            {
+                char[] spaceChar = " ".ToCharArray(0, 1);
+                var commands = line.Split(spaceChar, 3);
+                AppendOutputText("sending message " + commands[2] + " to " + commands[1]);
+                try
+                {
+                    SayMessageNPC(commands[1], commands[2]);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: SayMessageNPC crashed.");
+                    WriteLog("[ERROR] SayMessageNPC Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "say", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                char[] spaceChar = " ".ToCharArray(0, 1);
+                var commands = line.Split(spaceChar, 2);
+                AppendOutputText("sending message " + words[1]);
+                try
+                {
+                    SayMessage(words[1]);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: SayMessage crashed.");
+                    WriteLog("[ERROR] SayMessage Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "press", RegexOptions.IgnoreCase).Success == true)
+            {
+                string btn = line.Remove(0, line.IndexOf(' ') + 1);
+                //words = words.Remove('"');
+                AppendOutputText("pressing button " + btn);
+                try
+                {
+                    Press(btn);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: Press crashed.");
+                    WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "CheckTargetDistance", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("checking NPC distance for " + words[1]);
+                CheckDistance(words[1], float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]), Convert.ToInt32(words[5]));
+            }
+            else if (Regex.Match(line, "walkto", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
+                WalkTo(float.Parse(words[1]), float.Parse(words[2]));
+            }
+            else if (Regex.Match(line, "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("checking Player distance");
+                try
+                {
+                    CheckPCNearby(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), Convert.ToInt32(words[4]));
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: Press crashed.");
+                    WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "healCheck", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                try
+                {
+                    healCheck(Convert.ToInt32(words[1]), words[2]);
+                }
+                catch
+                {
+                    AppendOutputText("ERROR: healCheck crashed.");
+                    WriteLog("[ERROR] healCheck Try/Catch return (" + DateTime.Now + ")");
+                }
+            }
+            else if (Regex.Match(line, "mouse", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                if (words.Length != 4)
+                    AppendOutputText("Warning: Mouse command argument count incorrect. given=" + (words.Length - 1).ToString() + " expected=3", Color.Red);
+                else
+                {
+                    Mouse(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), words[3]);
+                    AppendOutputText("moving mouse " + "X:" + words[1] + " Y:" + words[2] + " click:" + words[3]);
+                    lastCmd = "mouse " + words[1] + " " + words[2] + " " + words[3];
+                }
+            }
+            else if (Regex.Match(line, "checkhealth", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("checking health conditions for " + words[1]);
+                //HealthCheck(words[1], Convert.ToInt32(words[2]));
+            }
+            else if (Regex.Match(line, "warpfollowtarget", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                FollowWarpTarget(words[1]);
+            }
+            else
+            {
+                //skip
             }
         }
 
@@ -411,28 +404,13 @@ namespace AutoBot
             string value = (string)e.Argument;
             string[] args = value.Split(',');
 
-            // not always needed
-            //string winTitle = Process.GetProcessById(Convert.ToInt32(eqgameID)).MainWindowTitle;
-            //AppendOutputText("Checking if window " + winTitle + " is active...");
-
             using (StreamReader sr = new StreamReader(args[4]))
             {
-                eqgameID = args[1];
-
-                AppendOutputText("Opening process " + eqgameID);
-                MemLib.OpenProcess(eqgameID);
-
                 string[] lines = File.ReadAllLines(args[4]);
                 while (true) //infinite loop
                 {
                     try
                     {
-                        /*if (aix3c.WinExists(winTitle) == 0)
-                        {
-                            AppendOutputText("No instance of EverQuest running.");
-                            continue;
-                        }*/
-
                         foreach (string line in lines)
                         {
                             if (backgroundWorker1.CancellationPending == true)
@@ -440,9 +418,6 @@ namespace AutoBot
                                 e.Cancel = true;
                                 return;
                             }
-                            
-                            //if (line.Contains("mouse") || line.Contains("press") || line.Contains("move"))
-                                //aix3c.WinWaitActive(winTitle);
                             ParseReader(line);
                         }
                         AppendOutputText("END OF SCRIPT");
@@ -459,17 +434,6 @@ namespace AutoBot
                     }
                 }
             }
-        }
-
-        public void setFocus()
-        {
-            IntPtr hWnd = IntPtr.Zero;
-            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            //{
-            //string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[1].Text;
-            Process EQProc = Process.GetProcessById(Convert.ToInt32(eqgameID));
-            SetForegroundWindow(EQProc.MainWindowHandle);
-            //}
         }
 
         public void TargetPlayer(string name)
@@ -846,7 +810,7 @@ namespace AutoBot
             }
             else
             {
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000); //buffer
                 Teleport(value_x, value_y, value_z, value_h);
             }
 
@@ -933,39 +897,28 @@ namespace AutoBot
 
             try
             {
-                //rtry = true; //dont retry teleport
                 string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
-                //curZone = Regex.Replace(curZone, @"[^a-zA-Z0-9]*", string.Empty, /*RegexOptions.CultureInvariant |*/ RegexOptions.IgnoreCase);
 
                 if (curZone == null || curZone == "" || zone == "")
                 {
                     AppendOutputText("Zone Check failed. Null given.");
-                    //System.Threading.Thread.Sleep(1000);
-                    //zoneCheck(zone);
                 }
 
-                //double y_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerY", codeFile)));
-                //double x_address = Math.Round(Convert.ToDouble(MemLib.readFloat("playerX", codeFile)));
-
-                if (Equals(curZone, zone) == true /*&& !y_address.Equals(0) && !x_address.Equals(0)*/)
+                if (Equals(curZone, zone) == true) //we do a char coords 0 0 only on the teleport function
                 {
                     AppendOutputText("Zone Check successful. Continuing...");
                     zoneCheckTimer = 0;
-                    //lastCmd = "";
+                    System.Threading.Thread.Sleep(1000); //safety buffer
                     return;
                 }
                 else
                 {
                     //AppendOutputText("Zone Check failed(2), trying again [" + curZone + "," + zone + "]");
                     System.Threading.Thread.Sleep(1000);
-                    zoneCheckTimer++; //180 seconds, and we stop.
-                    //AppendOutputText("[DEBUG] ZONE CHECK TICK: " + zoneCheckTimer.ToString(), Color.Blue); //DEBUG
+                    zoneCheckTimer++;
                     if (zoneCheckTimer == 180)
                     {
                         AppendOutputText("ZONE CHECK FAILED!", Color.Red);
-                        /*aix3c.Send("{ENTER}");
-                        System.Threading.Thread.Sleep(10000);
-                        aix3c.Send("{ENTER}");*/
                         return;
                     } 
                     else
@@ -1135,6 +1088,11 @@ namespace AutoBot
         {
             int curTime = Convert.ToInt32(timer.Text);
             timer.Text = (curTime + 1).ToString();
+        }
+
+        private void formClosed(object sender, FormClosedEventArgs e)
+        {
+            MemLib.closeProcess();
         }
 
     }

@@ -23,17 +23,6 @@ namespace EQTrainer
 
         public TrainerForm RefToForm1 { get; set; }
 
-        void setFocus()
-        {
-            IntPtr hWnd = IntPtr.Zero;
-            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            //{
-                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[0].Text;
-                Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
-                SetForegroundWindow(EQProc.MainWindowHandle);
-            //}
-        }
-
         private void spawnsForm_Load(object sender, EventArgs e)
         {
 
@@ -41,19 +30,19 @@ namespace EQTrainer
 
         private void buttonWarpToSpawn_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.buttonWarpToSpawn.PerformClick();
         }
 
         private void buttonTargetSpawn_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.buttonTargetSpawn.PerformClick();
         }
 
         private void buttonRefreshSpawnList_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.buttonRefreshSpawnList.PerformClick();
             timer1.Enabled = true;
         }

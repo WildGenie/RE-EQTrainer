@@ -58,8 +58,8 @@ namespace EQTrainer
 
         #region PublicVariables
         public static int proccID;
-        public static IntPtr pHandle;
-        Mem MemLib = new Mem();
+        //public static IntPtr pHandle;
+        public Mem MemLib = new Mem();
 
         public miniToolbar RefToMiniForm { get; set; }
 
@@ -201,13 +201,18 @@ namespace EQTrainer
             Process procs = Process.GetProcessById(ProcID);
             IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, true, ProcID);
 
+            foreach (ProcessModule pm in procs.Modules)
+            {
+                if (pm.ModuleName.StartsWith("inject", StringComparison.InvariantCultureIgnoreCase))
+                    return;
+            }
+
             if (procs.Responding == false)
                 return;
 
             try
             {
-                String strDLLName = dll;
-                MemLib.InjectDLL(hProcess, strDLLName);
+                MemLib.InjectDLL(hProcess, dll);
             }
             catch
             {
@@ -433,20 +438,6 @@ namespace EQTrainer
 
                 spawn_info_address = spawn_next_spawn_info;
             }
-        }
-
-        public int DllImageAddress(string dllname)
-        {
-            Int32 ProcID = Convert.ToInt32(eqgameID);
-            Process MyProcess = Process.GetProcessById(ProcID);
-            ProcessModuleCollection modules = MyProcess.Modules;
-
-            foreach (ProcessModule procmodule in modules)
-            {
-                if (dllname == procmodule.ModuleName)
-                    return (int)procmodule.BaseAddress;
-            }
-            return -1;
         }
 
         private void TrainerForm_WarpToSpawn()
@@ -1492,9 +1483,11 @@ namespace EQTrainer
         {
             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
         }
+
         private void changeProcess()
         {
-            MemLib.OpenProcess(eqgameID);
+            MemLib.closeProcess();
+            MemLib.OpenGameProcess(eqgameID);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -1514,6 +1507,11 @@ namespace EQTrainer
             obj.RefToForm1 = this;
             obj.Show();
             obj.Location = new Point(this.Location.X, this.Location.Y);
+        }
+
+        private void formClosed(object sender, FormClosedEventArgs e)
+        {
+            MemLib.closeProcess();
         }
 
         /*private void tele_label1_TextChanged(object sender, EventArgs e)

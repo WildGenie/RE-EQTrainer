@@ -30,6 +30,7 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            MemLib.OpenGameProcess(args[1]);
             backgroundWorker2.DoWork += new DoWorkEventHandler(backgroundWorker2_DoWork);
             backgroundWorker2.RunWorkerAsync();
         }
@@ -47,7 +48,6 @@ namespace WindowsFormsApplication1
 
         private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
         {
-            MemLib.OpenProcess(args[1]);
             //string old_map_name = "";
 
             while (true)
@@ -133,6 +133,11 @@ namespace WindowsFormsApplication1
                     //MessageBox.Show("BackgroundWorker2 Failed");
                 }
             }
+        }
+
+        private void formClosed(object sender, FormClosedEventArgs e)
+        {
+            MemLib.closeProcess();
         }
     }
 }

@@ -28,14 +28,6 @@ namespace EQTrainer
 
         public TrainerForm RefToForm1 { get; set; }
 
-        void setFocus()
-        {
-            IntPtr hWnd = IntPtr.Zero;
-            string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[0].Text;
-            Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
-            SetForegroundWindow(EQProc.MainWindowHandle);
-        }
-
         private void miniToolbar_Load(object sender, EventArgs e)
         {
             ToolTip tt = new ToolTip();
@@ -46,7 +38,7 @@ namespace EQTrainer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.Close();
             this.Close();
         }
@@ -113,7 +105,7 @@ namespace EQTrainer
                 }
                 try
                 {
-                    setFocus();
+                    this.RefToForm1.MemLib.setFocus();
                 }
                 catch
                 {

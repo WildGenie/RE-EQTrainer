@@ -1083,7 +1083,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 19);
-            this.toolStripStatusLabel3.Text = "Version: 5.7.6";
+            this.toolStripStatusLabel3.Text = "Version: 5.7.7";
             // 
             // toolStripDropDownButton1
             // 
@@ -1975,6 +1975,7 @@
             this.MaximizeBox = false;
             this.Name = "TrainerForm";
             this.Text = "EQTrainer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.Load += new System.EventHandler(this.TrainerForm_Load);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();

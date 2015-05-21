@@ -23,17 +23,6 @@ namespace EQTrainer
 
         public TrainerForm RefToForm1 { get; set; }
 
-        void setFocus()
-        {
-            IntPtr hWnd = IntPtr.Zero;
-            //if (this.RefToForm1.listView2.Items.Count > 0 && this.RefToForm1.listView2.SelectedItems.Count == 0)
-            //{
-                string procID = this.RefToForm1.listView2.SelectedItems[0].SubItems[0].Text;
-                Process EQProc = Process.GetProcessById(Convert.ToInt32(procID));
-                SetForegroundWindow(EQProc.MainWindowHandle);
-            //}
-        }
-
         private void scriptsForm_Load(object sender, EventArgs e)
         {
             foreach (ListViewItem listViewItem in this.RefToForm1.listViewScripts.Items)
@@ -44,7 +33,7 @@ namespace EQTrainer
 
         private void buttonAllScriptsEnabled_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.buttonAllScriptsEnabled.PerformClick();
             //timer1.Enabled = true;
             listViewScripts.Items.Clear();
@@ -56,7 +45,7 @@ namespace EQTrainer
 
         private void buttonAllScriptsDisabled_Click(object sender, EventArgs e)
         {
-            setFocus();
+            this.RefToForm1.MemLib.setFocus();
             this.RefToForm1.buttonAllScriptsDisabled.PerformClick();
             //timer1.Enabled = true;
             listViewScripts.Items.Clear();
