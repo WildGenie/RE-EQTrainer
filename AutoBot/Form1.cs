@@ -991,7 +991,7 @@ namespace AutoBot
                     }
 
                     //Player spawn_info_type is 0. If it's above that, then we're safe.
-                    if (spawn_info_type >= (byte)1 || difference3 >= (float)50)
+                    if (spawn_info_type > 0 || difference3 >= (float)50)
                     {
                         spawn_info_address = spawn_next_spawn_info;
                         continue;
@@ -999,7 +999,7 @@ namespace AutoBot
 
                     if (difference <= (float)dist && difference2 <= (float)dist && difference3 <= (float)30)
                     {
-                        AppendOutputText("Player distance check failed! Differences Y[" + difference2.ToString("0.00") + "] X[" + difference.ToString("0.00") + "] Z[" + difference3.ToString("0.00") + "] [" + spawn_info_name + "]. Will recheck in 30 sec.");
+                        AppendOutputText("Player distance check failed! Differences Y[" + difference2.ToString("0.00") + "] X[" + difference.ToString("0.00") + "] Z[" + difference3.ToString("0.00") + "] [" + spawn_info_name + "] [" + spawn_info_type + "]. Will recheck in 30 sec.");
                         //AppendOutputText("DEBUG: " + spawn_info_name + " Y[" + spawn_info_y + "] X[" + spawn_info_x + "] Z[" + spawn_info_z + "]");
                         System.Threading.Thread.Sleep(30000);
                         CheckPCNearby(y, x, z, dist, ignore);
