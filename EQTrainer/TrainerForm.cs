@@ -978,7 +978,7 @@ namespace EQTrainer
                 float heading = MemLib.readFloat("playerHeading", codeFile);
 
                 string map_address = RemoveSpecialCharactersTwo(MemLib.readUIntPtrStr("mapLongName", codeFile));
-                string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
+                string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
                 //if (map_label.InvokeRequired)
                     map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address + " (" + mapShortName + ")"; }));
 

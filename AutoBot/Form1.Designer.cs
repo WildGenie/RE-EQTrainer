@@ -37,6 +37,8 @@
             this.timer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.passwordBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // outputBox
@@ -98,11 +100,30 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // passwordBox
+            // 
+            this.passwordBox.Location = new System.Drawing.Point(524, 89);
+            this.passwordBox.Name = "passwordBox";
+            this.passwordBox.PasswordChar = '*';
+            this.passwordBox.Size = new System.Drawing.Size(69, 20);
+            this.passwordBox.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(471, 92);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "password";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 258);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.passwordBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.timer);
             this.Controls.Add(this.button1);
@@ -129,6 +150,8 @@
         private System.Windows.Forms.Label timer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox passwordBox;
+        private System.Windows.Forms.Label label2;
 
     }
 }

@@ -138,6 +138,12 @@ namespace AutoBot
             RegisterHotKey(this.Handle, 8, 2, (int)'K');
             string[] args = Environment.GetCommandLineArgs();
 
+            if (string.IsNullOrEmpty(args[1]))
+            {
+                MessageBox.Show("NO PROCESS ID GIVEN!");
+                this.Close();
+            }
+
             AppendOutputText("Welcome to the EQTrainer AutoBot program!", Color.Green);
 
             codeFile = args[2];
@@ -206,11 +212,6 @@ namespace AutoBot
                     AppendOutputText("ERROR: TeleportToPlayer crashed.");
                     WriteLog("[ERROR] TeleportToPlayer Try/Catch return (" + DateTime.Now + ")");
                 }
-            }
-            else if (string.Equals(line, "relog", StringComparison.CurrentCultureIgnoreCase) == true)
-            {
-                AppendOutputText("Relogging your character. This will take 1 minute.");
-                RelogChar();
             }
             else if (Regex.Match(line, "checkzone", RegexOptions.IgnoreCase).Success == true)
             {
@@ -629,9 +630,9 @@ namespace AutoBot
             }
             else
             {
-                AppendOutputText("Give window is not " + state + "! Checking again in 200 milliseconds.");
+                AppendOutputText("Give window is not " + state + "! Checking again in 500 milliseconds.");
                 doLastCmd();
-                System.Threading.Thread.Sleep(200);
+                System.Threading.Thread.Sleep(500);
                 CheckGive(state);
             }
         }
@@ -654,15 +655,18 @@ namespace AutoBot
 
         public void RelogChar()
         {
-            AppendOutputText("Sitting and camping...");
-            aix3c.Send("{ENTER}/sit{ENTER}");
-            System.Threading.Thread.Sleep(1000);
-            aix3c.Send("{ENTER}/camp{ENTER}");
-            System.Threading.Thread.Sleep(50000);
-            AppendOutputText("Pressing enter key...");
-            aix3c.Send("{ENTER}");
-            System.Threading.Thread.Sleep(20000);
-            AppendOutputText("Assuming back in world...");
+            if (!string.IsNullOrEmpty(passwordBox.Text))
+            {
+                AppendOutputText("typing in password...");
+                aix3c.Send(passwordBox.Text + "{ENTER}");
+                System.Threading.Thread.Sleep(5000);
+                AppendOutputText("Pressing enter key and waiting 10 seconds...");
+                aix3c.Send("{ENTER}");
+                System.Threading.Thread.Sleep(10000);
+                AppendOutputText("Assuming back in world...");
+            }
+            else
+                AppendOutputText("ERROR: No relog password given.", Color.Red);
         }
 
         public void CheckCursor(string item)
@@ -889,45 +893,45 @@ namespace AutoBot
             }
         }
 
-        int zoneCheckTimer = 0;
+        public static int zoneCheckTimer = 0;
+
         public void zoneCheck(string zone)
         {
             if (stop)
                 return;
 
-            try
+            aix3c.MouseMove(150, 150, 1);
+
+            string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
+
+            if (string.IsNullOrEmpty(curZone) || string.IsNullOrEmpty(zone))
+                AppendOutputText("Zone Check failed. Null given.");
+
+            if (Equals(curZone, zone)) //we do a char coords 0 0 only on the teleport function
             {
-                string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile).ToString());
-
-                if (curZone == null || curZone == "" || zone == "")
+                AppendOutputText("Zone Check successful. Continuing...");
+                zoneCheckTimer = 0;
+                System.Threading.Thread.Sleep(1000); //safety buffer
+                return;
+            }
+            else
+            {
+                //AppendOutputText("Zone Check failed(2), trying again [" + curZone + "," + zone + "]");
+                System.Threading.Thread.Sleep(1000);
+                curZone = String.Empty; //reset
+                zoneCheckTimer++;
+                if (zoneCheckTimer == 40)
+                    aix3c.Send("{ENTER}");
+                if (zoneCheckTimer == 60)
+                    aix3c.Send("{ENTER}");
+                if (zoneCheckTimer == 180)
                 {
-                    AppendOutputText("Zone Check failed. Null given.");
-                }
-
-                if (Equals(curZone, zone) == true) //we do a char coords 0 0 only on the teleport function
-                {
-                    AppendOutputText("Zone Check successful. Continuing...");
-                    zoneCheckTimer = 0;
-                    System.Threading.Thread.Sleep(1000); //safety buffer
+                    AppendOutputText("ZONE CHECK FAILED! Logging back in!", Color.Red);
+                    RelogChar();
                     return;
                 }
                 else
-                {
-                    //AppendOutputText("Zone Check failed(2), trying again [" + curZone + "," + zone + "]");
-                    System.Threading.Thread.Sleep(1000);
-                    zoneCheckTimer++;
-                    if (zoneCheckTimer == 180)
-                    {
-                        AppendOutputText("ZONE CHECK FAILED!", Color.Red);
-                        return;
-                    } 
-                    else
-                        zoneCheck(zone);
-                }
-            }
-            catch (Exception e)
-            {
-                AppendOutputText(e + " zoneCheck exception caught.");
+                    zoneCheck(zone);
             }
         }
 
@@ -948,13 +952,14 @@ namespace AutoBot
                     if (spawn_next_spawn_info == 0x00000000)
                     {
                         AppendOutputText("CheckPCNearby broke at " + i.ToString() + ". Continuing...");
-                        //break;
                         return;
                     }
 
                     string spawn_info_name = MemLib.readPString((UIntPtr)spawn_info_address, "spawnInfoName", codeFile);
+
+                    //ONLY needed for NPCs
                     //int index = spawn_info_name.IndexOf("0");
-                   // if (index > 0)
+                    //if (index > 0)
                     //    spawn_info_name = spawn_info_name.Substring(0, index);
 
                     float spawn_info_y = MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoY", codeFile);
@@ -968,7 +973,7 @@ namespace AutoBot
                     float difference3 = Math.Abs(spawn_info_z - z);
 
                     //DEBUG
-                    /*if (spawn_info_type == (byte)0)
+                    /*if (spawn_info_type == 0)
                         AppendOutputText("Player in zone. " + spawn_info_name );*/
 
                     if (i == 4095)
@@ -1001,6 +1006,9 @@ namespace AutoBot
                     {
                         AppendOutputText("Player distance check failed! Differences Y[" + difference2.ToString("0.00") + "] X[" + difference.ToString("0.00") + "] Z[" + difference3.ToString("0.00") + "] [" + spawn_info_name + "] [" + spawn_info_type + "]. Will recheck in 30 sec.");
                         //AppendOutputText("DEBUG: " + spawn_info_name + " Y[" + spawn_info_y + "] X[" + spawn_info_x + "] Z[" + spawn_info_z + "]");
+                        difference = 0;
+                        difference2 = 0;
+                        difference3 = 0;
                         System.Threading.Thread.Sleep(30000);
                         CheckPCNearby(y, x, z, dist, ignore);
                         break;
@@ -1012,7 +1020,6 @@ namespace AutoBot
             catch
             {
                 AppendOutputText("ERROR: OVERFLOW!", Color.Red);
-                System.Threading.Thread.Sleep(30000);
             }
         }
 
@@ -1035,6 +1042,8 @@ namespace AutoBot
                 }
                 else
                 {
+                    aix3c.MouseMove(x, y, 1);
+                    System.Threading.Thread.Sleep(150);
                     if (click == "left")
                         aix3c.MouseClick("left", x, y, 2, 0);
                     else if (click == "right")
@@ -1055,9 +1064,7 @@ namespace AutoBot
             //CheckWindowAcive();
             //lastCmd = "say " + message;
             //CheckWindowAcive();
-            aix3c.Send
-                
-            ("{ENTER}" + message + "{ENTER}");
+            aix3c.Send("{ENTER}" + message + "{ENTER}");
             //this was mac. Only opened chat and type in a message, couldnt send.
             //uint openMessage = (uint)0x79856C;
             //uint writeMessage = (uint)mem.ReadPointer(0x00809478) + 0x175FC; //re-write this later.

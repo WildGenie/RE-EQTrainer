@@ -20,6 +20,12 @@ namespace Memory
             Int32 dwProcessId
             );
 
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+
         [DllImport("kernel32.dll")]
         static extern bool WriteProcessMemory(
             IntPtr hProcess,
@@ -139,6 +145,9 @@ namespace Memory
 
         public void setFocus()
         {
+            //int style = GetWindowLong(procs.MainWindowHandle, -16);
+            //if ((style & 0x20000000) == 0x20000000) //minimized
+            //    SendMessage(procs.Handle, 0x0112, (IntPtr)0xF120, IntPtr.Zero);
             SetForegroundWindow(procs.MainWindowHandle);
         }
 
@@ -362,8 +371,6 @@ namespace Memory
         public string readUIntPtrStr(string code, string file)
         {
             byte[] memoryNormal = new byte[32];
-            if (memoryNormal == null)
-                return "";
             if (ReadProcessMemory(pHandle, LoadUIntPtrCode(code, file), memoryNormal, (UIntPtr)32, IntPtr.Zero))
                 return System.Text.Encoding.ASCII.GetString(memoryNormal);
             else
