@@ -1032,10 +1032,10 @@ namespace EQTrainer
                 bank_silver.Invoke(new MethodInvoker(delegate { bank_silver.Text = bank_silver_int.ToString(); }));
                 bank_copper.Invoke(new MethodInvoker(delegate { bank_copper.Text = bank_copper_int.ToString(); }));
 
-                player_plat.Invoke(new MethodInvoker(delegate { player_plat.Text = player_plat_int.ToString(); }));
-                player_gold.Invoke(new MethodInvoker(delegate { player_gold.Text = player_gold_int.ToString(); }));
-                player_silver.Invoke(new MethodInvoker(delegate { player_silver.Text = player_silver_int.ToString(); }));
-                player_copper.Invoke(new MethodInvoker(delegate { player_copper.Text = player_copper_int.ToString(); }));
+                player_plat.Invoke(new MethodInvoker(delegate { if (player_plat_int >= 0) player_plat.Text = player_plat_int.ToString(); }));
+                player_gold.Invoke(new MethodInvoker(delegate { if (player_gold_int >= 0) player_gold.Text = player_gold_int.ToString(); }));
+                player_silver.Invoke(new MethodInvoker(delegate { if (player_silver_int >= 0) player_silver.Text = player_silver_int.ToString(); }));
+                player_copper.Invoke(new MethodInvoker(delegate { if (player_copper_int >= 0) player_copper.Text = player_copper_int.ToString(); }));
 
                 decimal cRemaining = ((decimal)(bank_copper_int + player_copper_int) / 10) - Math.Floor((decimal)(bank_copper_int + player_copper_int) / 10);
                 int silverTotal = ((bank_copper_int + player_copper_int) / 10) + (bank_silver_int + player_silver_int);
@@ -1044,22 +1044,25 @@ namespace EQTrainer
                 decimal gRemaining = ((decimal)(goldTotal) / 10) - Math.Floor((decimal)(goldTotal) / 10);
                 int platTotal = ((goldTotal) / 10) + (bank_plat_int + player_plat_int);
 
-                total_plat.Text = platTotal.ToString();
+                if (platTotal >= 0)
+                    total_plat.Text = platTotal.ToString();
+                else
+                    total_plat.Text = "0";
 
                 string tGold = TrimPrefixZero(gRemaining.ToString().Replace(".", ""));
-                if (tGold.Equals(""))
+                if (tGold.Equals("") || gRemaining < 0)
                     total_gold.Text = "0";
                 else
                     total_gold.Text = tGold;
 
                 string tSilver = TrimPrefixZero(sRemaining.ToString().Replace(".", ""));
-                if (tSilver.Equals(""))
+                if (tSilver.Equals("") || sRemaining < 0)
                     total_silver.Text = "0";
                 else
                     total_silver.Text = tSilver;
 
                 string tCopper = TrimPrefixZero(cRemaining.ToString().Replace(".", ""));
-                if (tCopper.Equals(""))
+                if (tCopper.Equals("") || cRemaining < 0)
                     total_copper.Text = "0";
                 else
                     total_copper.Text = tCopper;
@@ -1377,16 +1380,19 @@ namespace EQTrainer
                     }));
 
                 xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp >= 0 && current_xp <= 330) xp_stats.Text = xpProgressBar.ToString() + "%"; }));
-                progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero); }));
+                progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; }));
                 progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
+                SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero);
 
                 hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = hpProgressBar.ToString() + "%"; }));
-                progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero); }));
+                progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; }));
                 progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
+                SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero);
 
                 mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
-                progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero); }));
+                progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; }));
                 progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
+                SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero);
 
                 Thread.Sleep(100);
             }

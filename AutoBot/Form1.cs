@@ -165,6 +165,8 @@ namespace AutoBot
             eqgameID = args[1];
             AppendOutputText("Opening process " + eqgameID);
             MemLib.OpenGameProcess(eqgameID);
+
+            passwordBox.Text = EQTrainer_AutoBot.Properties.Settings.Default.password;
         }
 
         public void ParseReader(string line)
@@ -657,12 +659,14 @@ namespace AutoBot
         {
             if (!string.IsNullOrEmpty(passwordBox.Text))
             {
+                aix3c.Send(passwordBox.Text + "{ENTER}");
+                System.Threading.Thread.Sleep(5000);
                 AppendOutputText("typing in password...");
                 aix3c.Send(passwordBox.Text + "{ENTER}");
                 System.Threading.Thread.Sleep(5000);
-                AppendOutputText("Pressing enter key and waiting 10 seconds...");
+                AppendOutputText("Pressing enter key and waiting 60 seconds...");
                 aix3c.Send("{ENTER}");
-                System.Threading.Thread.Sleep(10000);
+                System.Threading.Thread.Sleep(60000);
                 AppendOutputText("Assuming back in world...");
             }
             else
@@ -757,7 +761,7 @@ namespace AutoBot
 
            AppendOutputText("Checking Safe X:" + value_x + " Y:" + value_y + " Z:" + value_z, Color.Green);
 
-           if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z) && tpPlayerCheck() == true)
+           if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z) && zoningCheck() == true)
                return true;
            else
            {
@@ -766,13 +770,24 @@ namespace AutoBot
            }
        }
 
-       public bool tpPlayerCheck(/*float value_x, float value_y, float value_z*/)
+       public bool zoningCheck()
        {
            float y_address = MemLib.readFloat("playerY", codeFile);
            float x_address = MemLib.readFloat("playerX", codeFile);
-           //float z_address = MemLib.readFloat("playerZ", codeFile);
 
-           /*double value_y_rounded = Math.Round(Convert.ToDouble(value_y));
+           if (y_address.Equals(0) && x_address.Equals(0)) //zoning...
+               return false;
+           else
+               return true;
+       }
+
+       public bool tpPlayerCheck(float value_x, float value_y, float value_z)
+       {
+           float y_address = MemLib.readFloat("playerY", codeFile);
+           float x_address = MemLib.readFloat("playerX", codeFile);
+           float z_address = MemLib.readFloat("playerZ", codeFile);
+
+           double value_y_rounded = Math.Round(Convert.ToDouble(value_y));
            double value_x_rounded = Math.Round(Convert.ToDouble(value_x));
            double value_z_rounded = Math.Round(Convert.ToDouble(value_z));
 
@@ -780,20 +795,15 @@ namespace AutoBot
            double x_diff = Math.Abs(Math.Round((value_x_rounded - x_address)));
            double z_diff = Math.Abs(Math.Round((value_z_rounded - z_address)));
 
-           AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);*/
+           AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);
 
-           if (y_address.Equals(0) && x_address.Equals(0)) //zoning...
-               return false;
-           else
-               return true;
-
-           /*if ((x_diff > (double)10) || (y_diff > (double)10) || (z_diff > (double)2))
+           if ((x_diff > 10) || (y_diff > 10) || (z_diff > 2))
            {
                AppendOutputText("Bad Player X:" + x_address + " Y:" + y_address + " Z:" + z_address, Color.Red);
                return false;
            }
            else
-               return true;*/
+               return true;
        }
 
         public void Teleport(float value_x, float value_y, float value_z, float value_h) //it's actually y,x,z
@@ -820,11 +830,12 @@ namespace AutoBot
 
            System.Threading.Thread.Sleep(250);
 
-           /*if (tpPlayerCheck(value_x, value_y, value_z) == false)
-            {
-                System.Threading.Thread.Sleep(1000);
-                Teleport(value_x, value_y, value_z, value_h);
-            }*/
+           if (tpPlayerCheck(value_x, value_y, value_z) == false)
+           {
+               System.Threading.Thread.Sleep(1000);
+               AppendOutputText("Teleported to incorrect XYZ, correcting...", Color.Red);
+               Teleport(value_x, value_y, value_z, value_h);
+           }
         }
 
         static void CheckDistance(string target, float y, float x, float z, int dist)
@@ -900,8 +911,6 @@ namespace AutoBot
             if (stop)
                 return;
 
-            aix3c.MouseMove(150, 150, 1);
-
             string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
 
             if (string.IsNullOrEmpty(curZone) || string.IsNullOrEmpty(zone))
@@ -924,7 +933,7 @@ namespace AutoBot
                     aix3c.Send("{ENTER}");
                 if (zoneCheckTimer == 60)
                     aix3c.Send("{ENTER}");
-                if (zoneCheckTimer == 180)
+                if (zoneCheckTimer == 240)
                 {
                     AppendOutputText("ZONE CHECK FAILED! Logging back in!", Color.Red);
                     RelogChar();
@@ -934,6 +943,8 @@ namespace AutoBot
                     zoneCheck(zone);
             }
         }
+
+        public static int checkAgain = 0;
 
         public void CheckPCNearby(float y, float x, float z, int dist, string ignore = null)
         {
@@ -952,6 +963,13 @@ namespace AutoBot
                     if (spawn_next_spawn_info == 0x00000000)
                     {
                         AppendOutputText("CheckPCNearby broke at " + i.ToString() + ". Continuing...");
+                        checkAgain = 0;
+                        return;
+                    }
+
+                    if (checkAgain == 29){
+                        AppendOutputText("Check failed 20 times. Continuing...");
+                        checkAgain = 0;
                         return;
                     }
 
@@ -1010,6 +1028,7 @@ namespace AutoBot
                         difference2 = 0;
                         difference3 = 0;
                         System.Threading.Thread.Sleep(30000);
+                        checkAgain++;
                         CheckPCNearby(y, x, z, dist, ignore);
                         break;
                     }
@@ -1107,6 +1126,12 @@ namespace AutoBot
         private void formClosed(object sender, FormClosedEventArgs e)
         {
             MemLib.closeProcess();
+        }
+
+        private void passwordBox_TextChanged(object sender, EventArgs e)
+        {
+            EQTrainer_AutoBot.Properties.Settings.Default.password = passwordBox.Text;
+            EQTrainer_AutoBot.Properties.Settings.Default.Save();
         }
 
     }

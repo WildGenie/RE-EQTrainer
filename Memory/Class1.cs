@@ -308,6 +308,15 @@ namespace Memory
                 return 0;
         }
 
+        public int readPByte(UIntPtr address, string code, string file)
+        {
+            byte[] memory = new byte[4];
+            if (ReadProcessMemory(pHandle, address + LoadIntCode(code, file), memory, (UIntPtr)1, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
         public int readUInt(UIntPtr code)
         {
             byte[] memory = new byte[4];

@@ -26,7 +26,7 @@
     <CheatEntry>
       <ID>33</ID>
       <Description>"Player Name"</Description>
-      <LastState Activated="0" RealAddress="15EE8250"/>
+      <LastState Activated="0" RealAddress="159C8330"/>
       <Color>80000008</Color>
       <VariableType>String</VariableType>
       <Length>20</Length>
@@ -40,7 +40,7 @@
         <CheatEntry>
           <ID>13</ID>
           <Description>"Runspeed"</Description>
-          <LastState Value="0.6999999881" Activated="0" RealAddress="15B8F890"/>
+          <LastState Value="0.6999999881" Activated="0" RealAddress="0529AB30"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -51,7 +51,7 @@
         <CheatEntry>
           <ID>14</ID>
           <Description>"Player X Axis"</Description>
-          <LastState Value="-1012" Activated="0" RealAddress="15B8F710"/>
+          <LastState Value="-63" Activated="0" RealAddress="0529A9B0"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -62,7 +62,7 @@
         <CheatEntry>
           <ID>15</ID>
           <Description>"Player Y Axis"</Description>
-          <LastState Value="475" Activated="0" RealAddress="15B8F714"/>
+          <LastState Value="-452" Activated="0" RealAddress="0529A9B4"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -73,7 +73,7 @@
         <CheatEntry>
           <ID>16</ID>
           <Description>"Player Z Axis"</Description>
-          <LastState Value="-71.3950882" Activated="0" RealAddress="15B8F698"/>
+          <LastState Value="3.127999783" Activated="0" RealAddress="0529A938"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -84,7 +84,7 @@
         <CheatEntry>
           <ID>34</ID>
           <Description>"Experience"</Description>
-          <LastState Value="156" Activated="0" RealAddress="15EDD8A0"/>
+          <LastState Value="79" Activated="0" RealAddress="159BD980"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>0x905D00</Address>
@@ -95,7 +95,7 @@
         <CheatEntry>
           <ID>35</ID>
           <Description>"Copper (bank)"</Description>
-          <LastState Value="0" Activated="0" RealAddress="15EE835C"/>
+          <LastState Value="0" Activated="0" RealAddress="159C843C"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>0x905D00</Address>
@@ -106,7 +106,7 @@
         <CheatEntry>
           <ID>36</ID>
           <Description>"Silver (bank)"</Description>
-          <LastState Value="5" Activated="0" RealAddress="15EE8358"/>
+          <LastState Value="0" Activated="0" RealAddress="159C8438"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>0x905D00</Address>
@@ -117,7 +117,7 @@
         <CheatEntry>
           <ID>37</ID>
           <Description>"Gold (bank)"</Description>
-          <LastState Value="12" Activated="0" RealAddress="15EE8354"/>
+          <LastState Value="0" Activated="0" RealAddress="159C8434"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>0x905D00</Address>
@@ -128,7 +128,7 @@
         <CheatEntry>
           <ID>38</ID>
           <Description>"Platinum (bank)"</Description>
-          <LastState Value="43" Activated="0" RealAddress="15EE8350"/>
+          <LastState Value="0" Activated="0" RealAddress="159C8430"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>0x905D00</Address>
@@ -139,7 +139,7 @@
         <CheatEntry>
           <ID>86</ID>
           <Description>"Copper (player)"</Description>
-          <LastState Value="??" Activated="0" RealAddress="000011E0"/>
+          <LastState Value="??" Activated="0" RealAddress="74727322"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>08E83A9C</Address>
@@ -150,7 +150,7 @@
         <CheatEntry>
           <ID>85</ID>
           <Description>"Silver (player)"</Description>
-          <LastState Value="??" Activated="0" RealAddress="000011DC"/>
+          <LastState Value="??" Activated="0" RealAddress="7472731E"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>08E83A9C</Address>
@@ -161,7 +161,7 @@
         <CheatEntry>
           <ID>84</ID>
           <Description>"Gold (player)"</Description>
-          <LastState Value="??" Activated="0" RealAddress="000011D8"/>
+          <LastState Value="??" Activated="0" RealAddress="7472731A"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>08E83A9C</Address>
@@ -172,7 +172,7 @@
         <CheatEntry>
           <ID>83</ID>
           <Description>"Platinum (player)"</Description>
-          <LastState Value="??" Activated="0" RealAddress="000011D4"/>
+          <LastState Value="??" Activated="0" RealAddress="74727316"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>08E83A9C</Address>
@@ -183,7 +183,7 @@
         <CheatEntry>
           <ID>45</ID>
           <Description>"Player Heading"</Description>
-          <LastState Value="130" Activated="0" RealAddress="15B8F6AC"/>
+          <LastState Value="6" Activated="0" RealAddress="0529A94C"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -194,7 +194,7 @@
         <CheatEntry>
           <ID>46</ID>
           <Description>"Player HP Max"</Description>
-          <LastState Value="189" Activated="0" RealAddress="15B8F8E4"/>
+          <LastState Value="8" Activated="0" RealAddress="0529AB84"/>
           <Color>80000008</Color>
           <VariableType>Byte</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -205,7 +205,7 @@
         <CheatEntry>
           <ID>51</ID>
           <Description>"Player HP Current"</Description>
-          <LastState Value="189" Activated="0" RealAddress="15B8F8D4"/>
+          <LastState Value="8" Activated="0" RealAddress="0529AB74"/>
           <Color>80000008</Color>
           <VariableType>Byte</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -216,7 +216,7 @@
         <CheatEntry>
           <ID>50</ID>
           <Description>"Race"</Description>
-          <LastState Value="128" Activated="0" RealAddress="15B8F8C0"/>
+          <LastState Value="4" Activated="0" RealAddress="0529AB60"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -227,7 +227,7 @@
         <CheatEntry>
           <ID>49</ID>
           <Description>"Height"</Description>
-          <LastState Value="6" Activated="0" RealAddress="15B8F89C"/>
+          <LastState Value="5" Activated="0" RealAddress="0529AB3C"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>"eqgame.exe"+00505CE4</Address>
@@ -238,7 +238,7 @@
         <CheatEntry>
           <ID>48</ID>
           <Description>"Equipment"</Description>
-          <LastState Value="00 00 00 FF 00 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 04 00 00 00 04 00 00 00 7A 00 00 00 7A 00 00 00" Activated="0" RealAddress="15B8F83C"/>
+          <LastState Value="00 00 00 FF 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 0E 00 00 00 1B 00 00 00" Activated="0" RealAddress="0529AADC"/>
           <ShowAsHex>1</ShowAsHex>
           <Color>80000008</Color>
           <VariableType>Array of byte</VariableType>
@@ -325,7 +325,7 @@
         <CheatEntry>
           <ID>28</ID>
           <Description>"Target HealthBar"</Description>
-          <LastState Value="0" Activated="0" RealAddress="009922C4"/>
+          <LastState Value="100" Activated="0" RealAddress="009922C4"/>
           <Color>80000008</Color>
           <VariableType>4 Bytes</VariableType>
           <Address>"eqgame.exe"+0015ABCC</Address>
@@ -404,7 +404,7 @@
         <CheatEntry>
           <ID>59</ID>
           <Description>"SafeX"</Description>
-          <LastState Value="-1684" Activated="0" RealAddress="00923BCC"/>
+          <LastState Value="-25" Activated="0" RealAddress="00923BCC"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>eqgame.exe+523BCC</Address>
@@ -412,7 +412,7 @@
         <CheatEntry>
           <ID>61</ID>
           <Description>"SafeY"</Description>
-          <LastState Value="1617" Activated="0" RealAddress="00923BD0"/>
+          <LastState Value="94" Activated="0" RealAddress="00923BD0"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>eqgame.exe+523BD0</Address>
@@ -420,7 +420,7 @@
         <CheatEntry>
           <ID>64</ID>
           <Description>"SafeZ"</Description>
-          <LastState Value="-50" Activated="0" RealAddress="00923BD4"/>
+          <LastState Value="3.75" Activated="0" RealAddress="00923BD4"/>
           <Color>80000008</Color>
           <VariableType>Float</VariableType>
           <Address>eqgame.exe+523BD4</Address>
@@ -446,7 +446,7 @@
     <CheatEntry>
       <ID>67</ID>
       <Description>"mouseX"</Description>
-      <LastState Value="55" Activated="0" RealAddress="00988C88"/>
+      <LastState Value="1599" Activated="0" RealAddress="00988C88"/>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
       <Address>0x988C88</Address>
@@ -454,7 +454,7 @@
     <CheatEntry>
       <ID>68</ID>
       <Description>"mouseY"</Description>
-      <LastState Value="899" Activated="0" RealAddress="00988C8C"/>
+      <LastState Value="784" Activated="0" RealAddress="00988C8C"/>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
       <Address>0x988C8c</Address>
@@ -462,7 +462,7 @@
     <CheatEntry>
       <ID>72</ID>
       <Description>"Cursor Item"</Description>
-      <LastState Value="0" Activated="0" RealAddress="0607A380"/>
+      <LastState Value="0" Activated="0" RealAddress="05FBA380"/>
       <Color>80000008</Color>
       <VariableType>Byte</VariableType>
       <Address>"eqgame.exe"+00505D24</Address>
@@ -473,7 +473,7 @@
     <CheatEntry>
       <ID>73</ID>
       <Description>"Give Window"</Description>
-      <LastState Value="0" Activated="0" RealAddress="052E8CEC"/>
+      <LastState Value="0" Activated="0" RealAddress="1353665C"/>
       <Color>80000008</Color>
       <VariableType>Byte</VariableType>
       <Address>"eqgame.exe"+00450C60</Address>
@@ -484,7 +484,7 @@
     <CheatEntry>
       <ID>76</ID>
       <Description>"current mana"</Description>
-      <LastState Value="0" Activated="0" RealAddress="0099218C"/>
+      <LastState Value="830" Activated="0" RealAddress="0099218C"/>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
       <Address>"eqgame.exe"+0015A5B8</Address>
@@ -495,7 +495,7 @@
     <CheatEntry>
       <ID>82</ID>
       <Description>"max mana"</Description>
-      <LastState Value="0" Activated="0" RealAddress="00992190"/>
+      <LastState Value="830" Activated="0" RealAddress="00992190"/>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
       <Address>"eqgame.exe"+0015A788</Address>
@@ -504,20 +504,149 @@
       </Offsets>
     </CheatEntry>
     <CheatEntry>
-      <ID>106</ID>
-      <Description>"No description"</Description>
-      <LastState Value="26" Activated="0" RealAddress="15F11084"/>
+      <ID>107</ID>
+      <Description>"player plat temp"</Description>
+      <LastState Value="1" Activated="0" RealAddress="1578115C"/>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
-      <Address>15F11084</Address>
+      <Address>1578115C</Address>
     </CheatEntry>
     <CheatEntry>
-      <ID>99</ID>
+      <ID>108</ID>
       <Description>"No description"</Description>
-      <LastState Value="89" Activated="0" RealAddress="15F11088"/>
+      <LastState Value="159EFF88" Activated="0" RealAddress="0008E578"/>
+      <ShowAsHex>1</ShowAsHex>
       <Color>80000008</Color>
       <VariableType>4 Bytes</VariableType>
-      <Address>15F11088</Address>
+      <Address>0008E578</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>109</ID>
+      <Description>"No description"</Description>
+      <LastState Value="00000000" Activated="0" RealAddress="08703A9C"/>
+      <ShowAsHex>1</ShowAsHex>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>08703A9C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>110</ID>
+      <Description>"No description"</Description>
+      <LastState Value="00000000" Activated="0" RealAddress="08703AA0"/>
+      <ShowAsHex>1</ShowAsHex>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>08703AA0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>111</ID>
+      <Description>"No description"</Description>
+      <LastState Value="BF800000" Activated="0" RealAddress="095C00B0"/>
+      <ShowAsHex>1</ShowAsHex>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>095C00B0</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>112</ID>
+      <Description>"No description"</Description>
+      <LastState Value="159EFF88" Activated="0" RealAddress="748D4708"/>
+      <ShowAsHex>1</ShowAsHex>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>wow64cpu.dll+4708</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>113</ID>
+      <Description>"No description"</Description>
+      <LastState Value="655" Activated="0" RealAddress="159F115C"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>wow64cpu.dll+4708</Address>
+      <Offsets>
+        <Offset>11D4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>114</ID>
+      <Description>"No description"</Description>
+      <LastState Value="??" Activated="0" RealAddress="BF8011D4"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>095C00B0</Address>
+      <Offsets>
+        <Offset>11D4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>115</ID>
+      <Description>"No description"</Description>
+      <LastState Value="??" Activated="0" RealAddress="000011D4"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>08703AA0</Address>
+      <Offsets>
+        <Offset>11D4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>116</ID>
+      <Description>"No description"</Description>
+      <LastState Value="??" Activated="0" RealAddress="000011D4"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>08703A9C</Address>
+      <Offsets>
+        <Offset>11D4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>117</ID>
+      <Description>"No description"</Description>
+      <LastState Value="655" Activated="0" RealAddress="159F115C"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0008E578</Address>
+      <Offsets>
+        <Offset>11D4</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>118</ID>
+      <Description>"No description"</Description>
+      <LastState Value="655" Activated="0" RealAddress="159F115C"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>159F115C</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>119</ID>
+      <Description>"No description"</Description>
+      <LastState Value="159F115C" Activated="0" RealAddress="748D46D8"/>
+      <ShowAsHex>1</ShowAsHex>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>wow64cpu.dll+46D8</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>120</ID>
+      <Description>"No description"</Description>
+      <LastState Value="138" Activated="0" RealAddress="08394C78"/>
+      <Color>80000008</Color>
+      <VariableType>Byte</VariableType>
+      <Address>0x905D00</Address>
+      <Offsets>
+        <Offset>11E0</Offset>
+        <Offset>C388</Offset>
+      </Offsets>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>121</ID>
+      <Description>"No description"</Description>
+      <LastState Value="1" Activated="0" RealAddress="15F11084"/>
+      <Color>80000008</Color>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0x15F11084</Address>
     </CheatEntry>
   </CheatEntries>
   <UserdefinedSymbols/>

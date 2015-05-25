@@ -1083,7 +1083,7 @@
             // 
             this.toolStripStatusLabel3.Name = "toolStripStatusLabel3";
             this.toolStripStatusLabel3.Size = new System.Drawing.Size(76, 19);
-            this.toolStripStatusLabel3.Text = "Version: 5.7.7";
+            this.toolStripStatusLabel3.Text = "Version: 5.7.8";
             // 
             // toolStripDropDownButton1
             // 

@@ -1,3 +1,14 @@
+Version 5.7.8
+---------------
+Added CheckPCNearby give up after 10 minutes and continue
+Added (again) player xyz check after teleporting
+Added autoBot form password setting to relog if zone desync
+Added LOTS of new titanium scripts
+Fixed player money if below 0
+Fixed (maybe) HP MP XP progress bars
+Fixed checkPCNearby type and ignore names
+
+
 Version 5.7.7
 ---------------
 Fixed proper process handle closing and opening
