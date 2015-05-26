@@ -1,0 +1,14 @@
+// starts in Ak'Anon, 800x600 and default UI positioning. Only good classes can do this. No necro or SK.
+// turn on auto destroy for faster item deletion.
+checkzone akanon
+setfocus
+talktonpc Manik_Compolten I am a new warrior.
+checkcursor yes
+teleto Clockwork_XIIC
+mouse 393 194 left
+checkcursor no
+mouse 56 512 left
+checkgive closed
+mouse 300 500 left
+checkcursor no
+press i

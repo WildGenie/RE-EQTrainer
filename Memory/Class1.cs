@@ -250,7 +250,12 @@ namespace Memory
         public float readFloat(string code, string file)
         {
             byte[] memory = new byte[4];
-            if (ReadProcessMemory(pHandle, getCode(code, file), memory, (UIntPtr)4, IntPtr.Zero))
+
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
             {
                 float address = BitConverter.ToSingle(memory, 0);
                 return (float)Math.Round(address, 2);
@@ -262,7 +267,12 @@ namespace Memory
         public string readString(string code, string file)
         {
             byte[] memoryNormal = new byte[32];
-            if (ReadProcessMemory(pHandle, getCode(code, file), memoryNormal, (UIntPtr)32, IntPtr.Zero))
+
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memoryNormal, (UIntPtr)32, IntPtr.Zero))
                 return CutString(System.Text.Encoding.UTF8.GetString(memoryNormal));
             else
                 return "";
@@ -271,7 +281,12 @@ namespace Memory
         public string readBigString(string code, string file)
         {
             byte[] memoryNormal = new byte[20];
-            if (ReadProcessMemory(pHandle, getCode(code, file), memoryNormal, (UIntPtr)20, IntPtr.Zero))
+
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memoryNormal, (UIntPtr)20, IntPtr.Zero))
                 return System.Text.Encoding.UTF8.GetString(memoryNormal);
             else
                 return "";
@@ -302,7 +317,12 @@ namespace Memory
         public int readByte(string code, string file)
         {
             byte[] memoryTiny = new byte[4];
-            if (ReadProcessMemory(pHandle, getCode(code, file), memoryTiny, (UIntPtr)1, IntPtr.Zero))
+
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memoryTiny, (UIntPtr)1, IntPtr.Zero))
                 return BitConverter.ToInt32(memoryTiny, 0);
             else
                 return 0;

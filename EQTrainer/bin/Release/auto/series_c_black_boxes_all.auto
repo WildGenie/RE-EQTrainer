@@ -1,0 +1,40 @@
+// starts in Ak'Anon, 800x600 and default UI positioning.
+// turn on auto destroy for faster item deletion. DO NOT LOOP!
+checkzone akanon
+setfocus
+talktonpc Manik_Compolten I am a new warrior.
+checkcursor yes
+teleto Clockwork_XIIC
+mouse 393 194 left
+checkcursor no
+mouse 56 512 left
+checkgive closed
+say /autoinventory
+press i
+talktonpc Manik_Compolten I need another keycard.
+checkcursor yes
+teleto Clockwork_XVIIC
+mouse 393 194 left
+checkcursor no
+mouse 56 512 left
+checkgive closed
+say /autoinventory
+press i
+talktonpc Manik_Compolten I need another keycard.
+checkcursor yes
+teleto Clockwork_XXVIC
+mouse 393 194 left
+checkcursor no
+mouse 56 512 left
+checkgive closed
+say /autoinventory
+press i
+talktonpc Manik_Compolten I need another keycard.
+checkcursor yes
+talktonpc Clockwork_XXVIIC Hail, Clockwork XXVIIC
+mouse 393 194 left
+checkcursor no
+mouse 56 512 left
+checkgive closed
+say /autoinventory
+press i

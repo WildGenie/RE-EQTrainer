@@ -634,7 +634,7 @@ namespace AutoBot
             {
                 AppendOutputText("Give window is not " + state + "! Checking again in 500 milliseconds.");
                 doLastCmd();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(100);
                 CheckGive(state);
             }
         }
@@ -646,8 +646,7 @@ namespace AutoBot
                 string[] words = lastCmd.Split(' ');
                 Mouse(Convert.ToInt32(words[1]), Convert.ToInt32(words[2]), words[3]);
                 AppendOutputText("[LASTCMD] mouse " + "X:" + words[1] + " Y:" + words[2] + " click:" + words[3]);
-            }
-            if (lastCmd.Contains("teleport") == true)
+            } else if (lastCmd.Contains("teleport") == true)
             {
                 string[] words = lastCmd.Split(' ');
                 Teleport(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]));
@@ -673,11 +672,14 @@ namespace AutoBot
                 AppendOutputText("ERROR: No relog password given.", Color.Red);
         }
 
+        static int r = 0;
         public void CheckCursor(string item)
         {
             //mac = 0x007F9510 + 0x40 <-- no base?
             if (stop)
                 return;
+
+            System.Threading.Thread.Sleep(1000);
 
             int cursor = new int();
             cursor = MemLib.readByte("cursorItem", codeFile);
@@ -685,17 +687,25 @@ namespace AutoBot
             if (item.Equals("yes") && cursor.Equals(1))
             {
                 AppendOutputText("Cursor item found! Continuing...");
-                System.Threading.Thread.Sleep(500);
+                return;
+                //System.Threading.Thread.Sleep(500);
             }
             else if (item.Equals("no") && cursor.Equals(0))
             {
                 AppendOutputText("Cursor item not found! Continuing...");
-                System.Threading.Thread.Sleep(500);
+                return;
+                //System.Threading.Thread.Sleep(500);
             }
             else
             {
-                /*r++;
-                if (r >= 10 && item == "yes")
+                r++;
+                if (r >= 30)
+                {
+                    AppendOutputText("CheckCursor failed 30 times, continuing...");
+                    return;
+                }
+
+                /*if (r >= 10 && item == "yes")
                 {
                     AppendOutputText("Failed cursor check 10 times! Relogging character and trying last say command.");
                     r = 0;
@@ -729,7 +739,6 @@ namespace AutoBot
                 }*/
                 doLastCmd();
                 AppendOutputText("Checking cursor item again. Item:" + item + " Memory:" + cursor.ToString());
-                System.Threading.Thread.Sleep(500);
                 CheckCursor(item);
             }
         }
@@ -967,8 +976,8 @@ namespace AutoBot
                         return;
                     }
 
-                    if (checkAgain == 29){
-                        AppendOutputText("Check failed 20 times. Continuing...");
+                    if (checkAgain == 10){
+                        AppendOutputText("Check failed 10 times. Continuing...");
                         checkAgain = 0;
                         return;
                     }
@@ -1022,7 +1031,7 @@ namespace AutoBot
 
                     if (difference <= (float)dist && difference2 <= (float)dist && difference3 <= (float)30)
                     {
-                        AppendOutputText("Player distance check failed! Differences Y[" + difference2.ToString("0.00") + "] X[" + difference.ToString("0.00") + "] Z[" + difference3.ToString("0.00") + "] [" + spawn_info_name + "] [" + spawn_info_type + "]. Will recheck in 30 sec.");
+                        AppendOutputText("Player distance check failed! Differences Y[" + difference2.ToString("0.00") + "] X[" + difference.ToString("0.00") + "] Z[" + difference3.ToString("0.00") + "] [" + spawn_info_name + "] [" + spawn_info_type + "] [" + checkAgain.ToString() + "/10]. Will recheck in 30 sec.");
                         //AppendOutputText("DEBUG: " + spawn_info_name + " Y[" + spawn_info_y + "] X[" + spawn_info_x + "] Z[" + spawn_info_z + "]");
                         difference = 0;
                         difference2 = 0;
@@ -1044,7 +1053,7 @@ namespace AutoBot
 
         public void Mouse(int x, int y, string click)
         {
-            System.Threading.Thread.Sleep(200);
+            //System.Threading.Thread.Sleep(200);
             lastCmd = "mouse " + x.ToString() + " " + y.ToString() + " " + click;
             try
             {
@@ -1062,7 +1071,7 @@ namespace AutoBot
                 else
                 {
                     aix3c.MouseMove(x, y, 1);
-                    System.Threading.Thread.Sleep(150);
+                    //System.Threading.Thread.Sleep(50);
                     if (click == "left")
                         aix3c.MouseClick("left", x, y, 2, 0);
                     else if (click == "right")
@@ -1099,7 +1108,7 @@ namespace AutoBot
             TeleportToPlayer(recipient);
             TargetPlayer(recipient);
             //CheckWindowAcive();
-            System.Threading.Thread.Sleep(1000);
+            //System.Threading.Thread.Sleep(1000);
             SayMessage(message);
             AppendOutputText("NPC: " + recipient + " MESSAGE:" + message);
             lastCmd = "talktoNPC " + recipient + " " + message;

@@ -1,3 +1,4 @@
+// starts in west freeport
 checkzone freportw
 teleport -236 77 -25 501
 target Plagus_Ladeson000
