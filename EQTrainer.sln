@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EQTrainer", "EQTrainer\EQTrainer.csproj", "{A8634C33-9827-4789-B665-0E8BEDB0F419}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "Memory\Memory.csproj", "{9ABF5742-7489-455C-B94A-3A85725D939A}"
@@ -8,6 +8,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", "{A970415E-A8FE-42CF-B9D1-278E8D747F4E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBot", "AutoBot\AutoBot.csproj", "{26C897B7-3432-4B4D-817D-751317B4823A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "EQTrainer Setup", "EQTrainer Setup\EQTrainer Setup.vdproj", "{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,12 @@ Global
 		{26C897B7-3432-4B4D-817D-751317B4823A}.Release|Mixed Platforms.Build.0 = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.Release|x86.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.Release|x86.Build.0 = Release|x86
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Debug|Any CPU.ActiveCfg = Debug
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Debug|x86.ActiveCfg = Debug
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Release|Any CPU.ActiveCfg = Release
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Release|Mixed Platforms.ActiveCfg = Release
+		{5C0C65F5-CBA9-4BB8-8E39-07EC1FFF2C91}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

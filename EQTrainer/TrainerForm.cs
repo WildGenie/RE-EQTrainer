@@ -11,6 +11,8 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Threading;
 using Memory;
+using System.Security.Principal;
+using Microsoft.Win32;
 
 namespace EQTrainer
 {
@@ -96,10 +98,41 @@ namespace EQTrainer
         }
         #endregion
 
+        public static bool IsAdministrator()
+        {
+            bool isElevated;
+            WindowsIdentity identity = WindowsIdentity.GetCurrent();
+            WindowsPrincipal principal = new WindowsPrincipal(identity);
+            isElevated = principal.IsInRole(WindowsBuiltInRole.Administrator);
+            return isElevated;
+        }
+
+        /*public bool checkKey()
+        {
+            RegistryKey rkSubKey = Registry.CurrentUser.OpenSubKey(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0", false);
+            if (rkSubKey == false)
+                return false;
+            else
+                return true;
+        }*/
+
         private void TrainerForm_Load(object sender, EventArgs e)
         {
             try
             {
+                /*if (checkKey() == false)
+                {
+                    MessageBox.Show("Missing C++ Redistributable (x86)");
+                    System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=5555");
+                }*/
+
+                if (IsAdministrator() == false)
+                {
+                    grantAdmin obj = new grantAdmin();
+                    obj.Show();
+                    obj.Location = new Point(this.Location.X, this.Location.Y);
+                }
+                
                 ToolTip tt = new ToolTip();
                 tt.SetToolTip(this.teleportBtn1, "Teleport to Coordinates 1 (CTRL+1)");
                 tt.SetToolTip(this.teleportBtn2, "Teleport to Coordinates 2 (CTRL+2)");
@@ -1507,7 +1540,12 @@ namespace EQTrainer
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void toolStripStatusLabel4_Click(object sender, EventArgs e)
+        private void formClosed(object sender, FormClosedEventArgs e)
+        {
+            MemLib.closeProcess();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             settingsForm obj = new settingsForm();
             obj.RefToForm1 = this;
@@ -1515,9 +1553,25 @@ namespace EQTrainer
             obj.Location = new Point(this.Location.X, this.Location.Y);
         }
 
-        private void formClosed(object sender, FormClosedEventArgs e)
+        private void aboutEQTrainerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MemLib.closeProcess();
+            AboutBox1 obj = new AboutBox1();
+            obj.Show();
+        }
+
+        private void supportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
+        }
+
+        private void softwareInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://newagesoldier.com/everquest-mac-on-pc-trainer-teleporter/");
+        }
+
+        private void softwareReadmeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("readme.txt");
         }
 
         /*private void tele_label1_TextChanged(object sender, EventArgs e)
