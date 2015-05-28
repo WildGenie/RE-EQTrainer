@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- Select a Product Configuration -->
+		<InstallShieldProductConfiguration>Express</InstallShieldProductConfiguration>
+		<!-- Select a Visual Studio Configuration / InstallShield Release -->
+		<Configuration>Debug</Configuration>
+		<InstallShieldRelease>$(Configuration)</InstallShieldRelease>
+	</PropertyGroup>
+	<ItemGroup>
+		<!-- The InstallShieldProject item selects the project to build -->
+		<InstallShieldProject Include="$(MSBuildProjectDirectory)\$(MSBuildProjectName).isl"/>
+		<!-- The InstallShieldReleaseFlags sets Release Flags -->
+		<!--<InstallShieldReleaseFlags Include=""/>-->
+		<!-- The InstallShieldMergeModulePath specifies what directories are
+		searched for Merge Modules -->
+		<!--<InstallShieldMergeModulePath Include=""/>-->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The ProjectReference items refer to any Visual Studio solutions you want to automatically probe for Project Output Groups.  -->
+	</ItemGroup>
+	<ItemGroup>
+		<!-- The TaggedOutputs items allow you to explicitly add extra files to output groups. Each item must include both Name and OutputGroup, as well as TargetPath metadata values. -->
+		<!--<TaggedOutputs Include="C:\My Test Exe.exe">
+			<Name>My Test Project</Name>
+			<OutputGroup>Primary output</OutputGroup>
+			<TargetPath>My Test Exe.exe</TargetPath>
+		</TaggedOutputs> -->
+	</ItemGroup>
+	<Import Project="$(MSBuildExtensionsPath32)\InstallShield\2013Limited\InstallShield.targets"/>
+	<ItemGroup>
+		<ProjectReference Include="..\AutoBot\AutoBot.csproj">
+			<Name>AutoBot</Name>
+			<Project>{26C897B7-3432-4B4D-817D-751317B4823A}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\EQTrainer\EQTrainer.csproj">
+			<Name>EQTrainer</Name>
+			<Project>{A8634C33-9827-4789-B665-0E8BEDB0F419}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Maps\Maps.csproj">
+			<Name>Maps</Name>
+			<Project>{A970415E-A8FE-42CF-B9D1-278E8D747F4E}</Project>
+		</ProjectReference>
+		<ProjectReference Include="..\Memory\Memory.csproj">
+			<Name>Memory</Name>
+			<Project>{9ABF5742-7489-455C-B94A-3A85725D939A}</Project>
+		</ProjectReference>
+	</ItemGroup>
+</Project>

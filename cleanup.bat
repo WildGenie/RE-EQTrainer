@@ -7,7 +7,7 @@ cd "EQTrainer\bin\Release"
 del /Q Memory.dll
 del /S /F *.exe
 del /S /F *.pdb
-del /Q EQTrainer.exe.config
-del /Q AutoBot.exe.config
+del /S /F *.config
+del /S /F *.manifest
 del /Q logfile.txt
-../../../removePBD.bat
+rmdir /s /q "..\..\..\EQTrainer Setup\EQTrainer Setup"

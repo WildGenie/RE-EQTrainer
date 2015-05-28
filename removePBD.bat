@@ -1,1 +1,0 @@
-del /S /F *.pdb

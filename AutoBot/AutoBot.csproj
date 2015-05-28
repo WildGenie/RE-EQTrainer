@@ -88,6 +88,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Robot.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <COMReference Include="AutoItX3Lib">
       <Guid>{F8937E53-D444-4E71-9275-35B64210CC3B}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -97,9 +100,6 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Robot.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

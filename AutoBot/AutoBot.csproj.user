@@ -8,4 +8,7 @@
     <StartArguments>3076 "C:\Users\Jake\Documents\GitHub\EQTrainer\EQTrainer\bin\Release\builds\EQTitanium\codes.ini" loop "C:\Users\Jake\Documents\GitHub\EQTrainer\EQTrainer\bin\Release\auto\going_postal_kelethin.auto"</StartArguments>
     <StartWorkingDirectory>C:\Users\Jake\Documents\GitHub\EQTrainer\EQTrainer\bin\Debug\</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Program Files (x86)\AutoIt3\AutoItX\</ReferencePath>
+  </PropertyGroup>
 </Project>
