@@ -172,12 +172,14 @@ namespace Memory
             ManualResetEvent SyncClientServer = (ManualResetEvent)obj;
             using (NamedPipeClientStream pipeStream = new NamedPipeClientStream("EQTPipe"))
             {
-                pipeStream.Connect();
+                if (!pipeStream.IsConnected)
+                    pipeStream.Connect();
 
                 //MessageBox.Show("[Client] Pipe connection established");
                 using (StreamWriter sw = new StreamWriter(pipeStream))
                 {
-                    sw.AutoFlush = true;
+                    if (sw.AutoFlush == false)
+                        sw.AutoFlush = true;
                     sw.WriteLine("warp");
                 }
             }
