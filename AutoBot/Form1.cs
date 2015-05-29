@@ -305,13 +305,12 @@ namespace AutoBot
             }
             else if (Regex.Match(line, "say", RegexOptions.IgnoreCase).Success == true)
             {
-                string[] words = line.Split(' ');
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 2);
-                AppendOutputText("sending message " + words[1]);
+                AppendOutputText("sending message " + commands[1]);
                 try
                 {
-                    SayMessage(words[1]);
+                    SayMessage(commands[1]);
                 }
                 catch
                 {
@@ -1087,7 +1086,7 @@ namespace AutoBot
 
         public void SayMessage(string message)
         {
-            if (message == null || message == "")
+            if (string.IsNullOrEmpty(message))
                 return;
             //CheckWindowAcive();
             //lastCmd = "say " + message;
@@ -1103,7 +1102,7 @@ namespace AutoBot
 
         public void SayMessageNPC(string recipient, string message)
         {
-            if (recipient == null || recipient == "" || message == null || message == "")
+            if (string.IsNullOrEmpty(recipient) || string.IsNullOrEmpty(message))
                 return;
             TeleportToPlayer(recipient);
             TargetPlayer(recipient);

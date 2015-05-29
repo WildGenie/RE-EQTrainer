@@ -1,0 +1,23 @@
+1 Trainers for Necromancers and Evil Clerics, also Merchants selling Dark Gold Robes and Spells
+2 Evil Warrior Trainer
+3 Evil Rogue Trainer
+4 Merchant selling Tinkering Supplies
+5 Abbey of Deep Musing - Cleric Trainers and Merchants selling Blunt Weapons, through secret door lies stairs down to Rogue Guild with Merchants selling Rogue Weapons
+6 The Smithy - Merchants selling Weapons of all types
+7 Merchant selling Blunt Weapons with Forge and Ak'Anon Forge nearby
+8 Merchants selling Bags and Boxes, Food and other Goods, also Bard
+9 Merchant selling Shoes
+10 Library Mechanamagica - Enchanter, Magician, and Wizard Trainers, with Merchants selling Spells, Gold Robes, and equipment for all spellcasters
+11 Merchant selling Small Cloth and Leather Armor, also Tailoring Patterns
+12 Merchants selling Food, Fishing Supplies, Crystals, and Potions
+13 Ak'Anon Palace - King Ak'Anon resides here, Oven, Pottery Wheel, and Kiln inside
+14 Warrior Guild - Warrior Trainers and Merchant selling Various Weapons
+15 Merchant selling Fishing Supplies, outside Merchant selling Small Cloth Armor and Small Sewing Kit, Loom outside
+16 Priest of Discord and Merchant selling Food and other Goods, Soulbinder nearby
+17 Bank of Ak'Anon, and Merchants selling Jewelry supplies (Gems)
+18 Merchants selling Jewelry Supplies (Metals)
+19 Ak'Anon Zoo
+20 Merchants selling Small Cloth Armor, Food and other Goods, Weapons of Various Types, and Small Shields of all types
+21 Merchant selling Fletching Supplies for making Arrows
+22 Bar - Merchants selling Alcohol, Brew Barrel inside
+Note that the lettered areas lead to each other.

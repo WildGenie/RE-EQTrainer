@@ -1,21 +1,50 @@
 ﻿using System;
-using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
-using System.Threading;
+using System.Drawing;
 using Memory;
+using System.IO;
 
-namespace WindowsFormsApplication1
+//SOURCE: http://www.redguides.com/forums/showthread.php/30319-Titanium-Client-Real-Time-Maps
+
+namespace MapsV2
 {
     public partial class Form1 : Form
     {
+        float pX;
+        float pY;
+        float pXtwo;
+        float pYtwo;
+        int r;
+        int g;
+        int b;
+        double zoom = 22.2;
+        int offset;
+        int offsety;
+        string logfile;
+        int MouseUpx;
+        int MouseUpy;
+        string zonelong;
+        int rely;
+        int relx;
+        bool mymousedown = false;
+        float playery;
+        float playerx;
+        float playerh;
+        string zoneshort;
+        Array zones;
+        string currentzone;
+
+        Bitmap BackBuffer;
+        Graphics GFX;
+        Graphics FormGFX;
+
         public static int proccID;
         public static IntPtr pHandle;
         public static int base_address;
@@ -31,113 +60,168 @@ namespace WindowsFormsApplication1
         private void Form1_Load(object sender, EventArgs e)
         {
             MemLib.OpenGameProcess(args[1]);
-            backgroundWorker2.DoWork += new DoWorkEventHandler(backgroundWorker2_DoWork);
-            backgroundWorker2.RunWorkerAsync();
+            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+            backgroundWorker1.RunWorkerAsync();
         }
 
-        public string RemoveSpecialCharactersTwo(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
+        private void Drawpoint(){ 
+            //friend?
+            /*double friendx = TextBox3.Text * -1;
+            double friendy = TextBox4.Text * -1;
+
+            friendx = friendx / zoom;
+            friendy = friendy / zoom;
+
+            if (friendy < 0) {
+                friendy = Math.Abs(friendy);
+                friendy = 300 - friendy;
+            } else
+                friendy = 300 + friendy;
+
+            if (friendx > 0) {
+                friendx = friendx + 300;
+            } else
+                friendx = 300 - Math.Abs(friendx);*/
+
+            using (SolidBrush redBrush = new SolidBrush(Color.Blue))
             {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
-                    sb.Append(c);
+                GFX.DrawPie(Pens.Red, new Rectangle(Convert.ToInt32(playerx + offset - 20), Convert.ToInt32(playery + offsety - 15), 40, 40), (int)((int)((playerh) * (360 / 510)) + 285) * -1, 30);
             }
-            return sb.ToString();
         }
 
-        private void backgroundWorker2_DoWork(object sender, DoWorkEventArgs e)
+        public void drawmap()
         {
-            //string old_map_name = "";
+            //GFX.DrawImage((int)(My.Resources.ResourceManager.GetObject("bg"), Image), new Point(0, 0)); //draw stock background image
 
-            while (true)
+            //Drawpoint(); //draw char xyzh on map (disable for now)
+            string mapFile = Application.StartupPath + @"\maps\" + zoneshort + ".txt";
+            if (!File.Exists(mapFile))
+                MessageBox.Show("Missing zone file " + mapFile);
+            StreamReader file = new StreamReader(mapFile);
+            string line;
+
+            while ((line = file.ReadLine()) != null)
             {
-                try {
-                    string codeFile = Application.StartupPath + Path.DirectorySeparatorChar + @"builds" + Path.DirectorySeparatorChar + args[2] + @"\codes.ini";
-                    string map_name = MemLib.readUIntPtrStr("mapShortName", codeFile);
-                    string map_longname = MemLib.readUIntPtrStr("mapLongName", codeFile);
-                    map_name = MemLib.RemoveSpecialCharacters(map_name);
-                    map_longname = RemoveSpecialCharactersTwo(map_longname);
-
-                    string filesPath = Application.StartupPath + Path.DirectorySeparatorChar + @"maps" + Path.DirectorySeparatorChar;
-                    string locfile = filesPath + map_name + ".loc";
-                    string imgfile = filesPath + map_name + ".jpg";
-                    string txtfile = filesPath + map_name + ".txt";
-
-                    FileInfo fi = new FileInfo(locfile);
-                    display2.Location = new Point(0, 0);
-
-                    float y_address = MemLib.readFloat("playerY", codeFile);
-                    float x_address = MemLib.readFloat("playerX", codeFile);
-                    float z_address = MemLib.readFloat("playerZ", codeFile);
-
-                    //MessageBox.Show("Y:" + y_address.ToString() + " X:" + x_address.ToString() + " Z:" + z_address.ToString() + " map: " + map_name);// DEBUG
-
-                    Bitmap bmp = new Bitmap(imgfile);
-                    Graphics g = Graphics.FromImage(bmp);
-                    float scale_x = bmp.Width;
-                    float scale_y = bmp.Height;
-                    g.RotateTransform(180.0F);
-                    int x = 0;
-                    int y = 0;
-                    int actualx = bmp.Width + 346;
-                    int actualy = bmp.Height + 38;
-                    if (fi.Exists)
-                    {
-                        int[] s = new int[4];
-                        using (StreamReader sr = fi.OpenText())
-                        {
-                            int i;
-                            for (i = 0; i < 4; i++)
-                            {
-                                s[i] = Convert.ToInt32(sr.ReadLine());
-                            }
-                        }
-
-                        scale_x = s[2] / bmp.Width;
-                        scale_y = s[3] / bmp.Height;
-                        x = s[0]; //offsets
-                        y = s[1];
-
-                        g.DrawString("X", new Font("Calibri", 16, FontStyle.Bold), new SolidBrush(Color.Red), (y_address / scale_y) + y, (x_address / scale_x) + x);
-                    }
-                    
-                    
-                    //if (map_name.Equals(old_map_name) == false) //cant keep pulling images this fast. Causes a crash.
-                    //{
-                        display2.Image = bmp;
-                        this.Width = actualx;
-                        this.Height = actualy;
-                        display2.Width = bmp.Width;
-                        display2.Height = bmp.Height;
-                        this.Controls.Add(display2);
-
-                        textBox1.Location = new Point(bmp.Width, 0);
-                        textBox1.Height = bmp.Height;
-                        textBox1.Width = this.Width - bmp.Width;
-
-                        //this.Text = map_longname + " (" + map_name + ") - EQTrainer Map System";
-
-                        fi = new FileInfo(txtfile);
-                        if (fi.Exists)
-                        {
-                            string text = File.ReadAllText(txtfile);
-                            textBox1.Text = text;
-                        }
-                        //old_map_name = map_name;
-                    //}
-
-                    Thread.Sleep(200);
-                } catch 
+                try
                 {
-                    //MessageBox.Show("BackgroundWorker2 Failed");
+                    // LINES
+                    if (line.Contains("L"))
+                    {
+                        string[] words = line.Split(',');
+
+                        r = Convert.ToInt32(words[6].Trim());
+                        g = Convert.ToInt32(words[7].Trim());
+                        b = Convert.ToInt32(words[8].Trim());
+
+                        pY = Convert.ToSingle(words[1].Trim());
+                        pX = Convert.ToSingle(words[0].Replace("L", "").Trim());
+
+                        pXtwo = Convert.ToSingle(words[3].Trim());
+                        pYtwo = Convert.ToSingle(words[4].Trim());
+
+                        pXtwo = Convert.ToSingle(pXtwo / zoom);
+                        pYtwo = Convert.ToSingle(pYtwo / zoom);
+
+                        pX = Convert.ToInt32(pX / zoom);
+                        pY = Convert.ToInt32(pY / zoom);
+
+                        if (pY < 0)
+                        {
+                            pY = Math.Abs(pY);
+                            pY = 300 - pY;
+                        }
+                        else
+                            pY = 300 + pY;
+
+                        if (pYtwo < 0)
+                        {
+                            pYtwo = Math.Abs(pYtwo);
+                            pYtwo = 300 - pYtwo;
+                        }
+                        else
+                            pYtwo = 300 + pYtwo;
+
+                        if (pX > 0)
+                            pX = pX + 300;
+                        else
+                            pX = 300 - Math.Abs(pX);
+
+                        if (pXtwo > 0)
+                            pXtwo = pXtwo + 300;
+                        else
+                            pXtwo = 300 - Math.Abs(pXtwo);
+
+                        using (Pen redBrush = new Pen(Color.FromArgb(r, g, b)))
+                        {
+                            GFX.DrawLine(redBrush, new Point(Convert.ToInt32(pX + offset), Convert.ToInt32(pY + offsety)), new Point(Convert.ToInt32(pXtwo + offset), Convert.ToInt32(pYtwo + offsety))); //issue with converting to integer
+                        }
+                    }
+                    else if (line.Contains("P"))
+                    {
+                        string[] words = line.Split(',');
+
+                        string label = words[7];
+
+                        pY = Convert.ToInt32(words[1]);
+                        pX = Convert.ToInt32(words[0].Replace("P ", ""));
+
+                        pX = Convert.ToInt32(pX / zoom);
+                        pY = Convert.ToInt32(pY / zoom);
+
+                        if (pY < 0)
+                        {
+                            pY = Math.Abs(pY);
+                            pY = 300 - pY;
+                        }
+                        else
+                            pY = 300 + pY;
+
+                        if (pX > 0)
+                            pX = pX + 300;
+                        else
+                            pX = 300 - Math.Abs(pX);
+
+                        MessageBox.Show(pX + "," + pY + ":" + pXtwo + "," + pYtwo); //DEBUG
+                        Font drawFont = new Font("Arial", 10);
+                        using (SolidBrush blueb = new SolidBrush(Color.Black))
+                        {
+                            //if (hideLabels.Checked == false)
+                            //{
+                                //label filter
+                                //if (label.ToUpper.Contains(txtFilter.Text.ToUpper))
+                                //    GFX.DrawString(label, drawFont, blueb, new System.Drawing.Point(pX + offset, pY + offsety));
+                                //} else
+                                GFX.DrawString(label, drawFont, blueb, new System.Drawing.Point(Convert.ToInt32(pX + offset), Convert.ToInt32(pY + offsety))); //issue with converting to integer
+                            //}
+                        }
+                    }
+                }
+                catch
+                {
+                    //error
                 }
             }
         }
 
-        private void formClosed(object sender, FormClosedEventArgs e)
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            MemLib.closeProcess();
+            while (true)
+            {
+                try
+                {
+                    string codeFile = Application.StartupPath + Path.DirectorySeparatorChar + @"builds" + Path.DirectorySeparatorChar + args[2] + @"\codes.ini";
+                    zoneshort = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
+
+                    /*playery = MemLib.readFloat("playerY", codeFile);
+                    playerx = MemLib.readFloat("playerX", codeFile);
+                    playerh = MemLib.readFloat("playerH", codeFile);*/
+                    drawmap();
+                }
+                catch
+                {
+                    //error
+                }
+            }
         }
     }
 }

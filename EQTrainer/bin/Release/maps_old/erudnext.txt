@@ -1,0 +1,12 @@
+1 Temple of Divine Light - Cleric and Paladin Guilds, Merchants selling Blunt and Sharp Weapons, Merchant outside selling Cloth Armor and Leather Armor and Patterns
+2 Teleporter to Erudin Palace
+3 Bard
+4 Teleporter to Erudin Dock Area
+5 City Armory - Merchants selling Medium Chain and Plate Armor with Erudin Royal Forge outside
+6 Arrival Platform from Teleporters
+7 Erudin Surplus - Merchants selling Food and other Goods, Bags and Boxes, Brew Barrel, outside Merchant selling Small Cloth Armor, Oven, Pottery Wheel and Kiln, and Loom
+8 Erudin City Library - Merchants selling Bard Songs, Cleric Spells, Enchanter Illusion Spells, Wizard Portal Spells, Mage Summon Item Spells, Wizard Vision and various Elemental Effect Spells, Cloudy Stone of Veeshan
+9 Deepwater Knights, Followers of Prexus - Cleric and Paladin Guild, Merchants selling Blunt and Sharp Weapons, Forge out back
+10 Vasty Deep Inn - Merchant selling Bags and Boxes, Enchanter Trainer
+11 BlueHawk's Food - Merchant selling Food and other Goods, Alcohol, Cooking Books, Brew Barrel inside, Oven outside
+Lettered Teleporters transport to the platform with the corresponding letter

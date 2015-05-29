@@ -1,0 +1,10 @@
+1 Priest of Discord
+2 Warrior Guild, sells Weapons
+3 Sells Brewing Supplies, Alcohol, Bags
+4 Sells Weapons, Large Leather, Chain, and Plate Armor, outside sells Food Items, Boots, Fletching Equipment and Bows and Arrows, Forge nearby
+5 Sells Jewelry
+6 Shadowknight Guild, sells Ore, Sharpening Stones, and Clay, Weapons
+7 Bank
+8 Shaman Trainers, sells Medicine Bag
+9 Shaman Guild
+Note that on above map all coordinates are half of their actual value (i.e. 200 should read 400).

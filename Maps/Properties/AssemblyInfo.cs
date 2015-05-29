@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EQTrainer Maps")]
+[assembly: AssemblyTitle("Maps v2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NewAgeSoldier.com")]
+[assembly: AssemblyProduct("Maps v2")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f94a9e42-31dc-4581-ad3b-4dc5a44d1af2")]
+[assembly: Guid("0952d0e0-3064-468b-af7a-cbba97cfffde")]
 
 // Version information for an assembly consists of the following four values:
 //

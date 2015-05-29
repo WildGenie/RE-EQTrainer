@@ -1,0 +1,40 @@
+Portals (Labelled in Red)
+1 Rivervale 	11 Plane of Tranquility
+2 Kelethin 	12 Firiona Vie
+3 Kaladim 	13 Freeport
+4 Halas 		14 Ak'Anon
+5 G. Faydark 	15 Cabilis
+6 Erudin 		16 Grobb
+7 Nexus 		17 Neriak
+8 Great Divide 	18 Oggok
+9 Shar Vahl 	19 Overthere
+10 Qeynos 	20 Paineel
+
+1 Enchanter, Wizard, and Magician Trainers
+2 Warrior and Monk Trainers
+3 Bard and Rogue Trainers
+4 Quest NPC's
+5 Shaman, Cleric, Druid, and Beastlord Trainers
+6 Merchants selling Plate Armor Molds, Small Chain Molds, Ore, and Hammers
+7 Pottery Wheel and Kiln outside, Merchants selling Pottery Supplies and Pottery Sketches
+8 Merchants selling Metal, all Gems, Jewelry Kit
+9 Bank
+10 Merchants selling Gems, Coffins, Spell Components, Food and other Goods, Fishing Supplies
+11 Merchants selling Dyeing Supplies, Chainmail Patterns, Ore, Clay, Hammers, Small and Large Chainmail Patterns, Basic Blacksmithing Molds, Tailoring Supplies and Patterns, Forge and Sewing Kit inside
+12 Merchants selling Poison Supplies and Alchemy Supplies, Fletching and Bowmaking Supplies
+13 Merchants selling Mixing Bowl, Vegetables, Brewing Supplies, Brew Barrel inside; Outside Merchants selling Brewing Supplies, Plate Armor, Large Plate Armor and Weapon Molds
+14 Merchants selling Baking Supplies, Oven inside; Outside Merchants selling Food and other Goods, Large Chain Molds, Pottery Sketches, Cookie Molds, Metals, Rare Gems and Jewelry Supplies, Cooking Supplies and Cooking Books, Brew Barrel
+15 Bank
+16 empty
+17 Merchant selling Food and Other Goods, Brewing Books, Brewing Supplies,
+18 Merchants selling Tinkering Supplies, Full Plate Molds, Small Plate Molds, Large Chain Molds, Chain Molds, Forges inside
+19 Wizard, Magician, and Enchanter Trainers
+20 Monk, Warrior, Paladin, Rogue, Bard and Ranger Trainers
+21 Quest NPC's
+22 Merchants selling Food and Goods, Lightstones, and Potions
+23 Shaman and Beastlord Trainers, Soulbinder outside
+24 Cleric Trainer, Bookseller - Meldrath books
+25 Quest NPC's
+26 Shaman, Cleric, and Bard Trainers, Bookseller
+27 Monk, Rogue, Shadow Knight, Warrior and Beastlord Trainers
+28 Enchanter, Necromancer, Wizard, and Magician Trainers, Merchant, Bookseller - Necropolis and Deadtimes books
