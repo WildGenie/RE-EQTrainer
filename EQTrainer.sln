@@ -1,17 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EQTrainer", "EQTrainer\EQTrainer.csproj", "{A8634C33-9827-4789-B665-0E8BEDB0F419}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "Memory\Memory.csproj", "{9ABF5742-7489-455C-B94A-3A85725D939A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "Maps\Maps.csproj", "{A970415E-A8FE-42CF-B9D1-278E8D747F4E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBot", "AutoBot\AutoBot.csproj", "{26C897B7-3432-4B4D-817D-751317B4823A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MapsV2", "MapsV2\MapsV2.csproj", "{7525DE5F-5EFA-4035-A324-7B02EE514C1C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maps", "MapsV2\Maps.csproj", "{7525DE5F-5EFA-4035-A324-7B02EE514C1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -82,31 +80,6 @@ Global
 		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
 		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|x86.ActiveCfg = Release|Any CPU
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.CD_ROM|Any CPU.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.CD_ROM|Mixed Platforms.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.CD_ROM|Mixed Platforms.Build.0 = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.CD_ROM|x86.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.CD_ROM|x86.Build.0 = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Debug|x86.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Debug|x86.Build.0 = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.DVD-5|Any CPU.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.DVD-5|Mixed Platforms.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.DVD-5|Mixed Platforms.Build.0 = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.DVD-5|x86.ActiveCfg = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.DVD-5|x86.Build.0 = Debug|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Release|Any CPU.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Release|Mixed Platforms.Build.0 = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Release|x86.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.Release|x86.Build.0 = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.SingleImage|Any CPU.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.SingleImage|Mixed Platforms.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.SingleImage|Mixed Platforms.Build.0 = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.SingleImage|x86.ActiveCfg = Release|x86
-		{A970415E-A8FE-42CF-B9D1-278E8D747F4E}.SingleImage|x86.Build.0 = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Any CPU.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Mixed Platforms.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Mixed Platforms.Build.0 = Release|x86

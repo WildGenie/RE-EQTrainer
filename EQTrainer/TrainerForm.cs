@@ -1553,25 +1553,30 @@ namespace EQTrainer
             obj.Location = new Point(this.Location.X, this.Location.Y);
         }
 
-        private void aboutEQTrainerToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openMapSystemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
+        }
+
+        private void aboutEQTrainerToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             AboutBox1 obj = new AboutBox1();
             obj.Show();
         }
 
-        private void supportToolStripMenuItem_Click(object sender, EventArgs e)
+        private void softwareReadmeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
+            System.Diagnostics.Process.Start("readme.txt");
         }
 
-        private void softwareInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void softwareInformationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://newagesoldier.com/everquest-mac-on-pc-trainer-teleporter/");
         }
 
-        private void softwareReadmeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void softwareSupportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("readme.txt");
+            System.Diagnostics.Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
         }
 
         /*private void tele_label1_TextChanged(object sender, EventArgs e)
