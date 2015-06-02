@@ -86,10 +86,13 @@ namespace EQTrainer
                     teleportBtn3.PerformClick();
                 else if (id == 4)
                     teleportBtn4.PerformClick();
-                /*else if (id == 5) {
-                    Form MapForm = new MapForm();
-                    MapForm.Show();
-                }*/ else if (id == 6)
+                else if (id == 5) {
+                    mapForm fc = Application.OpenForms["mapForm"] != null ? (mapForm)Application.OpenForms["mapForm"] : null;
+                    if (fc != null)
+                        fc.Close();
+                    else
+                        openMapSystemToolStripMenuItem.PerformClick();
+                } else if (id == 6)
                     gateBtn.PerformClick();
                 else if (id == 7)
                     followBtn.PerformClick();
@@ -558,7 +561,10 @@ namespace EQTrainer
 
         private void map_label_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
+            mapForm obj3 = new mapForm();
+            obj3.RefToForm1 = this;
+            obj3.Show();
+            //System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -988,22 +994,26 @@ namespace EQTrainer
         {
             while (true)
             {
-                if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
+                comboBox1.Invoke(new MethodInvoker(delegate
                 {
-                    string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
-                    foreach (string subdirectory in subdirectoryEntries)
+                    if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
                     {
-                        string buildDateCode = MemLib.readBigString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
-                        string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
-                        if (buildDateCode.Contains(buildDate))
+                        string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
+                        foreach (string subdirectory in subdirectoryEntries)
                         {
-                            //if (comboBox1.InvokeRequired)
-                            comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
-                            if (Properties.Settings.Default.old_warp == false)
-                                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                            string buildDateCode = MemLib.readBigString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
+                            string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                            if (buildDateCode.Contains(buildDate))
+                            {
+                                //if (comboBox1.InvokeRequired)
+                                comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                                if (Properties.Settings.Default.old_warp == false)
+                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                            }
                         }
                     }
                 }
+                ));
 
                 float y_address = MemLib.readFloat("playerY", codeFile);
                 float x_address = MemLib.readFloat("playerX", codeFile);
@@ -1555,7 +1565,10 @@ namespace EQTrainer
 
         private void openMapSystemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
+            mapForm obj3 = new mapForm();
+            obj3.RefToForm1 = this;
+            obj3.Show();
+            //System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
         }
 
         private void aboutEQTrainerToolStripMenuItem1_Click(object sender, EventArgs e)
