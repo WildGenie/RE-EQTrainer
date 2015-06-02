@@ -42,9 +42,6 @@ namespace EQTrainer
             Int32 milliseconds  
             );
 
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
-
         [DllImport("user32.dll")]
         public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
 
@@ -233,22 +230,9 @@ namespace EQTrainer
 
         private void inject(string dll)
         {
-            Int32 ProcID = Convert.ToInt32(eqgameID);
-            Process procs = Process.GetProcessById(ProcID);
-            IntPtr hProcess = (IntPtr)OpenProcess(0x1F0FFF, true, ProcID);
-
-            foreach (ProcessModule pm in procs.Modules)
-            {
-                if (pm.ModuleName.StartsWith("inject", StringComparison.InvariantCultureIgnoreCase))
-                    return;
-            }
-
-            if (procs.Responding == false)
-                return;
-
             try
             {
-                MemLib.InjectDLL(hProcess, dll);
+                MemLib.InjectDLL(dll);
             }
             catch
             {
@@ -564,7 +548,6 @@ namespace EQTrainer
             mapForm obj3 = new mapForm();
             obj3.RefToForm1 = this;
             obj3.Show();
-            //System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1207,27 +1190,23 @@ namespace EQTrainer
                 target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
                 target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
 
-                //only works in EQMac until I find Titanium codes
-                if (comboBox1.Text.Equals("EQMac"))
-                {
                     List<int> buffSpells = new List<int>();
                     List<int> buffTimer = new List<int>();
 
-                    int spellOffset = 0x268; //start here
+                    int buffAddress = 0;
 
                     for (int i = 1; i <= 12; i++)
                     {
-                        int[] newOffsets = { 0x003F94E8, spellOffset };
-                        int buffid = (System.Int16)MemLib.readIntMove(newOffsets);
-                        if (buffid.ToString() != "-1")
-                        {//no legit ID? Dont bother.
-                            buffSpells.Add(buffid);
+                        if (i > 1)
+                            buffAddress = MemLib.readIntMove("buffsInfoAddress", codeFile, 9);
+                        else
+                            buffAddress = MemLib.readInt("buffsInfoAddress", codeFile);
 
-                            spellOffset = spellOffset + 1;
-                            int[] secondOffsets = { 0x003F94E8, spellOffset };
-                            int bufftime = MemLib.readIntMove(newOffsets);
+                        if (buffAddress > 1)
+                        {
+                            buffSpells.Add(buffAddress);
+                            int bufftime = MemLib.readIntMove("buffsInfoAddress", codeFile, 1);
                             buffTimer.Add(bufftime);
-                            spellOffset = spellOffset + 9;
                         }
                     }
 
@@ -1237,14 +1216,14 @@ namespace EQTrainer
 
                     foreach (double newBuffTimer in buffTimer)
                     {
-                        double trueTimer = (newBuffTimer / 255) * 0.1;
+                        double trueTimer = (newBuffTimer / 255) * 0.001;
                         buffTimerList.Add(trueTimer);
                     }
 
                     double[] bufftimers = buffTimerList.ToArray();
 
-                    if (listView1.InvokeRequired)
-                        listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Clear(); }));
+                    //listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Clear(); })); //temp
+
                     string[] buffnames = new string[12];
                     string line;
 
@@ -1264,27 +1243,32 @@ namespace EQTrainer
                             }
                         }
                         file.Close();
-                    }
 
-                    for (int i = 0; i < buffids.Count(); i++)
-                    {
-                        if ((bufftimers[i].ToString() != "0.1") && (bufftimers[i].ToString() != "0"))
+                        //int newBuffTime = (int)Math.Ceiling((double)bufftimers[i] / 8);
+                        //string time = (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
+                        //string[] row = { time, buffnames[i] };
+                        //var listViewItem = new ListViewItem(row);
+                        //listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Add(listViewItem); })); //temp
+
+                        if ((bufftimers[i] > 0))
                         {
                             int newBuffTime = (int)Math.Ceiling((double)bufftimers[i] / 8);
                             string time = (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
 
-                            string[] row = { time, buffnames[i] };
-                            var listViewItem = new ListViewItem(row);
-                            if (listView1.InvokeRequired)
-                                listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Add(listViewItem); }));
+                            ListViewItem findBuff = listView1.FindItemWithText(buffnames[i]);
+                            if (findBuff == null)
+                            {
+                                string[] row = { time, buffnames[i] };
+                                var listViewItem = new ListViewItem(row);
+                                listView1.Items.Add(listViewItem);
+                            }
+                            else
+                                listView1.Items[i].SubItems[0].Text = time;
                         }
+                        else
+                            listView1.Items[i].Remove();
                     }
-                }
 
-                //if (checkBoxScripts.Checked == false)
-                //    return;
-
-                if (listViewScripts.InvokeRequired)
                     listViewScripts.Invoke(new MethodInvoker(delegate {
 
                         foreach (ListViewItem listViewItem in listViewScripts.Items)
@@ -1568,7 +1552,6 @@ namespace EQTrainer
             mapForm obj3 = new mapForm();
             obj3.RefToForm1 = this;
             obj3.Show();
-            //System.Diagnostics.Process.Start("Maps.exe", listView2.SelectedItems[0].SubItems[0].Text + " " + comboBox1.Text);
         }
 
         private void aboutEQTrainerToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1590,6 +1573,16 @@ namespace EQTrainer
         private void softwareSupportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
+        }
+
+        private void autoItToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe");
+        }
+
+        private void cRedistributablex86ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/confirmation.aspx?id=5555");
         }
 
         /*private void tele_label1_TextChanged(object sender, EventArgs e)

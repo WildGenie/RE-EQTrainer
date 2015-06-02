@@ -198,24 +198,6 @@ namespace Memory
         public IntPtr dpvsModule;
         public IntPtr dsetupModule;
 
-        public UIntPtr getPointer(int[] offsets)
-        {
-            byte[] memory = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)((int)mainModule.BaseAddress + offsets[0]), memory, (UIntPtr)4, IntPtr.Zero);
-            uint num1 = BitConverter.ToUInt32(memory, 0);
-
-            UIntPtr base1 = (UIntPtr)0;
-
-            for (int i = 1; i < offsets.Length; i++)
-            {
-                base1 = new UIntPtr(num1 + Convert.ToUInt32(offsets[i]));
-                ReadProcessMemory(pHandle, base1, memory, (UIntPtr)4, IntPtr.Zero);
-                num1 = BitConverter.ToUInt32(memory, 0);
-            }
-
-            return base1;
-        }
-
         public string CutString(string mystring)
         {
             char[] chArray = mystring.ToCharArray();
@@ -307,10 +289,16 @@ namespace Memory
                 return 0;
         }
 
-        public int readIntMove(int[] moveCode)
+        public int readIntMove(string code, string file, int moveQty)
         {
             byte[] memory = new byte[4];
-            if (ReadProcessMemory(pHandle, (UIntPtr)getPointer(moveCode), memory, (UIntPtr)4, IntPtr.Zero))
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            theCode = theCode + moveQty;
+
+            if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
                 return BitConverter.ToInt32(memory, 0);
             else
                 return 0;
@@ -490,20 +478,29 @@ namespace Memory
             CloseHandle(pHandle);
         }
 
-        public void InjectDLL(IntPtr hProcess, String strDLLName)
+        public void InjectDLL(String strDLLName)
         {
             IntPtr bytesout;
 
-            Int32 LenWrite = strDLLName.Length + 1;
-            IntPtr AllocMem = (IntPtr)VirtualAllocEx(hProcess, (IntPtr)null, (uint)LenWrite, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+            foreach (ProcessModule pm in procs.Modules)
+            {
+                if (pm.ModuleName.StartsWith("inject", StringComparison.InvariantCultureIgnoreCase))
+                    return;
+            }
 
-            WriteProcessMemory(hProcess, AllocMem, strDLLName, (UIntPtr)LenWrite, out bytesout);
+            if (procs.Responding == false)
+                return;
+
+            Int32 LenWrite = strDLLName.Length + 1;
+            IntPtr AllocMem = (IntPtr)VirtualAllocEx(pHandle, (IntPtr)null, (uint)LenWrite, MEM_COMMIT | MEM_RESERVE, PAGE_READWRITE);
+
+            WriteProcessMemory(pHandle, AllocMem, strDLLName, (UIntPtr)LenWrite, out bytesout);
             UIntPtr Injector = (UIntPtr)GetProcAddress(GetModuleHandle("kernel32.dll"), "LoadLibraryA");
 
             if (Injector == null)
                 return;
 
-            IntPtr hThread = (IntPtr)CreateRemoteThread(hProcess, (IntPtr)null, 0, Injector, AllocMem, 0, out bytesout);
+            IntPtr hThread = (IntPtr)CreateRemoteThread(pHandle, (IntPtr)null, 0, Injector, AllocMem, 0, out bytesout);
             if (hThread == null)
                 return;
 
@@ -514,7 +511,7 @@ namespace Memory
                     CloseHandle(hThread);
                 return;
             }
-            VirtualFreeEx(hProcess, AllocMem, (UIntPtr)0, 0x8000);
+            VirtualFreeEx(pHandle, AllocMem, (UIntPtr)0, 0x8000);
 
             if (hThread != null)
                 CloseHandle(hThread);

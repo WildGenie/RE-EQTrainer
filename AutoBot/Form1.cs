@@ -45,13 +45,12 @@ namespace AutoBot
         {
             SendMessage(MyRichTextBox.Handle, WM_VSCROLL, (IntPtr)SB_PAGEBOTTOM, IntPtr.Zero);
         }
-
-        private static string eqgameID;
-        private static string codeFile;
-        private string[] arguments;
         Mem MemLib = new Mem();
         AutoItX3Lib.AutoItX3 aix3c = new AutoItX3Lib.AutoItX3();
         private bool stop = false;
+
+        private static string codeFile;
+        public static string[] args = Environment.GetCommandLineArgs();
 
         static string lastCmd = "";
 
@@ -126,9 +125,7 @@ namespace AutoBot
             foreach (Process pList in Process.GetProcesses())
             {
                 if (pList.MainWindowTitle.Contains(wName))
-                {
                     hWnd = pList.MainWindowHandle;
-                }
             }
             return hWnd;
         }
@@ -136,37 +133,40 @@ namespace AutoBot
         private void Form1_Load(object sender, EventArgs e)
         {
             RegisterHotKey(this.Handle, 8, 2, (int)'K');
-            string[] args = Environment.GetCommandLineArgs();
 
-            if (string.IsNullOrEmpty(args[1]))
+            if (args.Length < 2)
             {
-                MessageBox.Show("NO PROCESS ID GIVEN!");
-                this.Close();
+                Startup obj = new Startup();
+                obj.RefToForm1 = this;
+                obj.Show();
             }
-
-            AppendOutputText("Welcome to the EQTrainer AutoBot program!", Color.Green);
-
-            codeFile = args[2];
-            if (args != null && args.Length > 0)
+            else
             {
-                if (File.Exists(args[4]))
-                {
-                    arguments = args;
-                    if (backgroundWorker1.IsBusy == false)
-                    {
-                        string newArgs = string.Join(",", arguments);
-                        backgroundWorker1.RunWorkerAsync(newArgs);
-                    }
-                }
-                else
-                    MessageBox.Show("file doesn't exist");
+                startAutoBot(args[1], args[2], args[3], args[4]);
+                AppendOutputText("Welcome to the EQTrainer AutoBot program!", Color.Green);
             }
-
-            eqgameID = args[1];
-            AppendOutputText("Opening process " + eqgameID);
-            MemLib.OpenGameProcess(eqgameID);
 
             passwordBox.Text = EQTrainer_AutoBot.Properties.Settings.Default.password;
+        }
+
+        public void startAutoBot(string eqgameID, string iniFile, string loop, string script)
+        {
+            if (File.Exists(script))
+            {
+                codeFile = iniFile; //set global codeFile
+                AppendOutputText("Opening process " + eqgameID);
+                MemLib.OpenGameProcess(eqgameID);
+                if (backgroundWorker1.IsBusy == false)
+                {
+                    string[] bgArgs = new string[5] { args[0], eqgameID, codeFile, loop, script };
+                    string newArgs = string.Join(",", bgArgs);
+                    backgroundWorker1.RunWorkerAsync(newArgs);
+                }
+                else
+                    MessageBox.Show("bgw is busy");
+            }
+            else
+                MessageBox.Show("file doesn't exist");
         }
 
         public void ParseReader(string line)
@@ -403,6 +403,7 @@ namespace AutoBot
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            timer1.Enabled = true;
             string value = (string)e.Argument;
             string[] args = value.Split(',');
 
@@ -1103,7 +1104,10 @@ namespace AutoBot
         public void SayMessageNPC(string recipient, string message)
         {
             if (string.IsNullOrEmpty(recipient) || string.IsNullOrEmpty(message))
+            {
+                AppendOutputText("SayMessageNPC recipient or message was blank. Going to next line...");
                 return;
+            }
             TeleportToPlayer(recipient);
             TargetPlayer(recipient);
             //CheckWindowAcive();

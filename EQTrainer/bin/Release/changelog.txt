@@ -1,3 +1,14 @@
+Version 5.8.0
+---------------
+Added new map system using standard txt files from the game
+Added titanium buffs code
+Changed AutoBot can now open on its own without EQTrainer
+Changed the map system is now built in to EQTrainer
+Changed buffs code to properly refresh
+Moved InjectDLL detection to memory instead of EQTrainer
+Fixed player money in Titanium
+
+
 Version 5.7.8
 ---------------
 Added CheckPCNearby give up after 10 minutes and continue

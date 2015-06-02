@@ -123,6 +123,12 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openMapSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.aboutEQTrainerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareReadmeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareInformationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.softwareSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.heading_label = new System.Windows.Forms.Label();
             this.mousex = new System.Windows.Forms.TextBox();
@@ -200,12 +206,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.openMapSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutEQTrainerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareReadmeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareInformationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1054,7 +1057,8 @@
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2});
+            this.toolStripDropDownButton2,
+            this.toolStripDropDownButton3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1016, 22);
@@ -1078,9 +1082,58 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.settingsToolStripMenuItem.Text = "Settings Menu";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // openMapSystemToolStripMenuItem
+            // 
+            this.openMapSystemToolStripMenuItem.Name = "openMapSystemToolStripMenuItem";
+            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openMapSystemToolStripMenuItem.Text = "Map System";
+            this.openMapSystemToolStripMenuItem.Click += new System.EventHandler(this.openMapSystemToolStripMenuItem_Click);
+            // 
+            // toolStripDropDownButton2
+            // 
+            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutEQTrainerToolStripMenuItem1,
+            this.softwareReadmeToolStripMenuItem1,
+            this.softwareInformationToolStripMenuItem1,
+            this.softwareSupportToolStripMenuItem});
+            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
+            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
+            this.toolStripDropDownButton2.Size = new System.Drawing.Size(41, 20);
+            this.toolStripDropDownButton2.Text = "Info";
+            // 
+            // aboutEQTrainerToolStripMenuItem1
+            // 
+            this.aboutEQTrainerToolStripMenuItem1.Name = "aboutEQTrainerToolStripMenuItem1";
+            this.aboutEQTrainerToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.aboutEQTrainerToolStripMenuItem1.Text = "About EQTrainer";
+            this.aboutEQTrainerToolStripMenuItem1.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem1_Click);
+            // 
+            // softwareReadmeToolStripMenuItem1
+            // 
+            this.softwareReadmeToolStripMenuItem1.Name = "softwareReadmeToolStripMenuItem1";
+            this.softwareReadmeToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.softwareReadmeToolStripMenuItem1.Text = "Software Readme";
+            this.softwareReadmeToolStripMenuItem1.Click += new System.EventHandler(this.softwareReadmeToolStripMenuItem1_Click);
+            // 
+            // softwareInformationToolStripMenuItem1
+            // 
+            this.softwareInformationToolStripMenuItem1.Name = "softwareInformationToolStripMenuItem1";
+            this.softwareInformationToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
+            this.softwareInformationToolStripMenuItem1.Text = "Software information";
+            this.softwareInformationToolStripMenuItem1.Click += new System.EventHandler(this.softwareInformationToolStripMenuItem1_Click);
+            // 
+            // softwareSupportToolStripMenuItem
+            // 
+            this.softwareSupportToolStripMenuItem.Name = "softwareSupportToolStripMenuItem";
+            this.softwareSupportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.softwareSupportToolStripMenuItem.Text = "Software Support";
+            this.softwareSupportToolStripMenuItem.Click += new System.EventHandler(this.softwareSupportToolStripMenuItem_Click);
             // 
             // label5
             // 
@@ -1781,54 +1834,31 @@
             this.pictureBox1.TabIndex = 601;
             this.pictureBox1.TabStop = false;
             // 
-            // toolStripDropDownButton2
+            // toolStripDropDownButton3
             // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutEQTrainerToolStripMenuItem1,
-            this.softwareReadmeToolStripMenuItem1,
-            this.softwareInformationToolStripMenuItem1,
-            this.softwareSupportToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(41, 20);
-            this.toolStripDropDownButton2.Text = "Info";
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cRedistributablex86ToolStripMenuItem,
+            this.autoItToolStripMenuItem});
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(87, 20);
+            this.toolStripDropDownButton3.Text = "Prerequisites";
             // 
-            // openMapSystemToolStripMenuItem
+            // cRedistributablex86ToolStripMenuItem
             // 
-            this.openMapSystemToolStripMenuItem.Name = "openMapSystemToolStripMenuItem";
-            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.openMapSystemToolStripMenuItem.Text = "Map System";
-            this.openMapSystemToolStripMenuItem.Click += new System.EventHandler(this.openMapSystemToolStripMenuItem_Click);
+            this.cRedistributablex86ToolStripMenuItem.Name = "cRedistributablex86ToolStripMenuItem";
+            this.cRedistributablex86ToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.cRedistributablex86ToolStripMenuItem.Text = "C++ Redistributable 2010 (x86)";
+            this.cRedistributablex86ToolStripMenuItem.Click += new System.EventHandler(this.cRedistributablex86ToolStripMenuItem_Click);
             // 
-            // aboutEQTrainerToolStripMenuItem1
+            // autoItToolStripMenuItem
             // 
-            this.aboutEQTrainerToolStripMenuItem1.Name = "aboutEQTrainerToolStripMenuItem1";
-            this.aboutEQTrainerToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.aboutEQTrainerToolStripMenuItem1.Text = "About EQTrainer";
-            this.aboutEQTrainerToolStripMenuItem1.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem1_Click);
-            // 
-            // softwareReadmeToolStripMenuItem1
-            // 
-            this.softwareReadmeToolStripMenuItem1.Name = "softwareReadmeToolStripMenuItem1";
-            this.softwareReadmeToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.softwareReadmeToolStripMenuItem1.Text = "Software Readme";
-            this.softwareReadmeToolStripMenuItem1.Click += new System.EventHandler(this.softwareReadmeToolStripMenuItem1_Click);
-            // 
-            // softwareInformationToolStripMenuItem1
-            // 
-            this.softwareInformationToolStripMenuItem1.Name = "softwareInformationToolStripMenuItem1";
-            this.softwareInformationToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.softwareInformationToolStripMenuItem1.Text = "Software information";
-            this.softwareInformationToolStripMenuItem1.Click += new System.EventHandler(this.softwareInformationToolStripMenuItem1_Click);
-            // 
-            // softwareSupportToolStripMenuItem
-            // 
-            this.softwareSupportToolStripMenuItem.Name = "softwareSupportToolStripMenuItem";
-            this.softwareSupportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.softwareSupportToolStripMenuItem.Text = "Software Support";
-            this.softwareSupportToolStripMenuItem.Click += new System.EventHandler(this.softwareSupportToolStripMenuItem_Click);
+            this.autoItToolStripMenuItem.Name = "autoItToolStripMenuItem";
+            this.autoItToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.autoItToolStripMenuItem.Text = "AutoIt";
+            this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
             // 
             // TrainerForm
             // 
@@ -2169,6 +2199,9 @@
         private System.Windows.Forms.ToolStripMenuItem softwareReadmeToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem softwareInformationToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem softwareSupportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
+        private System.Windows.Forms.ToolStripMenuItem cRedistributablex86ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoItToolStripMenuItem;
 
     }
 }

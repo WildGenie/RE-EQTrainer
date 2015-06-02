@@ -1,1 +1,1 @@
-regsvr32 .\EQTrainer\bin\Release\AutoItX3.dll
+regsvr32 "C:\Program Files (x86)\AutoIt3\AutoItX\AutoItX3.dll"
