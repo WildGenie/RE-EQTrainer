@@ -683,11 +683,14 @@
             // 
             // listView1
             // 
+            this.listView1.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Timer,
             this.ID});
+            this.listView1.Enabled = false;
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
+            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
             this.listView1.LabelEdit = true;
             this.listView1.Location = new System.Drawing.Point(7, 268);
@@ -996,6 +999,7 @@
             // 
             // listViewScripts
             // 
+            this.listViewScripts.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.listViewScripts.CheckBoxes = true;
             this.listViewScripts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderName,
@@ -1004,8 +1008,10 @@
             this.columnHeaderDisable});
             this.listViewScripts.FullRowSelect = true;
             this.listViewScripts.GridLines = true;
+            this.listViewScripts.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewScripts.HideSelection = false;
             this.listViewScripts.Location = new System.Drawing.Point(467, 58);
+            this.listViewScripts.MultiSelect = false;
             this.listViewScripts.Name = "listViewScripts";
             this.listViewScripts.Size = new System.Drawing.Size(543, 201);
             this.listViewScripts.TabIndex = 534;
@@ -1372,6 +1378,7 @@
             // 
             // listViewSpawnList
             // 
+            this.listViewSpawnList.Activation = System.Windows.Forms.ItemActivation.TwoClick;
             this.listViewSpawnList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeaderSpawnListName,
             this.columnHeaderSpawnListAddress,
@@ -1384,6 +1391,7 @@
             this.columnHeaderSpawnListType});
             this.listViewSpawnList.FullRowSelect = true;
             this.listViewSpawnList.GridLines = true;
+            this.listViewSpawnList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewSpawnList.HideSelection = false;
             this.listViewSpawnList.Location = new System.Drawing.Point(467, 298);
             this.listViewSpawnList.MultiSelect = false;

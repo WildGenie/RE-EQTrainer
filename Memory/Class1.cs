@@ -289,6 +289,19 @@ namespace Memory
                 return 0;
         }
 
+        public uint readUInt(string code, string file)
+        {
+            byte[] memory = new byte[4];
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
+                return BitConverter.ToUInt32(memory, 0);
+            else
+                return 0;
+        }
+
         public int readIntMove(string code, string file, int moveQty)
         {
             byte[] memory = new byte[4];
@@ -296,10 +309,25 @@ namespace Memory
             if (!LoadCode(code, file).Contains(","))
                 theCode = LoadUIntPtrCode(code, file);
 
-            UIntPtr newCode = theCode + moveQty;
+            UIntPtr newCode = UIntPtr.Add(theCode, moveQty);
 
             if (ReadProcessMemory(pHandle, newCode, memory, (UIntPtr)4, IntPtr.Zero))
                 return BitConverter.ToInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public ulong readUIntMove(string code, string file, int moveQty)
+        {
+            byte[] memory = new byte[8];
+            UIntPtr theCode = getCode(code, file, 8);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            UIntPtr newCode = UIntPtr.Add(theCode,moveQty);
+
+            if (ReadProcessMemory(pHandle, newCode, memory, (UIntPtr)8, IntPtr.Zero))
+                return BitConverter.ToUInt64(memory, 0);
             else
                 return 0;
         }
@@ -419,7 +447,7 @@ namespace Memory
         }
         #endregion
 
-        public UIntPtr getCode(string name, string path)
+        public UIntPtr getCode(string name, string path, int size = 4)
         {
             string theCode = LoadCode(name, path);
             if (theCode == "")
@@ -447,15 +475,15 @@ namespace Memory
             }
             int[] offsets = offsetsList.ToArray();
 
-            byte[] memoryAddress = new byte[4];
+            byte[] memoryAddress = new byte[size];
             if (main == true)
-                ReadProcessMemory(pHandle, (UIntPtr)((int)mainModule.BaseAddress + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                ReadProcessMemory(pHandle, (UIntPtr)((int)mainModule.BaseAddress + offsets[0]), memoryAddress, (UIntPtr)size, IntPtr.Zero);
             else if (dpvs == true)
-                ReadProcessMemory(pHandle, (UIntPtr)((int)dpvsModule + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                ReadProcessMemory(pHandle, (UIntPtr)((int)dpvsModule + offsets[0]), memoryAddress, (UIntPtr)size, IntPtr.Zero);
             else if (dsetup == true)
-                ReadProcessMemory(pHandle, (UIntPtr)((int)dsetupModule + offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                ReadProcessMemory(pHandle, (UIntPtr)((int)dsetupModule + offsets[0]), memoryAddress, (UIntPtr)size, IntPtr.Zero);
             else
-                ReadProcessMemory(pHandle, (UIntPtr)(offsets[0]), memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                ReadProcessMemory(pHandle, (UIntPtr)(offsets[0]), memoryAddress, (UIntPtr)size, IntPtr.Zero);
 
             uint num1 = BitConverter.ToUInt32(memoryAddress, 0);
 
@@ -467,7 +495,7 @@ namespace Memory
             for (int i = 1; i < offsets.Length; i++)
             {
                 base1 = new UIntPtr(num1 + Convert.ToUInt32(offsets[i]));
-                ReadProcessMemory(pHandle, base1, memoryAddress, (UIntPtr)4, IntPtr.Zero);
+                ReadProcessMemory(pHandle, base1, memoryAddress, (UIntPtr)size, IntPtr.Zero);
                 num1 = BitConverter.ToUInt32(memoryAddress, 0);
             }
             return base1;
