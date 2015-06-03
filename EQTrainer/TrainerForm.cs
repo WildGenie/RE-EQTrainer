@@ -973,6 +973,35 @@ namespace EQTrainer
             return str;
         }
 
+        string getBuffName(int buffAddress)
+        {
+            System.IO.StreamReader buffFile = new System.IO.StreamReader("buffs.txt");
+            string line;
+            string wordString = "N/A";
+            string[] buffnames = new string[12];
+            while ((line = buffFile.ReadLine()) != null)
+            {
+                if (line.Contains("#"))
+                    continue;
+                string[] words = line.Split('^');
+                int wordsid = Int32.Parse(words[0]);
+                if (wordsid == buffAddress)
+                {
+                    wordString = words[1];
+                    break;
+                }
+            }
+            buffFile.Close();
+            return wordString;
+        }
+
+        string getBuffTime(int buffTime)
+        {
+            double trueTimer = (buffTime / 255) * 0.001;
+            int newBuffTime = (int)Math.Ceiling((double)trueTimer / 8);
+            return (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
+        }
+
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             while (true)
@@ -1190,84 +1219,63 @@ namespace EQTrainer
                 target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
                 target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
 
-                    List<int> buffSpells = new List<int>();
-                    List<int> buffTimer = new List<int>();
+                    //List<int> buffSpells = new List<int>();
+                    //List<int> buffTimer = new List<int>();
 
                     int buffAddress = 0;
+                    int bufftime = 0;
+                    int skipNum = 0;
+                    int sNum = 0;
+                    
+                    if (codeFile.Contains("Titanium"))
+                        skipNum = 19;
+                    if (codeFile.Contains("Mac"))
+                        skipNum = 9;
 
-                    for (int i = 1; i <= 12; i++)
+                    for (int i = 0; i < 12; i++)
                     {
-                        if (i > 1)
-                            buffAddress = MemLib.readIntMove("buffsInfoAddress", codeFile, 9);
+                        if (i > 0)
+                        {
+                            sNum = sNum + skipNum;
+                            buffAddress = MemLib.readIntMove("buffsInfoAddress", codeFile, sNum);
+                        }
                         else
                             buffAddress = MemLib.readInt("buffsInfoAddress", codeFile);
 
-                        if (buffAddress > 1)
+                        sNum = sNum + 1;
+                        bufftime = MemLib.readIntMove("buffsInfoAddress", codeFile, sNum);
+
+                        if (buffAddress > 0 && buffAddress < 8445 /*&& bufftime > 0*/)
                         {
-                            buffSpells.Add(buffAddress);
-                            int bufftime = MemLib.readIntMove("buffsInfoAddress", codeFile, 1);
-                            buffTimer.Add(bufftime);
-                        }
-                    }
-
-                    int[] buffids = buffSpells.ToArray();
-
-                    List<double> buffTimerList = new List<double>();
-
-                    foreach (double newBuffTimer in buffTimer)
-                    {
-                        double trueTimer = (newBuffTimer / 255) * 0.001;
-                        buffTimerList.Add(trueTimer);
-                    }
-
-                    double[] bufftimers = buffTimerList.ToArray();
-
-                    //listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Clear(); })); //temp
-
-                    string[] buffnames = new string[12];
-                    string line;
-
-                    for (int i = 0; i < buffids.Count(); i++)
-                    {
-                        System.IO.StreamReader file = new System.IO.StreamReader("buffs.txt");
-                        while ((line = file.ReadLine()) != null)
-                        {
-                            if (line.Contains("#"))
-                                continue;
-                            string[] words = line.Split('^');
-                            int wordsid = Int32.Parse(words[0]);
-                            if (wordsid == buffids[i])
-                            {
-                                buffnames[i] = words[1];
-                                break;
-                            }
-                        }
-                        file.Close();
-
-                        //int newBuffTime = (int)Math.Ceiling((double)bufftimers[i] / 8);
-                        //string time = (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
-                        //string[] row = { time, buffnames[i] };
-                        //var listViewItem = new ListViewItem(row);
-                        //listView1.Invoke(new MethodInvoker(delegate { listView1.Items.Add(listViewItem); })); //temp
-
-                        if ((bufftimers[i] > 0))
-                        {
-                            int newBuffTime = (int)Math.Ceiling((double)bufftimers[i] / 8);
-                            string time = (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
-
-                            ListViewItem findBuff = listView1.FindItemWithText(buffnames[i]);
+                            ListViewItem findBuff = listView1.FindItemWithText(getBuffName(buffAddress));
                             if (findBuff == null)
                             {
-                                string[] row = { time, buffnames[i] };
+                                string[] row = { getBuffTime(bufftime), getBuffName(buffAddress) };
                                 var listViewItem = new ListViewItem(row);
                                 listView1.Items.Add(listViewItem);
-                            }
+                            } 
                             else
-                                listView1.Items[i].SubItems[0].Text = time;
+                                listView1.Items[i].SubItems[0].Text = getBuffTime(bufftime);
                         }
                         else
                             listView1.Items[i].Remove();
                     }
+
+                    if (current_xp >= 0 && current_xp <= 330) 
+                        xp_stats.Text = xpProgressBar.ToString() + "%";
+                    progressBarXP.Value = xpProgressBar;
+                    progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
+                    SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero);
+
+                    hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = hpProgressBar.ToString() + "%"; }));
+                    progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; }));
+                    progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
+                    SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero);
+
+                    mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
+                    progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; }));
+                    progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
+                    SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero);
 
                     listViewScripts.Invoke(new MethodInvoker(delegate {
 
@@ -1405,21 +1413,6 @@ namespace EQTrainer
                         }
 
                     }));
-
-                xp_stats.Invoke(new MethodInvoker(delegate { if (current_xp >= 0 && current_xp <= 330) xp_stats.Text = xpProgressBar.ToString() + "%"; }));
-                progressBarXP.Invoke(new MethodInvoker(delegate { progressBarXP.Value = xpProgressBar; }));
-                progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
-                SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero);
-
-                hp_stats.Invoke(new MethodInvoker(delegate { if (max_hp > 1) hp_stats.Text = hpProgressBar.ToString() + "%"; }));
-                progressBarHP.Invoke(new MethodInvoker(delegate { progressBarHP.Value = hpProgressBar; }));
-                progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
-                SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero);
-
-                mp_stats.Invoke(new MethodInvoker(delegate { if (max_mp >= 0) mp_stats.Text = mpProgressBar.ToString() + "%"; else mp_stats.Text = "[0/0] 0%"; }));
-                progressBarMP.Invoke(new MethodInvoker(delegate { progressBarMP.Value = mpProgressBar; }));
-                progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
-                SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero);
 
                 Thread.Sleep(100);
             }

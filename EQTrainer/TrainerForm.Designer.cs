@@ -129,6 +129,9 @@
             this.softwareReadmeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareInformationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.softwareSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.heading_label = new System.Windows.Forms.Label();
             this.mousex = new System.Windows.Forms.TextBox();
@@ -206,9 +209,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -702,12 +702,12 @@
             // Timer
             // 
             this.Timer.Text = "Timer";
-            this.Timer.Width = 45;
+            this.Timer.Width = 73;
             // 
             // ID
             // 
             this.ID.Text = "Name";
-            this.ID.Width = 176;
+            this.ID.Width = 144;
             // 
             // button13
             // 
@@ -1134,6 +1134,32 @@
             this.softwareSupportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.softwareSupportToolStripMenuItem.Text = "Software Support";
             this.softwareSupportToolStripMenuItem.Click += new System.EventHandler(this.softwareSupportToolStripMenuItem_Click);
+            // 
+            // toolStripDropDownButton3
+            // 
+            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cRedistributablex86ToolStripMenuItem,
+            this.autoItToolStripMenuItem});
+            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
+            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
+            this.toolStripDropDownButton3.Size = new System.Drawing.Size(87, 20);
+            this.toolStripDropDownButton3.Text = "Prerequisites";
+            // 
+            // cRedistributablex86ToolStripMenuItem
+            // 
+            this.cRedistributablex86ToolStripMenuItem.Name = "cRedistributablex86ToolStripMenuItem";
+            this.cRedistributablex86ToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.cRedistributablex86ToolStripMenuItem.Text = "C++ Redistributable 2010 (x86)";
+            this.cRedistributablex86ToolStripMenuItem.Click += new System.EventHandler(this.cRedistributablex86ToolStripMenuItem_Click);
+            // 
+            // autoItToolStripMenuItem
+            // 
+            this.autoItToolStripMenuItem.Name = "autoItToolStripMenuItem";
+            this.autoItToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.autoItToolStripMenuItem.Text = "AutoIt";
+            this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
             // 
             // label5
             // 
@@ -1833,32 +1859,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(285, 20);
             this.pictureBox1.TabIndex = 601;
             this.pictureBox1.TabStop = false;
-            // 
-            // toolStripDropDownButton3
-            // 
-            this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cRedistributablex86ToolStripMenuItem,
-            this.autoItToolStripMenuItem});
-            this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
-            this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
-            this.toolStripDropDownButton3.Size = new System.Drawing.Size(87, 20);
-            this.toolStripDropDownButton3.Text = "Prerequisites";
-            // 
-            // cRedistributablex86ToolStripMenuItem
-            // 
-            this.cRedistributablex86ToolStripMenuItem.Name = "cRedistributablex86ToolStripMenuItem";
-            this.cRedistributablex86ToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.cRedistributablex86ToolStripMenuItem.Text = "C++ Redistributable 2010 (x86)";
-            this.cRedistributablex86ToolStripMenuItem.Click += new System.EventHandler(this.cRedistributablex86ToolStripMenuItem_Click);
-            // 
-            // autoItToolStripMenuItem
-            // 
-            this.autoItToolStripMenuItem.Name = "autoItToolStripMenuItem";
-            this.autoItToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.autoItToolStripMenuItem.Text = "AutoIt";
-            this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
             // 
             // TrainerForm
             // 

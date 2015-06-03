@@ -296,9 +296,9 @@ namespace Memory
             if (!LoadCode(code, file).Contains(","))
                 theCode = LoadUIntPtrCode(code, file);
 
-            theCode = theCode + moveQty;
+            UIntPtr newCode = theCode + moveQty;
 
-            if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
+            if (ReadProcessMemory(pHandle, newCode, memory, (UIntPtr)4, IntPtr.Zero))
                 return BitConverter.ToInt32(memory, 0);
             else
                 return 0;
