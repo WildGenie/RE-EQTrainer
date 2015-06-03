@@ -69,6 +69,7 @@ namespace EQTrainer
         byte[] memoryBig = new byte[64];
         byte[] memoryGiant = new byte[255];
         public string codeFile = "";
+        public int buffRefresh = 0;
 
         protected override void WndProc(ref Message m) //hotbuttons
         {
@@ -86,7 +87,12 @@ namespace EQTrainer
                 else if (id == 5) {
                     mapForm fc = Application.OpenForms["mapForm"] != null ? (mapForm)Application.OpenForms["mapForm"] : null;
                     if (fc != null)
-                        fc.Close();
+                    {
+                        if (fc.WindowState == FormWindowState.Minimized)
+                            fc.WindowState = FormWindowState.Normal;
+                        else
+                            fc.Close();
+                    }
                     else
                         openMapSystemToolStripMenuItem.PerformClick();
                 } else if (id == 6)
@@ -1128,6 +1134,7 @@ namespace EQTrainer
                 heading_label.Invoke(new MethodInvoker(delegate { heading_label.Text = heading.ToString(); }));
 
                 string char_name = MemLib.readString("PlayerName", codeFile);
+                int char_lvl = MemLib.readInt("playerLvl", codeFile);
                 int current_hp = MemLib.readInt("PlayerCurrentHP", codeFile);
                 int max_hp = MemLib.readInt("PlayerMaxHP", codeFile);
 
@@ -1170,7 +1177,7 @@ namespace EQTrainer
                 int t_class = MemLib.readByte("targetClass", codeFile);
 
                 label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
-                name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name; }));
+                name_label.Invoke(new MethodInvoker(delegate { name_label.Text = char_name + " (" + char_lvl.ToString() + ")"; }));
 
                 int cur_xp;
                 if (current_xp > 330)
@@ -1268,13 +1275,18 @@ namespace EQTrainer
                     }
 
                     // REMOVE & UPDATE BUFFS
-                    foreach (ListViewItem item in listView1.Items)
+                    if (buffRefresh == 30)
                     {
-                        if (buffs.ContainsKey(item.SubItems[1].Text))
-                            item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]); //update
-                        else
-                            listView1.Items.Remove(item);
+                        foreach (ListViewItem item in listView1.Items)
+                        {
+                            buffRefresh = 0;
+                            if (buffs.ContainsKey(item.SubItems[1].Text))
+                                item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]); //update
+                            else
+                                listView1.Items.Remove(item);
+                        }
                     }
+                    buffRefresh++;
 
                     if (current_xp >= 0 && current_xp <= 330)
                         xp_stats.Text = xpProgressBar.ToString() + "%";

@@ -126,12 +126,13 @@
             this.Controls.Add(this.TrackBar2);
             this.Controls.Add(this.hideLabels);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "mapForm";
             this.Opacity = 0.85D;
-            this.ShowInTaskbar = false;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "mapForm";
+            this.Text = "Map System";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.mapForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

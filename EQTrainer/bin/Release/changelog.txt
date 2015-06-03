@@ -2,6 +2,7 @@ Version 5.8.0
 ---------------
 Added new map system using standard txt files from the game
 Added titanium buffs code
+Added character level to character name in EQTrainer
 Changed AutoBot can now open on its own without EQTrainer
 Changed the map system is now built in to EQTrainer
 Changed buffs code to properly refresh

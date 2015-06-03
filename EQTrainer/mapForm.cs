@@ -32,7 +32,7 @@ namespace EQTrainer
         public static float playery;
         public static float playerx;
         public static float playerh;
-        public static float playerLvl;
+        public static int playerLvl;
         public static string zoneshort;
         public static string playerName;
         int r;
@@ -71,7 +71,7 @@ namespace EQTrainer
             FormGFX.DrawImage(BackBuffer, 0, 0);
         }
 
-        public void SpawnList()
+        private void SpawnList()
         {
             int player_spawn_info = this.RefToForm1.MemLib.readUIntPtr("spawnInfoAddress", this.RefToForm1.codeFile);
 
@@ -104,11 +104,16 @@ namespace EQTrainer
                 spawn_info_name = spawn_info_name.Replace("_", " ");
                 spawn_info_name = Regex.Replace(spawn_info_name, @"[\d-]", string.Empty);
 
-                if (filterBox.TextLength > 0)
+                string filterText = filterBox.Text;
+
+                if (!String.IsNullOrEmpty(filterBox.Text))
                 {
-                    filterBox.Text = filterBox.Text.Replace("_", " ");
-                    if (spawn_info_name.ToLower().Contains(filterBox.Text.ToLower()) == false)
+                    filterText = filterText.Replace("_", " ");
+                    if (spawn_info_name.ToLower().Contains(filterText.ToLower()) == false)
+                    {
                         spawn_info_address = spawn_next_spawn_info;
+                        continue;
+                    }
                 }
                 //string[] listViewSpawnListRow = { spawn_info_name, spawn_info_address.ToString("X8"), spawn_info_x.ToString(), spawn_info_y.ToString(), spawn_info_z.ToString(), spawn_info_heading.ToString(), spawn_info_level.ToString(), charClass(spawn_info_class), spawn_info_type.ToString() };
                 if (!spawn_info_type.Equals(3)) //no corpses
@@ -116,6 +121,31 @@ namespace EQTrainer
 
                 spawn_info_address = spawn_next_spawn_info;
             }
+        }
+
+        private Color conColor(int plvl, int npclvl)
+        {
+            if (npclvl == plvl)
+                return Color.White;
+            else if (npclvl == (plvl + 1) || npclvl == (plvl + 2))
+                return Color.Yellow;
+            else if (npclvl > (plvl + 3))
+                return Color.Red;
+            // GREEN CON
+            else if (Enumerable.Range(1, 12).Contains(playerLvl) && npclvl <= (plvl - 4))
+                return Color.Green;
+            else if (Enumerable.Range(15, 24).Contains(playerLvl) && npclvl <= (plvl - 6))
+                return Color.Green;
+            else if (Enumerable.Range(25, 40).Contains(playerLvl) && npclvl <= (plvl - 11))
+                return Color.Green;
+            else if (Enumerable.Range(41, 44).Contains(playerLvl) && npclvl <= (plvl - 12))
+                return Color.Green;
+            else if (Enumerable.Range(45, 48).Contains(playerLvl) && npclvl <= (plvl - 13))
+                return Color.Green;
+            else if (Enumerable.Range(49, 50).Contains(playerLvl) && npclvl <= (plvl - 14))
+                return Color.Green;
+            else
+                return Color.Blue;
         }
 
         private void Drawpoint(float x, float y, float h, int level = 0, string name = null)
@@ -170,14 +200,10 @@ namespace EQTrainer
                 }
                 else
                 {
-                    if (level == playerLvl)
-                        Filler = Color.White;
-                    if (level == (playerLvl + 1) || level == (playerLvl + 2))
-                        Filler = Color.Yellow;
-                    if (level < playerLvl)
-                        Filler = Color.DarkBlue;
-                    if (level <= (playerLvl - 4))
-                        Filler = Color.Green;
+                    //green con
+                    
+                    Filler = conColor(playerLvl,level);
+
                     GFX.DrawEllipse(Outline, (int)friendy + (int)offset - 5, (int)friendx + (int)offsety - 5, 2 * 5, 2 * 5);
                     SolidBrush fillBrush = new SolidBrush(Filler);
                     GFX.FillEllipse(fillBrush, new Rectangle((int)friendy + (int)offset - 5, (int)friendx + (int)offsety - 5, 2 * 5, 2 * 5));
@@ -303,7 +329,8 @@ namespace EQTrainer
                         //error
                     }
                 }
-                DrawOnForm();
+                if (mymousedown == false)
+                    DrawOnForm();
             }
             catch
             {
@@ -332,11 +359,9 @@ namespace EQTrainer
                         offset = (int)(playery / zoom) + 70;
                         offsety = (int)(playerx / zoom) - 50;
                         zoom = 2.2;
-                        relx = 0;
-                        rely = 0;
                     }
 
-                    if (/*!curZone.Equals(zoneshort) &&*/ !String.IsNullOrEmpty(zoneshort) && !mymousedown)
+                    if (!String.IsNullOrEmpty(zoneshort) && !mymousedown)
                         drawmap();
                 }
                 catch
