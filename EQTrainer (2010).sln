@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "Memory\Memory.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBot", "AutoBot\AutoBot.csproj", "{26C897B7-3432-4B4D-817D-751317B4823A}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CD_ROM|Any CPU = CD_ROM|Any CPU
@@ -101,6 +103,21 @@ Global
 		{26C897B7-3432-4B4D-817D-751317B4823A}.SingleImage|Mixed Platforms.Build.0 = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.SingleImage|x86.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.SingleImage|x86.Build.0 = Release|x86
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.CD_ROM|Any CPU.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.CD_ROM|Mixed Platforms.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.CD_ROM|x86.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Debug|Any CPU.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Debug|x86.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.DVD-5|Any CPU.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.DVD-5|Mixed Platforms.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.DVD-5|x86.ActiveCfg = Debug
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Release|Any CPU.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Release|Mixed Platforms.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.Release|x86.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.SingleImage|Any CPU.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.SingleImage|Mixed Platforms.ActiveCfg = Release
+		{02FA44F6-AB35-414A-AA8D-66C5EE2B88F4}.SingleImage|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

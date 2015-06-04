@@ -2,6 +2,7 @@ for /d /r . %%d in (obj,debug) do @if exist "%%d" rd /s/q "%%d"
 del /S /F /AH *.suo
 rmdir /s /q "AutoBot\bin"
 rmdir /s /q "Memory\bin"
+rmdir /s /q "Installer\Release"
 cd "EQTrainer\bin\Release"
 del /Q Memory.dll
 del /S /F *.exe
