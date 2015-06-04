@@ -113,25 +113,10 @@ namespace EQTrainer
             return isElevated;
         }
 
-        /*public bool checkKey()
-        {
-            RegistryKey rkSubKey = Registry.CurrentUser.OpenSubKey(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\VisualStudio\10.0", false);
-            if (rkSubKey == false)
-                return false;
-            else
-                return true;
-        }*/
-
         private void TrainerForm_Load(object sender, EventArgs e)
         {
             try
             {
-                /*if (checkKey() == false)
-                {
-                    MessageBox.Show("Missing C++ Redistributable (x86)");
-                    System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/details.aspx?id=5555");
-                }*/
-
                 if (IsAdministrator() == false)
                 {
                     grantAdmin obj = new grantAdmin();
@@ -174,8 +159,6 @@ namespace EQTrainer
                     button1.Enabled = false;
                 } else
                     tt.SetToolTip(this.button1, "Inject DLL to use teleporting.");
-                //teleForm teleForm = new teleForm();
-                //teleForm.Visible = false;
             }
             catch
             {
@@ -273,9 +256,7 @@ namespace EQTrainer
                 {
                     if (theprocess.ProcessName == "eqgame")
                     {
-                        string[] listView2Rows = { /*theprocess.ProcessName,*/ theprocess.Id.ToString() };
-                        var listView2Items = new ListViewItem(listView2Rows);
-                        listView2.Items.Add(listView2Items);
+                        listView2.Items.Add(theprocess.Id.ToString());
                         if (theprocess.Responding == false)
                             return;
                     }
@@ -845,9 +826,11 @@ namespace EQTrainer
         }
 
         private void gateBtn_Click(object sender, EventArgs e)
-        { //only works in mac
+        {
             if (comboBox1.Text == "EQMac")
                 MemLib.writeMemory("gate", codeFile, "bytes", "2");
+            else
+                MessageBox.Show("Currently only works in EQMac");
         }
 
         private void followBtn_Click(object sender, EventArgs e)
@@ -900,7 +883,6 @@ namespace EQTrainer
             string address_text = listViewSpawnList.SelectedItems[0].SubItems[1].Text;
             int address_value = Convert.ToInt32(address_text, 16);
             byte[] buffer = BitConverter.GetBytes(address_value);
-            //WriteProcessMemory(pHandle, MemLib.LoadUIntPtrCode("targetSpawn", codeFile), buffer, (UIntPtr)buffer.Length, IntPtr.Zero);
             MemLib.writeUIntPtr("targetSpawn", codeFile, buffer);
         }
 
@@ -1004,8 +986,6 @@ namespace EQTrainer
         string getBuffTime(ulong buffTime)
         {
             return ((buffTime / (256 * 256 * 256)) * 0.1).ToString();
-            //return (newBuffTime / 60) + ":" + (newBuffTime % 60).ToString("00");
-            //return buffTime.ToString(); //DEBUG
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
@@ -1023,7 +1003,6 @@ namespace EQTrainer
                             string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
                             if (buildDateCode.Contains(buildDate))
                             {
-                                //if (comboBox1.InvokeRequired)
                                 comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
                                 if (Properties.Settings.Default.old_warp == false)
                                     inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
@@ -1040,8 +1019,8 @@ namespace EQTrainer
 
                 string map_address = RemoveSpecialCharactersTwo(MemLib.readUIntPtrStr("mapLongName", codeFile));
                 string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
-                //if (map_label.InvokeRequired)
-                    map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address + " (" + mapShortName + ")"; }));
+
+                map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address; }));
 
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
                 string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
@@ -1211,7 +1190,6 @@ namespace EQTrainer
                 if (tHealth > 100)
                     tHealth = 100;
 
-                //int[] offsets23 = { 0x3F94eC, 0x98 }; //mac
                 int thealth_max = 100; //for NPCs, it's always 100.
 
                 string display_thealth = "";
@@ -1253,14 +1231,9 @@ namespace EQTrainer
                         sNum = sNum + 1;
                         bufftime = MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum);
 
-                        //MessageBox.Show("address=" + buffAddress.ToString() + " time=" + bufftime.ToString());
-
                         if (buffAddress > 0 && buffAddress < 8445)
                             buffs.Add(getBuffName(buffAddress), bufftime);
                     }
-
-                    //var message = string.Join(Environment.NewLine, buffs);
-                    //MessageBox.Show(message);
 
                     // ADD BUFFS
                     foreach (KeyValuePair<string, ulong> entry in buffs)
@@ -1281,7 +1254,7 @@ namespace EQTrainer
                         {
                             buffRefresh = 0;
                             if (buffs.ContainsKey(item.SubItems[1].Text))
-                                item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]); //update
+                                item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
                             else
                                 listView1.Items.Remove(item);
                         }
@@ -1324,7 +1297,6 @@ namespace EQTrainer
                                     continue;
 
                                 string[] script_instruction_split = script_instruction.Split(':');
-                                //byte[] script_instruction_address = new byte[4];
                                 string script_instruction_type = "";
                                 string script_instruction_value = "";
                                 int script_instruction_address_int = 0;
@@ -1334,8 +1306,6 @@ namespace EQTrainer
                                 if (script_instruction_split[0] == "pointer" && script_instruction_split[2] == "offsets")
                                 {
                                     int script_instruction_pointer = Int32.Parse(script_instruction_split[1], System.Globalization.NumberStyles.AllowHexSpecifier);
-
-                                    //ReadProcessMemory(pHandle, (UIntPtr)script_instruction_pointer, script_instruction_address, (UIntPtr)4, IntPtr.Zero);
                                     int script_instruction_address = MemLib.readUInt((UIntPtr)script_instruction_pointer);
 
                                     string script_instruction_offsets = script_instruction_split[3];
@@ -1351,8 +1321,6 @@ namespace EQTrainer
                                         if (current_offset == num_offsets)
                                             break;
 
-                                        //byte[] script_instruction_address_after_offset = new byte[4];
-                                        //ReadProcessMemory(pHandle, (UIntPtr)script_instruction_address_int, script_instruction_address_after_offset, (UIntPtr)4, IntPtr.Zero);
                                         int script_instruction_address_after_offset = MemLib.readUInt((UIntPtr)script_instruction_address_int);
                                         script_instruction_address = script_instruction_address_after_offset;
                                         script_instruction_address_int = script_instruction_address;
@@ -1453,11 +1421,7 @@ namespace EQTrainer
             foreach (Process theprocess in processlist)
             {
                 if (theprocess.ProcessName == "eqgame")
-                {
-                    string[] listView2Rows = { /*theprocess.ProcessName,*/ theprocess.Id.ToString() };
-                    var listView2Items = new ListViewItem(listView2Rows);
-                    listView2.Items.Add(listView2Items);
-                }
+                    listView2.Items.Add(theprocess.Id.ToString());
             }
             if (listView2.Items.Count > 0)
             {
@@ -1476,50 +1440,30 @@ namespace EQTrainer
 
         private void buttonResetCamera_Click(object sender, EventArgs e)
         {
-            //only works in mac
-            /*byte[] buffer = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)0x7F94CC, buffer, (UIntPtr)4, IntPtr.Zero);
-
-            int spawn_info = BitConverter.ToInt32(buffer, 0);
-
-            byte[] buffer2 = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)spawn_info + 0x84, buffer2, (UIntPtr)4, IntPtr.Zero);
-
-            int actor_info = BitConverter.ToInt32(buffer2, 0);
-
-            byte[] buffer3 = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)actor_info + 0x00, buffer3, (UIntPtr)4, IntPtr.Zero);
-
-            //int view_actor = BitConverter.ToInt32(buffer3, 0);
-            //MessageBox.Show("view_actor: " + view_actor);
-
-            WriteProcessMemory(pHandle, (UIntPtr)0x0063D6C0, buffer3, (UIntPtr)4, IntPtr.Zero);*/
+            if (comboBox1.Text == "EQMac")
+            {
+                // read from --> 0x007F94CC,0x84,0x00
+                // write to (int) --> 0x0063D6C0
+            }
+            else
+                MessageBox.Show("Currently only works for EQMac");
         }
 
         private void buttonCameraOnSpawn_Click(object sender, EventArgs e)
         {
-            //only works in mac
-            /*if (listViewSpawnList.SelectedItems.Count == 0)
-                return;
+            if (comboBox1.Text == "EQMac")
+            {
+                if (listViewSpawnList.SelectedItems.Count == 0)
+                    return;
 
-            string address_text = listViewSpawnList.SelectedItems[0].SubItems[1].Text;
+                string address_text = listViewSpawnList.SelectedItems[0].SubItems[1].Text;
+                int spawn_info = Convert.ToInt32(address_text, 16);
 
-            int address_value = Convert.ToInt32(address_text, 16);
-
-            int spawn_info = address_value;
-
-            byte[] buffer2 = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)spawn_info + 0x84, buffer2, (UIntPtr)4, IntPtr.Zero);
-
-            int actor_info = BitConverter.ToInt32(buffer2, 0);
-
-            byte[] buffer3 = new byte[4];
-            ReadProcessMemory(pHandle, (UIntPtr)actor_info + 0x00, buffer3, (UIntPtr)4, IntPtr.Zero);
-
-            //int view_actor = BitConverter.ToInt32(buffer3, 0);
-            //MessageBox.Show("view_actor: " + view_actor);
-
-            WriteProcessMemory(pHandle, (UIntPtr)0x0063D6C0, buffer3, (UIntPtr)4, IntPtr.Zero);*/
+                // read from --> spawn_info,0x84,0x00
+                // write to (int) --> 0x0063D6C0
+            }
+            else
+                MessageBox.Show("Currently only works for EQMac");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

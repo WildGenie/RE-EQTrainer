@@ -200,10 +200,7 @@ namespace EQTrainer
                 }
                 else
                 {
-                    //green con
-                    
                     Filler = conColor(playerLvl,level);
-
                     GFX.DrawEllipse(Outline, (int)friendy + (int)offset - 5, (int)friendx + (int)offsety - 5, 2 * 5, 2 * 5);
                     SolidBrush fillBrush = new SolidBrush(Filler);
                     GFX.FillEllipse(fillBrush, new Rectangle((int)friendy + (int)offset - 5, (int)friendx + (int)offsety - 5, 2 * 5, 2 * 5));
@@ -226,14 +223,19 @@ namespace EQTrainer
             {
                 GFX.FillRectangle(Brushes.Tan, new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height)); //background
 
-                string mapFile = Application.StartupPath + @"\maps\" + zoneshort + ".txt";
-                if (!File.Exists(mapFile))
-                    return;
-                StreamReader file = new StreamReader(mapFile);
-                string line;
-
                 Drawpoint(playerx, playery, playerh); //draw me
                 SpawnList(); //draw spawns
+
+                string mapFile = Application.StartupPath + @"\maps\" + zoneshort + ".txt";
+                if (!File.Exists(mapFile))
+                {
+                    if (mymousedown == false)
+                        DrawOnForm();
+                    return;
+                }
+
+                StreamReader file = new StreamReader(mapFile);
+                string line;
 
                 while ((line = file.ReadLine()) != null)
                 {
@@ -375,6 +377,9 @@ namespace EQTrainer
         {
             if (track)
                 track = false;
+            //center screen?
+            offset = (int)(355 / zoom) + 70; //709
+            offsety = (int)(280 / zoom) - 50; //560
             zoom = TrackBar2.Value / 2.8;
         }
 
