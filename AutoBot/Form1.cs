@@ -1057,7 +1057,7 @@ namespace AutoBot
             lastCmd = "mouse " + x.ToString() + " " + y.ToString() + " " + click;
             try
             {
-                if (codeFile.Contains("EQMac"))
+                if (codeFile.Equals("EQMac"))
                 {
                     MemLib.writeUIntPtr("mousex", codeFile, BitConverter.GetBytes(x));
                     MemLib.writeUIntPtr("mousey", codeFile, BitConverter.GetBytes(y));

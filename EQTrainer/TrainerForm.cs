@@ -104,26 +104,10 @@ namespace EQTrainer
         }
         #endregion
 
-        public static bool IsAdministrator()
-        {
-            bool isElevated;
-            WindowsIdentity identity = WindowsIdentity.GetCurrent();
-            WindowsPrincipal principal = new WindowsPrincipal(identity);
-            isElevated = principal.IsInRole(WindowsBuiltInRole.Administrator);
-            return isElevated;
-        }
-
         private void TrainerForm_Load(object sender, EventArgs e)
         {
             try
             {
-                if (IsAdministrator() == false)
-                {
-                    grantAdmin obj = new grantAdmin();
-                    obj.Show();
-                    obj.Location = new Point(this.Location.X, this.Location.Y);
-                }
-                
                 ToolTip tt = new ToolTip();
                 tt.SetToolTip(this.teleportBtn1, "Teleport to Coordinates 1 (CTRL+1)");
                 tt.SetToolTip(this.teleportBtn2, "Teleport to Coordinates 2 (CTRL+2)");
@@ -243,7 +227,7 @@ namespace EQTrainer
                 if (form.Name.Equals("miniToolbar"))
                     this.WindowState = FormWindowState.Minimized;
             }
-            if (comboBox1.Text == "EQMac")
+            if (comboBox1.Text.Equals("EQMac"))
                 gateBtn.Enabled = true;
             else
                 gateBtn.Enabled = false;
@@ -827,7 +811,7 @@ namespace EQTrainer
 
         private void gateBtn_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "EQMac")
+            if (comboBox1.Text.Equals("EQMac"))
                 MemLib.writeMemory("gate", codeFile, "bytes", "2");
             else
                 MessageBox.Show("Currently only works in EQMac");
@@ -1042,8 +1026,8 @@ namespace EQTrainer
                 this.sd3.Reset();
                 this.sd4.Reset();
 
-                if (currentZone.Contains("Greater Faydark") && !codeFile.Contains("Mac"))
-                    currentZone = currentZone.Replace("The ", "");
+                if (currentZone.Contains("Greater Faydark") && !currentZone.Contains("The Greater Faydark"))
+                    currentZone = currentZone.Replace("Greater Faydark", "The Greater Faydark");
 
                 if (Directory.Exists(currentZone))
                 {
@@ -1131,7 +1115,7 @@ namespace EQTrainer
                 int max_mp = 0;
                 int current_mp = 0;
 
-                if (comboBox1.Text == "EQMac")
+                if (comboBox1.Text.Equals("EQMac"))
                 {
                     max_mp = MemLib.readByte("PlayerMaxMP", codeFile);
                     current_mp = MemLib.readByte("PlayerCurrentMP", codeFile);
@@ -1218,9 +1202,9 @@ namespace EQTrainer
                     int sNum = 0;
                     ListViewItem findBuff;
 
-                    if (comboBox1.Text == "EQTitanium")
+                    if (comboBox1.Text.Equals("EQTitanium"))
                         skipNum = 19;
-                    if (comboBox1.Text == "EQMac")
+                    if (comboBox1.Text.Equals("EQMac"))
                         skipNum = 9;
 
                     // CREATE BUFF LIST
@@ -1243,7 +1227,7 @@ namespace EQTrainer
                         if (buffAddress > 0 && buffAddress < 8445)
                         {
                             //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
-                            if (comboBox1.Text == "EQMac")
+                            if (comboBox1.Text.Equals("EQMac"))
                                 buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
                             else
                                 buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
@@ -1254,7 +1238,7 @@ namespace EQTrainer
                     //MessageBox.Show(message);
 
                     // ADD BUFFS                    
-                    if (comboBox1.Text == "EQMac")
+                    if (comboBox1.Text.Equals("EQMac"))
                     {
                         foreach (KeyValuePair<string, int> entry in buffsMac)
                         {
@@ -1287,7 +1271,7 @@ namespace EQTrainer
                         foreach (ListViewItem item in listView1.Items)
                         {
                             buffRefresh = 0;
-                            if (comboBox1.Text == "EQMac")
+                            if (comboBox1.Text.Equals("EQMac"))
                             {
                                 if (buffsMac.ContainsKey(item.SubItems[1].Text))
                                 {
@@ -1326,6 +1310,7 @@ namespace EQTrainer
                         if (current_xp >= 0 && current_xp <= 330)
                             xp_stats.Text = xpProgressBar.ToString() + "%";
                         SendMessage(progressBarXP.Handle, 0x400 + 16, (IntPtr)3, IntPtr.Zero);
+                        System.Threading.Thread.Sleep(50);
                         progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
                     }
                     oldxpProgressBar = current_xp;
@@ -1337,6 +1322,7 @@ namespace EQTrainer
                         if (max_hp > 1)
                             hp_stats.Text = hpProgressBar.ToString() + "%";
                         SendMessage(progressBarHP.Handle, 0x400 + 16, (IntPtr)2, IntPtr.Zero);
+                        System.Threading.Thread.Sleep(50);
                         progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
                     }
                     oldhpProgressBar = current_hp;
@@ -1512,7 +1498,7 @@ namespace EQTrainer
 
         private void buttonResetCamera_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "EQMac")
+            if (comboBox1.Text.Equals("EQMac"))
             {
                 // read from --> 0x007F94CC,0x84,0x00
                 // write to (int) --> 0x0063D6C0
@@ -1523,7 +1509,7 @@ namespace EQTrainer
 
         private void buttonCameraOnSpawn_Click(object sender, EventArgs e)
         {
-            if (comboBox1.Text == "EQMac")
+            if (comboBox1.Text.Equals("EQMac"))
             {
                 if (listViewSpawnList.SelectedItems.Count == 0)
                     return;

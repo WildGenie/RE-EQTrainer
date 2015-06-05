@@ -908,7 +908,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(344, 252);
+            this.label10.Location = new System.Drawing.Point(344, 245);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(90, 13);
             this.label10.TabIndex = 503;
@@ -917,7 +917,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(344, 294);
+            this.label11.Location = new System.Drawing.Point(344, 287);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 13);
             this.label11.TabIndex = 504;
@@ -926,7 +926,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(344, 312);
+            this.label12.Location = new System.Drawing.Point(344, 305);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 505;
@@ -990,7 +990,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(344, 276);
+            this.label14.Location = new System.Drawing.Point(344, 269);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
@@ -1222,7 +1222,7 @@
             // t_health
             // 
             this.t_health.AutoSize = true;
-            this.t_health.Location = new System.Drawing.Point(344, 330);
+            this.t_health.Location = new System.Drawing.Point(344, 323);
             this.t_health.Name = "t_health";
             this.t_health.Size = new System.Drawing.Size(78, 13);
             this.t_health.TabIndex = 546;
@@ -1231,7 +1231,7 @@
             // target_x
             // 
             this.target_x.AutoSize = true;
-            this.target_x.Location = new System.Drawing.Point(344, 369);
+            this.target_x.Location = new System.Drawing.Point(344, 362);
             this.target_x.Name = "target_x";
             this.target_x.Size = new System.Drawing.Size(54, 13);
             this.target_x.TabIndex = 547;
@@ -1240,7 +1240,7 @@
             // target_y
             // 
             this.target_y.AutoSize = true;
-            this.target_y.Location = new System.Drawing.Point(344, 351);
+            this.target_y.Location = new System.Drawing.Point(344, 344);
             this.target_y.Name = "target_y";
             this.target_y.Size = new System.Drawing.Size(54, 13);
             this.target_y.TabIndex = 548;
@@ -1249,7 +1249,7 @@
             // target_z
             // 
             this.target_z.AutoSize = true;
-            this.target_z.Location = new System.Drawing.Point(344, 387);
+            this.target_z.Location = new System.Drawing.Point(344, 380);
             this.target_z.Name = "target_z";
             this.target_z.Size = new System.Drawing.Size(54, 13);
             this.target_z.TabIndex = 549;
@@ -1406,12 +1406,12 @@
             // columnHeaderSpawnListName
             // 
             this.columnHeaderSpawnListName.Text = "Name";
-            this.columnHeaderSpawnListName.Width = 172;
+            this.columnHeaderSpawnListName.Width = 180;
             // 
             // columnHeaderSpawnListAddress
             // 
             this.columnHeaderSpawnListAddress.Text = "Address";
-            this.columnHeaderSpawnListAddress.Width = 52;
+            this.columnHeaderSpawnListAddress.Width = 27;
             // 
             // columnHeaderSpawnListX
             // 
@@ -1430,18 +1430,18 @@
             // 
             // columnHeaderSpawnListHeading
             // 
-            this.columnHeaderSpawnListHeading.Text = "Heading";
+            this.columnHeaderSpawnListHeading.Text = "H";
             this.columnHeaderSpawnListHeading.Width = 53;
             // 
             // columnHeaderSpawnListLevel
             // 
             this.columnHeaderSpawnListLevel.Text = "Lvl";
-            this.columnHeaderSpawnListLevel.Width = 29;
+            this.columnHeaderSpawnListLevel.Width = 34;
             // 
             // columnHeaderSpawnListClass
             // 
             this.columnHeaderSpawnListClass.Text = "Class";
-            this.columnHeaderSpawnListClass.Width = 39;
+            this.columnHeaderSpawnListClass.Width = 49;
             // 
             // columnHeaderSpawnListType
             // 
@@ -1510,7 +1510,7 @@
             // target_h
             // 
             this.target_h.AutoSize = true;
-            this.target_h.Location = new System.Drawing.Point(344, 404);
+            this.target_h.Location = new System.Drawing.Point(344, 397);
             this.target_h.Name = "target_h";
             this.target_h.Size = new System.Drawing.Size(55, 13);
             this.target_h.TabIndex = 574;
