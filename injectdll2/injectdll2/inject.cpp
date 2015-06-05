@@ -14,14 +14,14 @@ using namespace std;
 void EQTFunctions (const char *func) {
 	if(strcmp("warp",func) != 0){ //MoveLocalPlayerToSafeCoords
 		typedef void (__thiscall* CGCamera__ResetView)();
-		CGCamera__ResetView ResetView = (CGCamera__ResetView)0x0043D7C5; //TITANIUM = 0x0043D7C5   //MAC = 0x004B459C  //UNDERFOOT = 0x00499CE8?
+		CGCamera__ResetView ResetView = (CGCamera__ResetView)0x004B459C; //TITANIUM = 0x0043D7C5   //MAC = 0x004B459C  //UNDERFOOT = 0x00499CE8?
 		ResetView();
 	}
-	/*if(strcmp("zone",func) != 0){ //ZoneTransfer
+	if(strcmp("zone",func) != 0){ //ZoneTransfer
 		typedef void (__thiscall* CGCamera__ResetView)();
 		CGCamera__ResetView ResetView = (CGCamera__ResetView)0x00461C7E; //TITANIUM = 00461C7E   //MAC = 0x004B459C
 		ResetView();
-	}*/
+	}
 }
 
 void OnAttach( HMODULE hModule ) {

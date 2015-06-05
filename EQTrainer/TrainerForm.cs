@@ -987,6 +987,14 @@ namespace EQTrainer
         {
             return ((buffTime / (256 * 256 * 256)) * 0.1).ToString();
         }
+        string getMacBuffTime(int buffTime)
+        {
+            return ((buffTime / (255)) * 0.1).ToString();
+        }
+
+        int oldmpProgressBar = 0;
+        int oldxpProgressBar = 0;
+        int oldhpProgressBar = 0;
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -1033,6 +1041,9 @@ namespace EQTrainer
                 this.sd2.Reset();
                 this.sd3.Reset();
                 this.sd4.Reset();
+
+                if (currentZone.Contains("Greater Faydark") && !codeFile.Contains("Mac"))
+                    currentZone = currentZone.Replace("The ", "");
 
                 if (Directory.Exists(currentZone))
                 {
@@ -1117,8 +1128,20 @@ namespace EQTrainer
                 int current_hp = MemLib.readInt("PlayerCurrentHP", codeFile);
                 int max_hp = MemLib.readInt("PlayerMaxHP", codeFile);
 
-                int current_mp = MemLib.readByte("PlayerCurrentMP", codeFile);
-                int max_mp = MemLib.readByte("PlayerMaxMP", codeFile);
+                int max_mp = 0;
+                int current_mp = 0;
+
+                if (comboBox1.Text == "EQMac")
+                {
+                    max_mp = MemLib.readByte("PlayerMaxMP", codeFile);
+                    current_mp = MemLib.readByte("PlayerCurrentMP", codeFile);
+                }
+                else
+                {
+                    max_mp = MemLib.readInt("PlayerMaxMP", codeFile);
+                    current_mp = MemLib.readInt("PlayerCurrentMP", codeFile);
+                }
+
                 int current_xp = MemLib.readInt("PlayerExp", codeFile);
 
                 int mousexVal = MemLib.readUIntPtr("mousex", codeFile);
@@ -1164,19 +1187,6 @@ namespace EQTrainer
                 else
                     cur_xp = current_xp;
 
-
-                double xpProgressPercentage = ((double)current_xp / (double)330);
-                int xpProgressBar = (int)(xpProgressPercentage * 100);
-                if (xpProgressBar < 0) xpProgressBar = 0;
-
-                double hpProgressPercentage = ((double)current_hp / (double)max_hp);
-                int hpProgressBar = (int)(hpProgressPercentage * 100);
-                if (hpProgressBar < 0) hpProgressBar = 0;
-
-                double mpProgressPercentage = ((double)current_mp / (double)max_mp);
-                int mpProgressBar = (int)(mpProgressPercentage * 100);
-                if (mpProgressBar < 0) mpProgressBar = 0;
-
                 float run_speed = MemLib.readFloat("runSpeed", codeFile);
                 if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
                     MemLib.writeMemory("runSpeed", codeFile, "float", runBox.Text);
@@ -1207,43 +1217,67 @@ namespace EQTrainer
                     int skipNum = 0;
                     int sNum = 0;
                     ListViewItem findBuff;
-                    
-                    if (codeFile.Contains("Titanium"))
+
+                    if (comboBox1.Text == "EQTitanium")
                         skipNum = 19;
-                    if (codeFile.Contains("Mac"))
+                    if (comboBox1.Text == "EQMac")
                         skipNum = 9;
 
                     // CREATE BUFF LIST
+                    Dictionary<string, int> buffsMac = new Dictionary<string, int>();
                     Dictionary<string, ulong> buffs = new Dictionary<string, ulong>();
                     for (int i = 0; i < 12; i++)
                     {
                         int buffAddress = 0;
-                        ulong bufftime = 0;
 
                         if (i > 0)
                         {
                             sNum = sNum + skipNum;
-                            buffAddress = MemLib.readIntMove("buffsInfoAddress", codeFile, sNum);
+                            buffAddress = MemLib.read2ByteMove("buffsInfoAddress", codeFile, sNum);
                         }
                         else
-                            buffAddress = MemLib.readInt("buffsInfoAddress", codeFile);
+                            buffAddress = MemLib.read2Byte("buffsInfoAddress", codeFile);
 
                         sNum = sNum + 1;
-                        bufftime = MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum);
 
                         if (buffAddress > 0 && buffAddress < 8445)
-                            buffs.Add(getBuffName(buffAddress), bufftime);
+                        {
+                            //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
+                            if (comboBox1.Text == "EQMac")
+                                buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
+                            else
+                                buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
+                        }
                     }
 
-                    // ADD BUFFS
-                    foreach (KeyValuePair<string, ulong> entry in buffs)
+                    //var message = string.Join(Environment.NewLine, buffsMac);
+                    //MessageBox.Show(message);
+
+                    // ADD BUFFS                    
+                    if (comboBox1.Text == "EQMac")
                     {
-                        findBuff = listView1.FindItemWithText(entry.Key);
-                        if (findBuff == null)
+                        foreach (KeyValuePair<string, int> entry in buffsMac)
                         {
-                            string[] row = { getBuffTime(entry.Value), entry.Key };
-                            var listViewItem = new ListViewItem(row);
-                            listView1.Items.Add(listViewItem);
+                            findBuff = listView1.FindItemWithText(entry.Key);
+                            if (findBuff == null)
+                            {
+                                string[] row = { getMacBuffTime(entry.Value), entry.Key };
+                                var listViewItem = new ListViewItem(row);
+                                listView1.Items.Add(listViewItem);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (KeyValuePair<string, ulong> entry in buffs)
+                        {
+                            findBuff = listView1.FindItemWithText(entry.Key);
+                            if (findBuff == null)
+                            {
+                                string[] row = { getBuffTime(entry.Value), entry.Key };
+                                var listViewItem = new ListViewItem(row);
+                                listView1.Items.Add(listViewItem);
+                            }
                         }
                     }
 
@@ -1253,34 +1287,72 @@ namespace EQTrainer
                         foreach (ListViewItem item in listView1.Items)
                         {
                             buffRefresh = 0;
-                            if (buffs.ContainsKey(item.SubItems[1].Text))
-                                item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
+                            if (comboBox1.Text == "EQMac")
+                            {
+                                if (buffsMac.ContainsKey(item.SubItems[1].Text))
+                                {
+                                    item.SubItems[0].Text = getMacBuffTime(buffsMac[item.SubItems[1].Text]);
+                                }
+                                else
+                                    listView1.Items.Remove(item);
+                            }
                             else
-                                listView1.Items.Remove(item);
+                            {
+                                if (buffs.ContainsKey(item.SubItems[1].Text))
+                                    item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
+                                else
+                                    listView1.Items.Remove(item);
+                            }
                         }
                     }
                     buffRefresh++;
 
-                    if (current_xp >= 0 && current_xp <= 330)
-                        xp_stats.Text = xpProgressBar.ToString() + "%";
-                    progressBarXP.Value = xpProgressBar;
-                    progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
-                    SendMessage(progressBarXP.Handle, 1040, (IntPtr)3, IntPtr.Zero);
+                    double xpProgressPercentage = ((double)current_xp / (double)330);
+                    int xpProgressBar = (int)(xpProgressPercentage * 100);
+                    if (xpProgressBar < 0) xpProgressBar = 0;
 
-                    if (max_hp > 1)
-                        hp_stats.Text = hpProgressBar.ToString() + "%";
-                    progressBarHP.Value = hpProgressBar;
-                    progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
-                    SendMessage(progressBarHP.Handle, 1040, (IntPtr)2, IntPtr.Zero);
+                    double hpProgressPercentage = ((double)current_hp / (double)max_hp);
+                    int hpProgressBar = (int)(hpProgressPercentage * 100);
+                    if (hpProgressBar < 0) hpProgressBar = 0;
 
-                    if (max_mp >= 0)
-                        mp_stats.Text = mpProgressBar.ToString() + "%";
-                    else
-                        mp_stats.Text = "[0/0] 0%";
-                    progressBarMP.Value = mpProgressBar;
-                    progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
-                    SendMessage(progressBarMP.Handle, 1040, (IntPtr)0, IntPtr.Zero);
+                    double mpProgressPercentage = ((double)current_mp / (double)max_mp);
+                    int mpProgressBar = (int)(mpProgressPercentage * 100);
+                    if (mpProgressBar < 0) mpProgressBar = 0;
 
+                    if (oldxpProgressBar != current_xp)
+                    {
+                        progressBarXP.Value = xpProgressBar;
+                        progressBarXP.Refresh();
+                        if (current_xp >= 0 && current_xp <= 330)
+                            xp_stats.Text = xpProgressBar.ToString() + "%";
+                        SendMessage(progressBarXP.Handle, 0x400 + 16, (IntPtr)3, IntPtr.Zero);
+                        progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
+                    }
+                    oldxpProgressBar = current_xp;
+                    
+                    if (oldhpProgressBar != current_hp)
+                    {
+                        progressBarHP.Value = hpProgressBar;
+                        progressBarHP.Refresh();
+                        if (max_hp > 1)
+                            hp_stats.Text = hpProgressBar.ToString() + "%";
+                        SendMessage(progressBarHP.Handle, 0x400 + 16, (IntPtr)2, IntPtr.Zero);
+                        progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
+                    }
+                    oldhpProgressBar = current_hp;
+                    
+                    if (oldmpProgressBar != current_mp)
+                    {
+                        progressBarMP.Value = mpProgressBar;
+                        progressBarMP.Refresh();
+                        if (max_mp >= 0)
+                            mp_stats.Text = mpProgressBar.ToString() + "%";
+                        else
+                            mp_stats.Text = "[0/0] 0%";
+                        progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
+                    }
+                    oldmpProgressBar = current_mp;
+                    
                         foreach (ListViewItem listViewItem in listViewScripts.Items)
                         {
                             int script_instructions_index = 3; // disabled column

@@ -280,7 +280,7 @@ namespace Memory
         {
             byte[] memory = new byte[4];
             UIntPtr theCode = getCode(code, file);
-            if (!LoadCode(code, file).Contains(","))
+            if (!LoadCode(code, file).Contains(",") && !LoadCode(code, file).Contains("base"))
                 theCode = LoadUIntPtrCode(code, file);
 
             if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
@@ -298,6 +298,21 @@ namespace Memory
 
             if (ReadProcessMemory(pHandle, theCode, memory, (UIntPtr)4, IntPtr.Zero))
                 return BitConverter.ToUInt32(memory, 0);
+            else
+                return 0;
+        }
+
+        public int read2ByteMove(string code, string file, int moveQty)
+        {
+            byte[] memory = new byte[4];
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            UIntPtr newCode = UIntPtr.Add(theCode, moveQty);
+
+            if (ReadProcessMemory(pHandle, newCode, memory, (UIntPtr)2, IntPtr.Zero))
+                return BitConverter.ToInt32(memory, 0);
             else
                 return 0;
         }
@@ -328,6 +343,20 @@ namespace Memory
 
             if (ReadProcessMemory(pHandle, newCode, memory, (UIntPtr)8, IntPtr.Zero))
                 return BitConverter.ToUInt64(memory, 0);
+            else
+                return 0;
+        }
+
+        public int read2Byte(string code, string file)
+        {
+            byte[] memoryTiny = new byte[4];
+
+            UIntPtr theCode = getCode(code, file);
+            if (!LoadCode(code, file).Contains(","))
+                theCode = LoadUIntPtrCode(code, file);
+
+            if (ReadProcessMemory(pHandle, theCode, memoryTiny, (UIntPtr)2, IntPtr.Zero))
+                return BitConverter.ToInt32(memoryTiny, 0);
             else
                 return 0;
         }
