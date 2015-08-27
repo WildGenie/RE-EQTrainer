@@ -91,12 +91,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Memory\Memory.csproj">
-      <Project>{9ABF5742-7489-455C-B94A-3A85725D939A}</Project>
-      <Name>Memory</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Robot.ico" />
   </ItemGroup>
   <ItemGroup>

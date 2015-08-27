@@ -150,12 +150,6 @@
     <Content Include="favicon.ico" />
     <None Include="Resources\moneys.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Memory\Memory.csproj">
-      <Project>{9ABF5742-7489-455C-B94A-3A85725D939A}</Project>
-      <Name>Memory</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
