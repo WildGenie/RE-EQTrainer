@@ -56,7 +56,7 @@ namespace AutoBot
         private void changeProcess()
         {
             MemLib.closeProcess();
-            MemLib.OpenGameProcess(EQGameIDs.Text);
+            MemLib.OpenGameProcess(Int32.Parse(EQGameIDs.Text));
         }
 
         private void EQGameIDs_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,7 +103,7 @@ namespace AutoBot
 
             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
 
-            this.RefToForm1.startAutoBot(EQGameIDs.Text, Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini", loop, od1.FileName);
+            this.RefToForm1.startAutoBot(Int32.Parse(EQGameIDs.Text), Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini", loop, od1.FileName);
             this.Close();
         }
     }

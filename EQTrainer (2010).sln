@@ -1,9 +1,8 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+﻿Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EQTrainer", "EQTrainer\EQTrainer.csproj", "{A8634C33-9827-4789-B665-0E8BEDB0F419}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memory", "Memory\Memory.csproj", "{9ABF5742-7489-455C-B94A-3A85725D939A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoBot", "AutoBot\AutoBot.csproj", "{26C897B7-3432-4B4D-817D-751317B4823A}"
 EndProject
@@ -53,31 +52,6 @@ Global
 		{A8634C33-9827-4789-B665-0E8BEDB0F419}.SingleImage|Mixed Platforms.Build.0 = Release|x86
 		{A8634C33-9827-4789-B665-0E8BEDB0F419}.SingleImage|x86.ActiveCfg = Release|x86
 		{A8634C33-9827-4789-B665-0E8BEDB0F419}.SingleImage|x86.Build.0 = Release|x86
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.CD_ROM|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.CD_ROM|Mixed Platforms.Build.0 = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.CD_ROM|x86.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.DVD-5|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.DVD-5|Mixed Platforms.Build.0 = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.DVD-5|x86.ActiveCfg = Debug|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Release|Mixed Platforms.Build.0 = Release|x86
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.Release|x86.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|Mixed Platforms.Build.0 = Release|Any CPU
-		{9ABF5742-7489-455C-B94A-3A85725D939A}.SingleImage|x86.ActiveCfg = Release|Any CPU
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Any CPU.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Mixed Platforms.ActiveCfg = Release|x86
 		{26C897B7-3432-4B4D-817D-751317B4823A}.CD_ROM|Mixed Platforms.Build.0 = Release|x86

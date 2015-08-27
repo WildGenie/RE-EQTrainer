@@ -64,7 +64,7 @@ namespace EQTrainer
 
         private static Boolean Follow = false;
         protected ProcessModule myProcessModule;
-        public static string eqgameID = "";
+        public int eqgameID = 0;
         byte[] memory = new byte[4];
         byte[] memoryBig = new byte[64];
         byte[] memoryGiant = new byte[255];
@@ -190,17 +190,6 @@ namespace EQTrainer
                 return "Unknown";
         }
 
-        public string RemoveSpecialCharactersTwo(string str)
-        {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in str)
-            {
-                if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ')
-                    sb.Append(c);
-            }
-            return sb.ToString();
-        }
-
         private void inject(string dll)
         {
             try
@@ -251,7 +240,7 @@ namespace EQTrainer
                     {
                         listView2.Items[0].Selected = true;
                         listView2.Select();
-                        eqgameID = listView2.SelectedItems[0].SubItems[0].Text;
+                        eqgameID = Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text);
                         changeProcess();
                         if (Properties.Settings.Default.old_warp == false)
                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
@@ -262,9 +251,9 @@ namespace EQTrainer
 
             if (listView2.SelectedItems.Count > 0)
             {
-                if (eqgameID != listView2.SelectedItems[0].SubItems[0].Text)
+                if (eqgameID != Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text))
                 {
-                    eqgameID = listView2.SelectedItems[0].SubItems[0].Text; //keep maps up to date
+                    eqgameID = Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text); //keep maps up to date
                     changeProcess();
                 }
                 if (backgroundWorker1.IsBusy == false)
@@ -991,8 +980,9 @@ namespace EQTrainer
                         string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
                         foreach (string subdirectory in subdirectoryEntries)
                         {
-                            string buildDateCode = MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
-                            string buildDate = MemLib.readString(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                            string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
+                            string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                            //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
                             if (buildDateCode.Contains(buildDate))
                             {
                                 comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
@@ -1009,13 +999,13 @@ namespace EQTrainer
                 float z_address = MemLib.readFloat("playerZ", codeFile);
                 float heading = MemLib.readFloat("playerHeading", codeFile);
 
-                string map_address = RemoveSpecialCharactersTwo(MemLib.readString("mapLongName", codeFile));
-                string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readString("mapShortName", codeFile));
+                string map_address = MemLib.sanitizeString(MemLib.readString("mapLongName", codeFile));
+                string mapShortName = MemLib.sanitizeString(MemLib.readString("mapShortName", codeFile));
 
                 map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address; }));
 
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
-                string currentZone = scriptDirectory + RemoveSpecialCharactersTwo(map_address);
+                string currentZone = scriptDirectory + MemLib.sanitizeString(map_address);
 
                 this.od1.Reset();
                 this.od2.Reset();
@@ -1364,7 +1354,7 @@ namespace EQTrainer
                                 if (script_instruction_split[0] == "pointer" && script_instruction_split[2] == "offsets")
                                 {
                                     int script_instruction_pointer = Int32.Parse(script_instruction_split[1], System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    int script_instruction_address = MemLib.readUInt((UIntPtr)script_instruction_pointer);
+                                    int script_instruction_address = MemLib.readUIntPtr((UIntPtr)script_instruction_pointer);
 
                                     string script_instruction_offsets = script_instruction_split[3];
                                     string[] script_instruction_offsets_split = script_instruction_offsets.Split(',');
@@ -1379,7 +1369,7 @@ namespace EQTrainer
                                         if (current_offset == num_offsets)
                                             break;
 
-                                        int script_instruction_address_after_offset = MemLib.readUInt((UIntPtr)script_instruction_address_int);
+                                        int script_instruction_address_after_offset = MemLib.readUIntPtr((UIntPtr)script_instruction_address_int);
                                         script_instruction_address = script_instruction_address_after_offset;
                                         script_instruction_address_int = script_instruction_address;
                                     }

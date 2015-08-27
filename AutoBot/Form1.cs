@@ -140,14 +140,14 @@ namespace AutoBot
             }
             else
             {
-                startAutoBot(args[1], args[2], args[3], args[4]);
+                startAutoBot(Int32.Parse(args[1]), args[2], args[3], args[4]);
                 AppendOutputText("Welcome to the EQTrainer AutoBot program!", Color.Green);
             }
 
             passwordBox.Text = EQTrainer_AutoBot.Properties.Settings.Default.password;
         }
 
-        public void startAutoBot(string eqgameID, string iniFile, string loop, string script)
+        public void startAutoBot(int eqgameID, string iniFile, string loop, string script)
         {
             if (File.Exists(script))
             {
@@ -156,7 +156,7 @@ namespace AutoBot
                 MemLib.OpenGameProcess(eqgameID);
                 if (backgroundWorker1.IsBusy == false)
                 {
-                    string[] bgArgs = new string[5] { args[0], eqgameID, codeFile, loop, script };
+                    string[] bgArgs = new string[5] { args[0], eqgameID.ToString(), codeFile, loop, script };
                     string newArgs = string.Join(",", bgArgs);
                     backgroundWorker1.RunWorkerAsync(newArgs);
                 }
@@ -918,7 +918,7 @@ namespace AutoBot
             if (stop)
                 return;
 
-            string curZone = MemLib.RemoveSpecialCharacters(MemLib.readString("mapShortName", codeFile));
+            string curZone = MemLib.sanitizeString(MemLib.readString("mapShortName", codeFile));
 
             if (string.IsNullOrEmpty(curZone) || string.IsNullOrEmpty(zone))
                 AppendOutputText("Zone Check failed. Null given.");

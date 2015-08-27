@@ -354,7 +354,7 @@ namespace EQTrainer
                     playerLvl = this.RefToForm1.MemLib.readInt("playerLvl", this.RefToForm1.codeFile);
                     playerName = this.RefToForm1.MemLib.readString("playerName", this.RefToForm1.codeFile);
 
-                    zoneshort = this.RefToForm1.MemLib.RemoveSpecialCharacters(this.RefToForm1.MemLib.readString("mapShortName", this.RefToForm1.codeFile));
+                    zoneshort = this.RefToForm1.MemLib.sanitizeString(this.RefToForm1.MemLib.readString("mapShortName", this.RefToForm1.codeFile));
 
                     if (track)
                     {

@@ -1,3 +1,8 @@
+Version 5.8.1
+---------------
+Changed compatibility for memory.dll v1.0.2
+
+
 Version 5.8.0
 ---------------
 Added new map system using standard txt files from the game
