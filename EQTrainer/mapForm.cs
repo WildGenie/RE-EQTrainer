@@ -73,7 +73,7 @@ namespace EQTrainer
 
         private void SpawnList()
         {
-            int player_spawn_info = this.RefToForm1.MemLib.readUIntPtr("spawnInfoAddress", this.RefToForm1.codeFile);
+            int player_spawn_info = this.RefToForm1.MemLib.readInt("spawnInfoAddress", this.RefToForm1.codeFile);
 
             int spawn_info_address = player_spawn_info;
             int spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
@@ -354,7 +354,7 @@ namespace EQTrainer
                     playerLvl = this.RefToForm1.MemLib.readInt("playerLvl", this.RefToForm1.codeFile);
                     playerName = this.RefToForm1.MemLib.readString("playerName", this.RefToForm1.codeFile);
 
-                    zoneshort = this.RefToForm1.MemLib.RemoveSpecialCharacters(this.RefToForm1.MemLib.readUIntPtrStr("mapShortName", this.RefToForm1.codeFile));
+                    zoneshort = this.RefToForm1.MemLib.RemoveSpecialCharacters(this.RefToForm1.MemLib.readString("mapShortName", this.RefToForm1.codeFile));
 
                     if (track)
                     {

@@ -24,8 +24,6 @@ namespace AutoBot
         }
 
         #region DllImports
-        [DllImport("kernel32.dll")]
-        private static extern IntPtr OpenProcess(uint dwDesiredAccess, bool bInheritHandle, int dwProcessId);
         [DllImport("user32.dll")]
         static extern int SetWindowText(IntPtr hWnd, string text);
         [DllImport("user32.dll")]
@@ -442,7 +440,7 @@ namespace AutoBot
         public void TargetPlayer(string name)
         {
             //lastCmd = "target " + name;
-            int player_spawn_info = MemLib.readUIntPtr("spawnInfoAddress", codeFile);
+            int player_spawn_info = MemLib.readInt("spawnInfoAddress", codeFile);
 
             int spawn_info_address = player_spawn_info;
             int spawn_next_spawn_info = MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", codeFile);
@@ -475,7 +473,7 @@ namespace AutoBot
         public void TeleportToPlayer(string name)
         {
             //lastCmd = "target " + name;
-            int player_spawn_info = MemLib.readUIntPtr("spawnInfoAddress", codeFile);
+            int player_spawn_info = MemLib.readInt("spawnInfoAddress", codeFile);
             string spawn_info_name = null;
             float spawn_info_y, spawn_info_x, spawn_info_z, spawn_info_heading = 0;
 
@@ -540,7 +538,7 @@ namespace AutoBot
 
             System.Threading.Thread.Sleep(2000);
 
-            int player_spawn_info = MemLib.readUIntPtr("spawnInfoAddress", codeFile);
+            int player_spawn_info = MemLib.readInt("spawnInfoAddress", codeFile);
 
             int spawn_info_address = player_spawn_info;
             int spawn_next_spawn_info = MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", codeFile);
@@ -764,9 +762,9 @@ namespace AutoBot
         }
 
        public bool tpSafeCheck(float value_x, float value_y, float value_z){
-           float readSafeZ = MemLib.readUintPtrFloat("safeZ", codeFile);
-           float readSafeX = MemLib.readUintPtrFloat("safeX", codeFile);
-           float readSafeY = MemLib.readUintPtrFloat("safeY", codeFile);
+           float readSafeZ = MemLib.readFloat("safeZ", codeFile);
+           float readSafeX = MemLib.readFloat("safeX", codeFile);
+           float readSafeY = MemLib.readFloat("safeY", codeFile);
 
            AppendOutputText("Checking Safe X:" + value_x + " Y:" + value_y + " Z:" + value_z, Color.Green);
 
@@ -920,7 +918,7 @@ namespace AutoBot
             if (stop)
                 return;
 
-            string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
+            string curZone = MemLib.RemoveSpecialCharacters(MemLib.readString("mapShortName", codeFile));
 
             if (string.IsNullOrEmpty(curZone) || string.IsNullOrEmpty(zone))
                 AppendOutputText("Zone Check failed. Null given.");
@@ -959,7 +957,7 @@ namespace AutoBot
         {
             try
             {
-                int player_spawn_info = MemLib.readUIntPtr("spawnInfoAddress", codeFile);
+                int player_spawn_info = MemLib.readInt("spawnInfoAddress", codeFile);
 
                 int spawn_info_address = player_spawn_info;
                 int spawn_next_spawn_info = MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", codeFile);

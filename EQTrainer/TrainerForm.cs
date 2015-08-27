@@ -383,7 +383,7 @@ namespace EQTrainer
 
         private void TrainerForm_RefreshSpawnList()
         {
-            int player_spawn_info = MemLib.readUIntPtr("spawnInfoAddress", codeFile);
+            int player_spawn_info = MemLib.readInt("spawnInfoAddress", codeFile);
 
             int spawn_info_address = player_spawn_info;
             int spawn_next_spawn_info = MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", codeFile);
@@ -915,9 +915,9 @@ namespace EQTrainer
             MemLib.writeUIntPtr("safeX", codeFile, write_x);
             MemLib.writeUIntPtr("safeZ", codeFile, write_z);
 
-            float readSafeZ = MemLib.readUintPtrFloat("safeZ", codeFile);
-            float readSafeX = MemLib.readUintPtrFloat("safeX", codeFile);
-            float readSafeY = MemLib.readUintPtrFloat("safeY", codeFile);
+            float readSafeZ = MemLib.readFloat("safeZ", codeFile);
+            float readSafeX = MemLib.readFloat("safeX", codeFile);
+            float readSafeY = MemLib.readFloat("safeY", codeFile);
 
             MemLib.writeMemory("playerHeading", codeFile, "float", value_h.ToString());
 
@@ -991,7 +991,7 @@ namespace EQTrainer
                         string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
                         foreach (string subdirectory in subdirectoryEntries)
                         {
-                            string buildDateCode = MemLib.readBigString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
+                            string buildDateCode = MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
                             string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
                             if (buildDateCode.Contains(buildDate))
                             {
@@ -1009,8 +1009,8 @@ namespace EQTrainer
                 float z_address = MemLib.readFloat("playerZ", codeFile);
                 float heading = MemLib.readFloat("playerHeading", codeFile);
 
-                string map_address = RemoveSpecialCharactersTwo(MemLib.readUIntPtrStr("mapLongName", codeFile));
-                string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
+                string map_address = RemoveSpecialCharactersTwo(MemLib.readString("mapLongName", codeFile));
+                string mapShortName = MemLib.RemoveSpecialCharacters(MemLib.readString("mapShortName", codeFile));
 
                 map_label.Invoke(new MethodInvoker(delegate { map_label.Text = map_address; }));
 
@@ -1128,8 +1128,8 @@ namespace EQTrainer
 
                 int current_xp = MemLib.readInt("PlayerExp", codeFile);
 
-                int mousexVal = MemLib.readUIntPtr("mousex", codeFile);
-                int mouseyVal = MemLib.readUIntPtr("mousey", codeFile);
+                int mousexVal = MemLib.readInt("mousex", codeFile);
+                int mouseyVal = MemLib.readInt("mousey", codeFile);
 
                 mousey.Invoke(new MethodInvoker(delegate { mousey.Text = mouseyVal.ToString(); }));
                 mousex.Invoke(new MethodInvoker(delegate { mousex.Text = mousexVal.ToString(); }));
