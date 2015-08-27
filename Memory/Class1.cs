@@ -151,6 +151,19 @@ namespace Memory
             SetForegroundWindow(procs.MainWindowHandle);
         }
 
+        public int getProcIDFromName(string name) //new 1.0.2 function
+        {
+            Process[] processlist = Process.GetProcesses();
+
+            foreach (Process theprocess in processlist)
+            {
+                if (theprocess.ProcessName == name) //find (name).exe in the process list (use task manager to find the name)
+                    return theprocess.Id;
+            }
+
+            return 0; //if we fail to find it
+        }
+
         public string LoadCode(string name, string path)
         {
             StringBuilder returnCode = new StringBuilder(1024);
