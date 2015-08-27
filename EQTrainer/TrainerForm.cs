@@ -992,7 +992,7 @@ namespace EQTrainer
                         foreach (string subdirectory in subdirectoryEntries)
                         {
                             string buildDateCode = MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini");
-                            string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                            string buildDate = MemLib.readString(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
                             if (buildDateCode.Contains(buildDate))
                             {
                                 comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
