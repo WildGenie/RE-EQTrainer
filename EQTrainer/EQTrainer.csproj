@@ -34,7 +34,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>favicon.ico</ApplicationIcon>
+    <ApplicationIcon>2016_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Memory">
@@ -150,6 +150,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="2016_icon.ico" />
     <Content Include="favicon.ico" />
     <None Include="Resources\moneys.jpg" />
   </ItemGroup>

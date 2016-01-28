@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TrainerForm));
             this.y_tele = new System.Windows.Forms.TextBox();
             this.x_tele = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.tpYLabel1 = new System.Windows.Forms.Label();
+            this.tpXLabel1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.teleportBtn1 = new System.Windows.Forms.Button();
             this.z_tele = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.tpZLabel1 = new System.Windows.Forms.Label();
             this.y_label = new System.Windows.Forms.Label();
             this.x_label = new System.Windows.Forms.Label();
             this.z_label = new System.Windows.Forms.Label();
@@ -50,25 +50,25 @@
             this.label21 = new System.Windows.Forms.Label();
             this.mp_stats = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.tpZLabel2 = new System.Windows.Forms.Label();
             this.z_tele2 = new System.Windows.Forms.TextBox();
             this.teleportBtn2 = new System.Windows.Forms.Button();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
+            this.tpXLabel2 = new System.Windows.Forms.Label();
+            this.tpYLabel2 = new System.Windows.Forms.Label();
             this.x_tele2 = new System.Windows.Forms.TextBox();
             this.y_tele2 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
+            this.tpZLabel3 = new System.Windows.Forms.Label();
             this.z_tele3 = new System.Windows.Forms.TextBox();
             this.teleportBtn3 = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
+            this.tpXLabel3 = new System.Windows.Forms.Label();
+            this.tpYLabel3 = new System.Windows.Forms.Label();
             this.x_tele3 = new System.Windows.Forms.TextBox();
             this.y_tele3 = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
+            this.tpZLabel4 = new System.Windows.Forms.Label();
             this.z_tele4 = new System.Windows.Forms.TextBox();
             this.teleportBtn4 = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
+            this.tpXLabel4 = new System.Windows.Forms.Label();
+            this.tpYLabel4 = new System.Windows.Forms.Label();
             this.x_tele4 = new System.Windows.Forms.TextBox();
             this.y_tele4 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.buffsList = new System.Windows.Forms.ListView();
             this.Timer = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.button13 = new System.Windows.Forms.Button();
@@ -104,7 +104,6 @@
             this.loadAllBtn = new System.Windows.Forms.Button();
             this.sdall = new System.Windows.Forms.SaveFileDialog();
             this.odall = new System.Windows.Forms.OpenFileDialog();
-            this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.gateBtn = new System.Windows.Forms.Button();
@@ -124,11 +123,6 @@
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMapSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.aboutEQTrainerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareReadmeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareInformationToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.softwareSupportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,12 +142,12 @@
             this.tele_label4 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.h_tele1 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.tpHeaderLabel1 = new System.Windows.Forms.Label();
+            this.tpHeaderLabel2 = new System.Windows.Forms.Label();
             this.h_tele2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.tpHeaderLabel3 = new System.Windows.Forms.Label();
             this.h_tele3 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
+            this.tpHeaderLabel4 = new System.Windows.Forms.Label();
             this.h_tele4 = new System.Windows.Forms.TextBox();
             this.buttonTargetSpawn = new System.Windows.Forms.Button();
             this.buttonRefreshSpawnList = new System.Windows.Forms.Button();
@@ -175,8 +169,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.target_h = new System.Windows.Forms.Label();
             this.distance = new System.Windows.Forms.TextBox();
-            this.label35 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.procList = new System.Windows.Forms.ListView();
             this.ProcessID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.refreshProcessesBtn = new System.Windows.Forms.Button();
@@ -187,8 +180,8 @@
             this.label37 = new System.Windows.Forms.Label();
             this.progressBarXP = new System.Windows.Forms.ProgressBar();
             this.xp_stats = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.injectBtn = new System.Windows.Forms.Button();
+            this.toolbarBtn = new System.Windows.Forms.Button();
             this.progressBarHP = new System.Windows.Forms.ProgressBar();
             this.progressBarMP = new System.Windows.Forms.ProgressBar();
             this.bank_copper = new System.Windows.Forms.Label();
@@ -209,43 +202,50 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.aboutEQTrainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.targetInfoBox = new System.Windows.Forms.GroupBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.targetInfoBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // y_tele
             // 
-            this.y_tele.Location = new System.Drawing.Point(166, 138);
+            this.y_tele.Location = new System.Drawing.Point(166, 132);
             this.y_tele.Name = "y_tele";
             this.y_tele.Size = new System.Drawing.Size(44, 20);
-            this.y_tele.TabIndex = 2;
+            this.y_tele.TabIndex = 3;
             // 
             // x_tele
             // 
-            this.x_tele.Location = new System.Drawing.Point(107, 138);
+            this.x_tele.Location = new System.Drawing.Point(107, 132);
             this.x_tele.Name = "x_tele";
             this.x_tele.Size = new System.Drawing.Size(44, 20);
-            this.x_tele.TabIndex = 1;
+            this.x_tele.TabIndex = 2;
             // 
-            // label1
+            // tpYLabel1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(152, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Y";
+            this.tpYLabel1.AutoSize = true;
+            this.tpYLabel1.Location = new System.Drawing.Point(152, 135);
+            this.tpYLabel1.Name = "tpYLabel1";
+            this.tpYLabel1.Size = new System.Drawing.Size(14, 13);
+            this.tpYLabel1.TabIndex = 2;
+            this.tpYLabel1.Text = "Y";
             // 
-            // label2
+            // tpXLabel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(93, 141);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(14, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "X";
+            this.tpXLabel1.AutoSize = true;
+            this.tpXLabel1.Location = new System.Drawing.Point(93, 135);
+            this.tpXLabel1.Name = "tpXLabel1";
+            this.tpXLabel1.Size = new System.Drawing.Size(14, 13);
+            this.tpXLabel1.TabIndex = 3;
+            this.tpXLabel1.Text = "X";
             // 
             // timer1
             // 
@@ -256,29 +256,29 @@
             // teleportBtn1
             // 
             this.teleportBtn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teleportBtn1.Location = new System.Drawing.Point(334, 138);
+            this.teleportBtn1.Location = new System.Drawing.Point(334, 132);
             this.teleportBtn1.Name = "teleportBtn1";
             this.teleportBtn1.Size = new System.Drawing.Size(42, 20);
-            this.teleportBtn1.TabIndex = 13;
+            this.teleportBtn1.TabIndex = 5;
             this.teleportBtn1.Text = "TP";
             this.teleportBtn1.UseVisualStyleBackColor = true;
             this.teleportBtn1.Click += new System.EventHandler(this.teleportBtn1_Click);
             // 
             // z_tele
             // 
-            this.z_tele.Location = new System.Drawing.Point(226, 138);
+            this.z_tele.Location = new System.Drawing.Point(226, 132);
             this.z_tele.Name = "z_tele";
             this.z_tele.Size = new System.Drawing.Size(44, 20);
-            this.z_tele.TabIndex = 3;
+            this.z_tele.TabIndex = 4;
             // 
-            // label3
+            // tpZLabel1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(211, 141);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Z";
+            this.tpZLabel1.AutoSize = true;
+            this.tpZLabel1.Location = new System.Drawing.Point(211, 135);
+            this.tpZLabel1.Name = "tpZLabel1";
+            this.tpZLabel1.Size = new System.Drawing.Size(14, 13);
+            this.tpZLabel1.TabIndex = 6;
+            this.tpZLabel1.Text = "Z";
             // 
             // y_label
             // 
@@ -390,92 +390,92 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(8, 245);
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(5, 248);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(108, 13);
+            this.label22.Size = new System.Drawing.Size(95, 13);
             this.label22.TabIndex = 42;
             this.label22.Text = "BUFFS/DEBUFFS";
             // 
-            // label23
+            // tpZLabel2
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(211, 165);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(14, 13);
-            this.label23.TabIndex = 73;
-            this.label23.Text = "Z";
+            this.tpZLabel2.AutoSize = true;
+            this.tpZLabel2.Location = new System.Drawing.Point(211, 159);
+            this.tpZLabel2.Name = "tpZLabel2";
+            this.tpZLabel2.Size = new System.Drawing.Size(14, 13);
+            this.tpZLabel2.TabIndex = 73;
+            this.tpZLabel2.Text = "Z";
             // 
             // z_tele2
             // 
-            this.z_tele2.Location = new System.Drawing.Point(226, 162);
+            this.z_tele2.Location = new System.Drawing.Point(226, 156);
             this.z_tele2.Name = "z_tele2";
             this.z_tele2.Size = new System.Drawing.Size(44, 20);
-            this.z_tele2.TabIndex = 6;
+            this.z_tele2.TabIndex = 9;
             // 
             // teleportBtn2
             // 
             this.teleportBtn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teleportBtn2.Location = new System.Drawing.Point(334, 162);
+            this.teleportBtn2.Location = new System.Drawing.Point(334, 156);
             this.teleportBtn2.Name = "teleportBtn2";
             this.teleportBtn2.Size = new System.Drawing.Size(42, 20);
-            this.teleportBtn2.TabIndex = 14;
+            this.teleportBtn2.TabIndex = 10;
             this.teleportBtn2.Text = "TP";
             this.teleportBtn2.UseVisualStyleBackColor = true;
             this.teleportBtn2.Click += new System.EventHandler(this.teleportBtn2_Click);
             // 
-            // label24
+            // tpXLabel2
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(93, 165);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(14, 13);
-            this.label24.TabIndex = 70;
-            this.label24.Text = "X";
+            this.tpXLabel2.AutoSize = true;
+            this.tpXLabel2.Location = new System.Drawing.Point(93, 159);
+            this.tpXLabel2.Name = "tpXLabel2";
+            this.tpXLabel2.Size = new System.Drawing.Size(14, 13);
+            this.tpXLabel2.TabIndex = 70;
+            this.tpXLabel2.Text = "X";
             // 
-            // label25
+            // tpYLabel2
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(152, 165);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(14, 13);
-            this.label25.TabIndex = 69;
-            this.label25.Text = "Y";
+            this.tpYLabel2.AutoSize = true;
+            this.tpYLabel2.Location = new System.Drawing.Point(152, 159);
+            this.tpYLabel2.Name = "tpYLabel2";
+            this.tpYLabel2.Size = new System.Drawing.Size(14, 13);
+            this.tpYLabel2.TabIndex = 69;
+            this.tpYLabel2.Text = "Y";
             // 
             // x_tele2
             // 
-            this.x_tele2.Location = new System.Drawing.Point(107, 162);
+            this.x_tele2.Location = new System.Drawing.Point(107, 156);
             this.x_tele2.Name = "x_tele2";
             this.x_tele2.Size = new System.Drawing.Size(44, 20);
-            this.x_tele2.TabIndex = 4;
+            this.x_tele2.TabIndex = 7;
             // 
             // y_tele2
             // 
-            this.y_tele2.Location = new System.Drawing.Point(166, 162);
+            this.y_tele2.Location = new System.Drawing.Point(166, 156);
             this.y_tele2.Name = "y_tele2";
             this.y_tele2.Size = new System.Drawing.Size(44, 20);
-            this.y_tele2.TabIndex = 5;
+            this.y_tele2.TabIndex = 8;
             // 
-            // label26
+            // tpZLabel3
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(211, 188);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(14, 13);
-            this.label26.TabIndex = 80;
-            this.label26.Text = "Z";
+            this.tpZLabel3.AutoSize = true;
+            this.tpZLabel3.Location = new System.Drawing.Point(211, 182);
+            this.tpZLabel3.Name = "tpZLabel3";
+            this.tpZLabel3.Size = new System.Drawing.Size(14, 13);
+            this.tpZLabel3.TabIndex = 80;
+            this.tpZLabel3.Text = "Z";
             // 
             // z_tele3
             // 
-            this.z_tele3.Location = new System.Drawing.Point(226, 185);
+            this.z_tele3.Location = new System.Drawing.Point(226, 179);
             this.z_tele3.Name = "z_tele3";
             this.z_tele3.Size = new System.Drawing.Size(44, 20);
-            this.z_tele3.TabIndex = 9;
+            this.z_tele3.TabIndex = 14;
             // 
             // teleportBtn3
             // 
             this.teleportBtn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teleportBtn3.Location = new System.Drawing.Point(334, 185);
+            this.teleportBtn3.Location = new System.Drawing.Point(334, 179);
             this.teleportBtn3.Name = "teleportBtn3";
             this.teleportBtn3.Size = new System.Drawing.Size(42, 20);
             this.teleportBtn3.TabIndex = 15;
@@ -483,96 +483,96 @@
             this.teleportBtn3.UseVisualStyleBackColor = true;
             this.teleportBtn3.Click += new System.EventHandler(this.teleportBtn3_Click);
             // 
-            // label27
+            // tpXLabel3
             // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(93, 188);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(14, 13);
-            this.label27.TabIndex = 77;
-            this.label27.Text = "X";
+            this.tpXLabel3.AutoSize = true;
+            this.tpXLabel3.Location = new System.Drawing.Point(93, 182);
+            this.tpXLabel3.Name = "tpXLabel3";
+            this.tpXLabel3.Size = new System.Drawing.Size(14, 13);
+            this.tpXLabel3.TabIndex = 77;
+            this.tpXLabel3.Text = "X";
             // 
-            // label28
+            // tpYLabel3
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(152, 188);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(14, 13);
-            this.label28.TabIndex = 76;
-            this.label28.Text = "Y";
+            this.tpYLabel3.AutoSize = true;
+            this.tpYLabel3.Location = new System.Drawing.Point(152, 182);
+            this.tpYLabel3.Name = "tpYLabel3";
+            this.tpYLabel3.Size = new System.Drawing.Size(14, 13);
+            this.tpYLabel3.TabIndex = 76;
+            this.tpYLabel3.Text = "Y";
             // 
             // x_tele3
             // 
-            this.x_tele3.Location = new System.Drawing.Point(107, 185);
+            this.x_tele3.Location = new System.Drawing.Point(107, 179);
             this.x_tele3.Name = "x_tele3";
             this.x_tele3.Size = new System.Drawing.Size(44, 20);
-            this.x_tele3.TabIndex = 7;
+            this.x_tele3.TabIndex = 12;
             // 
             // y_tele3
             // 
-            this.y_tele3.Location = new System.Drawing.Point(166, 185);
+            this.y_tele3.Location = new System.Drawing.Point(166, 179);
             this.y_tele3.Name = "y_tele3";
             this.y_tele3.Size = new System.Drawing.Size(44, 20);
-            this.y_tele3.TabIndex = 8;
+            this.y_tele3.TabIndex = 13;
             // 
-            // label29
+            // tpZLabel4
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(211, 212);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(14, 13);
-            this.label29.TabIndex = 87;
-            this.label29.Text = "Z";
+            this.tpZLabel4.AutoSize = true;
+            this.tpZLabel4.Location = new System.Drawing.Point(211, 206);
+            this.tpZLabel4.Name = "tpZLabel4";
+            this.tpZLabel4.Size = new System.Drawing.Size(14, 13);
+            this.tpZLabel4.TabIndex = 87;
+            this.tpZLabel4.Text = "Z";
             // 
             // z_tele4
             // 
-            this.z_tele4.Location = new System.Drawing.Point(226, 209);
+            this.z_tele4.Location = new System.Drawing.Point(226, 203);
             this.z_tele4.Name = "z_tele4";
             this.z_tele4.Size = new System.Drawing.Size(44, 20);
-            this.z_tele4.TabIndex = 12;
+            this.z_tele4.TabIndex = 19;
             // 
             // teleportBtn4
             // 
             this.teleportBtn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.teleportBtn4.Location = new System.Drawing.Point(334, 209);
+            this.teleportBtn4.Location = new System.Drawing.Point(334, 203);
             this.teleportBtn4.Name = "teleportBtn4";
             this.teleportBtn4.Size = new System.Drawing.Size(42, 20);
-            this.teleportBtn4.TabIndex = 16;
+            this.teleportBtn4.TabIndex = 20;
             this.teleportBtn4.Text = "TP";
             this.teleportBtn4.UseVisualStyleBackColor = true;
             this.teleportBtn4.Click += new System.EventHandler(this.teleportBtn4_Click);
             // 
-            // label30
+            // tpXLabel4
             // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(93, 212);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(14, 13);
-            this.label30.TabIndex = 84;
-            this.label30.Text = "X";
+            this.tpXLabel4.AutoSize = true;
+            this.tpXLabel4.Location = new System.Drawing.Point(93, 206);
+            this.tpXLabel4.Name = "tpXLabel4";
+            this.tpXLabel4.Size = new System.Drawing.Size(14, 13);
+            this.tpXLabel4.TabIndex = 84;
+            this.tpXLabel4.Text = "X";
             // 
-            // label31
+            // tpYLabel4
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(152, 212);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(14, 13);
-            this.label31.TabIndex = 83;
-            this.label31.Text = "Y";
+            this.tpYLabel4.AutoSize = true;
+            this.tpYLabel4.Location = new System.Drawing.Point(152, 206);
+            this.tpYLabel4.Name = "tpYLabel4";
+            this.tpYLabel4.Size = new System.Drawing.Size(14, 13);
+            this.tpYLabel4.TabIndex = 83;
+            this.tpYLabel4.Text = "Y";
             // 
             // x_tele4
             // 
-            this.x_tele4.Location = new System.Drawing.Point(107, 209);
+            this.x_tele4.Location = new System.Drawing.Point(107, 203);
             this.x_tele4.Name = "x_tele4";
             this.x_tele4.Size = new System.Drawing.Size(44, 20);
-            this.x_tele4.TabIndex = 10;
+            this.x_tele4.TabIndex = 17;
             // 
             // y_tele4
             // 
-            this.y_tele4.Location = new System.Drawing.Point(166, 209);
+            this.y_tele4.Location = new System.Drawing.Point(166, 203);
             this.y_tele4.Name = "y_tele4";
             this.y_tele4.Size = new System.Drawing.Size(44, 20);
-            this.y_tele4.TabIndex = 11;
+            this.y_tele4.TabIndex = 18;
             // 
             // label32
             // 
@@ -589,10 +589,10 @@
             // 
             this.button5.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button5.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button5.Location = new System.Drawing.Point(377, 138);
+            this.button5.Location = new System.Drawing.Point(377, 132);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(21, 20);
-            this.button5.TabIndex = 90;
+            this.button5.TabIndex = 21;
             this.button5.Text = "v";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
@@ -601,10 +601,10 @@
             // 
             this.button6.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button6.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button6.Location = new System.Drawing.Point(377, 162);
+            this.button6.Location = new System.Drawing.Point(377, 156);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(21, 20);
-            this.button6.TabIndex = 91;
+            this.button6.TabIndex = 25;
             this.button6.Text = "v";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
@@ -613,10 +613,10 @@
             // 
             this.button7.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button7.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button7.Location = new System.Drawing.Point(377, 185);
+            this.button7.Location = new System.Drawing.Point(377, 179);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(21, 20);
-            this.button7.TabIndex = 92;
+            this.button7.TabIndex = 29;
             this.button7.Text = "v";
             this.button7.UseVisualStyleBackColor = true;
             this.button7.Click += new System.EventHandler(this.button7_Click);
@@ -625,10 +625,10 @@
             // 
             this.button8.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button8.ForeColor = System.Drawing.Color.OliveDrab;
-            this.button8.Location = new System.Drawing.Point(377, 209);
+            this.button8.Location = new System.Drawing.Point(377, 203);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(21, 20);
-            this.button8.TabIndex = 93;
+            this.button8.TabIndex = 33;
             this.button8.Text = "v";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
@@ -637,10 +637,10 @@
             // 
             this.button9.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button9.ForeColor = System.Drawing.Color.Maroon;
-            this.button9.Location = new System.Drawing.Point(398, 138);
+            this.button9.Location = new System.Drawing.Point(398, 132);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(21, 20);
-            this.button9.TabIndex = 94;
+            this.button9.TabIndex = 22;
             this.button9.Text = "M";
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
@@ -649,10 +649,10 @@
             // 
             this.button10.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button10.ForeColor = System.Drawing.Color.Maroon;
-            this.button10.Location = new System.Drawing.Point(398, 162);
+            this.button10.Location = new System.Drawing.Point(398, 156);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(21, 20);
-            this.button10.TabIndex = 95;
+            this.button10.TabIndex = 26;
             this.button10.Text = "M";
             this.button10.UseVisualStyleBackColor = true;
             this.button10.Click += new System.EventHandler(this.button10_Click);
@@ -661,10 +661,10 @@
             // 
             this.button11.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button11.ForeColor = System.Drawing.Color.Maroon;
-            this.button11.Location = new System.Drawing.Point(398, 185);
+            this.button11.Location = new System.Drawing.Point(398, 179);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(21, 20);
-            this.button11.TabIndex = 96;
+            this.button11.TabIndex = 30;
             this.button11.Text = "M";
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
@@ -673,34 +673,34 @@
             // 
             this.button12.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button12.ForeColor = System.Drawing.Color.Maroon;
-            this.button12.Location = new System.Drawing.Point(398, 209);
+            this.button12.Location = new System.Drawing.Point(398, 203);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(21, 20);
-            this.button12.TabIndex = 97;
+            this.button12.TabIndex = 34;
             this.button12.Text = "M";
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // listView1
+            // buffsList
             // 
-            this.listView1.Activation = System.Windows.Forms.ItemActivation.TwoClick;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.buffsList.Activation = System.Windows.Forms.ItemActivation.TwoClick;
+            this.buffsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Timer,
             this.ID});
-            this.listView1.Enabled = false;
-            this.listView1.FullRowSelect = true;
-            this.listView1.GridLines = true;
-            this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.listView1.LabelEdit = true;
-            this.listView1.Location = new System.Drawing.Point(7, 268);
-            this.listView1.MultiSelect = false;
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(225, 301);
-            this.listView1.TabIndex = 500;
-            this.listView1.TabStop = false;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.buffsList.Enabled = false;
+            this.buffsList.FullRowSelect = true;
+            this.buffsList.GridLines = true;
+            this.buffsList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.buffsList.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.buffsList.LabelEdit = true;
+            this.buffsList.Location = new System.Drawing.Point(7, 264);
+            this.buffsList.MultiSelect = false;
+            this.buffsList.Name = "buffsList";
+            this.buffsList.Size = new System.Drawing.Size(225, 301);
+            this.buffsList.TabIndex = 500;
+            this.buffsList.TabStop = false;
+            this.buffsList.UseCompatibleStateImageBehavior = false;
+            this.buffsList.View = System.Windows.Forms.View.Details;
             // 
             // Timer
             // 
@@ -716,10 +716,10 @@
             // 
             this.button13.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button13.ForeColor = System.Drawing.Color.Navy;
-            this.button13.Location = new System.Drawing.Point(419, 138);
+            this.button13.Location = new System.Drawing.Point(419, 132);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(21, 20);
-            this.button13.TabIndex = 98;
+            this.button13.TabIndex = 23;
             this.button13.Text = "=";
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
@@ -728,10 +728,10 @@
             // 
             this.button14.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button14.ForeColor = System.Drawing.Color.Navy;
-            this.button14.Location = new System.Drawing.Point(419, 162);
+            this.button14.Location = new System.Drawing.Point(419, 156);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(21, 20);
-            this.button14.TabIndex = 99;
+            this.button14.TabIndex = 27;
             this.button14.Text = "=";
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
@@ -740,10 +740,10 @@
             // 
             this.button15.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button15.ForeColor = System.Drawing.Color.Navy;
-            this.button15.Location = new System.Drawing.Point(419, 185);
+            this.button15.Location = new System.Drawing.Point(419, 179);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(21, 20);
-            this.button15.TabIndex = 100;
+            this.button15.TabIndex = 31;
             this.button15.Text = "=";
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click);
@@ -752,10 +752,10 @@
             // 
             this.button16.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button16.ForeColor = System.Drawing.Color.Navy;
-            this.button16.Location = new System.Drawing.Point(419, 209);
+            this.button16.Location = new System.Drawing.Point(419, 203);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(21, 20);
-            this.button16.TabIndex = 101;
+            this.button16.TabIndex = 35;
             this.button16.Text = "=";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
@@ -796,10 +796,10 @@
             // 
             this.button17.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button17.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button17.Location = new System.Drawing.Point(440, 138);
+            this.button17.Location = new System.Drawing.Point(440, 132);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(21, 20);
-            this.button17.TabIndex = 102;
+            this.button17.TabIndex = 24;
             this.button17.Text = "1";
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
@@ -808,10 +808,10 @@
             // 
             this.button18.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button18.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button18.Location = new System.Drawing.Point(440, 162);
+            this.button18.Location = new System.Drawing.Point(440, 156);
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(21, 20);
-            this.button18.TabIndex = 103;
+            this.button18.TabIndex = 28;
             this.button18.Text = "1";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
@@ -820,10 +820,10 @@
             // 
             this.button19.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button19.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button19.Location = new System.Drawing.Point(440, 185);
+            this.button19.Location = new System.Drawing.Point(440, 179);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(21, 20);
-            this.button19.TabIndex = 104;
+            this.button19.TabIndex = 32;
             this.button19.Text = "1";
             this.button19.UseVisualStyleBackColor = true;
             this.button19.Click += new System.EventHandler(this.button19_Click);
@@ -832,10 +832,10 @@
             // 
             this.button20.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button20.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.button20.Location = new System.Drawing.Point(440, 209);
+            this.button20.Location = new System.Drawing.Point(440, 203);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(21, 20);
-            this.button20.TabIndex = 105;
+            this.button20.TabIndex = 36;
             this.button20.Text = "1";
             this.button20.UseVisualStyleBackColor = true;
             this.button20.Click += new System.EventHandler(this.button20_Click);
@@ -872,7 +872,7 @@
             // 
             // saveAllBtn
             // 
-            this.saveAllBtn.Location = new System.Drawing.Point(242, 267);
+            this.saveAllBtn.Location = new System.Drawing.Point(242, 263);
             this.saveAllBtn.Name = "saveAllBtn";
             this.saveAllBtn.Size = new System.Drawing.Size(95, 23);
             this.saveAllBtn.TabIndex = 501;
@@ -882,7 +882,7 @@
             // 
             // loadAllBtn
             // 
-            this.loadAllBtn.Location = new System.Drawing.Point(242, 290);
+            this.loadAllBtn.Location = new System.Drawing.Point(242, 286);
             this.loadAllBtn.Name = "loadAllBtn";
             this.loadAllBtn.Size = new System.Drawing.Size(95, 23);
             this.loadAllBtn.TabIndex = 502;
@@ -904,20 +904,10 @@
             this.odall.Filter = "Group Teleport files (*.gtele)|*.gtele|All files (*.*)|*.*";
             this.odall.FileOk += new System.ComponentModel.CancelEventHandler(this.odall_FileOk);
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(344, 245);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(90, 13);
-            this.label10.TabIndex = 503;
-            this.label10.Text = "TARGET INFO";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(344, 287);
+            this.label11.Location = new System.Drawing.Point(5, 43);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(73, 13);
             this.label11.TabIndex = 504;
@@ -926,7 +916,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(344, 305);
+            this.label12.Location = new System.Drawing.Point(5, 61);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(72, 13);
             this.label12.TabIndex = 505;
@@ -936,12 +926,13 @@
             // 
             this.gateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gateBtn.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.gateBtn.Location = new System.Drawing.Point(292, 340);
+            this.gateBtn.Location = new System.Drawing.Point(285, 335);
             this.gateBtn.Name = "gateBtn";
-            this.gateBtn.Size = new System.Drawing.Size(48, 23);
+            this.gateBtn.Size = new System.Drawing.Size(52, 23);
             this.gateBtn.TabIndex = 506;
             this.gateBtn.Text = "GATE";
             this.gateBtn.UseVisualStyleBackColor = true;
+            this.gateBtn.Visible = false;
             this.gateBtn.Click += new System.EventHandler(this.gateBtn_Click);
             // 
             // followBtn
@@ -949,9 +940,9 @@
             this.followBtn.Enabled = false;
             this.followBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.followBtn.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.followBtn.Location = new System.Drawing.Point(240, 340);
+            this.followBtn.Location = new System.Drawing.Point(285, 311);
             this.followBtn.Name = "followBtn";
-            this.followBtn.Size = new System.Drawing.Size(52, 23);
+            this.followBtn.Size = new System.Drawing.Size(52, 22);
             this.followBtn.TabIndex = 507;
             this.followBtn.Text = "Follow";
             this.followBtn.UseVisualStyleBackColor = true;
@@ -959,7 +950,7 @@
             // 
             // runBox
             // 
-            this.runBox.Location = new System.Drawing.Point(244, 387);
+            this.runBox.Location = new System.Drawing.Point(244, 394);
             this.runBox.Name = "runBox";
             this.runBox.Size = new System.Drawing.Size(74, 20);
             this.runBox.TabIndex = 508;
@@ -968,10 +959,10 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(241, 371);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(242, 378);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(79, 13);
+            this.label13.Size = new System.Drawing.Size(70, 13);
             this.label13.TabIndex = 509;
             this.label13.Text = "RUN SPEED";
             // 
@@ -979,7 +970,7 @@
             // 
             this.resetRunBtn.Font = new System.Drawing.Font("Wingdings", 11.25F);
             this.resetRunBtn.ForeColor = System.Drawing.Color.Maroon;
-            this.resetRunBtn.Location = new System.Drawing.Point(320, 386);
+            this.resetRunBtn.Location = new System.Drawing.Point(320, 397);
             this.resetRunBtn.Name = "resetRunBtn";
             this.resetRunBtn.Size = new System.Drawing.Size(20, 22);
             this.resetRunBtn.TabIndex = 510;
@@ -990,7 +981,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(344, 269);
+            this.label14.Location = new System.Drawing.Point(5, 25);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
@@ -1010,10 +1001,10 @@
             this.listViewScripts.GridLines = true;
             this.listViewScripts.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listViewScripts.HideSelection = false;
-            this.listViewScripts.Location = new System.Drawing.Point(467, 58);
+            this.listViewScripts.Location = new System.Drawing.Point(467, 52);
             this.listViewScripts.MultiSelect = false;
             this.listViewScripts.Name = "listViewScripts";
-            this.listViewScripts.Size = new System.Drawing.Size(543, 201);
+            this.listViewScripts.Size = new System.Drawing.Size(543, 218);
             this.listViewScripts.TabIndex = 534;
             this.listViewScripts.UseCompatibleStateImageBehavior = false;
             this.listViewScripts.View = System.Windows.Forms.View.Details;
@@ -1040,9 +1031,9 @@
             // 
             // buttonAllScriptsEnabled
             // 
-            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(738, 29);
+            this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(721, 27);
             this.buttonAllScriptsEnabled.Name = "buttonAllScriptsEnabled";
-            this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(106, 24);
+            this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(111, 24);
             this.buttonAllScriptsEnabled.TabIndex = 536;
             this.buttonAllScriptsEnabled.Text = "All Scripts Enabled";
             this.buttonAllScriptsEnabled.UseVisualStyleBackColor = true;
@@ -1050,9 +1041,9 @@
             // 
             // buttonAllScriptsDisabled
             // 
-            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(846, 29);
+            this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(838, 27);
             this.buttonAllScriptsDisabled.Name = "buttonAllScriptsDisabled";
-            this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(107, 24);
+            this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(115, 24);
             this.buttonAllScriptsDisabled.TabIndex = 537;
             this.buttonAllScriptsDisabled.Text = "All Scripts Disabled";
             this.buttonAllScriptsDisabled.UseVisualStyleBackColor = true;
@@ -1062,8 +1053,8 @@
             // 
             this.statusStrip1.Dock = System.Windows.Forms.DockStyle.Top;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripDropDownButton4,
             this.toolStripDropDownButton1,
-            this.toolStripDropDownButton2,
             this.toolStripDropDownButton3});
             this.statusStrip1.Location = new System.Drawing.Point(0, 0);
             this.statusStrip1.Name = "statusStrip1";
@@ -1088,58 +1079,16 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings Menu";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // openMapSystemToolStripMenuItem
             // 
             this.openMapSystemToolStripMenuItem.Name = "openMapSystemToolStripMenuItem";
-            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openMapSystemToolStripMenuItem.Text = "Map System";
             this.openMapSystemToolStripMenuItem.Click += new System.EventHandler(this.openMapSystemToolStripMenuItem_Click);
-            // 
-            // toolStripDropDownButton2
-            // 
-            this.toolStripDropDownButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutEQTrainerToolStripMenuItem1,
-            this.softwareReadmeToolStripMenuItem1,
-            this.softwareInformationToolStripMenuItem1,
-            this.softwareSupportToolStripMenuItem});
-            this.toolStripDropDownButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton2.Image")));
-            this.toolStripDropDownButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton2.Name = "toolStripDropDownButton2";
-            this.toolStripDropDownButton2.Size = new System.Drawing.Size(41, 20);
-            this.toolStripDropDownButton2.Text = "Info";
-            // 
-            // aboutEQTrainerToolStripMenuItem1
-            // 
-            this.aboutEQTrainerToolStripMenuItem1.Name = "aboutEQTrainerToolStripMenuItem1";
-            this.aboutEQTrainerToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.aboutEQTrainerToolStripMenuItem1.Text = "About EQTrainer";
-            this.aboutEQTrainerToolStripMenuItem1.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem1_Click);
-            // 
-            // softwareReadmeToolStripMenuItem1
-            // 
-            this.softwareReadmeToolStripMenuItem1.Name = "softwareReadmeToolStripMenuItem1";
-            this.softwareReadmeToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.softwareReadmeToolStripMenuItem1.Text = "Software Readme";
-            this.softwareReadmeToolStripMenuItem1.Click += new System.EventHandler(this.softwareReadmeToolStripMenuItem1_Click);
-            // 
-            // softwareInformationToolStripMenuItem1
-            // 
-            this.softwareInformationToolStripMenuItem1.Name = "softwareInformationToolStripMenuItem1";
-            this.softwareInformationToolStripMenuItem1.Size = new System.Drawing.Size(186, 22);
-            this.softwareInformationToolStripMenuItem1.Text = "Software information";
-            this.softwareInformationToolStripMenuItem1.Click += new System.EventHandler(this.softwareInformationToolStripMenuItem1_Click);
-            // 
-            // softwareSupportToolStripMenuItem
-            // 
-            this.softwareSupportToolStripMenuItem.Name = "softwareSupportToolStripMenuItem";
-            this.softwareSupportToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.softwareSupportToolStripMenuItem.Text = "Software Support";
-            this.softwareSupportToolStripMenuItem.Click += new System.EventHandler(this.softwareSupportToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton3
             // 
@@ -1188,7 +1137,7 @@
             // mousex
             // 
             this.mousex.Enabled = false;
-            this.mousex.Location = new System.Drawing.Point(290, 523);
+            this.mousex.Location = new System.Drawing.Point(290, 519);
             this.mousex.Name = "mousex";
             this.mousex.Size = new System.Drawing.Size(38, 20);
             this.mousex.TabIndex = 542;
@@ -1196,7 +1145,7 @@
             // mousey
             // 
             this.mousey.Enabled = false;
-            this.mousey.Location = new System.Drawing.Point(290, 546);
+            this.mousey.Location = new System.Drawing.Point(290, 542);
             this.mousey.Name = "mousey";
             this.mousey.Size = new System.Drawing.Size(38, 20);
             this.mousey.TabIndex = 543;
@@ -1204,7 +1153,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(240, 527);
+            this.label6.Location = new System.Drawing.Point(240, 523);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(49, 13);
             this.label6.TabIndex = 544;
@@ -1213,7 +1162,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(240, 549);
+            this.label15.Location = new System.Drawing.Point(240, 545);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(49, 13);
             this.label15.TabIndex = 545;
@@ -1222,7 +1171,7 @@
             // t_health
             // 
             this.t_health.AutoSize = true;
-            this.t_health.Location = new System.Drawing.Point(344, 323);
+            this.t_health.Location = new System.Drawing.Point(5, 79);
             this.t_health.Name = "t_health";
             this.t_health.Size = new System.Drawing.Size(78, 13);
             this.t_health.TabIndex = 546;
@@ -1231,7 +1180,7 @@
             // target_x
             // 
             this.target_x.AutoSize = true;
-            this.target_x.Location = new System.Drawing.Point(344, 362);
+            this.target_x.Location = new System.Drawing.Point(5, 118);
             this.target_x.Name = "target_x";
             this.target_x.Size = new System.Drawing.Size(54, 13);
             this.target_x.TabIndex = 547;
@@ -1240,7 +1189,7 @@
             // target_y
             // 
             this.target_y.AutoSize = true;
-            this.target_y.Location = new System.Drawing.Point(344, 344);
+            this.target_y.Location = new System.Drawing.Point(5, 100);
             this.target_y.Name = "target_y";
             this.target_y.Size = new System.Drawing.Size(54, 13);
             this.target_y.TabIndex = 548;
@@ -1249,7 +1198,7 @@
             // target_z
             // 
             this.target_z.AutoSize = true;
-            this.target_z.Location = new System.Drawing.Point(344, 380);
+            this.target_z.Location = new System.Drawing.Point(5, 136);
             this.target_z.Name = "target_z";
             this.target_z.Size = new System.Drawing.Size(54, 13);
             this.target_z.TabIndex = 549;
@@ -1257,31 +1206,31 @@
             // 
             // tele_label1
             // 
-            this.tele_label1.Location = new System.Drawing.Point(7, 138);
+            this.tele_label1.Location = new System.Drawing.Point(7, 132);
             this.tele_label1.Name = "tele_label1";
             this.tele_label1.Size = new System.Drawing.Size(85, 20);
-            this.tele_label1.TabIndex = 550;
+            this.tele_label1.TabIndex = 1;
             // 
             // tele_label2
             // 
-            this.tele_label2.Location = new System.Drawing.Point(7, 162);
+            this.tele_label2.Location = new System.Drawing.Point(7, 156);
             this.tele_label2.Name = "tele_label2";
             this.tele_label2.Size = new System.Drawing.Size(85, 20);
-            this.tele_label2.TabIndex = 551;
+            this.tele_label2.TabIndex = 6;
             // 
             // tele_label3
             // 
-            this.tele_label3.Location = new System.Drawing.Point(7, 185);
+            this.tele_label3.Location = new System.Drawing.Point(7, 179);
             this.tele_label3.Name = "tele_label3";
             this.tele_label3.Size = new System.Drawing.Size(85, 20);
-            this.tele_label3.TabIndex = 552;
+            this.tele_label3.TabIndex = 11;
             // 
             // tele_label4
             // 
-            this.tele_label4.Location = new System.Drawing.Point(7, 209);
+            this.tele_label4.Location = new System.Drawing.Point(7, 203);
             this.tele_label4.Name = "tele_label4";
             this.tele_label4.Size = new System.Drawing.Size(85, 20);
-            this.tele_label4.TabIndex = 553;
+            this.tele_label4.TabIndex = 16;
             // 
             // label16
             // 
@@ -1294,71 +1243,71 @@
             // 
             // h_tele1
             // 
-            this.h_tele1.Location = new System.Drawing.Point(287, 138);
+            this.h_tele1.Location = new System.Drawing.Point(287, 132);
             this.h_tele1.Name = "h_tele1";
             this.h_tele1.Size = new System.Drawing.Size(44, 20);
-            this.h_tele1.TabIndex = 555;
+            this.h_tele1.TabIndex = 5;
             // 
-            // label17
+            // tpHeaderLabel1
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(271, 141);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(15, 13);
-            this.label17.TabIndex = 556;
-            this.label17.Text = "H";
+            this.tpHeaderLabel1.AutoSize = true;
+            this.tpHeaderLabel1.Location = new System.Drawing.Point(271, 135);
+            this.tpHeaderLabel1.Name = "tpHeaderLabel1";
+            this.tpHeaderLabel1.Size = new System.Drawing.Size(15, 13);
+            this.tpHeaderLabel1.TabIndex = 556;
+            this.tpHeaderLabel1.Text = "H";
             // 
-            // label18
+            // tpHeaderLabel2
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(271, 165);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(15, 13);
-            this.label18.TabIndex = 558;
-            this.label18.Text = "H";
+            this.tpHeaderLabel2.AutoSize = true;
+            this.tpHeaderLabel2.Location = new System.Drawing.Point(271, 159);
+            this.tpHeaderLabel2.Name = "tpHeaderLabel2";
+            this.tpHeaderLabel2.Size = new System.Drawing.Size(15, 13);
+            this.tpHeaderLabel2.TabIndex = 558;
+            this.tpHeaderLabel2.Text = "H";
             // 
             // h_tele2
             // 
-            this.h_tele2.Location = new System.Drawing.Point(287, 162);
+            this.h_tele2.Location = new System.Drawing.Point(287, 156);
             this.h_tele2.Name = "h_tele2";
             this.h_tele2.Size = new System.Drawing.Size(44, 20);
-            this.h_tele2.TabIndex = 557;
+            this.h_tele2.TabIndex = 10;
             // 
-            // label19
+            // tpHeaderLabel3
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(271, 188);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(15, 13);
-            this.label19.TabIndex = 560;
-            this.label19.Text = "H";
+            this.tpHeaderLabel3.AutoSize = true;
+            this.tpHeaderLabel3.Location = new System.Drawing.Point(271, 182);
+            this.tpHeaderLabel3.Name = "tpHeaderLabel3";
+            this.tpHeaderLabel3.Size = new System.Drawing.Size(15, 13);
+            this.tpHeaderLabel3.TabIndex = 560;
+            this.tpHeaderLabel3.Text = "H";
             // 
             // h_tele3
             // 
-            this.h_tele3.Location = new System.Drawing.Point(287, 185);
+            this.h_tele3.Location = new System.Drawing.Point(287, 179);
             this.h_tele3.Name = "h_tele3";
             this.h_tele3.Size = new System.Drawing.Size(44, 20);
-            this.h_tele3.TabIndex = 559;
+            this.h_tele3.TabIndex = 15;
             // 
-            // label33
+            // tpHeaderLabel4
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(271, 212);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(15, 13);
-            this.label33.TabIndex = 562;
-            this.label33.Text = "H";
+            this.tpHeaderLabel4.AutoSize = true;
+            this.tpHeaderLabel4.Location = new System.Drawing.Point(271, 206);
+            this.tpHeaderLabel4.Name = "tpHeaderLabel4";
+            this.tpHeaderLabel4.Size = new System.Drawing.Size(15, 13);
+            this.tpHeaderLabel4.TabIndex = 562;
+            this.tpHeaderLabel4.Text = "H";
             // 
             // h_tele4
             // 
-            this.h_tele4.Location = new System.Drawing.Point(287, 209);
+            this.h_tele4.Location = new System.Drawing.Point(287, 203);
             this.h_tele4.Name = "h_tele4";
             this.h_tele4.Size = new System.Drawing.Size(44, 20);
-            this.h_tele4.TabIndex = 561;
+            this.h_tele4.TabIndex = 20;
             // 
             // buttonTargetSpawn
             // 
-            this.buttonTargetSpawn.Location = new System.Drawing.Point(881, 546);
+            this.buttonTargetSpawn.Location = new System.Drawing.Point(747, 541);
             this.buttonTargetSpawn.Name = "buttonTargetSpawn";
             this.buttonTargetSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonTargetSpawn.TabIndex = 566;
@@ -1368,11 +1317,12 @@
             // 
             // buttonRefreshSpawnList
             // 
-            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(945, 269);
+            this.buttonRefreshSpawnList.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.buttonRefreshSpawnList.Location = new System.Drawing.Point(981, 275);
             this.buttonRefreshSpawnList.Name = "buttonRefreshSpawnList";
-            this.buttonRefreshSpawnList.Size = new System.Drawing.Size(65, 24);
+            this.buttonRefreshSpawnList.Size = new System.Drawing.Size(29, 22);
             this.buttonRefreshSpawnList.TabIndex = 565;
-            this.buttonRefreshSpawnList.Text = "SEARCH";
+            this.buttonRefreshSpawnList.Text = "$";
             this.buttonRefreshSpawnList.UseVisualStyleBackColor = true;
             this.buttonRefreshSpawnList.Click += new System.EventHandler(this.buttonRefreshSpawnList_Click);
             // 
@@ -1451,33 +1401,33 @@
             // labelSpawnList
             // 
             this.labelSpawnList.AutoSize = true;
-            this.labelSpawnList.Location = new System.Drawing.Point(464, 274);
+            this.labelSpawnList.Location = new System.Drawing.Point(465, 280);
             this.labelSpawnList.Name = "labelSpawnList";
-            this.labelSpawnList.Size = new System.Drawing.Size(62, 13);
+            this.labelSpawnList.Size = new System.Drawing.Size(73, 13);
             this.labelSpawnList.TabIndex = 567;
-            this.labelSpawnList.Text = "Spawn List:";
+            this.labelSpawnList.Text = "SPAWN LIST";
             // 
             // labelSpawnListFilter
             // 
             this.labelSpawnListFilter.AutoSize = true;
-            this.labelSpawnListFilter.Location = new System.Drawing.Point(586, 274);
+            this.labelSpawnListFilter.Location = new System.Drawing.Point(563, 280);
             this.labelSpawnListFilter.Name = "labelSpawnListFilter";
-            this.labelSpawnListFilter.Size = new System.Drawing.Size(32, 13);
+            this.labelSpawnListFilter.Size = new System.Drawing.Size(63, 13);
             this.labelSpawnListFilter.TabIndex = 568;
-            this.labelSpawnListFilter.Text = "Filter:";
+            this.labelSpawnListFilter.Text = "Name Filter:";
             // 
             // textBoxSpawnListFilter
             // 
             this.textBoxSpawnListFilter.AcceptsReturn = true;
-            this.textBoxSpawnListFilter.Location = new System.Drawing.Point(624, 271);
+            this.textBoxSpawnListFilter.Location = new System.Drawing.Point(626, 276);
             this.textBoxSpawnListFilter.Name = "textBoxSpawnListFilter";
-            this.textBoxSpawnListFilter.Size = new System.Drawing.Size(315, 20);
+            this.textBoxSpawnListFilter.Size = new System.Drawing.Size(351, 20);
             this.textBoxSpawnListFilter.TabIndex = 569;
             this.textBoxSpawnListFilter.GotFocus += new System.EventHandler(this.textBoxSpawnListFilter_GotFocus);
             // 
             // buttonWarpToSpawn
             // 
-            this.buttonWarpToSpawn.Location = new System.Drawing.Point(746, 546);
+            this.buttonWarpToSpawn.Location = new System.Drawing.Point(881, 541);
             this.buttonWarpToSpawn.Name = "buttonWarpToSpawn";
             this.buttonWarpToSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonWarpToSpawn.TabIndex = 570;
@@ -1487,7 +1437,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(242, 463);
+            this.button26.Location = new System.Drawing.Point(242, 459);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(85, 23);
             this.button26.TabIndex = 571;
@@ -1500,7 +1450,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(243, 442);
+            this.checkBox1.Location = new System.Drawing.Point(243, 438);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 573;
@@ -1510,7 +1460,7 @@
             // target_h
             // 
             this.target_h.AutoSize = true;
-            this.target_h.Location = new System.Drawing.Point(344, 397);
+            this.target_h.Location = new System.Drawing.Point(5, 153);
             this.target_h.Name = "target_h";
             this.target_h.Size = new System.Drawing.Size(55, 13);
             this.target_h.TabIndex = 574;
@@ -1518,41 +1468,32 @@
             // 
             // distance
             // 
-            this.distance.Location = new System.Drawing.Point(290, 318);
+            this.distance.Location = new System.Drawing.Point(244, 312);
             this.distance.Name = "distance";
-            this.distance.Size = new System.Drawing.Size(47, 20);
+            this.distance.Size = new System.Drawing.Size(38, 20);
             this.distance.TabIndex = 575;
             this.distance.Text = "1";
             // 
-            // label35
+            // procList
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(241, 322);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(49, 13);
-            this.label35.TabIndex = 576;
-            this.label35.Text = "Distance";
-            // 
-            // listView2
-            // 
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.procList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ProcessID});
-            this.listView2.FullRowSelect = true;
-            this.listView2.GridLines = true;
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(347, 432);
-            this.listView2.MultiSelect = false;
-            this.listView2.Name = "listView2";
-            this.listView2.Scrollable = false;
-            this.listView2.Size = new System.Drawing.Size(93, 108);
-            this.listView2.TabIndex = 578;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
+            this.procList.FullRowSelect = true;
+            this.procList.GridLines = true;
+            this.procList.HideSelection = false;
+            this.procList.Location = new System.Drawing.Point(347, 432);
+            this.procList.MultiSelect = false;
+            this.procList.Name = "procList";
+            this.procList.Scrollable = false;
+            this.procList.Size = new System.Drawing.Size(112, 108);
+            this.procList.TabIndex = 578;
+            this.procList.UseCompatibleStateImageBehavior = false;
+            this.procList.View = System.Windows.Forms.View.Details;
             // 
             // ProcessID
             // 
-            this.ProcessID.Text = "EQGame ID";
-            this.ProcessID.Width = 86;
+            this.ProcessID.Text = "EQGame Proc ID";
+            this.ProcessID.Width = 106;
             // 
             // backgroundWorker1
             // 
@@ -1561,11 +1502,11 @@
             // 
             // refreshProcessesBtn
             // 
-            this.refreshProcessesBtn.Location = new System.Drawing.Point(347, 546);
+            this.refreshProcessesBtn.Location = new System.Drawing.Point(347, 541);
             this.refreshProcessesBtn.Name = "refreshProcessesBtn";
-            this.refreshProcessesBtn.Size = new System.Drawing.Size(93, 23);
+            this.refreshProcessesBtn.Size = new System.Drawing.Size(112, 23);
             this.refreshProcessesBtn.TabIndex = 579;
-            this.refreshProcessesBtn.Text = "Refresh List";
+            this.refreshProcessesBtn.Text = "Refresh Processes";
             this.refreshProcessesBtn.UseVisualStyleBackColor = true;
             this.refreshProcessesBtn.Click += new System.EventHandler(this.refreshProcessesBtn_Click);
             // 
@@ -1582,42 +1523,44 @@
             // 
             // buttonCameraOnSpawn
             // 
-            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(467, 546);
+            this.buttonCameraOnSpawn.Location = new System.Drawing.Point(467, 541);
             this.buttonCameraOnSpawn.Name = "buttonCameraOnSpawn";
             this.buttonCameraOnSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonCameraOnSpawn.TabIndex = 583;
             this.buttonCameraOnSpawn.Text = "Camera on Spawn";
             this.buttonCameraOnSpawn.UseVisualStyleBackColor = true;
+            this.buttonCameraOnSpawn.Visible = false;
             this.buttonCameraOnSpawn.Click += new System.EventHandler(this.buttonCameraOnSpawn_Click);
             // 
             // buttonResetCamera
             // 
-            this.buttonResetCamera.Location = new System.Drawing.Point(601, 546);
+            this.buttonResetCamera.Location = new System.Drawing.Point(601, 541);
             this.buttonResetCamera.Name = "buttonResetCamera";
             this.buttonResetCamera.Size = new System.Drawing.Size(128, 24);
             this.buttonResetCamera.TabIndex = 584;
             this.buttonResetCamera.Text = "Reset Camera";
             this.buttonResetCamera.UseVisualStyleBackColor = true;
+            this.buttonResetCamera.Visible = false;
             this.buttonResetCamera.Click += new System.EventHandler(this.buttonResetCamera_Click);
             // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(504, 31);
+            this.comboBox1.Location = new System.Drawing.Point(566, 29);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(148, 21);
             this.comboBox1.TabIndex = 585;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(464, 35);
+            this.label37.Location = new System.Drawing.Point(465, 34);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(39, 13);
+            this.label37.Size = new System.Drawing.Size(88, 13);
             this.label37.TabIndex = 586;
-            this.label37.Text = "BUILD";
+            this.label37.Text = "BUILD SCRIPTS";
             // 
             // progressBarXP
             // 
@@ -1639,28 +1582,28 @@
             this.xp_stats.TabIndex = 588;
             this.xp_stats.Text = "(xp)";
             // 
-            // button1
+            // injectBtn
             // 
-            this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(242, 491);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 23);
-            this.button1.TabIndex = 589;
-            this.button1.Text = "INJECT DLL";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.injectBtn.ForeColor = System.Drawing.Color.DarkGreen;
+            this.injectBtn.Location = new System.Drawing.Point(242, 487);
+            this.injectBtn.Name = "injectBtn";
+            this.injectBtn.Size = new System.Drawing.Size(85, 23);
+            this.injectBtn.TabIndex = 589;
+            this.injectBtn.Text = "INJECT DLL";
+            this.injectBtn.UseVisualStyleBackColor = true;
+            this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
             // 
-            // button2
+            // toolbarBtn
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.button2.Location = new System.Drawing.Point(958, 29);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 24);
-            this.button2.TabIndex = 590;
-            this.button2.Text = "toolbar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.toolbarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toolbarBtn.ForeColor = System.Drawing.Color.SteelBlue;
+            this.toolbarBtn.Location = new System.Drawing.Point(958, 27);
+            this.toolbarBtn.Name = "toolbarBtn";
+            this.toolbarBtn.Size = new System.Drawing.Size(52, 24);
+            this.toolbarBtn.TabIndex = 590;
+            this.toolbarBtn.Text = "toolbar";
+            this.toolbarBtn.UseVisualStyleBackColor = true;
+            this.toolbarBtn.Click += new System.EventHandler(this.toolbarBtn_Click);
             // 
             // progressBarHP
             // 
@@ -1868,11 +1811,99 @@
             this.pictureBox1.TabIndex = 601;
             this.pictureBox1.TabStop = false;
             // 
+            // toolStripDropDownButton4
+            // 
+            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutEQTrainerToolStripMenuItem});
+            this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
+            this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
+            this.toolStripDropDownButton4.Size = new System.Drawing.Size(70, 20);
+            this.toolStripDropDownButton4.Text = "EQTrainer";
+            // 
+            // aboutEQTrainerToolStripMenuItem
+            // 
+            this.aboutEQTrainerToolStripMenuItem.Name = "aboutEQTrainerToolStripMenuItem";
+            this.aboutEQTrainerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.aboutEQTrainerToolStripMenuItem.Text = "About EQTrainer";
+            this.aboutEQTrainerToolStripMenuItem.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem_Click);
+            // 
+            // minimizeButton
+            // 
+            this.minimizeButton.AccessibleDescription = "Minimize Trainer Manager";
+            this.minimizeButton.AccessibleName = "Minimize Button";
+            this.minimizeButton.BackColor = System.Drawing.Color.LightSlateGray;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 5.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeButton.ForeColor = System.Drawing.Color.Lavender;
+            this.minimizeButton.Location = new System.Drawing.Point(930, 2);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(40, 18);
+            this.minimizeButton.TabIndex = 621;
+            this.minimizeButton.Tag = "";
+            this.minimizeButton.Text = "_";
+            this.minimizeButton.UseVisualStyleBackColor = false;
+            this.minimizeButton.Click += new System.EventHandler(this.minimizeButton_Click);
+            // 
+            // closeButton
+            // 
+            this.closeButton.AccessibleDescription = "Close Trainer Manager";
+            this.closeButton.AccessibleName = "Close Button";
+            this.closeButton.BackColor = System.Drawing.Color.RosyBrown;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.Transparent;
+            this.closeButton.Location = new System.Drawing.Point(972, 2);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(40, 18);
+            this.closeButton.TabIndex = 620;
+            this.closeButton.Text = "X";
+            this.closeButton.UseVisualStyleBackColor = false;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Control;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panel1.Location = new System.Drawing.Point(196, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(728, 20);
+            this.panel1.TabIndex = 622;
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
+            // 
+            // targetInfoBox
+            // 
+            this.targetInfoBox.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.targetInfoBox.Controls.Add(this.label11);
+            this.targetInfoBox.Controls.Add(this.label12);
+            this.targetInfoBox.Controls.Add(this.label14);
+            this.targetInfoBox.Controls.Add(this.t_health);
+            this.targetInfoBox.Controls.Add(this.target_x);
+            this.targetInfoBox.Controls.Add(this.target_y);
+            this.targetInfoBox.Controls.Add(this.target_z);
+            this.targetInfoBox.Controls.Add(this.target_h);
+            this.targetInfoBox.Cursor = System.Windows.Forms.Cursors.Help;
+            this.targetInfoBox.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.targetInfoBox.Location = new System.Drawing.Point(346, 245);
+            this.targetInfoBox.Name = "targetInfoBox";
+            this.targetInfoBox.Size = new System.Drawing.Size(113, 174);
+            this.targetInfoBox.TabIndex = 623;
+            this.targetInfoBox.TabStop = false;
+            this.targetInfoBox.Text = "TARGET INFO";
+            // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 574);
+            this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ClientSize = new System.Drawing.Size(1016, 573);
+            this.Controls.Add(this.targetInfoBox);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.minimizeButton);
+            this.Controls.Add(this.closeButton);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.label44);
             this.Controls.Add(this.label43);
@@ -1893,8 +1924,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.progressBarMP);
             this.Controls.Add(this.progressBarHP);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.toolbarBtn);
+            this.Controls.Add(this.injectBtn);
             this.Controls.Add(this.xp_stats);
             this.Controls.Add(this.progressBarXP);
             this.Controls.Add(this.label37);
@@ -1903,10 +1934,8 @@
             this.Controls.Add(this.buttonCameraOnSpawn);
             this.Controls.Add(this.name_label);
             this.Controls.Add(this.refreshProcessesBtn);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.label35);
+            this.Controls.Add(this.procList);
             this.Controls.Add(this.distance);
-            this.Controls.Add(this.target_h);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button26);
             this.Controls.Add(this.buttonWarpToSpawn);
@@ -1916,23 +1945,19 @@
             this.Controls.Add(this.buttonTargetSpawn);
             this.Controls.Add(this.buttonRefreshSpawnList);
             this.Controls.Add(this.listViewSpawnList);
-            this.Controls.Add(this.label33);
+            this.Controls.Add(this.tpHeaderLabel4);
             this.Controls.Add(this.h_tele4);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.tpHeaderLabel3);
             this.Controls.Add(this.h_tele3);
-            this.Controls.Add(this.label18);
+            this.Controls.Add(this.tpHeaderLabel2);
             this.Controls.Add(this.h_tele2);
-            this.Controls.Add(this.label17);
+            this.Controls.Add(this.tpHeaderLabel1);
             this.Controls.Add(this.h_tele1);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.tele_label4);
             this.Controls.Add(this.tele_label3);
             this.Controls.Add(this.tele_label2);
             this.Controls.Add(this.tele_label1);
-            this.Controls.Add(this.target_z);
-            this.Controls.Add(this.target_y);
-            this.Controls.Add(this.target_x);
-            this.Controls.Add(this.t_health);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mousey);
@@ -1943,15 +1968,11 @@
             this.Controls.Add(this.buttonAllScriptsDisabled);
             this.Controls.Add(this.buttonAllScriptsEnabled);
             this.Controls.Add(this.listViewScripts);
-            this.Controls.Add(this.label14);
             this.Controls.Add(this.resetRunBtn);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.runBox);
             this.Controls.Add(this.followBtn);
             this.Controls.Add(this.gateBtn);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.loadAllBtn);
             this.Controls.Add(this.saveAllBtn);
             this.Controls.Add(this.button20);
@@ -1962,7 +1983,7 @@
             this.Controls.Add(this.button15);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button13);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.buffsList);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button10);
@@ -1972,25 +1993,25 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.label29);
+            this.Controls.Add(this.tpZLabel4);
             this.Controls.Add(this.z_tele4);
             this.Controls.Add(this.teleportBtn4);
-            this.Controls.Add(this.label30);
-            this.Controls.Add(this.label31);
+            this.Controls.Add(this.tpXLabel4);
+            this.Controls.Add(this.tpYLabel4);
             this.Controls.Add(this.x_tele4);
             this.Controls.Add(this.y_tele4);
-            this.Controls.Add(this.label26);
+            this.Controls.Add(this.tpZLabel3);
             this.Controls.Add(this.z_tele3);
             this.Controls.Add(this.teleportBtn3);
-            this.Controls.Add(this.label27);
-            this.Controls.Add(this.label28);
+            this.Controls.Add(this.tpXLabel3);
+            this.Controls.Add(this.tpYLabel3);
             this.Controls.Add(this.x_tele3);
             this.Controls.Add(this.y_tele3);
-            this.Controls.Add(this.label23);
+            this.Controls.Add(this.tpZLabel2);
             this.Controls.Add(this.z_tele2);
             this.Controls.Add(this.teleportBtn2);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label25);
+            this.Controls.Add(this.tpXLabel2);
+            this.Controls.Add(this.tpYLabel2);
             this.Controls.Add(this.x_tele2);
             this.Controls.Add(this.y_tele2);
             this.Controls.Add(this.label22);
@@ -2005,17 +2026,18 @@
             this.Controls.Add(this.z_label);
             this.Controls.Add(this.x_label);
             this.Controls.Add(this.y_label);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.tpZLabel1);
             this.Controls.Add(this.z_tele);
             this.Controls.Add(this.teleportBtn1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tpXLabel1);
+            this.Controls.Add(this.tpYLabel1);
             this.Controls.Add(this.x_tele);
             this.Controls.Add(this.y_tele);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "TrainerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EQTrainer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.Load += new System.EventHandler(this.TrainerForm_Load);
@@ -2024,6 +2046,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.targetInfoBox.ResumeLayout(false);
+            this.targetInfoBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2031,10 +2055,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label tpYLabel1;
+        private System.Windows.Forms.Label tpXLabel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label tpZLabel1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -2043,17 +2067,17 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label mp_stats;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label tpZLabel2;
+        private System.Windows.Forms.Label tpXLabel2;
+        private System.Windows.Forms.Label tpYLabel2;
+        private System.Windows.Forms.Label tpZLabel3;
+        private System.Windows.Forms.Label tpXLabel3;
+        private System.Windows.Forms.Label tpYLabel3;
+        private System.Windows.Forms.Label tpZLabel4;
+        private System.Windows.Forms.Label tpXLabel4;
+        private System.Windows.Forms.Label tpYLabel4;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView buffsList;
         private System.Windows.Forms.ColumnHeader Timer;
         private System.Windows.Forms.ColumnHeader ID;
         private System.Windows.Forms.SaveFileDialog sd1;
@@ -2069,7 +2093,6 @@
         private System.Windows.Forms.Button loadAllBtn;
         private System.Windows.Forms.SaveFileDialog sdall;
         private System.Windows.Forms.OpenFileDialog odall;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button gateBtn;
@@ -2093,10 +2116,10 @@
         private System.Windows.Forms.Label target_y;
         private System.Windows.Forms.Label target_z;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label tpHeaderLabel1;
+        private System.Windows.Forms.Label tpHeaderLabel2;
+        private System.Windows.Forms.Label tpHeaderLabel3;
+        private System.Windows.Forms.Label tpHeaderLabel4;
         private System.Windows.Forms.Label labelSpawnList;
         private System.Windows.Forms.Label labelSpawnListFilter;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListName;
@@ -2109,8 +2132,7 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label target_h;
         private System.Windows.Forms.TextBox distance;
-        private System.Windows.Forms.Label label35;
-        public System.Windows.Forms.ListView listView2;
+        public System.Windows.Forms.ListView procList;
         private System.Windows.Forms.ColumnHeader ProcessID;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button refreshProcessesBtn;
@@ -2122,7 +2144,7 @@
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListClass;
         private System.Windows.Forms.ColumnHeader columnHeaderSpawnListType;
         private System.Windows.Forms.Label xp_stats;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button toolbarBtn;
         public System.Windows.Forms.Label name_label;
         public System.Windows.Forms.Button button17;
         public System.Windows.Forms.Button button18;
@@ -2177,7 +2199,7 @@
         public System.Windows.Forms.Button buttonWarpToSpawn;
         public System.Windows.Forms.TextBox textBoxSpawnListFilter;
         public System.Windows.Forms.Label map_label;
-        public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button injectBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -2202,15 +2224,15 @@
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
         private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openMapSystemToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton2;
-        private System.Windows.Forms.ToolStripMenuItem aboutEQTrainerToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem softwareReadmeToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem softwareInformationToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem softwareSupportToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton3;
         private System.Windows.Forms.ToolStripMenuItem cRedistributablex86ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoItToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton4;
+        private System.Windows.Forms.ToolStripMenuItem aboutEQTrainerToolStripMenuItem;
+        private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox targetInfoBox;
     }
 }
 

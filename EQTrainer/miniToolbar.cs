@@ -17,7 +17,7 @@ namespace EQTrainer
         static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
         public miniToolbar()
         {
@@ -151,15 +151,15 @@ namespace EQTrainer
             while (true)
             {
                 hpProgressBar.Invoke(new MethodInvoker(delegate { hpProgressBar.Value = this.RefToForm1.progressBarHP.Value; }));
-                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)2, IntPtr.Zero);
+                SendMessage(hpProgressBar.Handle, 1040, 2, 0);
                 hpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarHP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(hpProgressBar.Width / 2 - 10, hpProgressBar.Height / 2 - 7));
 
                 mpProgressBar.Invoke(new MethodInvoker(delegate { mpProgressBar.Value = this.RefToForm1.progressBarMP.Value; }));
-                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)0, IntPtr.Zero);
+                SendMessage(hpProgressBar.Handle, 1040, 0, 0);
                 mpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarMP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(mpProgressBar.Width / 2 - 10, mpProgressBar.Height / 2 - 7));
 
                 xpProgressBar.Invoke(new MethodInvoker(delegate { xpProgressBar.Value = this.RefToForm1.progressBarXP.Value; }));
-                SendMessage(hpProgressBar.Handle, 1040, (IntPtr)3, IntPtr.Zero);
+                SendMessage(hpProgressBar.Handle, 1040, 3, 0);
                 xpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarXP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(xpProgressBar.Width / 2 - 10, xpProgressBar.Height / 2 - 7));
             }
         }

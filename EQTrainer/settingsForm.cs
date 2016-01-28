@@ -29,13 +29,13 @@ namespace EQTrainer
                 ToolTip tt = new ToolTip();
                 if (old_warp.Checked)
                 {
-                    this.RefToForm1.button1.Enabled = false;
-                    tt.SetToolTip(this.RefToForm1.button1, "Old warp enabled. Inject happens when you teleport.");
+                    this.RefToForm1.injectBtn.Enabled = false;
+                    tt.SetToolTip(this.RefToForm1.injectBtn, "Old warp enabled. Inject happens when you teleport.");
                 }
                 else
                 {
-                    this.RefToForm1.button1.Enabled = true;
-                    tt.SetToolTip(this.RefToForm1.button1, "Inject DLL to use teleporting.");
+                    this.RefToForm1.injectBtn.Enabled = true;
+                    tt.SetToolTip(this.RefToForm1.injectBtn, "Inject DLL to use teleporting.");
                 }
             }
         }

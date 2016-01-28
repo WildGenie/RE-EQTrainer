@@ -477,6 +477,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_37CD311FD68249869FCD3517F1DDF80E"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_37F3DC2181734175BFB1C868BCDC3B59"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -640,12 +646,6 @@
         "Entry"
         {
         "MsmKey" = "8:_4AC3A2D03BE34E56AA1092E918A5E08F"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4BACE448329A4543872C18AA8561054B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -1017,12 +1017,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_744DAC79306B429284779AFAFDA1F4BB"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_7457089C99024E85A73B2A1B3452590D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1323,18 +1317,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_94EF9D61B287AD9CEC8F0909AFD51924"
-        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_94EF9D61B287AD9CEC8F0909AFD51924"
-        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_95C2610CBF3E4969AFF93DA0F8E64DB9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1553,6 +1535,18 @@
         {
         "MsmKey" = "8:_AFD50420A8B4442B8E42896679476C14"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B05A655688D86506CDA1C19542E599D4"
+        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B05A655688D86506CDA1C19542E599D4"
+        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2236,13 +2230,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_94EF9D61B287AD9CEC8F0909AFD51924"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_744DAC79306B429284779AFAFDA1F4BB"
+        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2254,7 +2242,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
+        "OwnerKey" = "8:_B05A655688D86506CDA1C19542E599D4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -2275,6 +2263,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -3881,6 +3885,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_37CD311FD68249869FCD3517F1DDF80E"
+            {
+            "SourcePath" = "8:..\\EQTrainer\\2016_icon.ico"
+            "TargetName" = "8:2016_icon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_37F3DC2181734175BFB1C868BCDC3B59"
             {
             "SourcePath" = "8:..\\EQTrainer\\bin\\Release\\builds\\EQMac\\scripts\\remove_detrimental_effects.ini"
@@ -4427,26 +4451,6 @@
             "TargetName" = "8:Tacar Tissleplay.tele"
             "Tag" = "8:"
             "Folder" = "8:_2AD830DABF064F49B4E1DDC2AA8E6A56"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4BACE448329A4543872C18AA8561054B"
-            {
-            "SourcePath" = "8:..\\EQTrainer\\favicon.ico"
-            "TargetName" = "8:favicon.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -6681,37 +6685,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_94EF9D61B287AD9CEC8F0909AFD51924"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Memory, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
-                "ScatterAssemblies"
-                {
-                    "_94EF9D61B287AD9CEC8F0909AFD51924"
-                    {
-                    "Name" = "8:Memory.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Memory.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_95C2610CBF3E4969AFF93DA0F8E64DB9"
             {
             "SourcePath" = "8:..\\EQTrainer\\bin\\Release\\telescripts\\Qeynos Hills\\Qeynos Hills to North Qeynos.tele"
@@ -7430,6 +7403,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B05A655688D86506CDA1C19542E599D4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Memory, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B05A655688D86506CDA1C19542E599D4"
+                    {
+                    "Name" = "8:Memory.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Memory.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0B58A449D544C6E8877906F3CA2211B"
@@ -10322,15 +10326,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EQTrainer"
-        "ProductCode" = "8:{66E302A7-4337-499C-8973-383ABAEB52DE}"
-        "PackageCode" = "8:{97FB6DC2-7966-4381-9EA9-148B8EB61324}"
+        "ProductCode" = "8:{FDF70351-462D-4A74-A1B9-B47EB6ED697D}"
+        "PackageCode" = "8:{E9517564-9986-485F-A71D-52CCB9A778FF}"
         "UpgradeCode" = "8:{423DBF5A-1EFC-4CDC-A197-75DBED3DF87F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:5.8.0"
+        "ProductVersion" = "8:5.8.1"
         "Manufacturer" = "8:NewAgeSoldier"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://newagesoldier.com"
@@ -10340,7 +10344,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:http://newagesoldier.com"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_37CD311FD68249869FCD3517F1DDF80E"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -10468,7 +10472,7 @@
             "Target" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
             "Folder" = "8:_0480D60680A94D50BAA4C39B7E2D28C1"
             "WorkingFolder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
-            "Icon" = "8:_4BACE448329A4543872C18AA8561054B"
+            "Icon" = "8:_37CD311FD68249869FCD3517F1DDF80E"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1A44AC85768E46D383DDC2285C163C0F"
@@ -10482,7 +10486,7 @@
             "Target" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
             "Folder" = "8:_CC27D0D87B944327BE208813E59E2C9A"
             "WorkingFolder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
-            "Icon" = "8:_4BACE448329A4543872C18AA8561054B"
+            "Icon" = "8:_37CD311FD68249869FCD3517F1DDF80E"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_CB3CD5EA621647FF9FCDC0113E7C3B48"
@@ -10898,37 +10902,9 @@
         }
         "ProjectOutput"
         {
-            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_744DAC79306B429284779AFAFDA1F4BB"
-            {
-            "SourcePath" = "8:..\\Memory\\obj\\x86\\Release\\Memory.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:TRUE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            "ProjectOutputGroupRegister" = "3:1"
-            "OutputConfiguration" = "8:"
-            "OutputGroupCanonicalName" = "8:Built"
-            "OutputProjectGuid" = "8:{9ABF5742-7489-455C-B94A-3A85725D939A}"
-            "ShowKeyOutput" = "11:TRUE"
-                "ExcludeFilters"
-                {
-                }
-            }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_A9BA1FD3D5774C60A61355C53ECE5E8F"
             {
-            "SourcePath" = "8:..\\EQTrainer\\obj\\x86\\Release\\EQTrainer.exe"
+            "SourcePath" = "8:..\\EQTrainer\\obj\\x86\\Debug\\EQTrainer.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
@@ -10956,7 +10932,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_FF08914C82934611AE9FD6CF7B03955B"
             {
-            "SourcePath" = "8:..\\AutoBot\\obj\\x86\\Release\\AutoBot.exe"
+            "SourcePath" = "8:..\\AutoBot\\obj\\x86\\Debug\\AutoBot.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"

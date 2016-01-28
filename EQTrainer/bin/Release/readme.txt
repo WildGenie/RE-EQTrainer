@@ -1,8 +1,6 @@
 
 Created by: NeWaGe & sodcheats (http://newagesoldier.com)
 
-Created for EverQuest on PC.
-
 
 MANUAL SETUP
 ===============
@@ -27,16 +25,3 @@ CTRL+M = Open Map Window
 TROUBLESHOOTING
 ===============
 Try disabling Anti-Virus programs, UAC (User Acccount Control) and firewall.
-
-
-SUPPORT
-===============
-Post on http://newagesoldier.com
-
-
-LOC FILE FORMAT
-===============
-x (width offset)
-y (height offset)
-scale x (width)
-scale y (height)

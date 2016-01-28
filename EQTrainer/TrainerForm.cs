@@ -33,9 +33,15 @@ namespace EQTrainer
             string procName
             );
 
+        [DllImportAttribute("user32.dll")]
+        public static extern bool ReleaseCapture();
+
+        public const int WM_NCLBUTTONDOWN = 0xA1;
+        public const int HT_CAPTION = 0x2;
+
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, IntPtr w, IntPtr l);
-  
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+
         [DllImport("kernel32", SetLastError = true, ExactSpelling = true)]  
         internal static extern Int32 WaitForSingleObject(  
             IntPtr handle,  
@@ -57,7 +63,6 @@ namespace EQTrainer
 
         #region PublicVariables
         public static int proccID;
-        //public static IntPtr pHandle;
         public Mem MemLib = new Mem();
 
         public miniToolbar RefToMiniForm { get; set; }
@@ -135,14 +140,15 @@ namespace EQTrainer
                 tt.SetToolTip(this.button18, "Load X Y Z from file (set 2)");
                 tt.SetToolTip(this.button19, "Load X Y Z from file (set 3)");
                 tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
+                tt.SetToolTip(this.distance, "Distance to follow");
                 if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "auto"))
                     autoLoad.InitialDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "auto";
                 if (Properties.Settings.Default.old_warp == true)
                 {
-                    tt.SetToolTip(this.button1, "Old warp enabled. Inject happens when you teleport.");
-                    button1.Enabled = false;
+                    tt.SetToolTip(this.injectBtn, "Old warp enabled. Inject happens when you teleport.");
+                    injectBtn.Enabled = false;
                 } else
-                    tt.SetToolTip(this.button1, "Inject DLL to use teleporting.");
+                    tt.SetToolTip(this.injectBtn, "Inject DLL to use teleporting.");
             }
             catch
             {
@@ -221,7 +227,7 @@ namespace EQTrainer
             else
                 gateBtn.Enabled = false;
             codeFile = Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini";
-            if (listView2.Items.Count == 0)
+            if (procList.Items.Count == 0)
             {
                 Process[] processlist = Process.GetProcesses();
 
@@ -229,18 +235,18 @@ namespace EQTrainer
                 {
                     if (theprocess.ProcessName == "eqgame")
                     {
-                        listView2.Items.Add(theprocess.Id.ToString());
+                        procList.Items.Add(theprocess.Id.ToString());
                         if (theprocess.Responding == false)
                             return;
                     }
                 }
-                if (listView2.Items.Count > 0) //if we didnt have items before, but now we do now
+                if (procList.Items.Count > 0) //if we didnt have items before, but now we do now
                 {
-                    if (listView2.SelectedItems.Count == 0) //select the first item we see and start reading
+                    if (procList.SelectedItems.Count == 0) //select the first item we see and start reading
                     {
-                        listView2.Items[0].Selected = true;
-                        listView2.Select();
-                        eqgameID = Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text);
+                        procList.Items[0].Selected = true;
+                        procList.Select();
+                        eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text);
                         changeProcess();
                         if (Properties.Settings.Default.old_warp == false)
                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
@@ -249,11 +255,11 @@ namespace EQTrainer
                 }
             }
 
-            if (listView2.SelectedItems.Count > 0)
+            if (procList.SelectedItems.Count > 0)
             {
-                if (eqgameID != Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text))
+                if (eqgameID != Int32.Parse(procList.SelectedItems[0].SubItems[0].Text))
                 {
-                    eqgameID = Int32.Parse(listView2.SelectedItems[0].SubItems[0].Text); //keep maps up to date
+                    eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text); //keep maps up to date
                     changeProcess();
                 }
                 if (backgroundWorker1.IsBusy == false)
@@ -437,9 +443,7 @@ namespace EQTrainer
             if (x_tele.Text == "" || y_tele.Text == "" || z_tele.Text == "")
             {
                 if (Properties.Settings.Default.no_coords == false)
-                {
                     MessageBox.Show("ERROR: You need X Y and Z coordinates!");
-                }
             }
             else
             {
@@ -455,9 +459,7 @@ namespace EQTrainer
             if (x_tele2.Text == "" || y_tele2.Text == "" || z_tele2.Text == "")
             {
                 if (Properties.Settings.Default.no_coords == false)
-                {
                     MessageBox.Show("ERROR: You need X Y and Z coordinates!");
-                }
             }
             else
             {
@@ -473,9 +475,7 @@ namespace EQTrainer
             if (x_tele3.Text == "" || y_tele3.Text == "" || z_tele3.Text == "")
             {
                 if (Properties.Settings.Default.no_coords == false)
-                {
                     MessageBox.Show("ERROR: You need X Y and Z coordinates!");
-                }
             }
             else
             {
@@ -491,9 +491,7 @@ namespace EQTrainer
             if (x_tele4.Text == "" || y_tele4.Text == "" || z_tele4.Text == "")
             {
                 if (Properties.Settings.Default.no_coords == false)
-                {
                     MessageBox.Show("ERROR: You need X Y and Z coordinates!");
-                }
             }
             else
             {
@@ -689,7 +687,7 @@ namespace EQTrainer
             if (checkBox1.Checked == true)
                 loop = "loop";
 
-            string arguments = listView2.SelectedItems[0].SubItems[0].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\"";
+            string arguments = procList.SelectedItems[0].SubItems[0].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\"";
             Process.Start(Application.StartupPath + Path.DirectorySeparatorChar + "AutoBot.exe", arguments);
         }
 
@@ -808,7 +806,7 @@ namespace EQTrainer
 
         private void followBtn_Click(object sender, EventArgs e)
         {
-            if (Follow == true)
+            if (Follow)
                 Follow = false;
             else
                 Follow = true;
@@ -1232,12 +1230,12 @@ namespace EQTrainer
                     {
                         foreach (KeyValuePair<string, int> entry in buffsMac)
                         {
-                            findBuff = listView1.FindItemWithText(entry.Key);
+                            findBuff = buffsList.FindItemWithText(entry.Key);
                             if (findBuff == null)
                             {
                                 string[] row = { getMacBuffTime(entry.Value), entry.Key };
                                 var listViewItem = new ListViewItem(row);
-                                listView1.Items.Add(listViewItem);
+                                buffsList.Items.Add(listViewItem);
                             }
                         }
                     }
@@ -1245,12 +1243,12 @@ namespace EQTrainer
                     {
                         foreach (KeyValuePair<string, ulong> entry in buffs)
                         {
-                            findBuff = listView1.FindItemWithText(entry.Key);
+                            findBuff = buffsList.FindItemWithText(entry.Key);
                             if (findBuff == null)
                             {
                                 string[] row = { getBuffTime(entry.Value), entry.Key };
                                 var listViewItem = new ListViewItem(row);
-                                listView1.Items.Add(listViewItem);
+                                buffsList.Items.Add(listViewItem);
                             }
                         }
                     }
@@ -1258,7 +1256,7 @@ namespace EQTrainer
                     // REMOVE & UPDATE BUFFS
                     if (buffRefresh == 30)
                     {
-                        foreach (ListViewItem item in listView1.Items)
+                        foreach (ListViewItem item in buffsList.Items)
                         {
                             buffRefresh = 0;
                             if (comboBox1.Text.Equals("EQMac"))
@@ -1268,14 +1266,14 @@ namespace EQTrainer
                                     item.SubItems[0].Text = getMacBuffTime(buffsMac[item.SubItems[1].Text]);
                                 }
                                 else
-                                    listView1.Items.Remove(item);
+                                    buffsList.Items.Remove(item);
                             }
                             else
                             {
                                 if (buffs.ContainsKey(item.SubItems[1].Text))
                                     item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
                                 else
-                                    listView1.Items.Remove(item);
+                                    buffsList.Items.Remove(item);
                             }
                         }
                     }
@@ -1299,8 +1297,8 @@ namespace EQTrainer
                         progressBarXP.Refresh();
                         if (current_xp >= 0 && current_xp <= 330)
                             xp_stats.Text = xpProgressBar.ToString() + "%";
-                        SendMessage(progressBarXP.Handle, 0x400 + 16, (IntPtr)3, IntPtr.Zero);
-                        System.Threading.Thread.Sleep(50);
+                        SendMessage(progressBarXP.Handle, 0x400 + 16, 3, 0);
+                        Thread.Sleep(50);
                         progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
                     }
                     oldxpProgressBar = current_xp;
@@ -1311,8 +1309,8 @@ namespace EQTrainer
                         progressBarHP.Refresh();
                         if (max_hp > 1)
                             hp_stats.Text = hpProgressBar.ToString() + "%";
-                        SendMessage(progressBarHP.Handle, 0x400 + 16, (IntPtr)2, IntPtr.Zero);
-                        System.Threading.Thread.Sleep(50);
+                        SendMessage(progressBarHP.Handle, 0x400 + 16, 2, 0);
+                        Thread.Sleep(50);
                         progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
                     }
                     oldhpProgressBar = current_hp;
@@ -1463,20 +1461,20 @@ namespace EQTrainer
 
         private void refreshProcessesBtn_Click(object sender, EventArgs e)
         {
-            listView2.Items.Clear();
+            procList.Items.Clear();
             Process[] processlist = Process.GetProcesses();
 
             foreach (Process theprocess in processlist)
             {
                 if (theprocess.ProcessName == "eqgame")
-                    listView2.Items.Add(theprocess.Id.ToString());
+                    procList.Items.Add(theprocess.Id.ToString());
             }
-            if (listView2.Items.Count > 0)
+            if (procList.Items.Count > 0)
             {
-                if (listView2.SelectedItems.Count == 0)
+                if (procList.SelectedItems.Count == 0)
                 {
-                    listView2.Items[0].Selected = true;
-                    listView2.Select();
+                    procList.Items[0].Selected = true;
+                    procList.Select();
                 }
             }
         }        
@@ -1521,10 +1519,10 @@ namespace EQTrainer
 
         private void autoItV3ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe");
+            Process.Start("https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void injectBtn_Click(object sender, EventArgs e)
         {
             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
         }
@@ -1535,7 +1533,7 @@ namespace EQTrainer
             MemLib.OpenGameProcess(eqgameID);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void toolbarBtn_Click(object sender, EventArgs e)
         {
             miniToolbar obj2 = new miniToolbar();
             obj2.RefToForm1 = this;
@@ -1574,34 +1572,52 @@ namespace EQTrainer
 
         private void softwareReadmeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("readme.txt");
+            Process.Start("readme.txt");
         }
 
         private void softwareInformationToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://newagesoldier.com/everquest-mac-on-pc-trainer-teleporter/");
+            Process.Start("https://newagesoldier.com/everquest-mac-on-pc-trainer-teleporter/");
         }
 
         private void softwareSupportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
+            Process.Start("https://newagesoldier.com/forum/viewforum.php?f=3");
         }
 
         private void autoItToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe");
+            Process.Start("https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe");
         }
 
         private void cRedistributablex86ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.microsoft.com/en-us/download/confirmation.aspx?id=5555");
+            Process.Start("https://www.microsoft.com/en-us/download/confirmation.aspx?id=5555");
         }
 
-        /*private void tele_label1_TextChanged(object sender, EventArgs e)
+        private void aboutEQTrainerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //TrainerForm f = (TrainerForm)this.Owner;
-            //f.TextBoxText = txtChildTextBox.Text;
-        }*/
+            AboutBox1 obj = new AboutBox1();
+            obj.Show();
+        }
 
+        private void panel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeButton_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
