@@ -5,9 +5,13 @@ Created by: NeWaGe & sodcheats (http://newagesoldier.com)
 MANUAL SETUP
 ===============
 NOTE: Only do these steps if you're not running setup.exe
-EQTrainer.exe requires Administrative Privileges - Run "GrantAdmin.bat" file on Windows Vista and above PCs
+
+EQTrainer.exe requires Administrative Privileges.
+
 Windows XP requires .NET Framework 4 - http://www.microsoft.com/en-us/download/details.aspx?id=17851
+
 Teleport requires C++ 2010 Redistributables (x86) - http://www.microsoft.com/en-us/download/details.aspx?id=5555
+
 AutoBot requires AutoIt - https://www.autoitscript.com/cgi-bin/getfile.pl?autoit3/autoit-v3-setup.exe
 
 

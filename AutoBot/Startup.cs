@@ -63,6 +63,9 @@ namespace AutoBot
         {
             changeProcess();
 
+            if (!File.Exists(Application.StartupPath + @"\builds.ini"))
+                return;
+
             string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
             foreach (string subdirectory in subdirectoryEntries)
             {

@@ -975,17 +975,20 @@ namespace EQTrainer
                 {
                     if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
                     {
-                        string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
-                        foreach (string subdirectory in subdirectoryEntries)
+                        if (File.Exists(Application.StartupPath + @"\builds.ini"))
                         {
-                            string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
-                            string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
-                            //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
-                            if (buildDateCode.Contains(buildDate))
+                            string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
+                            foreach (string subdirectory in subdirectoryEntries)
                             {
-                                comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
-                                if (Properties.Settings.Default.old_warp == false)
-                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
+                                string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                                //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
+                                if (buildDateCode.Contains(buildDate))
+                                {
+                                    comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                                    if (Properties.Settings.Default.old_warp == false)
+                                        inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                }
                             }
                         }
                     }
@@ -1028,9 +1031,9 @@ namespace EQTrainer
                     sd3.InitialDirectory = currentZone;
                     sd4.InitialDirectory = currentZone;
                 }
-                else
+                else if (Directory.Exists(scriptDirectory))
                 {
-                    od1.InitialDirectory = scriptDirectory; 
+                    od1.InitialDirectory = scriptDirectory;
                     od2.InitialDirectory = scriptDirectory;
                     od3.InitialDirectory = scriptDirectory;
                     od4.InitialDirectory = scriptDirectory;
