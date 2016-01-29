@@ -173,18 +173,6 @@ namespace EQTrainer
             {
                 MessageBox.Show("ERROR: Cant set hot keys!");
             }
-
-            try
-            {
-                List<string> list1 = new List<string>() { " " };
-                List<string> dirs = new List<string>(Directory.GetDirectories(Application.StartupPath + @"\builds").Select(d => new DirectoryInfo(d).Name));
-                list1.AddRange(dirs);
-                comboBox1.DataSource = list1;
-            }
-            catch
-            {
-                MessageBox.Show("ERROR: Cant find builds ini data or processes!");
-            }
         }
 
         private string charClass(int t_class)
@@ -1538,12 +1526,11 @@ namespace EQTrainer
 
         private void toolbarBtn_Click(object sender, EventArgs e)
         {
-            miniToolbar obj2 = new miniToolbar();
-            obj2.RefToForm1 = this;
-            teleForm obj3 = new teleForm();
-
-            //this.Visible = false;
-            obj2.Show();
+            using (miniToolbar obj2 = new miniToolbar())
+            {
+                obj2.RefToForm1 = this;
+                obj2.Show();
+            }
             this.WindowState = FormWindowState.Minimized;
         }
 
@@ -1554,23 +1541,21 @@ namespace EQTrainer
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            settingsForm obj = new settingsForm();
-            obj.RefToForm1 = this;
-            obj.Show();
-            obj.Location = new Point(this.Location.X, this.Location.Y);
+            using (settingsForm obj = new settingsForm())
+            {
+                obj.RefToForm1 = this;
+                obj.Show();
+                obj.Location = new Point(this.Location.X, this.Location.Y);
+            }
         }
 
         private void openMapSystemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mapForm obj3 = new mapForm();
-            obj3.RefToForm1 = this;
-            obj3.Show();
-        }
-
-        private void aboutEQTrainerToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            AboutBox1 obj = new AboutBox1();
-            obj.Show();
+            using (mapForm obj3 = new mapForm())
+            {
+                obj3.RefToForm1 = this;
+                obj3.Show();
+            }
         }
 
         private void softwareReadmeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1600,8 +1585,8 @@ namespace EQTrainer
 
         private void aboutEQTrainerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AboutBox1 obj = new AboutBox1();
-            obj.Show();
+            using (AboutBox1 obj = new AboutBox1())
+                obj.Show();
         }
 
         private void panel_MouseMove(object sender, MouseEventArgs e)
@@ -1621,6 +1606,30 @@ namespace EQTrainer
         private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
+        }
+
+        public void loadBuilds()
+        {
+            try
+            {
+                List<string> list1 = new List<string>() { " " };
+                List<string> dirs = new List<string>(Directory.GetDirectories(Application.StartupPath + @"\builds").Select(d => new DirectoryInfo(d).Name));
+                list1.AddRange(dirs);
+                comboBox1.DataSource = list1;
+            }
+            catch
+            {
+                MessageBox.Show("ERROR: Cant load builds ini data or processes!");
+            }
+        }
+
+        private void formShown(object sender, EventArgs e)
+        {
+            downloader obj = new downloader();
+            obj.Show();
+
+            if (File.Exists(Application.StartupPath + @"\builds.ini"))
+                loadBuilds();
         }
     }
 }

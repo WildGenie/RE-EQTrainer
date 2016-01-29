@@ -120,6 +120,8 @@
             this.buttonAllScriptsEnabled = new System.Windows.Forms.Button();
             this.buttonAllScriptsDisabled = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.aboutEQTrainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMapSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -202,8 +204,6 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.aboutEQTrainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.minimizeButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -1064,6 +1064,24 @@
             this.statusStrip1.TabIndex = 538;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripDropDownButton4
+            // 
+            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutEQTrainerToolStripMenuItem});
+            this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
+            this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
+            this.toolStripDropDownButton4.Size = new System.Drawing.Size(70, 20);
+            this.toolStripDropDownButton4.Text = "EQTrainer";
+            // 
+            // aboutEQTrainerToolStripMenuItem
+            // 
+            this.aboutEQTrainerToolStripMenuItem.Name = "aboutEQTrainerToolStripMenuItem";
+            this.aboutEQTrainerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.aboutEQTrainerToolStripMenuItem.Text = "About EQTrainer";
+            this.aboutEQTrainerToolStripMenuItem.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem_Click);
+            // 
             // toolStripDropDownButton1
             // 
             this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -1079,14 +1097,14 @@
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.settingsToolStripMenuItem.Text = "Settings Menu";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // openMapSystemToolStripMenuItem
             // 
             this.openMapSystemToolStripMenuItem.Name = "openMapSystemToolStripMenuItem";
-            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openMapSystemToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.openMapSystemToolStripMenuItem.Text = "Map System";
             this.openMapSystemToolStripMenuItem.Click += new System.EventHandler(this.openMapSystemToolStripMenuItem_Click);
             // 
@@ -1811,24 +1829,6 @@
             this.pictureBox1.TabIndex = 601;
             this.pictureBox1.TabStop = false;
             // 
-            // toolStripDropDownButton4
-            // 
-            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutEQTrainerToolStripMenuItem});
-            this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
-            this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
-            this.toolStripDropDownButton4.Size = new System.Drawing.Size(70, 20);
-            this.toolStripDropDownButton4.Text = "EQTrainer";
-            // 
-            // aboutEQTrainerToolStripMenuItem
-            // 
-            this.aboutEQTrainerToolStripMenuItem.Name = "aboutEQTrainerToolStripMenuItem";
-            this.aboutEQTrainerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.aboutEQTrainerToolStripMenuItem.Text = "About EQTrainer";
-            this.aboutEQTrainerToolStripMenuItem.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem_Click);
-            // 
             // minimizeButton
             // 
             this.minimizeButton.AccessibleDescription = "Minimize Trainer Manager";
@@ -2041,6 +2041,7 @@
             this.Text = "EQTrainer";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.Load += new System.EventHandler(this.TrainerForm_Load);
+            this.Shown += new System.EventHandler(this.formShown);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
