@@ -249,7 +249,6 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
@@ -970,7 +969,7 @@
             // 
             this.resetRunBtn.Font = new System.Drawing.Font("Wingdings", 11.25F);
             this.resetRunBtn.ForeColor = System.Drawing.Color.Maroon;
-            this.resetRunBtn.Location = new System.Drawing.Point(320, 397);
+            this.resetRunBtn.Location = new System.Drawing.Point(320, 393);
             this.resetRunBtn.Name = "resetRunBtn";
             this.resetRunBtn.Size = new System.Drawing.Size(20, 22);
             this.resetRunBtn.TabIndex = 510;

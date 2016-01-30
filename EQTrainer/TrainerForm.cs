@@ -1526,11 +1526,9 @@ namespace EQTrainer
 
         private void toolbarBtn_Click(object sender, EventArgs e)
         {
-            using (miniToolbar obj2 = new miniToolbar())
-            {
-                obj2.RefToForm1 = this;
-                obj2.Show();
-            }
+            miniToolbar obj2 = new miniToolbar();
+            obj2.RefToForm1 = this;
+            obj2.Show();
             this.WindowState = FormWindowState.Minimized;
         }
 
@@ -1541,21 +1539,17 @@ namespace EQTrainer
 
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (settingsForm obj = new settingsForm())
-            {
-                obj.RefToForm1 = this;
-                obj.Show();
-                obj.Location = new Point(this.Location.X, this.Location.Y);
-            }
+            settingsForm obj = new settingsForm();
+            obj.RefToForm1 = this;
+            obj.Show();
+            obj.Location = new Point(this.Location.X, this.Location.Y);
         }
 
         private void openMapSystemToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (mapForm obj3 = new mapForm())
-            {
-                obj3.RefToForm1 = this;
-                obj3.Show();
-            }
+            mapForm obj3 = new mapForm();
+            obj3.RefToForm1 = this;
+            obj3.Show();
         }
 
         private void softwareReadmeToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1585,8 +1579,8 @@ namespace EQTrainer
 
         private void aboutEQTrainerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (AboutBox1 obj = new AboutBox1())
-                obj.Show();
+            AboutBox1 obj = new AboutBox1();
+            obj.Show();
         }
 
         private void panel_MouseMove(object sender, MouseEventArgs e)
@@ -1629,7 +1623,10 @@ namespace EQTrainer
             obj.Show();
 
             if (File.Exists(Application.StartupPath + @"\builds.ini"))
+            {
                 loadBuilds();
+                timer1.Enabled = true;
+            }
         }
     }
 }

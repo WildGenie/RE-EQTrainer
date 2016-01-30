@@ -22,7 +22,7 @@ namespace EQTrainer
 
         private void downloader_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void formShown(object sender, EventArgs e)
@@ -32,6 +32,7 @@ namespace EQTrainer
         }
 
         public string whatsGoinOn = "Downloading files... ";
+        bool restart = false;
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -50,7 +51,7 @@ namespace EQTrainer
                     {
                         total++;
                     }
-                    int t = 0;
+                    int t = 1;
 
                     //step 1 : download files. This takes milliseconds
                     foreach (string word in words)
@@ -67,8 +68,10 @@ namespace EQTrainer
                         if (!Directory.Exists(System.IO.Path.GetDirectoryName(Application.StartupPath + Path.DirectorySeparatorChar + s[0])))
                             Directory.CreateDirectory(System.IO.Path.GetDirectoryName(Application.StartupPath + Path.DirectorySeparatorChar + s[0]));
 
+                        //this.Invoke(new Action(() => { MessageBox.Show(this, s[0] + " | " + Convert.ToDateTime(s[1]).ToString() + " | " + File.GetLastWriteTime(Application.StartupPath + Path.DirectorySeparatorChar + s[0]).ToString() + " | " + DateTime.Compare(File.GetLastWriteTime(Application.StartupPath + Path.DirectorySeparatorChar + s[0]), Convert.ToDateTime(s[1])).ToString()); }));
+
                         if (!File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + s[0]) 
-                            || (Convert.ToDateTime(s[1]) > File.GetLastWriteTime(Application.StartupPath + Path.DirectorySeparatorChar + s[0])))
+                            || DateTime.Compare(File.GetLastWriteTime(Application.StartupPath + Path.DirectorySeparatorChar + s[0]), Convert.ToDateTime(s[1])) < 0)
                         {
                             using (WebClient webC = new WebClient())
                             {
@@ -89,11 +92,12 @@ namespace EQTrainer
                 }
             }
 
-            int i = 0;
+            int i = 1;
             //step 2 : modify datetimes to match server
             foreach (KeyValuePair<string, string> entry in updateTimeStamp) //key = path, value = date
             {
                 whatsGoinOn = "Changing file datetimes... ";
+                restart = true;
                 i++;
                 int percentage2 = (i * 100 / total);
                 backgroundWorker1.ReportProgress(percentage2);
@@ -115,13 +119,13 @@ namespace EQTrainer
             //TrainerForm frm = new TrainerForm();
             //statusLabel.Text = "COMPLETE!";
             //frm.loadBuilds();
-            /*if (String.Equals(whatsGoinOn,"Change file datetimes... ")) //we just updated, restart
+            if (restart) //we just updated, restart
             {
                 System.Diagnostics.Process.Start(Application.ExecutablePath); // to start new instance of application
                 Application.Exit();
             }
             else
-                Close();*/
+                Close();
         }
     }
 }
