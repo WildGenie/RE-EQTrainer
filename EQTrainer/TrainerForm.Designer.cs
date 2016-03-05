@@ -208,6 +208,7 @@
             this.closeButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.targetInfoBox = new System.Windows.Forms.GroupBox();
+            this.autoSwap = new System.Windows.Forms.CheckBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1454,7 +1455,7 @@
             // 
             // button26
             // 
-            this.button26.Location = new System.Drawing.Point(242, 459);
+            this.button26.Location = new System.Drawing.Point(242, 469);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(85, 23);
             this.button26.TabIndex = 571;
@@ -1467,7 +1468,7 @@
             this.checkBox1.AutoSize = true;
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(243, 438);
+            this.checkBox1.Location = new System.Drawing.Point(243, 450);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(80, 17);
             this.checkBox1.TabIndex = 573;
@@ -1502,7 +1503,7 @@
             this.procList.MultiSelect = false;
             this.procList.Name = "procList";
             this.procList.Scrollable = false;
-            this.procList.Size = new System.Drawing.Size(112, 108);
+            this.procList.Size = new System.Drawing.Size(112, 83);
             this.procList.TabIndex = 578;
             this.procList.UseCompatibleStateImageBehavior = false;
             this.procList.View = System.Windows.Forms.View.Details;
@@ -1519,9 +1520,9 @@
             // 
             // refreshProcessesBtn
             // 
-            this.refreshProcessesBtn.Location = new System.Drawing.Point(347, 541);
+            this.refreshProcessesBtn.Location = new System.Drawing.Point(346, 518);
             this.refreshProcessesBtn.Name = "refreshProcessesBtn";
-            this.refreshProcessesBtn.Size = new System.Drawing.Size(112, 23);
+            this.refreshProcessesBtn.Size = new System.Drawing.Size(113, 23);
             this.refreshProcessesBtn.TabIndex = 579;
             this.refreshProcessesBtn.Text = "Refresh Processes";
             this.refreshProcessesBtn.UseVisualStyleBackColor = true;
@@ -1602,7 +1603,7 @@
             // injectBtn
             // 
             this.injectBtn.ForeColor = System.Drawing.Color.DarkGreen;
-            this.injectBtn.Location = new System.Drawing.Point(242, 487);
+            this.injectBtn.Location = new System.Drawing.Point(242, 492);
             this.injectBtn.Name = "injectBtn";
             this.injectBtn.Size = new System.Drawing.Size(85, 23);
             this.injectBtn.TabIndex = 589;
@@ -1893,12 +1894,25 @@
             this.targetInfoBox.TabStop = false;
             this.targetInfoBox.Text = "TARGET INFO";
             // 
+            // autoSwap
+            // 
+            this.autoSwap.AutoSize = true;
+            this.autoSwap.Checked = true;
+            this.autoSwap.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoSwap.Location = new System.Drawing.Point(347, 545);
+            this.autoSwap.Name = "autoSwap";
+            this.autoSwap.Size = new System.Drawing.Size(119, 17);
+            this.autoSwap.TabIndex = 624;
+            this.autoSwap.Text = "Auto Swap Process";
+            this.autoSwap.UseVisualStyleBackColor = true;
+            // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1016, 573);
+            this.Controls.Add(this.autoSwap);
             this.Controls.Add(this.targetInfoBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.minimizeButton);
@@ -2233,6 +2247,7 @@
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox targetInfoBox;
+        private System.Windows.Forms.CheckBox autoSwap;
     }
 }
 

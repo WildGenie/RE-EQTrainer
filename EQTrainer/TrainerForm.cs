@@ -33,6 +33,12 @@ namespace EQTrainer
             string procName
             );
 
+        [DllImport("user32.dll")]
+        public static extern IntPtr GetWindowThreadProcessId(IntPtr hWnd, out uint ProcessId);
+
+        [DllImport("user32.dll")]
+        private static extern IntPtr GetForegroundWindow();
+
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
@@ -175,6 +181,14 @@ namespace EQTrainer
             }
         }
 
+        string GetActiveProcessID()
+        {
+            IntPtr hwnd = GetForegroundWindow();
+            uint pid;
+            GetWindowThreadProcessId(hwnd, out pid);
+            return pid.ToString();
+        }
+
         private string charClass(int t_class)
         {
             string[] classes = new string[] { "", "Warrior", "Cleric", "Paladin", "Ranger", "Shadow Knight", "Druid", "Monk", "Bard", "Rogue", "Shaman", "Necromancer", "Wizard", "Magician", "Enchanter", "Beastlord", "Banker", "Warrior Trainer", "Cleric Trainer", "Paladin Trainer", "Ranger Trainer", "Shadow Knight Trainer", "Druid Trainer", "Monk Trainer", "Bard Trainer", "Rogue Trainer", "Shaman Trainer", "Necromancer Trainer", "Wizard Trainer", "Magician Trainer", "Enchanter Trainer", "Beastlord Trainer", "Merchant" };
@@ -203,6 +217,11 @@ namespace EQTrainer
             return;
         }
 
+        private bool ProcessExists(int id)
+        {
+            return Process.GetProcesses().Any(x => x.Id == id);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             foreach (Form form in Application.OpenForms)
@@ -228,6 +247,7 @@ namespace EQTrainer
                             return;
                     }
                 }
+
                 if (procList.Items.Count > 0) //if we didnt have items before, but now we do now
                 {
                     if (procList.SelectedItems.Count == 0) //select the first item we see and start reading
@@ -243,8 +263,23 @@ namespace EQTrainer
                 }
             }
 
+            if (autoSwap.Checked)
+            {
+                ListViewItem item1 = procList.FindItemWithText(GetActiveProcessID());
+                if (item1 != null)
+                {
+                    if (eqgameID != Int32.Parse(GetActiveProcessID()))
+                        procList.Items[item1.Index].Selected = true; //check currently selected window if EQGame process change it.
+                }
+            }
+
             if (procList.SelectedItems.Count > 0)
             {
+                if (!ProcessExists(Int32.Parse(procList.SelectedItems[0].SubItems[0].Text))) { //if we click on an old process that doesnt exist, refresh list
+                    refreshProcessesBtn.PerformClick();
+                    return;
+                }
+        
                 if (eqgameID != Int32.Parse(procList.SelectedItems[0].SubItems[0].Text))
                 {
                     eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text); //keep maps up to date
@@ -1324,6 +1359,12 @@ namespace EQTrainer
 
                             if (listViewItem.Checked == true)
                                 script_instructions_index = 2; // enabled column
+
+                            if (listViewItem.SubItems[0].Text.Equals("GM Walk") && listViewItem.Checked)
+                            {
+                                ListViewItem nofall = listViewScripts.FindItemWithText("No Fall Damage");
+                                nofall.Checked = true;
+                            }
 
                             string script_instructions = listViewItem.SubItems[script_instructions_index].Text;
                             string[] script_instructions_split = script_instructions.Split('^');
