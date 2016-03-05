@@ -1018,10 +1018,10 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0"
                     }
                 }
             }
@@ -4337,15 +4337,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EQTrainer"
-        "ProductCode" = "8:{CD1DF558-4776-4BA9-BDE2-DD9BDF38E98E}"
-        "PackageCode" = "8:{F4EE3C59-2DB4-4D61-8599-85A51525E772}"
+        "ProductCode" = "8:{ADF761B8-D411-45BF-A415-70487037EE38}"
+        "PackageCode" = "8:{6D50D3D9-B300-4334-8F39-CBDB00935523}"
         "UpgradeCode" = "8:{423DBF5A-1EFC-4CDC-A197-75DBED3DF87F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:5.9.0"
+        "ProductVersion" = "8:5.9.1"
         "Manufacturer" = "8:NewAgeSoldier"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://newagesoldier.com"

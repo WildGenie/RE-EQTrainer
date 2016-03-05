@@ -994,6 +994,9 @@ namespace EQTrainer
         {
             while (true)
             {
+                if (procList.Items.Count <= 0) //no processes
+                    break;
+
                 comboBox1.Invoke(new MethodInvoker(delegate
                 {
                     if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
