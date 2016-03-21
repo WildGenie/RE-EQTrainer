@@ -46,7 +46,7 @@ namespace EQTrainer
         public const int HT_CAPTION = 0x2;
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = false)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint Msg, uint wParam, uint lParam);
 
         [DllImport("kernel32", SetLastError = true, ExactSpelling = true)]  
         internal static extern Int32 WaitForSingleObject(  
@@ -999,25 +999,29 @@ namespace EQTrainer
 
                 comboBox1.Invoke(new MethodInvoker(delegate
                 {
-                    if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
+                    try
                     {
-                        if (File.Exists(Application.StartupPath + @"\builds.ini"))
+                        if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
                         {
-                            string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
-                            foreach (string subdirectory in subdirectoryEntries)
+                            if (File.Exists(Application.StartupPath + @"\builds.ini"))
                             {
-                                string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
-                                string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
-                                //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
-                                if (buildDateCode.Contains(buildDate))
+                                string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
+                                foreach (string subdirectory in subdirectoryEntries)
                                 {
-                                    comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
-                                    if (Properties.Settings.Default.old_warp == false)
-                                        inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                    string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
+                                    string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
+                                    //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
+                                    if (buildDateCode.Contains(buildDate))
+                                    {
+                                        comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                                        if (Properties.Settings.Default.old_warp == false)
+                                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                    }
                                 }
                             }
                         }
                     }
+                    catch { }
                 }
                 ));
 
@@ -1152,7 +1156,7 @@ namespace EQTrainer
                 mousex.Invoke(new MethodInvoker(delegate { mousex.Text = mousexVal.ToString(); }));
 
                 string t_name = MemLib.readString("targetName", codeFile);
-                
+
                 int t_level = MemLib.readByte("TargetLevel", codeFile);
 
                 if (t_level >= 1)
@@ -1176,7 +1180,7 @@ namespace EQTrainer
                     label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: "; }));
                     followBtn.Enabled = false;
                 }
-                
+
                 int t_class = MemLib.readByte("targetClass", codeFile);
 
                 label12.Invoke(new MethodInvoker(delegate { label12.Text = "Class: " + charClass(t_class); }));
@@ -1215,280 +1219,279 @@ namespace EQTrainer
                 target_z.Invoke(new MethodInvoker(delegate { target_z.Text = "Z: " + t_z_address.ToString(); }));
                 target_h.Invoke(new MethodInvoker(delegate { target_h.Text = "H: " + t_h_address.ToString(); }));
 
-                    int skipNum = 0;
-                    int sNum = 0;
-                    ListViewItem findBuff;
+                int skipNum = 0;
+                int sNum = 0;
+                ListViewItem findBuff;
 
-                    if (comboBox1.Text.Equals("EQTitanium"))
-                        skipNum = 19;
-                    if (comboBox1.Text.Equals("EQMac"))
-                        skipNum = 9;
+                if (comboBox1.Text.Equals("EQTitanium"))
+                    skipNum = 19;
+                if (comboBox1.Text.Equals("EQMac"))
+                    skipNum = 9;
 
-                    // CREATE BUFF LIST
-                    Dictionary<string, int> buffsMac = new Dictionary<string, int>();
-                    Dictionary<string, ulong> buffs = new Dictionary<string, ulong>();
-                    for (int i = 0; i < 12; i++)
+                // CREATE BUFF LIST
+                Dictionary<string, int> buffsMac = new Dictionary<string, int>();
+                Dictionary<string, ulong> buffs = new Dictionary<string, ulong>();
+                for (int i = 0; i < 12; i++)
+                {
+                    int buffAddress = 0;
+
+                    if (i > 0)
                     {
-                        int buffAddress = 0;
-
-                        if (i > 0)
-                        {
-                            sNum = sNum + skipNum;
-                            buffAddress = MemLib.read2ByteMove("buffsInfoAddress", codeFile, sNum);
-                        }
-                        else
-                            buffAddress = MemLib.read2Byte("buffsInfoAddress", codeFile);
-
-                        sNum = sNum + 1;
-
-                        if (buffAddress > 0 && buffAddress < 8445)
-                        {
-                            //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
-                            if (comboBox1.Text.Equals("EQMac"))
-                                buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
-                            else
-                                buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
-                        }
-                    }
-
-                    //var message = string.Join(Environment.NewLine, buffsMac);
-                    //MessageBox.Show(message);
-
-                    // ADD BUFFS                    
-                    if (comboBox1.Text.Equals("EQMac"))
-                    {
-                        foreach (KeyValuePair<string, int> entry in buffsMac)
-                        {
-                            findBuff = buffsList.FindItemWithText(entry.Key);
-                            if (findBuff == null)
-                            {
-                                string[] row = { getMacBuffTime(entry.Value), entry.Key };
-                                var listViewItem = new ListViewItem(row);
-                                buffsList.Items.Add(listViewItem);
-                            }
-                        }
+                        sNum = sNum + skipNum;
+                        buffAddress = MemLib.read2ByteMove("buffsInfoAddress", codeFile, sNum);
                     }
                     else
-                    {
-                        foreach (KeyValuePair<string, ulong> entry in buffs)
-                        {
-                            findBuff = buffsList.FindItemWithText(entry.Key);
-                            if (findBuff == null)
-                            {
-                                string[] row = { getBuffTime(entry.Value), entry.Key };
-                                var listViewItem = new ListViewItem(row);
-                                buffsList.Items.Add(listViewItem);
-                            }
-                        }
-                    }
+                        buffAddress = MemLib.read2Byte("buffsInfoAddress", codeFile);
 
-                    // REMOVE & UPDATE BUFFS
-                    if (buffRefresh == 30)
-                    {
-                        foreach (ListViewItem item in buffsList.Items)
-                        {
-                            buffRefresh = 0;
-                            if (comboBox1.Text.Equals("EQMac"))
-                            {
-                                if (buffsMac.ContainsKey(item.SubItems[1].Text))
-                                {
-                                    item.SubItems[0].Text = getMacBuffTime(buffsMac[item.SubItems[1].Text]);
-                                }
-                                else
-                                    buffsList.Items.Remove(item);
-                            }
-                            else
-                            {
-                                if (buffs.ContainsKey(item.SubItems[1].Text))
-                                    item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
-                                else
-                                    buffsList.Items.Remove(item);
-                            }
-                        }
-                    }
-                    buffRefresh++;
+                    sNum = sNum + 1;
 
-                    double xpProgressPercentage = ((double)current_xp / (double)330);
-                    int xpProgressBar = (int)(xpProgressPercentage * 100);
-                    if (xpProgressBar < 0) xpProgressBar = 0;
-
-                    double hpProgressPercentage = ((double)current_hp / (double)max_hp);
-                    int hpProgressBar = (int)(hpProgressPercentage * 100);
-                    if (hpProgressBar < 0) hpProgressBar = 0;
-
-                    double mpProgressPercentage = ((double)current_mp / (double)max_mp);
-                    int mpProgressBar = (int)(mpProgressPercentage * 100);
-                    if (mpProgressBar < 0) mpProgressBar = 0;
-
-                    if (oldxpProgressBar != current_xp)
+                    if (buffAddress > 0 && buffAddress < 8445)
                     {
-                        progressBarXP.Value = xpProgressBar;
-                        progressBarXP.Refresh();
-                        if (current_xp >= 0 && current_xp <= 330)
-                            xp_stats.Text = xpProgressBar.ToString() + "%";
-                        SendMessage(progressBarXP.Handle, 0x400 + 16, 3, 0);
-                        Thread.Sleep(50);
-                        progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
-                    }
-                    oldxpProgressBar = current_xp;
-                    
-                    if (oldhpProgressBar != current_hp)
-                    {
-                        progressBarHP.Value = hpProgressBar;
-                        progressBarHP.Refresh();
-                        if (max_hp > 1)
-                            hp_stats.Text = hpProgressBar.ToString() + "%";
-                        SendMessage(progressBarHP.Handle, 0x400 + 16, 2, 0);
-                        Thread.Sleep(50);
-                        progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
-                    }
-                    oldhpProgressBar = current_hp;
-                    
-                    if (oldmpProgressBar != current_mp)
-                    {
-                        progressBarMP.Value = mpProgressBar;
-                        progressBarMP.Refresh();
-                        if (max_mp >= 0)
-                            mp_stats.Text = mpProgressBar.ToString() + "%";
+                        //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
+                        if (comboBox1.Text.Equals("EQMac"))
+                            buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
                         else
-                            mp_stats.Text = "[0/0] 0%";
-                        progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
+                            buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
                     }
-                    oldmpProgressBar = current_mp;
-                    
-                        foreach (ListViewItem listViewItem in listViewScripts.Items)
+                }
+
+                //var message = string.Join(Environment.NewLine, buffsMac);
+                //MessageBox.Show(message);
+
+                // ADD BUFFS                    
+                if (comboBox1.Text.Equals("EQMac"))
+                {
+                    foreach (KeyValuePair<string, int> entry in buffsMac)
+                    {
+                        findBuff = buffsList.FindItemWithText(entry.Key);
+                        if (findBuff == null)
                         {
-                            int script_instructions_index = 3; // disabled column
+                            string[] row = { getMacBuffTime(entry.Value), entry.Key };
+                            var listViewItem = new ListViewItem(row);
+                            buffsList.Items.Add(listViewItem);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (KeyValuePair<string, ulong> entry in buffs)
+                    {
+                        findBuff = buffsList.FindItemWithText(entry.Key);
+                        if (findBuff == null)
+                        {
+                            string[] row = { getBuffTime(entry.Value), entry.Key };
+                            var listViewItem = new ListViewItem(row);
+                            buffsList.Items.Add(listViewItem);
+                        }
+                    }
+                }
 
-                            if (listViewItem.Checked == true)
-                                script_instructions_index = 2; // enabled column
+                // REMOVE & UPDATE BUFFS
+                //if (buffRefresh == 30)
+                //{
+                    foreach (ListViewItem item in buffsList.Items)
+                    {
+                        buffRefresh = 0;
+                        if (comboBox1.Text.Equals("EQMac"))
+                        {
+                            if (buffsMac.ContainsKey(item.SubItems[1].Text))
+                                item.SubItems[0].Text = getMacBuffTime(buffsMac[item.SubItems[1].Text]);
+                            else
+                                buffsList.Items.Remove(item);
+                        }
+                        else
+                        {
+                            if (buffs.ContainsKey(item.SubItems[1].Text))
+                                item.SubItems[0].Text = getBuffTime(buffs[item.SubItems[1].Text]);
+                            else
+                                buffsList.Items.Remove(item);
+                        }
+                        //if (Convert.ToSingle(item.SubItems[0].Text) == 0) //sometimes can get stuck at 0.5
+                        //    buffsList.Items.Remove(item);
+                    }
+                //}
+                //buffRefresh++;
 
-                            if (listViewItem.SubItems[0].Text.Equals("GM Walk") && listViewItem.Checked)
+                double xpProgressPercentage = ((double)current_xp / (double)330);
+                int xpProgressBar = (int)(xpProgressPercentage * 100);
+                if (xpProgressBar < 0) xpProgressBar = 0;
+
+                double hpProgressPercentage = ((double)current_hp / (double)max_hp);
+                int hpProgressBar = (int)(hpProgressPercentage * 100);
+                if (hpProgressBar < 0) hpProgressBar = 0;
+
+                double mpProgressPercentage = ((double)current_mp / (double)max_mp);
+                int mpProgressBar = (int)(mpProgressPercentage * 100);
+                if (mpProgressBar < 0) mpProgressBar = 0;
+
+                if (oldxpProgressBar != current_xp)
+                {
+                    progressBarXP.Value = xpProgressBar;
+                    if (current_xp >= 0 && current_xp <= 330)
+                        xp_stats.Text = xpProgressBar.ToString() + "%";
+                    SendMessage(progressBarXP.Handle, 0x400 + 16, 0x0003, 0);
+                }
+                oldxpProgressBar = current_xp;
+                progressBarXP.Refresh();
+                progressBarXP.CreateGraphics().DrawString(current_xp.ToString() + "/330", new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarXP.Height / 2 - 7));
+
+                if (oldhpProgressBar != current_hp)
+                {
+                    progressBarHP.Value = hpProgressBar;
+                    if (max_hp > 1)
+                        hp_stats.Text = hpProgressBar.ToString() + "%";
+                    SendMessage(progressBarHP.Handle, 0x400 + 16, 0x0002, 0);
+                }
+                oldhpProgressBar = current_hp;
+                progressBarHP.Refresh();
+                progressBarHP.CreateGraphics().DrawString(current_hp + "/" + max_hp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarHP.Height / 2 - 7));
+
+                if (oldmpProgressBar != current_mp)
+                {
+                    progressBarMP.Value = mpProgressBar;
+                    if (max_mp >= 0)
+                        mp_stats.Text = mpProgressBar.ToString() + "%";
+                    else
+                        mp_stats.Text = "[0/0] 0%";
+                    SendMessage(progressBarMP.Handle, 0x400 + 16, 0x0003, 0);
+                }
+                oldmpProgressBar = current_mp;
+                progressBarMP.Refresh();
+                progressBarMP.CreateGraphics().DrawString(current_mp + "/" + max_mp, new Font("Arial", (float)8), Brushes.Black, new PointF(5, progressBarMP.Height / 2 - 7));
+
+                foreach (ListViewItem listViewItem in listViewScripts.Items)
+                {
+                    int script_instructions_index = 3; // disabled column
+
+                    if (listViewItem.Checked == true)
+                        script_instructions_index = 2; // enabled column
+
+                    if (listViewItem.SubItems[0].Text.Equals("GM Walk") && listViewItem.Checked)
+                    {
+                        ListViewItem nofall = listViewScripts.FindItemWithText("No Fall Damage");
+                        nofall.Checked = true;
+                    }
+
+                    string script_instructions = listViewItem.SubItems[script_instructions_index].Text;
+                    string[] script_instructions_split = script_instructions.Split('^');
+
+                    foreach (string script_instruction in script_instructions_split)
+                    {
+                        if (script_instruction.Length == 0)
+                            continue;
+
+                        string[] script_instruction_split = script_instruction.Split(':');
+                        string script_instruction_type = "";
+                        string script_instruction_value = "";
+                        int script_instruction_address_int = 0;
+                        int script_instruction_value_int = 0;
+                        byte[] script_instruction_value_bytes;
+
+                        if (script_instruction_split[0] == "pointer" && script_instruction_split[2] == "offsets")
+                        {
+                            int script_instruction_pointer = Int32.Parse(script_instruction_split[1], System.Globalization.NumberStyles.AllowHexSpecifier);
+                            int script_instruction_address = MemLib.readUIntPtr((UIntPtr)script_instruction_pointer);
+
+                            string script_instruction_offsets = script_instruction_split[3];
+                            string[] script_instruction_offsets_split = script_instruction_offsets.Split(',');
+                            int current_offset = 1;
+                            int num_offsets = script_instruction_offsets_split.Length;
+
+                            foreach (string script_instruction_offset in script_instruction_offsets_split)
                             {
-                                ListViewItem nofall = listViewScripts.FindItemWithText("No Fall Damage");
-                                nofall.Checked = true;
+                                int script_instruction_offset_int = Int32.Parse(script_instruction_offset, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                script_instruction_address_int = script_instruction_address;
+                                script_instruction_address_int += script_instruction_offset_int;
+                                if (current_offset == num_offsets)
+                                    break;
+
+                                int script_instruction_address_after_offset = MemLib.readUIntPtr((UIntPtr)script_instruction_address_int);
+                                script_instruction_address = script_instruction_address_after_offset;
+                                script_instruction_address_int = script_instruction_address;
                             }
+                            script_instruction_type = script_instruction_split[4];
+                            script_instruction_value = script_instruction_split[5];
+                        }
+                        else
+                        {
+                            script_instruction_address_int = Int32.Parse(script_instruction_split[0], System.Globalization.NumberStyles.AllowHexSpecifier);
+                            int script_instruction_address = script_instruction_address_int;
+                            script_instruction_type = script_instruction_split[1];
+                            script_instruction_value = script_instruction_split[2];
+                        }
 
-                            string script_instructions = listViewItem.SubItems[script_instructions_index].Text;
-                            string[] script_instructions_split = script_instructions.Split('^');
+                        int i = 0;
 
-                            foreach (string script_instruction in script_instructions_split)
+                        try
+                        {
+                            switch (script_instruction_type)
                             {
-                                if (script_instruction.Length == 0)
-                                    continue;
+                                case "nops":
+                                    int num_nops = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                    byte[] nops = new byte[num_nops];
+                                    for (i = 0; i < nops.Length; i++)
+                                        nops[i] = 0x90;
+                                    MemLib.writeByte((UIntPtr)script_instruction_address_int, nops, num_nops);
+                                    break;
 
-                                string[] script_instruction_split = script_instruction.Split(':');
-                                string script_instruction_type = "";
-                                string script_instruction_value = "";
-                                int script_instruction_address_int = 0;
-                                int script_instruction_value_int = 0;
-                                byte[] script_instruction_value_bytes;
-
-                                if (script_instruction_split[0] == "pointer" && script_instruction_split[2] == "offsets")
-                                {
-                                    int script_instruction_pointer = Int32.Parse(script_instruction_split[1], System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    int script_instruction_address = MemLib.readUIntPtr((UIntPtr)script_instruction_pointer);
-
-                                    string script_instruction_offsets = script_instruction_split[3];
-                                    string[] script_instruction_offsets_split = script_instruction_offsets.Split(',');
-                                    int current_offset = 1;
-                                    int num_offsets = script_instruction_offsets_split.Length;
-
-                                    foreach (string script_instruction_offset in script_instruction_offsets_split)
+                                case "bytes":
+                                    if (script_instruction_value.Contains(','))
                                     {
-                                        int script_instruction_offset_int = Int32.Parse(script_instruction_offset, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                        script_instruction_address_int = script_instruction_address;
-                                        script_instruction_address_int += script_instruction_offset_int;
-                                        if (current_offset == num_offsets)
-                                            break;
-
-                                        int script_instruction_address_after_offset = MemLib.readUIntPtr((UIntPtr)script_instruction_address_int);
-                                        script_instruction_address = script_instruction_address_after_offset;
-                                        script_instruction_address_int = script_instruction_address;
+                                        string[] script_instruction_value_split = script_instruction_value.Split(',');
+                                        int num_bytes = script_instruction_value_split.Length;
+                                        byte[] write_bytes = new byte[num_bytes];
+                                        for (i = 0; i < num_bytes; i++)
+                                        {
+                                            script_instruction_value_int = Int32.Parse(script_instruction_value_split[i], System.Globalization.NumberStyles.AllowHexSpecifier);
+                                            script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
+                                            write_bytes[i] = script_instruction_value_bytes[0];
+                                        }
+                                        MemLib.writeByte((UIntPtr)script_instruction_address_int, write_bytes, num_bytes);
                                     }
-                                    script_instruction_type = script_instruction_split[4];
-                                    script_instruction_value = script_instruction_split[5];
-                                }
-                                else
-                                {
-                                    script_instruction_address_int = Int32.Parse(script_instruction_split[0], System.Globalization.NumberStyles.AllowHexSpecifier);
-                                    int script_instruction_address = script_instruction_address_int;
-                                    script_instruction_type = script_instruction_split[1];
-                                    script_instruction_value = script_instruction_split[2];
-                                }
-
-                                int i = 0;
-
-                                try
-                                {
-                                    switch (script_instruction_type)
+                                    else
                                     {
-                                        case "nops":
-                                            int num_nops = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                            byte[] nops = new byte[num_nops];
-                                            for (i = 0; i < nops.Length; i++)
-                                                nops[i] = 0x90;
-                                            MemLib.writeByte((UIntPtr)script_instruction_address_int, nops, num_nops);
-                                            break;
-
-                                        case "bytes":
-                                            if (script_instruction_value.Contains(','))
-                                            {
-                                                string[] script_instruction_value_split = script_instruction_value.Split(',');
-                                                int num_bytes = script_instruction_value_split.Length;
-                                                byte[] write_bytes = new byte[num_bytes];
-                                                for (i = 0; i < num_bytes; i++)
-                                                {
-                                                    script_instruction_value_int = Int32.Parse(script_instruction_value_split[i], System.Globalization.NumberStyles.AllowHexSpecifier);
-                                                    script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
-                                                    write_bytes[i] = script_instruction_value_bytes[0];
-                                                }
-                                                MemLib.writeByte((UIntPtr)script_instruction_address_int, write_bytes, num_bytes);
-                                            }
-                                            else
-                                            {
-                                                script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                                script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
-                                                MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
-                                            }
-                                            break;
-
-                                        case "byte":
-                                            script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                            script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
-                                            MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
-                                            break;
-
-                                        case "word":
-                                            script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                            script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
-
-                                            MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 2);
-                                            break;
-
-                                        case "dword":
-                                            script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
-                                            script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
-
-                                            MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 4);
-                                            break;
-
-                                        case "float":
-                                            float script_instruction_value_float = float.Parse(script_instruction_value);
-                                            script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_float);
-
-                                            MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
-                                            break;
-
-                                        default:
-                                            break;
+                                        script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                        script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
+                                        MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
                                     }
-                                }
-                                catch
-                                {
-                                }
+                                    break;
+
+                                case "byte":
+                                    script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                    script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
+                                    MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
+                                    break;
+
+                                case "word":
+                                    script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                    script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
+
+                                    MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 2);
+                                    break;
+
+                                case "dword":
+                                    script_instruction_value_int = Int32.Parse(script_instruction_value, System.Globalization.NumberStyles.AllowHexSpecifier);
+                                    script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_int);
+
+                                    MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 4);
+                                    break;
+
+                                case "float":
+                                    float script_instruction_value_float = float.Parse(script_instruction_value);
+                                    script_instruction_value_bytes = BitConverter.GetBytes(script_instruction_value_float);
+
+                                    MemLib.writeByte((UIntPtr)script_instruction_address_int, script_instruction_value_bytes, 1);
+                                    break;
+
+                                default:
+                                    break;
                             }
                         }
+                        catch
+                        {
+                        }
+                    }
+                }
 
                 Thread.Sleep(100);
             }

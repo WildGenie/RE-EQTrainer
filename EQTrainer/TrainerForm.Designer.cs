@@ -255,13 +255,14 @@
             // 
             // teleportBtn1
             // 
+            this.teleportBtn1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.teleportBtn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn1.Location = new System.Drawing.Point(334, 132);
             this.teleportBtn1.Name = "teleportBtn1";
             this.teleportBtn1.Size = new System.Drawing.Size(42, 20);
             this.teleportBtn1.TabIndex = 5;
             this.teleportBtn1.Text = "TP";
-            this.teleportBtn1.UseVisualStyleBackColor = true;
+            this.teleportBtn1.UseVisualStyleBackColor = false;
             this.teleportBtn1.Click += new System.EventHandler(this.teleportBtn1_Click);
             // 
             // z_tele
@@ -415,13 +416,14 @@
             // 
             // teleportBtn2
             // 
+            this.teleportBtn2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.teleportBtn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn2.Location = new System.Drawing.Point(334, 156);
             this.teleportBtn2.Name = "teleportBtn2";
             this.teleportBtn2.Size = new System.Drawing.Size(42, 20);
             this.teleportBtn2.TabIndex = 10;
             this.teleportBtn2.Text = "TP";
-            this.teleportBtn2.UseVisualStyleBackColor = true;
+            this.teleportBtn2.UseVisualStyleBackColor = false;
             this.teleportBtn2.Click += new System.EventHandler(this.teleportBtn2_Click);
             // 
             // tpXLabel2
@@ -474,13 +476,14 @@
             // 
             // teleportBtn3
             // 
+            this.teleportBtn3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.teleportBtn3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn3.Location = new System.Drawing.Point(334, 179);
             this.teleportBtn3.Name = "teleportBtn3";
             this.teleportBtn3.Size = new System.Drawing.Size(42, 20);
             this.teleportBtn3.TabIndex = 15;
             this.teleportBtn3.Text = "TP";
-            this.teleportBtn3.UseVisualStyleBackColor = true;
+            this.teleportBtn3.UseVisualStyleBackColor = false;
             this.teleportBtn3.Click += new System.EventHandler(this.teleportBtn3_Click);
             // 
             // tpXLabel3
@@ -533,13 +536,14 @@
             // 
             // teleportBtn4
             // 
+            this.teleportBtn4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.teleportBtn4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teleportBtn4.Location = new System.Drawing.Point(334, 203);
             this.teleportBtn4.Name = "teleportBtn4";
             this.teleportBtn4.Size = new System.Drawing.Size(42, 20);
             this.teleportBtn4.TabIndex = 20;
             this.teleportBtn4.Text = "TP";
-            this.teleportBtn4.UseVisualStyleBackColor = true;
+            this.teleportBtn4.UseVisualStyleBackColor = false;
             this.teleportBtn4.Click += new System.EventHandler(this.teleportBtn4_Click);
             // 
             // tpXLabel4
@@ -587,6 +591,7 @@
             // 
             // button5
             // 
+            this.button5.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button5.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button5.ForeColor = System.Drawing.Color.OliveDrab;
             this.button5.Location = new System.Drawing.Point(377, 132);
@@ -594,11 +599,12 @@
             this.button5.Size = new System.Drawing.Size(21, 20);
             this.button5.TabIndex = 21;
             this.button5.Text = "v";
-            this.button5.UseVisualStyleBackColor = true;
+            this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
             // button6
             // 
+            this.button6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button6.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button6.ForeColor = System.Drawing.Color.OliveDrab;
             this.button6.Location = new System.Drawing.Point(377, 156);
@@ -606,11 +612,12 @@
             this.button6.Size = new System.Drawing.Size(21, 20);
             this.button6.TabIndex = 25;
             this.button6.Text = "v";
-            this.button6.UseVisualStyleBackColor = true;
+            this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
+            this.button7.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button7.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button7.ForeColor = System.Drawing.Color.OliveDrab;
             this.button7.Location = new System.Drawing.Point(377, 179);
@@ -618,11 +625,12 @@
             this.button7.Size = new System.Drawing.Size(21, 20);
             this.button7.TabIndex = 29;
             this.button7.Text = "v";
-            this.button7.UseVisualStyleBackColor = true;
+            this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
+            this.button8.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button8.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button8.ForeColor = System.Drawing.Color.OliveDrab;
             this.button8.Location = new System.Drawing.Point(377, 203);
@@ -630,11 +638,12 @@
             this.button8.Size = new System.Drawing.Size(21, 20);
             this.button8.TabIndex = 33;
             this.button8.Text = "v";
-            this.button8.UseVisualStyleBackColor = true;
+            this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
+            this.button9.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button9.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button9.ForeColor = System.Drawing.Color.Maroon;
             this.button9.Location = new System.Drawing.Point(398, 132);
@@ -642,11 +651,12 @@
             this.button9.Size = new System.Drawing.Size(21, 20);
             this.button9.TabIndex = 22;
             this.button9.Text = "M";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
+            this.button10.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button10.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button10.ForeColor = System.Drawing.Color.Maroon;
             this.button10.Location = new System.Drawing.Point(398, 156);
@@ -654,11 +664,12 @@
             this.button10.Size = new System.Drawing.Size(21, 20);
             this.button10.TabIndex = 26;
             this.button10.Text = "M";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
+            this.button11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button11.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button11.ForeColor = System.Drawing.Color.Maroon;
             this.button11.Location = new System.Drawing.Point(398, 179);
@@ -666,11 +677,12 @@
             this.button11.Size = new System.Drawing.Size(21, 20);
             this.button11.TabIndex = 30;
             this.button11.Text = "M";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button12
             // 
+            this.button12.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button12.Font = new System.Drawing.Font("Wingdings", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button12.ForeColor = System.Drawing.Color.Maroon;
             this.button12.Location = new System.Drawing.Point(398, 203);
@@ -678,7 +690,7 @@
             this.button12.Size = new System.Drawing.Size(21, 20);
             this.button12.TabIndex = 34;
             this.button12.Text = "M";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // buffsList
@@ -714,6 +726,7 @@
             // 
             // button13
             // 
+            this.button13.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button13.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button13.ForeColor = System.Drawing.Color.Navy;
             this.button13.Location = new System.Drawing.Point(419, 132);
@@ -721,11 +734,12 @@
             this.button13.Size = new System.Drawing.Size(21, 20);
             this.button13.TabIndex = 23;
             this.button13.Text = "=";
-            this.button13.UseVisualStyleBackColor = true;
+            this.button13.UseVisualStyleBackColor = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button14
             // 
+            this.button14.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button14.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button14.ForeColor = System.Drawing.Color.Navy;
             this.button14.Location = new System.Drawing.Point(419, 156);
@@ -733,11 +747,12 @@
             this.button14.Size = new System.Drawing.Size(21, 20);
             this.button14.TabIndex = 27;
             this.button14.Text = "=";
-            this.button14.UseVisualStyleBackColor = true;
+            this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
+            this.button15.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button15.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button15.ForeColor = System.Drawing.Color.Navy;
             this.button15.Location = new System.Drawing.Point(419, 179);
@@ -745,11 +760,12 @@
             this.button15.Size = new System.Drawing.Size(21, 20);
             this.button15.TabIndex = 31;
             this.button15.Text = "=";
-            this.button15.UseVisualStyleBackColor = true;
+            this.button15.UseVisualStyleBackColor = false;
             this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button16
             // 
+            this.button16.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button16.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button16.ForeColor = System.Drawing.Color.Navy;
             this.button16.Location = new System.Drawing.Point(419, 203);
@@ -757,7 +773,7 @@
             this.button16.Size = new System.Drawing.Size(21, 20);
             this.button16.TabIndex = 35;
             this.button16.Text = "=";
-            this.button16.UseVisualStyleBackColor = true;
+            this.button16.UseVisualStyleBackColor = false;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // sd1
@@ -794,6 +810,7 @@
             // 
             // button17
             // 
+            this.button17.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button17.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button17.ForeColor = System.Drawing.Color.SaddleBrown;
             this.button17.Location = new System.Drawing.Point(440, 132);
@@ -801,11 +818,12 @@
             this.button17.Size = new System.Drawing.Size(21, 20);
             this.button17.TabIndex = 24;
             this.button17.Text = "1";
-            this.button17.UseVisualStyleBackColor = true;
+            this.button17.UseVisualStyleBackColor = false;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
             // button18
             // 
+            this.button18.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button18.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button18.ForeColor = System.Drawing.Color.SaddleBrown;
             this.button18.Location = new System.Drawing.Point(440, 156);
@@ -813,11 +831,12 @@
             this.button18.Size = new System.Drawing.Size(21, 20);
             this.button18.TabIndex = 28;
             this.button18.Text = "1";
-            this.button18.UseVisualStyleBackColor = true;
+            this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
             // button19
             // 
+            this.button19.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button19.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button19.ForeColor = System.Drawing.Color.SaddleBrown;
             this.button19.Location = new System.Drawing.Point(440, 179);
@@ -825,11 +844,12 @@
             this.button19.Size = new System.Drawing.Size(21, 20);
             this.button19.TabIndex = 32;
             this.button19.Text = "1";
-            this.button19.UseVisualStyleBackColor = true;
+            this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button20
             // 
+            this.button20.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button20.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.button20.ForeColor = System.Drawing.Color.SaddleBrown;
             this.button20.Location = new System.Drawing.Point(440, 203);
@@ -837,7 +857,7 @@
             this.button20.Size = new System.Drawing.Size(21, 20);
             this.button20.TabIndex = 36;
             this.button20.Text = "1";
-            this.button20.UseVisualStyleBackColor = true;
+            this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // od1
@@ -872,22 +892,24 @@
             // 
             // saveAllBtn
             // 
+            this.saveAllBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.saveAllBtn.Location = new System.Drawing.Point(242, 263);
             this.saveAllBtn.Name = "saveAllBtn";
             this.saveAllBtn.Size = new System.Drawing.Size(95, 23);
             this.saveAllBtn.TabIndex = 501;
             this.saveAllBtn.Text = "Save All XYZ";
-            this.saveAllBtn.UseVisualStyleBackColor = true;
+            this.saveAllBtn.UseVisualStyleBackColor = false;
             this.saveAllBtn.Click += new System.EventHandler(this.saveAllBtn_Click);
             // 
             // loadAllBtn
             // 
+            this.loadAllBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.loadAllBtn.Location = new System.Drawing.Point(242, 286);
             this.loadAllBtn.Name = "loadAllBtn";
             this.loadAllBtn.Size = new System.Drawing.Size(95, 23);
             this.loadAllBtn.TabIndex = 502;
             this.loadAllBtn.Text = "Load All XYZ";
-            this.loadAllBtn.UseVisualStyleBackColor = true;
+            this.loadAllBtn.UseVisualStyleBackColor = false;
             this.loadAllBtn.Click += new System.EventHandler(this.loadAllBtn_Click);
             // 
             // sdall
@@ -937,6 +959,7 @@
             // 
             // followBtn
             // 
+            this.followBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.followBtn.Enabled = false;
             this.followBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.followBtn.ForeColor = System.Drawing.Color.DodgerBlue;
@@ -945,7 +968,7 @@
             this.followBtn.Size = new System.Drawing.Size(52, 22);
             this.followBtn.TabIndex = 507;
             this.followBtn.Text = "Follow";
-            this.followBtn.UseVisualStyleBackColor = true;
+            this.followBtn.UseVisualStyleBackColor = false;
             this.followBtn.Click += new System.EventHandler(this.followBtn_Click);
             // 
             // runBox
@@ -968,6 +991,7 @@
             // 
             // resetRunBtn
             // 
+            this.resetRunBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.resetRunBtn.Font = new System.Drawing.Font("Wingdings", 11.25F);
             this.resetRunBtn.ForeColor = System.Drawing.Color.Maroon;
             this.resetRunBtn.Location = new System.Drawing.Point(320, 393);
@@ -975,7 +999,7 @@
             this.resetRunBtn.Size = new System.Drawing.Size(20, 22);
             this.resetRunBtn.TabIndex = 510;
             this.resetRunBtn.Text = "M";
-            this.resetRunBtn.UseVisualStyleBackColor = true;
+            this.resetRunBtn.UseVisualStyleBackColor = false;
             this.resetRunBtn.Click += new System.EventHandler(this.resetRunBtn_Click);
             // 
             // label14
@@ -1031,22 +1055,24 @@
             // 
             // buttonAllScriptsEnabled
             // 
+            this.buttonAllScriptsEnabled.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonAllScriptsEnabled.Location = new System.Drawing.Point(721, 27);
             this.buttonAllScriptsEnabled.Name = "buttonAllScriptsEnabled";
             this.buttonAllScriptsEnabled.Size = new System.Drawing.Size(111, 24);
             this.buttonAllScriptsEnabled.TabIndex = 536;
             this.buttonAllScriptsEnabled.Text = "All Scripts Enabled";
-            this.buttonAllScriptsEnabled.UseVisualStyleBackColor = true;
+            this.buttonAllScriptsEnabled.UseVisualStyleBackColor = false;
             this.buttonAllScriptsEnabled.Click += new System.EventHandler(this.buttonAllScriptsEnabled_Click);
             // 
             // buttonAllScriptsDisabled
             // 
+            this.buttonAllScriptsDisabled.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonAllScriptsDisabled.Location = new System.Drawing.Point(838, 27);
             this.buttonAllScriptsDisabled.Name = "buttonAllScriptsDisabled";
             this.buttonAllScriptsDisabled.Size = new System.Drawing.Size(115, 24);
             this.buttonAllScriptsDisabled.TabIndex = 537;
             this.buttonAllScriptsDisabled.Text = "All Scripts Disabled";
-            this.buttonAllScriptsDisabled.UseVisualStyleBackColor = true;
+            this.buttonAllScriptsDisabled.UseVisualStyleBackColor = false;
             this.buttonAllScriptsDisabled.Click += new System.EventHandler(this.buttonAllScriptsDisabled_Click);
             // 
             // statusStrip1
@@ -1325,23 +1351,25 @@
             // 
             // buttonTargetSpawn
             // 
+            this.buttonTargetSpawn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonTargetSpawn.Location = new System.Drawing.Point(747, 541);
             this.buttonTargetSpawn.Name = "buttonTargetSpawn";
             this.buttonTargetSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonTargetSpawn.TabIndex = 566;
             this.buttonTargetSpawn.Text = "Target Spawn";
-            this.buttonTargetSpawn.UseVisualStyleBackColor = true;
+            this.buttonTargetSpawn.UseVisualStyleBackColor = false;
             this.buttonTargetSpawn.Click += new System.EventHandler(this.buttonTargetSpawn_Click);
             // 
             // buttonRefreshSpawnList
             // 
+            this.buttonRefreshSpawnList.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonRefreshSpawnList.Font = new System.Drawing.Font("Wingdings", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.buttonRefreshSpawnList.Location = new System.Drawing.Point(981, 275);
             this.buttonRefreshSpawnList.Name = "buttonRefreshSpawnList";
             this.buttonRefreshSpawnList.Size = new System.Drawing.Size(29, 22);
             this.buttonRefreshSpawnList.TabIndex = 565;
             this.buttonRefreshSpawnList.Text = "$";
-            this.buttonRefreshSpawnList.UseVisualStyleBackColor = true;
+            this.buttonRefreshSpawnList.UseVisualStyleBackColor = false;
             this.buttonRefreshSpawnList.Click += new System.EventHandler(this.buttonRefreshSpawnList_Click);
             // 
             // listViewSpawnList
@@ -1445,22 +1473,24 @@
             // 
             // buttonWarpToSpawn
             // 
+            this.buttonWarpToSpawn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonWarpToSpawn.Location = new System.Drawing.Point(881, 541);
             this.buttonWarpToSpawn.Name = "buttonWarpToSpawn";
             this.buttonWarpToSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonWarpToSpawn.TabIndex = 570;
             this.buttonWarpToSpawn.Text = "Warp to Spawn";
-            this.buttonWarpToSpawn.UseVisualStyleBackColor = true;
+            this.buttonWarpToSpawn.UseVisualStyleBackColor = false;
             this.buttonWarpToSpawn.Click += new System.EventHandler(this.buttonWarpToSpawn_Click);
             // 
             // button26
             // 
+            this.button26.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button26.Location = new System.Drawing.Point(242, 469);
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(85, 23);
             this.button26.TabIndex = 571;
             this.button26.Text = "Open AutoBot";
-            this.button26.UseVisualStyleBackColor = true;
+            this.button26.UseVisualStyleBackColor = false;
             this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // checkBox1
@@ -1520,12 +1550,13 @@
             // 
             // refreshProcessesBtn
             // 
+            this.refreshProcessesBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.refreshProcessesBtn.Location = new System.Drawing.Point(346, 518);
             this.refreshProcessesBtn.Name = "refreshProcessesBtn";
             this.refreshProcessesBtn.Size = new System.Drawing.Size(113, 23);
             this.refreshProcessesBtn.TabIndex = 579;
             this.refreshProcessesBtn.Text = "Refresh Processes";
-            this.refreshProcessesBtn.UseVisualStyleBackColor = true;
+            this.refreshProcessesBtn.UseVisualStyleBackColor = false;
             this.refreshProcessesBtn.Click += new System.EventHandler(this.refreshProcessesBtn_Click);
             // 
             // name_label
@@ -1541,23 +1572,25 @@
             // 
             // buttonCameraOnSpawn
             // 
+            this.buttonCameraOnSpawn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonCameraOnSpawn.Location = new System.Drawing.Point(467, 541);
             this.buttonCameraOnSpawn.Name = "buttonCameraOnSpawn";
             this.buttonCameraOnSpawn.Size = new System.Drawing.Size(128, 24);
             this.buttonCameraOnSpawn.TabIndex = 583;
             this.buttonCameraOnSpawn.Text = "Camera on Spawn";
-            this.buttonCameraOnSpawn.UseVisualStyleBackColor = true;
+            this.buttonCameraOnSpawn.UseVisualStyleBackColor = false;
             this.buttonCameraOnSpawn.Visible = false;
             this.buttonCameraOnSpawn.Click += new System.EventHandler(this.buttonCameraOnSpawn_Click);
             // 
             // buttonResetCamera
             // 
+            this.buttonResetCamera.BackColor = System.Drawing.SystemColors.ControlLight;
             this.buttonResetCamera.Location = new System.Drawing.Point(601, 541);
             this.buttonResetCamera.Name = "buttonResetCamera";
             this.buttonResetCamera.Size = new System.Drawing.Size(128, 24);
             this.buttonResetCamera.TabIndex = 584;
             this.buttonResetCamera.Text = "Reset Camera";
-            this.buttonResetCamera.UseVisualStyleBackColor = true;
+            this.buttonResetCamera.UseVisualStyleBackColor = false;
             this.buttonResetCamera.Visible = false;
             this.buttonResetCamera.Click += new System.EventHandler(this.buttonResetCamera_Click);
             // 
@@ -1582,7 +1615,7 @@
             // 
             // progressBarXP
             // 
-            this.progressBarXP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarXP.ForeColor = System.Drawing.Color.Gold;
             this.progressBarXP.Location = new System.Drawing.Point(355, 83);
             this.progressBarXP.Name = "progressBarXP";
             this.progressBarXP.Size = new System.Drawing.Size(80, 18);
@@ -1602,17 +1635,19 @@
             // 
             // injectBtn
             // 
+            this.injectBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.injectBtn.ForeColor = System.Drawing.Color.DarkGreen;
             this.injectBtn.Location = new System.Drawing.Point(242, 492);
             this.injectBtn.Name = "injectBtn";
             this.injectBtn.Size = new System.Drawing.Size(85, 23);
             this.injectBtn.TabIndex = 589;
             this.injectBtn.Text = "INJECT DLL";
-            this.injectBtn.UseVisualStyleBackColor = true;
+            this.injectBtn.UseVisualStyleBackColor = false;
             this.injectBtn.Click += new System.EventHandler(this.injectBtn_Click);
             // 
             // toolbarBtn
             // 
+            this.toolbarBtn.BackColor = System.Drawing.SystemColors.ControlLight;
             this.toolbarBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolbarBtn.ForeColor = System.Drawing.Color.SteelBlue;
             this.toolbarBtn.Location = new System.Drawing.Point(958, 27);
@@ -1620,12 +1655,13 @@
             this.toolbarBtn.Size = new System.Drawing.Size(52, 24);
             this.toolbarBtn.TabIndex = 590;
             this.toolbarBtn.Text = "toolbar";
-            this.toolbarBtn.UseVisualStyleBackColor = true;
+            this.toolbarBtn.UseVisualStyleBackColor = false;
             this.toolbarBtn.Click += new System.EventHandler(this.toolbarBtn_Click);
             // 
             // progressBarHP
             // 
-            this.progressBarHP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarHP.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.progressBarHP.ForeColor = System.Drawing.Color.Tomato;
             this.progressBarHP.Location = new System.Drawing.Point(355, 43);
             this.progressBarHP.Name = "progressBarHP";
             this.progressBarHP.Size = new System.Drawing.Size(80, 18);
@@ -1634,7 +1670,7 @@
             // 
             // progressBarMP
             // 
-            this.progressBarMP.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.progressBarMP.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.progressBarMP.Location = new System.Drawing.Point(355, 63);
             this.progressBarMP.Name = "progressBarMP";
             this.progressBarMP.Size = new System.Drawing.Size(80, 18);

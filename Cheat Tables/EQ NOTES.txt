@@ -8,8 +8,8 @@ mouse x y is 0 0 when in upper left corner. Gets bigger going right and down
 runspeed is always 0.6999999881
 
 
-TO FIND WARP
--------------
+TO FIND WARP (old)
+-------------------
 Program: ollydbg
 1) open eqgame.exe 
 2) right click > View > Module "eqgame.exe"
@@ -18,3 +18,12 @@ Program: ollydbg
 5) type in "finished MoveLocalPlayerToSafeCoords.\n"
 6) after finding the line, double click on it, scroll up 1 line
 7) where it says CALL eqgame.00###### that is your function address
+
+
+WORKING WITH MQ2
+-----------------
+1) EQ_Character2 is located at #define pinstCharData
+2) Pointer is located at struct     _CI2_INFO* pCI2;
+3) Pointer 2 is located at struct  _CHARINFO2* pCharInfo2;
+
+So it goes pinstCharData->pCI2->pCharInfo2

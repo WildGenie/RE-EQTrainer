@@ -155,11 +155,11 @@ namespace EQTrainer
                 hpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarHP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(hpProgressBar.Width / 2 - 10, hpProgressBar.Height / 2 - 7));
 
                 mpProgressBar.Invoke(new MethodInvoker(delegate { mpProgressBar.Value = this.RefToForm1.progressBarMP.Value; }));
-                SendMessage(hpProgressBar.Handle, 1040, 0, 0);
+                SendMessage(mpProgressBar.Handle, 1040, 0, 0);
                 mpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarMP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(mpProgressBar.Width / 2 - 10, mpProgressBar.Height / 2 - 7));
 
                 xpProgressBar.Invoke(new MethodInvoker(delegate { xpProgressBar.Value = this.RefToForm1.progressBarXP.Value; }));
-                SendMessage(hpProgressBar.Handle, 1040, 3, 0);
+                SendMessage(xpProgressBar.Handle, 1040, 3, 0);
                 xpProgressBar.CreateGraphics().DrawString(this.RefToForm1.progressBarXP.Value + "%", new Font("Arial", (float)8), Brushes.Black, new PointF(xpProgressBar.Width / 2 - 10, xpProgressBar.Height / 2 - 7));
             }
         }
