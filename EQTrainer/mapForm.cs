@@ -360,7 +360,7 @@ namespace EQTrainer
                     {
                         offset = (int)(playery / zoom) + 70;
                         offsety = (int)(playerx / zoom) - 50;
-                        zoom = 2.2;
+                        //zoom = 2.2;
                     }
 
                     if (!String.IsNullOrEmpty(zoneshort) && !mymousedown)
@@ -375,8 +375,8 @@ namespace EQTrainer
 
         private void TrackBar2_Scroll(object sender, EventArgs e)
         {
-            if (track)
-                track = false;
+            //if (track)
+            //    track = false;
             //center screen?
             offset = (int)(355 / zoom) + 70; //709
             offsety = (int)(280 / zoom) - 50; //560

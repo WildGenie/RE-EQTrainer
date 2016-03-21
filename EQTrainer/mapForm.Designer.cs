@@ -60,9 +60,9 @@
             // 
             // trackPlayer
             // 
-            this.trackPlayer.Location = new System.Drawing.Point(14, 500);
+            this.trackPlayer.Location = new System.Drawing.Point(14, 507);
             this.trackPlayer.Name = "trackPlayer";
-            this.trackPlayer.Size = new System.Drawing.Size(28, 23);
+            this.trackPlayer.Size = new System.Drawing.Size(34, 21);
             this.trackPlayer.TabIndex = 13;
             this.trackPlayer.Text = "(X)";
             this.trackPlayer.UseVisualStyleBackColor = true;
@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Tan;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(110, 535);
+            this.label1.Location = new System.Drawing.Point(18, 535);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 12;
@@ -81,7 +81,7 @@
             // 
             // filterBox
             // 
-            this.filterBox.Location = new System.Drawing.Point(141, 532);
+            this.filterBox.Location = new System.Drawing.Point(54, 532);
             this.filterBox.Name = "filterBox";
             this.filterBox.Size = new System.Drawing.Size(142, 20);
             this.filterBox.TabIndex = 11;
@@ -90,12 +90,12 @@
             // 
             this.TrackBar2.BackColor = System.Drawing.Color.Tan;
             this.TrackBar2.LargeChange = 2;
-            this.TrackBar2.Location = new System.Drawing.Point(1, 1);
+            this.TrackBar2.Location = new System.Drawing.Point(202, 507);
             this.TrackBar2.Maximum = 20;
             this.TrackBar2.Minimum = 1;
             this.TrackBar2.Name = "TrackBar2";
             this.TrackBar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TrackBar2.Size = new System.Drawing.Size(78, 45);
+            this.TrackBar2.Size = new System.Drawing.Size(495, 45);
             this.TrackBar2.TabIndex = 10;
             this.TrackBar2.TickFrequency = 50;
             this.TrackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
@@ -107,7 +107,7 @@
             this.hideLabels.AutoSize = true;
             this.hideLabels.BackColor = System.Drawing.Color.Tan;
             this.hideLabels.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.hideLabels.Location = new System.Drawing.Point(14, 534);
+            this.hideLabels.Location = new System.Drawing.Point(54, 510);
             this.hideLabels.Name = "hideLabels";
             this.hideLabels.Size = new System.Drawing.Size(82, 17);
             this.hideLabels.TabIndex = 9;

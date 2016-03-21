@@ -22,8 +22,14 @@ Program: ollydbg
 
 WORKING WITH MQ2
 -----------------
-1) EQ_Character2 is located at #define pinstCharData
-2) Pointer is located at struct     _CI2_INFO* pCI2;
-3) Pointer 2 is located at struct  _CHARINFO2* pCharInfo2;
+- EQ_Character is located at #define pinstCharData
+- Pointer for EQ_Characteer2 is located at struct     _CI2_INFO* pCI2;
+- Pointer for EQ_Character1 is located at struct     _CI_INFO* charinfo_info;
+- Pointer 2 for EQ_Character2 is located at struct  _CHARINFO2* pCharInfo2;
+- Pointer 2 for EQ_Character1 is located at 
 
+CharInfo1
+struct     _CI_INFO* charinfo_info;
+
+CharInfo2
 So it goes pinstCharData->pCI2->pCharInfo2
