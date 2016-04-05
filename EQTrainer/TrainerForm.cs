@@ -1038,14 +1038,14 @@ namespace EQTrainer
                 string scriptDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "telescripts" + Path.DirectorySeparatorChar;
                 string currentZone = scriptDirectory + MemLib.sanitizeString(map_address);
 
-                this.od1.Reset();
-                this.od2.Reset();
-                this.od3.Reset();
-                this.od4.Reset();
-                this.sd1.Reset();
-                this.sd2.Reset();
-                this.sd3.Reset();
-                this.sd4.Reset();
+                this.od1.FileName = "";
+                this.od2.FileName = "";
+                this.od3.FileName = "";
+                this.od4.FileName = "";
+                this.sd1.FileName = "";
+                this.sd2.FileName = "";
+                this.sd3.FileName = "";
+                this.sd4.FileName = "";
 
                 if (currentZone.Contains("Greater Faydark") && !currentZone.Contains("The Greater Faydark"))
                     currentZone = currentZone.Replace("Greater Faydark", "The Greater Faydark");

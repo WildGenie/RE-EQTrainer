@@ -779,7 +779,6 @@
             // sd1
             // 
             this.sd1.DefaultExt = "tele";
-            this.sd1.FileName = "xyz_single1.tele";
             this.sd1.Filter = "Teleport files (*.tele)|*.tele|All files (*.*)|*.*";
             this.sd1.InitialDirectory = "saves";
             this.sd1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
@@ -787,7 +786,6 @@
             // sd2
             // 
             this.sd2.DefaultExt = "tele";
-            this.sd2.FileName = "xyz_single2.tele";
             this.sd2.Filter = "Teleport files (*.tele)|*.tele|All files (*.*)|*.*";
             this.sd2.InitialDirectory = "saves";
             this.sd2.FileOk += new System.ComponentModel.CancelEventHandler(this.sd2_FileOk);
@@ -795,7 +793,6 @@
             // sd3
             // 
             this.sd3.DefaultExt = "tele";
-            this.sd3.FileName = "xyz_single3.txt";
             this.sd3.Filter = "Teleport files (*.tele)|*.tele|All files (*.*)|*.*";
             this.sd3.InitialDirectory = "saves";
             this.sd3.FileOk += new System.ComponentModel.CancelEventHandler(this.sd3_FileOk);
@@ -803,7 +800,6 @@
             // sd4
             // 
             this.sd4.DefaultExt = "tele";
-            this.sd4.FileName = "xyz_single4.tele";
             this.sd4.Filter = "Teleport files (*.tele)|*.tele|All files (*.*)|*.*";
             this.sd4.InitialDirectory = "saves";
             this.sd4.FileOk += new System.ComponentModel.CancelEventHandler(this.sd4_FileOk);
