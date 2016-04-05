@@ -4,6 +4,7 @@ del /S /F /AH *.htm
 rmdir /s /q "AutoBot\bin"
 rmdir /s /q "Installer\Release"
 rmdir /s /q "injectdll2\injectdll2\Release"
+rmdir /s /q ".vs"
 cd "EQTrainer\bin\Release"
 del /S /F *.exe
 del /S /F *.dll

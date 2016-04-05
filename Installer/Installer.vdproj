@@ -507,18 +507,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_835F4B36A763B914E9D837E5EB3F72A5"
-        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_835F4B36A763B914E9D837E5EB3F72A5"
-        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_859CBA33A0144CB7B0C67CC3BB26B2EC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -671,6 +659,18 @@
         {
         "MsmKey" = "8:_AFD50420A8B4442B8E42896679476C14"
         "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B05A655688D86506CDA1C19542E599D4"
+        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_B05A655688D86506CDA1C19542E599D4"
+        "OwnerKey" = "8:_FF08914C82934611AE9FD6CF7B03955B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -982,13 +982,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_835F4B36A763B914E9D837E5EB3F72A5"
+        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A9BA1FD3D5774C60A61355C53ECE5E8F"
+        "OwnerKey" = "8:_B05A655688D86506CDA1C19542E599D4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -2731,32 +2731,6 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_835F4B36A763B914E9D837E5EB3F72A5"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Memory, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                }
-            "SourcePath" = "8:Memory.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_859CBA33A0144CB7B0C67CC3BB26B2EC"
             {
             "SourcePath" = "8:..\\EQTrainer\\bin\\Release\\maps\\ecommons.txt"
@@ -3255,6 +3229,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B05A655688D86506CDA1C19542E599D4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Memory, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B05A655688D86506CDA1C19542E599D4"
+                    {
+                    "Name" = "8:Memory.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Memory.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A777E3F877DE4B4D853E2F220623C2F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B0B58A449D544C6E8877906F3CA2211B"
@@ -4337,15 +4342,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EQTrainer"
-        "ProductCode" = "8:{ADF761B8-D411-45BF-A415-70487037EE38}"
-        "PackageCode" = "8:{6D50D3D9-B300-4334-8F39-CBDB00935523}"
+        "ProductCode" = "8:{3E88FDBF-90DB-4B6E-9ED0-5ACC70CEAD01}"
+        "PackageCode" = "8:{47E44049-C9B7-49DF-AA74-7C87C32C38D3}"
         "UpgradeCode" = "8:{423DBF5A-1EFC-4CDC-A197-75DBED3DF87F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:5.9.1"
+        "ProductVersion" = "8:5.9.3"
         "Manufacturer" = "8:NewAgeSoldier"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://newagesoldier.com"
