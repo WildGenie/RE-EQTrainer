@@ -52,6 +52,9 @@
     <ManifestCertificateThumbprint>1C6774AE5209058AC154B04DCB26CFD767E398C3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AForge.Imaging">
+      <HintPath>..\EQTrainer\bin\Release\AForge.Imaging.dll</HintPath>
+    </Reference>
     <Reference Include="Memory">
       <HintPath>..\..\memory.dll\Memory\bin\Debug\Memory.dll</HintPath>
     </Reference>

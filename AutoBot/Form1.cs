@@ -13,6 +13,8 @@ using System.Diagnostics;
 using System.Threading;
 using Memory;
 using AutoItX3Lib;
+using AForge.Imaging;
+using AForge.Imaging.Filters;
 
 namespace AutoBot
 {
@@ -34,10 +36,17 @@ namespace AutoBot
         static extern bool SetForegroundWindow(IntPtr hWnd);
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern int SendMessage(IntPtr hWnd, int wMsg, IntPtr wParam, IntPtr lParam);
+        [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+        public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
         #endregion
 
         private const int WM_VSCROLL = 277;
         private const int SB_PAGEBOTTOM = 7;
+
+        private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+        private const int MOUSEEVENTF_LEFTUP = 0x04;
+        private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+        private const int MOUSEEVENTF_RIGHTUP = 0x10;
 
         public static void ScrollToBottom(RichTextBox MyRichTextBox)
         {
@@ -50,7 +59,45 @@ namespace AutoBot
         private static string codeFile;
         public static string[] args = Environment.GetCommandLineArgs();
 
+        public Bitmap ConvertToFormat(System.Drawing.Image image, System.Drawing.Imaging.PixelFormat format)
+        {
+            Bitmap copy = new Bitmap(image.Width, image.Height, format);
+            using (Graphics gr = Graphics.FromImage(copy))
+            {
+                gr.DrawImage(image, new Rectangle(0, 0, copy.Width, copy.Height));
+            }
+            return copy;
+        }
+
         static string lastCmd = "";
+
+        List<int> getImgCoords(Bitmap template, Bitmap bmp)
+        {
+            const Int32 divisor = 4;
+            const Int32 epsilon = 10;
+
+            List<int> listRange = new List<int>();
+
+            ExhaustiveTemplateMatching etm = new ExhaustiveTemplateMatching(0.926f); //98% threshold
+
+            TemplateMatch[] tm = etm.ProcessImage(
+                new ResizeNearestNeighbor(template.Width / divisor, template.Height / divisor).Apply(template),
+                new ResizeNearestNeighbor(bmp.Width / divisor, bmp.Height / divisor).Apply(bmp)
+            );
+            if (tm.Length >= 1)
+            {
+                Rectangle tempRect = tm[0].Rectangle;
+
+                
+                listRange.Add(tempRect.Location.X * divisor);
+                listRange.Add(tempRect.Location.Y * divisor);
+
+                //if (Math.Abs(bmp.Width / divisor - tempRect.Width) < epsilon && Math.Abs(bmp.Height / divisor - tempRect.Height) < epsilon)
+                //    return true;
+            }
+            //return false;
+            return listRange;
+        }
 
         protected override void WndProc(ref Message m) //hotbuttons
         {
@@ -83,6 +130,28 @@ namespace AutoBot
                 }
             }
             return sb.ToString();
+        }
+
+        void clickonImage(string image_name)
+        {
+            int screenWidth = Screen.GetBounds(new Point(0, 0)).Width;
+            int screenHeight = Screen.GetBounds(new Point(0, 0)).Height;
+            Bitmap bmpScreenShot = new Bitmap(screenWidth, screenHeight);
+            Bitmap findimg = new Bitmap(Application.StartupPath + @"\auto\images\"+ image_name + ".bmp");
+            Graphics gfx = Graphics.FromImage(bmpScreenShot);
+            gfx.CopyFromScreen(0, 0, 0, 0, new Size(screenWidth, screenHeight));
+            //bmpScreenShot.Save("Screenshot.bmp", System.Drawing.Imaging.ImageFormat.Bmp); //DEBUG
+
+            Bitmap template = ConvertToFormat(bmpScreenShot, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            Bitmap find = ConvertToFormat(findimg, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            
+            List<int> list = getImgCoords(template, find);
+            //Cursor.Position = new Point(list[0], list[1]);
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, Convert.ToUInt32(list[0]), Convert.ToUInt32(list[1]), 0, 0);
+
+            bmpScreenShot.Dispose();
+            findimg.Dispose();
+            gfx.Dispose();
         }
 
         void AppendOutputText(string text, Color color = default(Color))
@@ -342,6 +411,12 @@ namespace AutoBot
                 string[] words = line.Split(' ');
                 AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
                 WalkTo(float.Parse(words[1]), float.Parse(words[2]));
+            }
+            else if (Regex.Match(line, "clickon", RegexOptions.IgnoreCase).Success == true)
+            {
+                string[] words = line.Split(' ');
+                AppendOutputText("Click on: " + words[1]);
+                clickonImage(words[1]);
             }
             else if (Regex.Match(line, "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
             {
