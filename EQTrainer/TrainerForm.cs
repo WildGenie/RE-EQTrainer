@@ -1675,5 +1675,10 @@ namespace EQTrainer
                 timer1.Enabled = true;
             }
         }
+
+        private void autoForgeNETToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("http://aforge.googlecode.com/files/AForge.NET%20Framework-2.2.5.exe");
+        }
     }
 }

@@ -209,6 +209,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.targetInfoBox = new System.Windows.Forms.GroupBox();
             this.autoSwap = new System.Windows.Forms.CheckBox();
+            this.autoForgeNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1135,7 +1136,8 @@
             this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cRedistributablex86ToolStripMenuItem,
-            this.autoItToolStripMenuItem});
+            this.autoItToolStripMenuItem,
+            this.autoForgeNETToolStripMenuItem});
             this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
@@ -1153,7 +1155,7 @@
             // 
             this.autoItToolStripMenuItem.Name = "autoItToolStripMenuItem";
             this.autoItToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.autoItToolStripMenuItem.Text = "AutoIt";
+            this.autoItToolStripMenuItem.Text = "AutoIt 3x";
             this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
             // 
             // label5
@@ -1899,7 +1901,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.panel1.Location = new System.Drawing.Point(196, 1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(728, 20);
@@ -1937,6 +1939,13 @@
             this.autoSwap.TabIndex = 624;
             this.autoSwap.Text = "Auto Swap Process";
             this.autoSwap.UseVisualStyleBackColor = true;
+            // 
+            // autoForgeNETToolStripMenuItem
+            // 
+            this.autoForgeNETToolStripMenuItem.Name = "autoForgeNETToolStripMenuItem";
+            this.autoForgeNETToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.autoForgeNETToolStripMenuItem.Text = "AForge.NET";
+            this.autoForgeNETToolStripMenuItem.Click += new System.EventHandler(this.autoForgeNETToolStripMenuItem_Click);
             // 
             // TrainerForm
             // 
@@ -2280,6 +2289,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox targetInfoBox;
         private System.Windows.Forms.CheckBox autoSwap;
+        private System.Windows.Forms.ToolStripMenuItem autoForgeNETToolStripMenuItem;
     }
 }
 

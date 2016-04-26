@@ -74,7 +74,7 @@ namespace AutoBot
         List<int> getImgCoords(Bitmap template, Bitmap bmp)
         {
             const Int32 divisor = 4;
-            const Int32 epsilon = 10;
+            //const Int32 epsilon = 10;
 
             List<int> listRange = new List<int>();
 
@@ -878,7 +878,7 @@ namespace AutoBot
            double z_diff = Math.Abs(Math.Round((value_z_rounded - z_address)));
 
            AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);
-
+        
            if ((x_diff > 10) || (y_diff > 10) || (z_diff > 2))
            {
                AppendOutputText("Bad Player X:" + x_address + " Y:" + y_address + " Z:" + z_address, Color.Red);
