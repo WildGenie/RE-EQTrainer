@@ -877,7 +877,7 @@ namespace EQTrainer
             string address_text = listViewSpawnList.SelectedItems[0].SubItems[1].Text;
             int address_value = Convert.ToInt32(address_text, 16);
             byte[] buffer = BitConverter.GetBytes(address_value);
-            MemLib.writeUIntPtr("targetSpawn", codeFile, buffer);
+            MemLib.writeUIntPtr("targetSpawn", buffer, codeFile);
         }
 
         private void buttonWarpToSpawn_Click(object sender, EventArgs e)
@@ -921,9 +921,9 @@ namespace EQTrainer
             byte[] write_x = BitConverter.GetBytes(value_x);
             byte[] write_z = BitConverter.GetBytes(value_z);
 
-            MemLib.writeUIntPtr("safeY", codeFile, write_y);
-            MemLib.writeUIntPtr("safeX", codeFile, write_x);
-            MemLib.writeUIntPtr("safeZ", codeFile, write_z);
+            MemLib.writeUIntPtr("safeY", write_y, codeFile);
+            MemLib.writeUIntPtr("safeX", write_x, codeFile);
+            MemLib.writeUIntPtr("safeZ", write_z, codeFile);
 
             float readSafeZ = MemLib.readFloat("safeZ", codeFile);
             float readSafeX = MemLib.readFloat("safeX", codeFile);
@@ -1238,7 +1238,7 @@ namespace EQTrainer
                     if (i > 0)
                     {
                         sNum = sNum + skipNum;
-                        buffAddress = MemLib.read2ByteMove("buffsInfoAddress", codeFile, sNum);
+                        buffAddress = MemLib.read2ByteMove("buffsInfoAddress", sNum, codeFile);
                     }
                     else
                         buffAddress = MemLib.read2Byte("buffsInfoAddress", codeFile);
@@ -1249,7 +1249,7 @@ namespace EQTrainer
                     {
                         //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
                         if (comboBox1.Text.Equals("EQMac"))
-                            buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
+                            buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", sNum, codeFile));
                         else
                             buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
                     }

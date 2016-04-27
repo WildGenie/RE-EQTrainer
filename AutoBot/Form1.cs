@@ -536,7 +536,7 @@ namespace AutoBot
                     string address_text = spawn_info_address.ToString("X8"); //this is dumb, but I'm tired of the crashes.
                     int address_value = Convert.ToInt32(address_text, 16);
                     byte[] nameBuffer = BitConverter.GetBytes(address_value);
-                    MemLib.writeUIntPtr("targetSpawn", codeFile, nameBuffer);
+                    MemLib.writeUIntPtr("targetSpawn", nameBuffer, codeFile);
                     return;
                 }
 
@@ -651,7 +651,7 @@ namespace AutoBot
 
                         int address_value = Convert.ToInt32(addressString, 16);
                         byte[] buffer = BitConverter.GetBytes(address_value);
-                        MemLib.writeUIntPtr("targetSpawn", codeFile, buffer);
+                        MemLib.writeUIntPtr("targetSpawn", buffer, codeFile);
 
                         int tHealth = MemLib.readByte("targetHealth", codeFile);
 
@@ -825,15 +825,15 @@ namespace AutoBot
         {
             byte[] write_z = new byte[1];
             write_z = BitConverter.GetBytes(value_z);
-            MemLib.writeUIntPtr("safeZ", codeFile, write_z);
+            MemLib.writeUIntPtr("safeZ", write_z, codeFile);
 
             byte[] write_x = new byte[1];
             write_x = BitConverter.GetBytes(value_x);
-            MemLib.writeUIntPtr("safeX", codeFile, write_x);
+            MemLib.writeUIntPtr("safeX", write_x, codeFile);
 
             byte[] write_y = new byte[1];
             write_y = BitConverter.GetBytes(value_y);
-            MemLib.writeUIntPtr("safeY", codeFile, write_y);
+            MemLib.writeUIntPtr("safeY", write_y, codeFile);
         }
 
        public bool tpSafeCheck(float value_x, float value_y, float value_z){
@@ -1132,14 +1132,14 @@ namespace AutoBot
             {
                 if (codeFile.Equals("EQMac"))
                 {
-                    MemLib.writeUIntPtr("mousex", codeFile, BitConverter.GetBytes(x));
-                    MemLib.writeUIntPtr("mousey", codeFile, BitConverter.GetBytes(y));
+                    MemLib.writeUIntPtr("mousex", BitConverter.GetBytes(x), codeFile);
+                    MemLib.writeUIntPtr("mousey", BitConverter.GetBytes(y), codeFile);
                     if (click == "left")
-                        MemLib.writeUIntPtr("mouseClick", codeFile, BitConverter.GetBytes(128));
+                        MemLib.writeUIntPtr("mouseClick", BitConverter.GetBytes(128), codeFile);
                     else if (click == "right")
-                        MemLib.writeUIntPtr("mouseClick", codeFile, BitConverter.GetBytes(1677612));
+                        MemLib.writeUIntPtr("mouseClick", BitConverter.GetBytes(1677612), codeFile);
                     else if (click == "hold")
-                        MemLib.writeUIntPtr("mouseClick", codeFile, BitConverter.GetBytes(16777217));
+                        MemLib.writeUIntPtr("mouseClick", BitConverter.GetBytes(16777217), codeFile);
                 }
                 else
                 {
