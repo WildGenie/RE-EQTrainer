@@ -1020,7 +1020,7 @@ namespace EQTrainer
                                     //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
                                     if (buildDateCode.Contains(buildDate))
                                     {
-                                        comboBox1.Invoke(new MethodInvoker(delegate { comboBox1.Text = Path.GetFileName(subdirectory); }));
+                                        /*comboBox1.Invoke(new MethodInvoker(delegate {*/ comboBox1.Text = Path.GetFileName(subdirectory); //}));
                                         if (Properties.Settings.Default.old_warp == false)
                                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                                     }
@@ -1029,8 +1029,7 @@ namespace EQTrainer
                         }
                     }
                     catch { }
-                }
-                ));
+                }));
 
                 float y_address = MemLib.readFloat("playerY", codeFile);
                 float x_address = MemLib.readFloat("playerX", codeFile);
@@ -1346,7 +1345,7 @@ namespace EQTrainer
                 double xpProgressPercentage = ((double)current_xp / (double)330);
                 int xpProgressBar = (int)(xpProgressPercentage * 100);
                 if (xpProgressBar < 0) xpProgressBar = 0;
-                if (xpProgressBar > 330) xpProgressBar = 330;
+                if (xpProgressBar > 100) xpProgressBar = 100;
 
                 double hpProgressPercentage = ((double)current_hp / (double)max_hp);
                 int hpProgressBar = (int)(hpProgressPercentage * 100);
