@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("EQTrainer - EverQuest Hacking Utility")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Newsoft")]
+[assembly: AssemblyCompany("New Age Software, LLC")]
 [assembly: AssemblyProduct("http://newage.software")]
 [assembly: AssemblyCopyright("Copyright © 2016")]
 [assembly: AssemblyTrademark("")]
