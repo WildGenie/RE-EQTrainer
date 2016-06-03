@@ -128,6 +128,7 @@
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoForgeNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.heading_label = new System.Windows.Forms.Label();
             this.mousex = new System.Windows.Forms.TextBox();
@@ -209,7 +210,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.targetInfoBox = new System.Windows.Forms.GroupBox();
             this.autoSwap = new System.Windows.Forms.CheckBox();
-            this.autoForgeNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1158,6 +1158,13 @@
             this.autoItToolStripMenuItem.Text = "AutoIt 3x";
             this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
             // 
+            // autoForgeNETToolStripMenuItem
+            // 
+            this.autoForgeNETToolStripMenuItem.Name = "autoForgeNETToolStripMenuItem";
+            this.autoForgeNETToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
+            this.autoForgeNETToolStripMenuItem.Text = "AForge.NET";
+            this.autoForgeNETToolStripMenuItem.Click += new System.EventHandler(this.autoForgeNETToolStripMenuItem_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -1544,6 +1551,7 @@
             // backgroundWorker1
             // 
             this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // refreshProcessesBtn
@@ -1939,13 +1947,6 @@
             this.autoSwap.TabIndex = 624;
             this.autoSwap.Text = "Auto Swap Process";
             this.autoSwap.UseVisualStyleBackColor = true;
-            // 
-            // autoForgeNETToolStripMenuItem
-            // 
-            this.autoForgeNETToolStripMenuItem.Name = "autoForgeNETToolStripMenuItem";
-            this.autoForgeNETToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.autoForgeNETToolStripMenuItem.Text = "AForge.NET";
-            this.autoForgeNETToolStripMenuItem.Click += new System.EventHandler(this.autoForgeNETToolStripMenuItem_Click);
             // 
             // TrainerForm
             // 
