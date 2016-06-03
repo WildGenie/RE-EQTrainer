@@ -600,10 +600,10 @@ namespace AutoBot
             double reverse_x = t_x_address - Convert.ToInt32(distance) * cos;
             double reverse_y = t_y_address - Convert.ToInt32(distance) * sin;
 
-            MemLib.writeMemory("playerZ", codeFile, "float", t_z_address.ToString());
-            MemLib.writeMemory("playerY", codeFile, "float", reverse_y.ToString());
-            MemLib.writeMemory("playerX", codeFile, "float", reverse_x.ToString());
-            MemLib.writeMemory("playerHeading", codeFile, "float", t_h_address.ToString());
+            MemLib.writeMemory("playerZ", "float", t_z_address.ToString(), codeFile);
+            MemLib.writeMemory("playerY", "float", reverse_y.ToString(), codeFile);
+            MemLib.writeMemory("playerX", "float", reverse_x.ToString(), codeFile);
+            MemLib.writeMemory("playerHeading", "float", t_h_address.ToString(), codeFile);
         }
 
         public void healCheck(int percent, string targets)
@@ -900,7 +900,7 @@ namespace AutoBot
 
             if (tpSafeCheck(value_x, value_y, value_z))
             {
-                MemLib.writeMemory("playerHeading", codeFile, "float", value_h.ToString());
+                MemLib.writeMemory("playerHeading", "float", value_h.ToString(), codeFile);
                 Thread ClientThread = new Thread(MemLib.ThreadStartClient);
                 ClientThread.Start();
             }

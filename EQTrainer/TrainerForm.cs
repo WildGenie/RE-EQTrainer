@@ -320,10 +320,10 @@ namespace EQTrainer
                         return;
                     }
 
-                    MemLib.writeMemory("playerZ", codeFile, "float", t_z_address.ToString());
-                    MemLib.writeMemory("playerY", codeFile, "float", reverse_y.ToString());
-                    MemLib.writeMemory("playerX", codeFile, "float", reverse_x.ToString());
-                    MemLib.writeMemory("playerHeading", codeFile, "float", t_h_address.ToString());
+                    MemLib.writeMemory("playerZ", "float", t_z_address.ToString(), codeFile);
+                    MemLib.writeMemory("playerY", "float", reverse_y.ToString(), codeFile);
+                    MemLib.writeMemory("playerX", "float", reverse_x.ToString(), codeFile);
+                    MemLib.writeMemory("playerHeading", "float", t_h_address.ToString(), codeFile);
 
                     followBtn.Text = "Unfollow";
                 }
@@ -829,7 +829,7 @@ namespace EQTrainer
         private void gateBtn_Click(object sender, EventArgs e)
         {
             if (comboBox1.Text.Equals("EQMac"))
-                MemLib.writeMemory("gate", codeFile, "bytes", "2");
+                MemLib.writeMemory("gate", "bytes", "2", codeFile);
             else
                 MessageBox.Show("Currently only works in EQMac");
         }
@@ -936,7 +936,7 @@ namespace EQTrainer
             float readSafeX = MemLib.readFloat("safeX", codeFile);
             float readSafeY = MemLib.readFloat("safeY", codeFile);
 
-            MemLib.writeMemory("playerHeading", codeFile, "float", value_h.ToString());
+            MemLib.writeMemory("playerHeading", "float", value_h.ToString(), codeFile);
 
             if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z))
             {
@@ -1214,8 +1214,12 @@ namespace EQTrainer
                     cur_xp = current_xp;
 
                 float run_speed = MemLib.readFloat("runSpeed", codeFile);
-                if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
-                    MemLib.writeMemory("runSpeed", codeFile, "float", runBox.Text);
+
+                runBox.Invoke(new MethodInvoker(delegate
+                {
+                    if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
+                        MemLib.writeMemory("runSpeed", "float", runBox.Text, codeFile);
+                }));
 
                 float t_z_address = MemLib.readFloat("targetZ", codeFile);
                 float t_y_address = MemLib.readFloat("targetY", codeFile);
