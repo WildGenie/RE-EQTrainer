@@ -1732,5 +1732,11 @@ namespace EQTrainer
         {
             Process.Start("http://aforge.googlecode.com/files/AForge.NET%20Framework-2.2.5.exe");
         }
+
+        private void toolStripDropDownButton4_Click(object sender, EventArgs e)
+        {
+            AboutBox1 obj = new AboutBox1();
+            obj.Show();
+        }
     }
 }

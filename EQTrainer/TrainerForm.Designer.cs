@@ -121,7 +121,6 @@
             this.buttonAllScriptsDisabled = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
-            this.aboutEQTrainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMapSystemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1089,21 +1088,14 @@
             // 
             // toolStripDropDownButton4
             // 
-            this.toolStripDropDownButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripDropDownButton4.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutEQTrainerToolStripMenuItem});
             this.toolStripDropDownButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton4.Image")));
+            this.toolStripDropDownButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.toolStripDropDownButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton4.Name = "toolStripDropDownButton4";
-            this.toolStripDropDownButton4.Size = new System.Drawing.Size(70, 20);
+            this.toolStripDropDownButton4.ShowDropDownArrow = false;
+            this.toolStripDropDownButton4.Size = new System.Drawing.Size(77, 20);
             this.toolStripDropDownButton4.Text = "EQTrainer";
-            // 
-            // aboutEQTrainerToolStripMenuItem
-            // 
-            this.aboutEQTrainerToolStripMenuItem.Name = "aboutEQTrainerToolStripMenuItem";
-            this.aboutEQTrainerToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.aboutEQTrainerToolStripMenuItem.Text = "About EQTrainer";
-            this.aboutEQTrainerToolStripMenuItem.Click += new System.EventHandler(this.aboutEQTrainerToolStripMenuItem_Click);
+            this.toolStripDropDownButton4.Click += new System.EventHandler(this.toolStripDropDownButton4_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -2284,7 +2276,6 @@
         private System.Windows.Forms.ToolStripMenuItem cRedistributablex86ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoItToolStripMenuItem;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton4;
-        private System.Windows.Forms.ToolStripMenuItem aboutEQTrainerToolStripMenuItem;
         private System.Windows.Forms.Button minimizeButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Panel panel1;
