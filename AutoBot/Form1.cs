@@ -999,7 +999,7 @@ namespace AutoBot
             }
             else
             {
-                AppendOutputText("Zone Check failed(2), trying again [cur:" + curZone + ", goto:" + zone + "]");
+                //AppendOutputText("Zone Check failed(2), trying again [cur:" + curZone + ", goto:" + zone + "]");
                 System.Threading.Thread.Sleep(1000);
                 curZone = String.Empty; //reset
                 zoneCheckTimer++;
