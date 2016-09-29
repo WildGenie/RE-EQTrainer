@@ -59,6 +59,8 @@ namespace AutoBot
         private static string codeFile;
         public static string[] args = Environment.GetCommandLineArgs();
 
+        public int globalEQgameID = 0;
+
         public Bitmap ConvertToFormat(System.Drawing.Image image, System.Drawing.Imaging.PixelFormat format)
         {
             Bitmap copy = new Bitmap(image.Width, image.Height, format);
@@ -220,6 +222,7 @@ namespace AutoBot
         {
             if (File.Exists(script))
             {
+                globalEQgameID = eqgameID;
                 codeFile = iniFile; //set global codeFile
                 AppendOutputText("Opening process " + eqgameID);
                 MemLib.OpenGameProcess(eqgameID);
@@ -241,7 +244,13 @@ namespace AutoBot
             if (stop)
                 return;
 
-            if (Regex.Match(line, "teleport", RegexOptions.IgnoreCase).Success == true)
+            string[] command = line.Split(' ');
+
+            if (line.Contains("//"))
+            {
+                //just a comment
+            }
+            else if (Regex.Match(command[0], "teleport", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 //AppendOutputText("teleporting to " + "X:" + words[1] + " Y:" + words[2] + " Z:" + words[3] + " H:" + words[4]);
@@ -255,7 +264,7 @@ namespace AutoBot
                     WriteLog("[ERROR] Teleport Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "target", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "target", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 AppendOutputText("Targeting " + words);
@@ -269,7 +278,7 @@ namespace AutoBot
                     WriteLog("[ERROR] TargetPlayer Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "teleto", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "teleto", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -282,7 +291,7 @@ namespace AutoBot
                     WriteLog("[ERROR] TeleportToPlayer Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "checkzone", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "checkzone", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 AppendOutputText("Checking if in zone " + words);
@@ -297,26 +306,13 @@ namespace AutoBot
                 }
                 //lastCmd = "checkzone " + words;
             }
-            else if (Regex.Match(line, "pause", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "pause", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
-                AppendOutputText("pausing for " + words[1] + " milliseconds");
-                try
-                {
-                    int timer = Convert.ToInt32(words[1]);
-                    System.Threading.Thread.Sleep(timer);
-                }
-                catch
-                {
-                    AppendOutputText("ERROR: pause crashed.");
-                    WriteLog("[ERROR] pause Try/Catch return (" + DateTime.Now + ")");
-                }
+                int timer = Convert.ToInt32(words[1]);
+                pauseSystem(timer);
             }
-            else if (line.Contains("//"))
-            {
-                //just a comment
-            }
-            else if (Regex.Match(line, "setfocus", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "setfocus", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -329,7 +325,7 @@ namespace AutoBot
                     WriteLog("[ERROR] GetFocus Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "checkcursor", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "checkcursor", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -342,7 +338,7 @@ namespace AutoBot
                     WriteLog("[ERROR] checkcursor Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "checkgive", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "checkgive", RegexOptions.IgnoreCase).Success == true)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -355,7 +351,7 @@ namespace AutoBot
                     WriteLog("[ERROR] CheckGive Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "talktoNPC", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "talktoNPC", RegexOptions.IgnoreCase).Success == true)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 3);
@@ -370,7 +366,7 @@ namespace AutoBot
                     WriteLog("[ERROR] SayMessageNPC Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "say", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "say", RegexOptions.IgnoreCase).Success == true)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 2);
@@ -385,7 +381,7 @@ namespace AutoBot
                     WriteLog("[ERROR] SayMessage Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "press", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "press", RegexOptions.IgnoreCase).Success == true)
             {
                 string btn = line.Remove(0, line.IndexOf(' ') + 1);
                 //words = words.Remove('"');
@@ -400,25 +396,25 @@ namespace AutoBot
                     WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "CheckTargetDistance", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "CheckTargetDistance", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking NPC distance for " + words[1]);
                 CheckDistance(words[1], float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]), Convert.ToInt32(words[5]));
             }
-            else if (Regex.Match(line, "walkto", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "walkto", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
                 WalkTo(float.Parse(words[1]), float.Parse(words[2]));
             }
-            else if (Regex.Match(line, "clickon", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "clickon", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("Click on: " + words[1]);
                 clickonImage(words[1]);
             }
-            else if (Regex.Match(line, "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking Player distance");
@@ -432,7 +428,7 @@ namespace AutoBot
                     WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "healCheck", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "healCheck", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 try
@@ -445,7 +441,7 @@ namespace AutoBot
                     WriteLog("[ERROR] healCheck Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(line, "mouse", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "mouse", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 if (words.Length != 4)
@@ -457,13 +453,13 @@ namespace AutoBot
                     lastCmd = "mouse " + words[1] + " " + words[2] + " " + words[3];
                 }
             }
-            else if (Regex.Match(line, "checkhealth", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "checkhealth", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking health conditions for " + words[1]);
                 //HealthCheck(words[1], Convert.ToInt32(words[2]));
             }
-            else if (Regex.Match(line, "warpfollowtarget", RegexOptions.IgnoreCase).Success == true)
+            else if (Regex.Match(command[0], "warpfollowtarget", RegexOptions.IgnoreCase).Success == true)
             {
                 string[] words = line.Split(' ');
                 FollowWarpTarget(words[1]);
@@ -509,6 +505,20 @@ namespace AutoBot
                         WriteLog("[ERROR] Main StreamReader loop stopped (" + DateTime.Now + ")");
                     }
                 }
+            }
+        }
+
+        public void pauseSystem(int timer)
+        {
+            AppendOutputText("pausing for " + timer.ToString() + " milliseconds");
+            try
+            {
+                System.Threading.Thread.Sleep(timer);
+            }
+            catch
+            {
+                AppendOutputText("ERROR: pause crashed.");
+                WriteLog("[ERROR] pause Try/Catch return (" + DateTime.Now + ")");
             }
         }
 
@@ -725,24 +735,6 @@ namespace AutoBot
                 Teleport(float.Parse(words[1]), float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]));
                 AppendOutputText("[LASTCMD] teleport " + "X:" + words[1] + " Y:" + words[2] + " z:" + words[3] + " h:" + words[4]);
             }
-        }
-
-        public void RelogChar()
-        {
-            if (!string.IsNullOrEmpty(passwordBox.Text))
-            {
-                aix3c.Send(passwordBox.Text + "{ENTER}");
-                System.Threading.Thread.Sleep(5000);
-                AppendOutputText("typing in password...");
-                aix3c.Send(passwordBox.Text + "{ENTER}");
-                System.Threading.Thread.Sleep(5000);
-                AppendOutputText("Pressing enter key and waiting 60 seconds...");
-                aix3c.Send("{ENTER}");
-                System.Threading.Thread.Sleep(60000);
-                AppendOutputText("Assuming back in world...");
-            }
-            else
-                AppendOutputText("ERROR: No relog password given.", Color.Red);
         }
 
         static int r = 0;
@@ -1007,23 +999,54 @@ namespace AutoBot
             }
             else
             {
-                //AppendOutputText("Zone Check failed(2), trying again [" + curZone + "," + zone + "]");
+                AppendOutputText("Zone Check failed(2), trying again [cur:" + curZone + ", goto:" + zone + "]");
                 System.Threading.Thread.Sleep(1000);
                 curZone = String.Empty; //reset
                 zoneCheckTimer++;
-                if (zoneCheckTimer == 40)
-                    aix3c.Send("{ENTER}");
-                if (zoneCheckTimer == 60)
-                    aix3c.Send("{ENTER}");
-                if (zoneCheckTimer == 240)
-                {
-                    AppendOutputText("ZONE CHECK FAILED! Logging back in!", Color.Red);
-                    RelogChar();
-                    return;
+                if (zoneCheckTimer == 120) {
+                    AppendOutputText("ZONE CHECK FAILED! Restarting program!", Color.Red);
+                    restartGame();
                 }
                 else
                     zoneCheck(zone);
             }
+        }
+
+        public void restartGame()
+        {
+            //kill the game
+            string proc = Path.GetDirectoryName(Process.GetProcessById(globalEQgameID).MainModule.FileName);
+            Process.GetProcessById(globalEQgameID).Kill();
+
+            //start new eqgame process
+            var p = new Process();
+            p.StartInfo.WorkingDirectory = proc;
+            p.StartInfo.FileName = "eqgame.exe";
+            p.StartInfo.Arguments = "patchme";
+            p.Start();
+            globalEQgameID = p.Id;
+            AppendOutputText("Opening process " + globalEQgameID);
+            MemLib.OpenGameProcess(globalEQgameID);
+
+            //re-login to our character (titanium)
+            pauseSystem(10000); //wait for game to start back up
+            Press("TAB"); //move to ACCEPT on eula
+            pauseSystem(1000);
+            Press("ENTER"); //press accept on eula
+            pauseSystem(1000);
+            Press("ENTER"); //skip company logo (eqmac has 1 more logo)
+            pauseSystem(1000);
+            Press("ENTER"); //press login button
+            pauseSystem(1000);
+            aix3c.Send(passwordBox.Text); //type in password (username should be there already)
+            pauseSystem(1000);
+            Press("ENTER"); //login button pressed
+            pauseSystem(5000);
+            Press("ENTER"); //jump in to server (last server should be highlighted)
+            pauseSystem(40000); //is 40 seconds enough time?
+            Press("ENTER"); //select our character (last player should be highlighted)
+            pauseSystem(40000); //is 40 seconds enough time?
+            //we are now back in the game.
         }
 
         public static int checkAgain = 0;

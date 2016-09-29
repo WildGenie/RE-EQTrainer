@@ -217,6 +217,8 @@ namespace EQTrainer
             return;
         }
 
+        private bool delay = false;
+
         private bool ProcessExists(int id)
         {
             return Process.GetProcesses().Any(x => x.Id == id);
@@ -255,7 +257,7 @@ namespace EQTrainer
                         procList.Items[0].Selected = true;
                         procList.Select();
                         eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text);
-                        
+
                         if (Properties.Settings.Default.old_warp == false)
                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
 
@@ -264,9 +266,13 @@ namespace EQTrainer
                         {
                             backgroundWorker1.CancelAsync();
                             backgroundWorker1.Dispose();
-                        } else
-                            backgroundWorker1.RunWorkerAsync();
+                        }
+                        else
+                            backgroundWorker1.RunWorkerAsync(delay);
                     }
+                }
+                else {
+                    delay = true;
                 }
             }
 
@@ -999,7 +1005,10 @@ namespace EQTrainer
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            System.Threading.Thread.Sleep(5500);
+            bool delay2 = (bool)e.Argument;
+            if (delay2)
+                System.Threading.Thread.Sleep(5500);
+
             changeProcess();
 
             while (true)
