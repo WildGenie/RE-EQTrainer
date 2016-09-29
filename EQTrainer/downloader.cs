@@ -79,6 +79,7 @@ namespace EQTrainer
                                 {
                                     if (s[0] != null && s[0] != "")
                                         webC.DownloadFile(uri, Application.StartupPath + Path.DirectorySeparatorChar + s[0]);
+                                    //MessageBox.Show("Downloading file " + uri.ToString() + " to:" + Application.StartupPath + Path.DirectorySeparatorChar + s[0]);
                                 }
                                 catch
                                 {

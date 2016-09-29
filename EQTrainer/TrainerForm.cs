@@ -255,7 +255,7 @@ namespace EQTrainer
                         procList.Items[0].Selected = true;
                         procList.Select();
                         eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text);
-                        changeProcess();
+                        
                         if (Properties.Settings.Default.old_warp == false)
                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
 
@@ -999,14 +999,17 @@ namespace EQTrainer
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
+            System.Threading.Thread.Sleep(5500);
+            changeProcess();
+
             while (true)
             {
                 if (procList.Items.Count <= 0) //no processes
-                    continue;
+                    break;
 
                 comboBox1.Invoke(new MethodInvoker(delegate
                 {
-                    try
+                try
                     {
                         if (comboBox1.Text.Equals(" ")) //no build version selected? Let's try to detect it!
                         {
@@ -1015,9 +1018,9 @@ namespace EQTrainer
                                 string[] subdirectoryEntries = Directory.GetDirectories(Application.StartupPath + @"\builds");
                                 foreach (string subdirectory in subdirectoryEntries)
                                 {
+                                    //MessageBox.Show("DEBUG: code/date " + '"' + Path.GetFileName(subdirectory) + "_code\" " + '"' + Application.StartupPath + @"\builds.ini" + '"');
                                     string buildDateCode = MemLib.CutString(MemLib.readString(Path.GetFileName(subdirectory) + "_code", Application.StartupPath + @"\builds.ini")); //this overflows
                                     string buildDate = MemLib.LoadCode(Path.GetFileName(subdirectory) + "_date", Application.StartupPath + @"\builds.ini");
-                                    //MessageBox.Show("DEBUG: code/date " + '"' + buildDateCode + "\" \"" + buildDate + '"');
                                     if (buildDateCode.Contains(buildDate))
                                     {
                                         /*comboBox1.Invoke(new MethodInvoker(delegate {*/ comboBox1.Text = Path.GetFileName(subdirectory); //}));
@@ -1028,7 +1031,9 @@ namespace EQTrainer
                             }
                         }
                     }
-                    catch { }
+                    catch (Exception err) {
+                        MessageBox.Show("ERROR: build detection crashed: " + err);
+                    }
                 }));
 
                 float y_address = MemLib.readFloat("playerY", codeFile);
@@ -1625,6 +1630,7 @@ namespace EQTrainer
         {
             MemLib.closeProcess();
             MemLib.OpenGameProcess(eqgameID);
+            //MessageBox.Show("[DEBUG] eqgame process changed");
         }
 
         private void toolbarBtn_Click(object sender, EventArgs e)
