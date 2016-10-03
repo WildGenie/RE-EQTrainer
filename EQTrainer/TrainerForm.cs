@@ -1762,6 +1762,7 @@ namespace EQTrainer
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show("[DEBUG] OT:" + ot + " Len:" + ot.Length);
             Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opentrade"));
             ClientThread2.Start();
         }

@@ -11,6 +11,23 @@
 #include <string>
 #include "Titanium\eqgame.h"
 #include "Titanium\EQData.h"
+
+#ifdef EQLIB_EXPORTS
+#pragma message("EQLIB_EXPORTS")
+#else
+#pragma message("EQLIB_IMPORTS")
+#endif
+
+#ifdef EQLIB_EXPORTS
+#define EQLIB_API extern "C" __declspec(dllexport)
+#define EQLIB_VAR extern "C" __declspec(dllexport)
+#define EQLIB_OBJECT __declspec(dllexport)
+#else
+#define EQLIB_API extern "C" __declspec(dllimport)
+#define EQLIB_VAR extern "C" __declspec(dllimport)
+#define EQLIB_OBJECT __declspec(dllimport)
+#endif
+
 using namespace std;
 
 struct TradeRequest_Struct {
@@ -127,7 +144,6 @@ typedef struct _SPAWNINFO {
 	/*	        More Data */
 } SPAWNINFO, *PSPAWNINFO;
 
-#define EQLIB_OBJECT __declspec(dllexport)
 class EQPlayer
 {
 public:
@@ -151,19 +167,29 @@ VOID SendEQMessage(DWORD PacketType, PVOID pData, DWORD Length)
 	send_message(EQADDR_GWORLD, PacketType, pData, Length, TRUE);
 }
 
-void EQTFunctions (const char *func) {
-	if(strcmp("warp",func) != 0){ //MoveLocalPlayerToSafeCoords
+void EQTFunctions (const char *func, int len) {
+	char newText[1024] = "";
+	strncpy(newText, func, len);
+
+	// DEBUG
+	//wchar_t *text = new wchar_t[len];
+	//mbstowcs(text, newText, len);
+	//MessageBox(NULL, text, NULL, MB_OK);
+
+	if(strcmp("warp", newText) == 0){ //MoveLocalPlayerToSafeCoords
+		//MessageBox(NULL, L"warp", NULL, MB_OK);
 		typedef void (__thiscall* CGCamera__ResetView)();
 		CGCamera__ResetView ResetView = (CGCamera__ResetView)MoveLocalPlayerToSafeCoords; //TITANIUM = 0x0043D7C5   //MAC = 0x004B459C  //UNDERFOOT = 0x00499CE8?
 		ResetView();
 	}
-	if (strcmp("opentrade", func) != 0) { //MoveLocalPlayerToSafeCoords
+	if (strcmp("opentrade", newText) == 0) {
+		//MessageBox(NULL, L"opentrade", NULL, MB_OK);
 		PSPAWNINFO pChar;
 		PSPAWNINFO pMyTarget = (PSPAWNINFO)pTarget;
 
 		TradeRequest_Struct trStruct;
 		trStruct.to_mob_id = pMyTarget->SpawnID;
-		trStruct.from_mob_id =  pChar->SpawnID;
+		trStruct.from_mob_id = pChar->SpawnID;
 
 		SendEQMessage(OP_TradeRequest, &trStruct, sizeof(trStruct));
 		SendEQMessage(OP_TradeRequestAck, &trStruct, sizeof(trStruct));
@@ -174,8 +200,8 @@ void OnAttach( HMODULE hModule ) {
 
 	HANDLE hPipe;
     char buffer[1024];
+	char text[1024];
     DWORD dwRead;
-
 
     hPipe = CreateNamedPipe(TEXT("\\\\.\\pipe\\EQTPipe"),
                             PIPE_ACCESS_DUPLEX | PIPE_TYPE_BYTE | PIPE_READMODE_BYTE,
@@ -191,10 +217,17 @@ void OnAttach( HMODULE hModule ) {
         {
             while (ReadFile(hPipe, buffer, sizeof(buffer), &dwRead, NULL) != FALSE)
             {
-				EQTFunctions(buffer);
+				int i = 0;
+				for (; i < strlen(buffer); i++)
+				{
+					if (isalnum(buffer[i]) == false || buffer[i] == ' ')
+						break;
+					text[i] = buffer[i];
+				}
+				EQTFunctions(text, sizeof(buffer));
             }
         }
-
+		FlushFileBuffers(hPipe);
         DisconnectNamedPipe(hPipe);
     }
 
