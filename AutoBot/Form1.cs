@@ -15,6 +15,7 @@ using Memory;
 using AutoItX3Lib;
 using AForge.Imaging;
 using AForge.Imaging.Filters;
+using System.IO.Pipes;
 
 namespace AutoBot
 {
@@ -893,7 +894,8 @@ namespace AutoBot
             if (tpSafeCheck(value_x, value_y, value_z))
             {
                 MemLib.writeMemory("playerHeading", "float", value_h.ToString(), codeFile);
-                Thread ClientThread = new Thread(MemLib.ThreadStartClient);
+                //Thread ClientThread = new Thread(MemLib.ThreadStartClient);
+                Thread ClientThread = new Thread(() => MemLib.ThreadStartClient("warp"));
                 ClientThread.Start();
             }
             else

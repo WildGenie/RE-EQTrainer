@@ -13,6 +13,7 @@ using System.Threading;
 using Memory;
 using System.Security.Principal;
 using Microsoft.Win32;
+using System.IO.Pipes;
 
 namespace EQTrainer
 {
@@ -953,7 +954,8 @@ namespace EQTrainer
                     inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "old_inject.dll");
                 else
                 {
-                    Thread ClientThread = new Thread(MemLib.ThreadStartClient);
+                    //Thread ClientThread = new Thread(MemLib.ThreadStartClient("warp"));
+                    Thread ClientThread = new Thread(() => MemLib.ThreadStartClient("warp"));
                     ClientThread.Start();
                 }
             }
@@ -1756,6 +1758,12 @@ namespace EQTrainer
         {
             AboutBox1 obj = new AboutBox1();
             obj.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opentrade"));
+            ClientThread2.Start();
         }
     }
 }
