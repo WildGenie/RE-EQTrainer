@@ -20,12 +20,46 @@ struct TradeRequest_Struct {
 	/*08*/
 };
 
+typedef struct _MovePkt {
+	/*0000*/ unsigned short SpawnID;
+	/*0002*/ unsigned short TimeStamp;
+	/*0004*/ float Y;
+	/*0008*/ float DeltaZ;
+	/*0012*/ float DeltaY;
+	/*0016*/ float DeltaX;
+	/*0020*/ int Animation : 10;
+	/*0020*/ int DeltaHeading : 10;
+	/*0020*/ int padding0020 : 12;
+	/*0024*/ float X;
+	/*0028*/ float Z;
+	/*0032*/ int Heading : 12;
+	/*0032*/ int padding1_0032 : 10;
+	/*0032*/ int padding2_0032 : 10;
+} MovePkt;
+
 #define OP_TradeRequest 0x372f
 #define OP_TradeRequestAck 0x4048
 #define OP_TradeAcceptClick 0x0065
 #define OP_FinishTrade 0x6014
-#define	MOVE	0x14CB
+#define	OP_MovePlayer 0x14CB
+
 #define MoveLocalPlayerToSafeCoords 0x43D7C5
+
+// Movement function
+VOID MoveTo(float x, float y, float z) {
+	PSPAWNINFO pMe = GetCharInfo()->pSpawn;
+
+	MovePkt mp;
+	ZeroMemory(&mp, sizeof(mp));
+
+	mp.SpawnID = pMe->SpawnID;
+	mp.Heading = pMe->Heading;
+	mp.X = x;
+	mp.Y = y;
+	mp.Z = z;
+
+	SendEQMessage(OP_MovePlayer, &mp, sizeof(mp));
+}
 
 void EQTFunctions (const char *func, int len) {
 	char newText[1024] = "";
@@ -36,23 +70,59 @@ void EQTFunctions (const char *func, int len) {
 	//mbstowcs(text, newText, len);
 	//MessageBox(NULL, text, NULL, MB_OK);
 
-	if(strcmp("warp", newText) == 0){ //MoveLocalPlayerToSafeCoords
-		//MessageBox(NULL, L"warp", NULL, MB_OK);
+	char cmd[1024];
+	strcpy(cmd, newText);
+	strtok(cmd, " ");
+
+	if(strcmp("warp", cmd) == 0){
 		typedef void (__thiscall* CGCamera__ResetView)();
 		CGCamera__ResetView ResetView = (CGCamera__ResetView)MoveLocalPlayerToSafeCoords; //TITANIUM = 0x0043D7C5   //MAC = 0x004B459C  //UNDERFOOT = 0x00499CE8?
 		ResetView();
 	}
-	if (strcmp("opentrade", newText) == 0) {
-		//MessageBox(NULL, L"opentrade", NULL, MB_OK);
-		PSPAWNINFO pChar;
+	if (strcmp("opentrade", cmd) == 0) {
+		PSPAWNINFO pMe = GetCharInfo()->pSpawn;
+		if (!pMe) {
+			MessageBox(NULL, L"ERROR: Cant retrieve our spawn ID", NULL, MB_OK);
+			return;
+		}
+
 		PSPAWNINFO pMyTarget = (PSPAWNINFO)pTarget;
+		if (!pTarget || !ppTarget) {
+			MessageBox(NULL, L"ERROR: No target selected", NULL, MB_OK);
+			return;
+		}
 
 		TradeRequest_Struct trStruct;
 		trStruct.to_mob_id = pMyTarget->SpawnID;
-		trStruct.from_mob_id = pChar->SpawnID;
+		trStruct.from_mob_id = pMe->SpawnID;
 
 		SendEQMessage(OP_TradeRequest, &trStruct, sizeof(trStruct));
 		SendEQMessage(OP_TradeRequestAck, &trStruct, sizeof(trStruct));
+	}
+	if (strcmp("acceptgive", cmd) == 0) {
+		SendWndClick("GiveWnd", "GVW_Give_Button", "leftmouseup");
+	}
+	if (strcmp("saytarget", cmd) == 0) {
+		const char *arg = newText + 10; //our message
+
+		PSPAWNINFO pMe = GetCharInfo()->pSpawn;
+		if (!pMe) {
+			MessageBox(NULL, L"ERROR: Cant retrieve our spawn ID", NULL, MB_OK);
+			return;
+		}
+
+		PSPAWNINFO pMyTarget = (PSPAWNINFO)pTarget;
+		if (!pTarget || !ppTarget) {
+			MessageBox(NULL, L"ERROR: No target selected", NULL, MB_OK);
+			return;
+		}
+
+		CHAR SendMsg[MAX_STRING] = { 0 };
+
+		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
+		sprintf(SendMsg, "/say %s", arg);
+		DoCommand(pMe, SendMsg);
+		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
 	}
 }
 
@@ -80,14 +150,15 @@ void OnAttach( HMODULE hModule ) {
 				int i = 0;
 				for (; i < strlen(buffer); i++)
 				{
-					if (isalnum(buffer[i]) == false || buffer[i] == ' ')
+					if (isprint(buffer[i]) == false)
 						break;
+
 					text[i] = buffer[i];
 				}
 				EQTFunctions(text, sizeof(buffer));
             }
         }
-		//FlushFileBuffers(hPipe);
+		FlushFileBuffers(hPipe);
         DisconnectNamedPipe(hPipe);
     }
 

@@ -18,12 +18,6 @@
     <ClInclude Include="Stdafx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Titanium\eqgame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Titanium\eqdata.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>

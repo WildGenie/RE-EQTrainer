@@ -57,6 +57,8 @@ namespace AutoBot
         AutoItX3Lib.AutoItX3 aix3c = new AutoItX3Lib.AutoItX3();
         private bool stop = false;
 
+        string injection = "";
+
         private static string codeFile;
         public static string[] args = Environment.GetCommandLineArgs();
 
@@ -212,14 +214,14 @@ namespace AutoBot
             }
             else
             {
-                startAutoBot(Int32.Parse(args[1]), args[2], args[3], args[4]);
+                startAutoBot(Int32.Parse(args[1]), args[2], args[3], args[4], args[5]);
                 AppendOutputText("Welcome to the EQTrainer AutoBot program!", Color.Green);
             }
 
             passwordBox.Text = EQTrainer_AutoBot.Properties.Settings.Default.password;
         }
 
-        public void startAutoBot(int eqgameID, string iniFile, string loop, string script)
+        public void startAutoBot(int eqgameID, string iniFile, string loop, string script, string inject)
         {
             if (File.Exists(script))
             {
@@ -227,6 +229,7 @@ namespace AutoBot
                 codeFile = iniFile; //set global codeFile
                 AppendOutputText("Opening process " + eqgameID);
                 MemLib.OpenGameProcess(eqgameID);
+                injection = inject;
                 if (backgroundWorker1.IsBusy == false)
                 {
                     string[] bgArgs = new string[5] { args[0], eqgameID.ToString(), codeFile, loop, script };
@@ -414,6 +417,29 @@ namespace AutoBot
                 string[] words = line.Split(' ');
                 AppendOutputText("Click on: " + words[1]);
                 clickonImage(words[1]);
+            }
+            else if (Regex.Match(command[0], "saytarget", RegexOptions.IgnoreCase).Success == true)
+            {
+                char[] spaceChar = " ".ToCharArray(0, 1);
+                var commands = line.Split(spaceChar, 2);
+                AppendOutputText("sending message to target: " + commands[1]);
+
+                Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("saytarget " + commands[1]));
+                ClientThread2.Start();
+            }
+            else if (Regex.Match(command[0], "opengive", RegexOptions.IgnoreCase).Success == true)
+            {
+                AppendOutputText("Opening give window with target");
+
+                Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opengive"));
+                ClientThread2.Start();
+            }
+            else if (Regex.Match(command[0], "acceptgive", RegexOptions.IgnoreCase).Success == true)
+            {
+                AppendOutputText("Pressing give button");
+
+                Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("acceptgive"));
+                ClientThread2.Start();
             }
             else if (Regex.Match(command[0], "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
             {
@@ -881,6 +907,18 @@ namespace AutoBot
                return true;
        }
 
+        private void inject(string dll)
+        {
+            try
+            {
+                MemLib.InjectDLL(dll);
+            }
+            catch
+            {
+                //MessageBox.Show("Injection failed! Program needs administration privileges!");
+            }
+        }
+
         public void Teleport(float value_x, float value_y, float value_z, float value_h) //it's actually y,x,z
         {
             if (stop)
@@ -895,8 +933,13 @@ namespace AutoBot
             {
                 MemLib.writeMemory("playerHeading", "float", value_h.ToString(), codeFile);
                 //Thread ClientThread = new Thread(MemLib.ThreadStartClient);
-                Thread ClientThread = new Thread(() => MemLib.ThreadStartClient("warp"));
-                ClientThread.Start();
+                if (injection == "Temporary")
+                    inject(codeFile.Replace("codes.ini","") + "old_inject.dll");
+                else
+                {
+                    Thread ClientThread = new Thread(() => MemLib.ThreadStartClient("warp"));
+                    ClientThread.Start();
+                }
             }
             else
             {

@@ -38,13 +38,15 @@
             this.EQGameIDs = new System.Windows.Forms.ComboBox();
             this.od1 = new System.Windows.Forms.OpenFileDialog();
             this.loopScript = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Green;
-            this.button1.Location = new System.Drawing.Point(164, 94);
+            this.button1.Location = new System.Drawing.Point(164, 121);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(132, 44);
             this.button1.TabIndex = 0;
@@ -54,6 +56,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(119, 39);
             this.comboBox1.Name = "comboBox1";
@@ -62,14 +65,14 @@
             // 
             // scriptBox
             // 
-            this.scriptBox.Location = new System.Drawing.Point(119, 67);
+            this.scriptBox.Location = new System.Drawing.Point(119, 94);
             this.scriptBox.Name = "scriptBox";
             this.scriptBox.Size = new System.Drawing.Size(120, 20);
             this.scriptBox.TabIndex = 2;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(245, 65);
+            this.button2.Location = new System.Drawing.Point(245, 92);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(51, 23);
             this.button2.TabIndex = 3;
@@ -89,7 +92,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(42, 70);
+            this.label2.Location = new System.Drawing.Point(42, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 13);
             this.label2.TabIndex = 5;
@@ -124,7 +127,7 @@
             this.loopScript.AutoSize = true;
             this.loopScript.Checked = true;
             this.loopScript.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.loopScript.Location = new System.Drawing.Point(54, 94);
+            this.loopScript.Location = new System.Drawing.Point(54, 121);
             this.loopScript.Name = "loopScript";
             this.loopScript.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.loopScript.Size = new System.Drawing.Size(80, 17);
@@ -132,11 +135,35 @@
             this.loopScript.Text = "Loop Script";
             this.loopScript.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(31, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(86, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Injection Method";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Temporary",
+            "NamedPipe",
+            "MQ2"});
+            this.comboBox2.Location = new System.Drawing.Point(119, 66);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(177, 21);
+            this.comboBox2.TabIndex = 9;
+            // 
             // Startup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 148);
+            this.ClientSize = new System.Drawing.Size(305, 179);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.loopScript);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.EQGameIDs);
@@ -151,6 +178,7 @@
             this.MinimizeBox = false;
             this.Name = "Startup";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutoBot Startup";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Startup_Load);
@@ -171,5 +199,7 @@
         private System.Windows.Forms.ComboBox EQGameIDs;
         private System.Windows.Forms.OpenFileDialog od1;
         private System.Windows.Forms.CheckBox loopScript;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }

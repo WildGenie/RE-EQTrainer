@@ -261,8 +261,13 @@ namespace EQTrainer
 
                         if (Properties.Settings.Default.old_warp == false)
                         {
-                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
-                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                            if (Properties.Settings.Default.MQ2Inject)
+                            {
+                                if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+                            }
+                            else
+                                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                         }
 
                         // sometimes the list could be clear, but we were just running the game before re-launching it.
@@ -727,7 +732,13 @@ namespace EQTrainer
             if (checkBox1.Checked == true)
                 loop = "loop";
 
-            string arguments = procList.SelectedItems[0].SubItems[0].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\"";
+            string injection = "NamedPipe";
+            if (Properties.Settings.Default.old_warp)
+                injection = "Temporary";
+            if (Properties.Settings.Default.MQ2Inject)
+                injection = "MQ2";
+
+            string arguments = procList.SelectedItems[0].SubItems[0].Text + " \"" + codeFile + "\" " + loop + " \"" + autoLoad.FileName + "\" " + injection;
             Process.Start(Application.StartupPath + Path.DirectorySeparatorChar + "AutoBot.exe", arguments);
         }
 
@@ -1040,8 +1051,12 @@ namespace EQTrainer
                                         /*comboBox1.Invoke(new MethodInvoker(delegate {*/ comboBox1.Text = Path.GetFileName(subdirectory); //}));
                                         if (Properties.Settings.Default.old_warp == false)
                                         {
-                                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
-                                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                            if (Properties.Settings.Default.MQ2Inject)
+                                            {
+                                                if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+                                            } else
+                                                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                                         }
                                     }
                                 }
@@ -1640,8 +1655,13 @@ namespace EQTrainer
 
         private void injectBtn_Click(object sender, EventArgs e)
         {
-            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
-            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+            if (Properties.Settings.Default.MQ2Inject)
+            {
+                if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+            }
+            else
+                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
         }
 
         private void changeProcess()
@@ -1765,13 +1785,6 @@ namespace EQTrainer
         {
             AboutBox1 obj = new AboutBox1();
             obj.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //MessageBox.Show("[DEBUG] OT:" + ot + " Len:" + ot.Length);
-            Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opentrade"));
-            ClientThread2.Start();
         }
     }
 }

@@ -104,10 +104,12 @@ namespace AutoBot
             if (loopScript.Checked == true)
                 loop = "loop";
 
-            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
-            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+            if (comboBox2.Text == "NamedPipe")
+                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+            else if (comboBox2.Text == "MQ2")
+                inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
 
-            this.RefToForm1.startAutoBot(Int32.Parse(EQGameIDs.Text), Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini", loop, od1.FileName);
+            this.RefToForm1.startAutoBot(Int32.Parse(EQGameIDs.Text), Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini", loop, od1.FileName, comboBox2.Text);
             this.Close();
         }
     }

@@ -18,6 +18,7 @@ namespace EQTrainer
             InitializeComponent();
             old_warp.Checked = Properties.Settings.Default.old_warp;
             no_coords.Checked = Properties.Settings.Default.no_coords;
+            MQ2Inject.Checked = Properties.Settings.Default.MQ2Inject;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -30,7 +31,7 @@ namespace EQTrainer
                 if (old_warp.Checked)
                 {
                     this.RefToForm1.injectBtn.Enabled = false;
-                    tt.SetToolTip(this.RefToForm1.injectBtn, "Old warp enabled. Inject happens when you teleport.");
+                    tt.SetToolTip(this.RefToForm1.injectBtn, "Old warp enabled. Teleport happens when you inject. Inject module unloaded after complete.");
                 }
                 else
                 {
@@ -58,6 +59,17 @@ namespace EQTrainer
         private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
         {
             Properties.Settings.Default.no_coords = no_coords.Checked;
+            Properties.Settings.Default.Save();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This option requires you have MQ2 installed and MQ2Main is injected. AutoBot will use MQ2 structures for some commands.");
+        }
+
+        private void MQ2Inject_CheckedChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.MQ2Inject = MQ2Inject.Checked;
             Properties.Settings.Default.Save();
         }
     }

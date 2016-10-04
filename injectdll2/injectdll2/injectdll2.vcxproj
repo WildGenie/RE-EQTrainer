@@ -14,7 +14,7 @@
     <ProjectGuid>{51107554-DA29-4F48-B6D0-BC845D1792D1}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>injectdll2</RootNamespace>
-    <ProjectName>inject</ProjectName>
+    <ProjectName>inject2016</ProjectName>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -55,13 +55,13 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;INJECTDLL2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Jake-PC\Desktop\MQ2Titanium\MQ2Main;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\MQ2Main;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>detours.lib;C:\Users\Jake-PC\Desktop\MQ2Titanium\Release\MQ2Main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Detours\lib60\detours.lib;C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Release\MQ2Main.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Jake-PC\Desktop\MQ2Titanium\Detours\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -74,14 +74,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;INJECTDLL2_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\Jake-PC\Desktop\MQ2Titanium\MQ2Main</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\MQ2Main</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>C:\Users\Jake-PC\Desktop\MQ2Titanium\Detours\lib\detours.lib;C:\Users\Jake-PC\Desktop\MQ2Titanium\Release\MQ2Main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Detours\lib60\detours.lib;C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Release\MQ2Main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -90,8 +90,6 @@
   <ItemGroup>
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
-    <ClInclude Include="Titanium\eqdata.h" />
-    <ClInclude Include="Titanium\eqgame.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="inject.rc" />
