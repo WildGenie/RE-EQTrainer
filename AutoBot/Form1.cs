@@ -254,7 +254,7 @@ namespace AutoBot
             {
                 //just a comment
             }
-            else if (Regex.Match(command[0], "teleport", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "teleport") == 0)
             {
                 string[] words = line.Split(' ');
                 //AppendOutputText("teleporting to " + "X:" + words[1] + " Y:" + words[2] + " Z:" + words[3] + " H:" + words[4]);
@@ -268,7 +268,7 @@ namespace AutoBot
                     WriteLog("[ERROR] Teleport Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "target", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "target") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 AppendOutputText("Targeting " + words);
@@ -282,7 +282,7 @@ namespace AutoBot
                     WriteLog("[ERROR] TargetPlayer Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "teleto", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "teleto") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -295,7 +295,7 @@ namespace AutoBot
                     WriteLog("[ERROR] TeleportToPlayer Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "checkzone", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "checkzone") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 AppendOutputText("Checking if in zone " + words);
@@ -310,13 +310,13 @@ namespace AutoBot
                 }
                 //lastCmd = "checkzone " + words;
             }
-            else if (Regex.Match(command[0], "pause", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "pause") == 0)
             {
                 string[] words = line.Split(' ');
                 int timer = Convert.ToInt32(words[1]);
                 pauseSystem(timer);
             }
-            else if (Regex.Match(command[0], "setfocus", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "setfocus") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -329,7 +329,7 @@ namespace AutoBot
                     WriteLog("[ERROR] GetFocus Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "checkcursor", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "checkcursor") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -342,7 +342,7 @@ namespace AutoBot
                     WriteLog("[ERROR] checkcursor Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "checkgive", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "checkgive") == 0)
             {
                 string words = line.Remove(0, line.IndexOf(' ') + 1);
                 try
@@ -355,7 +355,7 @@ namespace AutoBot
                     WriteLog("[ERROR] CheckGive Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "talktoNPC", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "talktoNPC") == 0)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 3);
@@ -370,7 +370,7 @@ namespace AutoBot
                     WriteLog("[ERROR] SayMessageNPC Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "say", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "say") == 0)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 2);
@@ -385,7 +385,7 @@ namespace AutoBot
                     WriteLog("[ERROR] SayMessage Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "press", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "press") == 0)
             {
                 string btn = line.Remove(0, line.IndexOf(' ') + 1);
                 //words = words.Remove('"');
@@ -400,25 +400,25 @@ namespace AutoBot
                     WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "CheckTargetDistance", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "CheckTargetDistance") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking NPC distance for " + words[1]);
                 CheckDistance(words[1], float.Parse(words[2]), float.Parse(words[3]), float.Parse(words[4]), Convert.ToInt32(words[5]));
             }
-            else if (Regex.Match(command[0], "walkto", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "walkto") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
                 WalkTo(float.Parse(words[1]), float.Parse(words[2]));
             }
-            else if (Regex.Match(command[0], "clickon", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "clickon") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("Click on: " + words[1]);
                 clickonImage(words[1]);
             }
-            else if (Regex.Match(command[0], "saytarget", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "saytarget") == 0)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);
                 var commands = line.Split(spaceChar, 2);
@@ -427,21 +427,21 @@ namespace AutoBot
                 Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("saytarget " + commands[1]));
                 ClientThread2.Start();
             }
-            else if (Regex.Match(command[0], "opengive", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "opentrade") == 0)
             {
                 AppendOutputText("Opening give window with target");
 
-                Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opengive"));
+                Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("opentrade"));
                 ClientThread2.Start();
             }
-            else if (Regex.Match(command[0], "acceptgive", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "acceptgive") == 0)
             {
                 AppendOutputText("Pressing give button");
 
                 Thread ClientThread2 = new Thread(() => MemLib.ThreadStartClient("acceptgive"));
                 ClientThread2.Start();
             }
-            else if (Regex.Match(command[0], "CheckPCNearby", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "CheckPCNearby") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking Player distance");
@@ -455,7 +455,7 @@ namespace AutoBot
                     WriteLog("[ERROR] Press Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "healCheck", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "healCheck") == 0)
             {
                 string[] words = line.Split(' ');
                 try
@@ -468,7 +468,7 @@ namespace AutoBot
                     WriteLog("[ERROR] healCheck Try/Catch return (" + DateTime.Now + ")");
                 }
             }
-            else if (Regex.Match(command[0], "mouse", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "mouse") == 0)
             {
                 string[] words = line.Split(' ');
                 if (words.Length != 4)
@@ -480,13 +480,13 @@ namespace AutoBot
                     lastCmd = "mouse " + words[1] + " " + words[2] + " " + words[3];
                 }
             }
-            else if (Regex.Match(command[0], "checkhealth", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "checkhealth") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("checking health conditions for " + words[1]);
                 //HealthCheck(words[1], Convert.ToInt32(words[2]));
             }
-            else if (Regex.Match(command[0], "warpfollowtarget", RegexOptions.IgnoreCase).Success == true)
+            else if (String.Compare(command[0], "warpfollowtarget") == 0)
             {
                 string[] words = line.Split(' ');
                 FollowWarpTarget(words[1]);
@@ -853,6 +853,7 @@ namespace AutoBot
             byte[] write_y = new byte[1];
             write_y = BitConverter.GetBytes(value_y);
             MemLib.writeUIntPtr("safeY", write_y, codeFile);
+            AppendOutputText("Changed safe X:" + value_x + " Y:" + value_y + " Z:" + value_z);
         }
 
        public bool tpSafeCheck(float value_x, float value_y, float value_z){
@@ -860,7 +861,13 @@ namespace AutoBot
            float readSafeX = MemLib.readFloat("safeX", codeFile);
            float readSafeY = MemLib.readFloat("safeY", codeFile);
 
-           AppendOutputText("Checking Safe X:" + value_x + " Y:" + value_y + " Z:" + value_z, Color.Green);
+            float y_address = MemLib.readFloat("playerY", codeFile);
+            float x_address = MemLib.readFloat("playerX", codeFile);
+
+            if (Convert.ToSingle(x_address) == 0 && Convert.ToSingle(y_address) == 0) // zoning... (we may have intentionally warped to a zone line)
+                return true;
+
+            AppendOutputText("Checking Safe X:" + value_x + " Y:" + value_y + " Z:" + value_z, Color.Green);
 
            if (readSafeY.Equals(value_y) && readSafeX.Equals(value_x) && readSafeZ.Equals(value_z) && zoningCheck() == true)
                return true;
@@ -897,8 +904,11 @@ namespace AutoBot
            double z_diff = Math.Abs(Math.Round((value_z_rounded - z_address)));
 
            AppendOutputText("Checking Player X:" + x_address + "[" + x_diff + "] Y:" + y_address + "[" + y_diff + "] Z:" + z_address + "[" + z_diff + "]", Color.Green);
-        
-           if ((x_diff > 10) || (y_diff > 10) || (z_diff > 2))
+
+            if (Convert.ToSingle(x_address) == 0 && Convert.ToSingle(y_address) == 0) // zoning... (we may have intentionally warped to a zone line)
+                return true;
+
+            if ((x_diff > 10) || (y_diff > 10) || (z_diff > 2))
            {
                AppendOutputText("Bad Player X:" + x_address + " Y:" + y_address + " Z:" + z_address, Color.Red);
                return false;
@@ -924,6 +934,12 @@ namespace AutoBot
             if (stop)
                 return;
 
+            float y_address = MemLib.readFloat("playerY", codeFile);
+            float x_address = MemLib.readFloat("playerX", codeFile);
+
+            if (Convert.ToSingle(x_address) == 0 && Convert.ToSingle(y_address) == 0) // zoning... (we may have intentionally warped to a zone line)
+                return;
+
             lastCmd = "teleport " + value_x.ToString() + " " + value_y.ToString() + " " + value_z.ToString() + " " + value_h.ToString();
             changeSafeXYZ(value_x, value_y, value_z);
 
@@ -933,8 +949,9 @@ namespace AutoBot
             {
                 MemLib.writeMemory("playerHeading", "float", value_h.ToString(), codeFile);
                 //Thread ClientThread = new Thread(MemLib.ThreadStartClient);
+                string temp = codeFile;
                 if (injection == "Temporary")
-                    inject(codeFile.Replace("codes.ini","") + "old_inject.dll");
+                    inject(temp.Replace("codes.ini","") + "old_inject.dll");
                 else
                 {
                     Thread ClientThread = new Thread(() => MemLib.ThreadStartClient("warp"));

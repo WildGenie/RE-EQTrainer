@@ -62,7 +62,7 @@ VOID MoveTo(float x, float y, float z) {
 }
 
 void EQTFunctions (const char *func, int len) {
-	char newText[1024] = "";
+	char newText[1024] = { 0 };
 	strncpy(newText, func, len);
 
 	// DEBUG
@@ -70,7 +70,7 @@ void EQTFunctions (const char *func, int len) {
 	//mbstowcs(text, newText, len);
 	//MessageBox(NULL, text, NULL, MB_OK);
 
-	char cmd[1024];
+	char cmd[1024] = { 0 };
 	strcpy(cmd, newText);
 	strtok(cmd, " ");
 
@@ -120,10 +120,23 @@ void EQTFunctions (const char *func, int len) {
 		CHAR SendMsg[MAX_STRING] = { 0 };
 
 		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
+
 		sprintf(SendMsg, "/say %s", arg);
 		DoCommand(pMe, SendMsg);
+
+		//DEBUG
+		//CHAR dbg[MAX_STRING] = { 0 };
+		//sprintf(dbg, "cmd:%s x:%.2f y:%.2f z:%.2f", SendMsg, pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
+		//wchar_t *text = new wchar_t[sizeof(dbg)];
+		//mbstowcs(text, dbg, sizeof(dbg));
+		//MessageBox(NULL, text, NULL, MB_OK);
+
 		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
 	}
+	memset(cmd, 0, 1024);
+	memset(newText, 0, 1024);
+	//delete text; //if we debug
+	return;
 }
 
 void OnAttach( HMODULE hModule ) {
@@ -156,6 +169,9 @@ void OnAttach( HMODULE hModule ) {
 					text[i] = buffer[i];
 				}
 				EQTFunctions(text, sizeof(buffer));
+				memset(text, 0, 1024);
+				memset(buffer, 0, 1024);
+				dwRead = {};
             }
         }
 		FlushFileBuffers(hPipe);
