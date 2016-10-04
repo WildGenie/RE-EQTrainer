@@ -104,6 +104,7 @@ namespace AutoBot
             if (loopScript.Checked == true)
                 loop = "loop";
 
+            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
 
             this.RefToForm1.startAutoBot(Int32.Parse(EQGameIDs.Text), Application.StartupPath + @"\builds\" + comboBox1.Text + @"\codes.ini", loop, od1.FileName);

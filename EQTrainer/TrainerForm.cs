@@ -260,7 +260,10 @@ namespace EQTrainer
                         eqgameID = Int32.Parse(procList.SelectedItems[0].SubItems[0].Text);
 
                         if (Properties.Settings.Default.old_warp == false)
+                        {
+                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                        }
 
                         // sometimes the list could be clear, but we were just running the game before re-launching it.
                         if (backgroundWorker1.IsBusy == true)
@@ -1036,7 +1039,10 @@ namespace EQTrainer
                                     {
                                         /*comboBox1.Invoke(new MethodInvoker(delegate {*/ comboBox1.Text = Path.GetFileName(subdirectory); //}));
                                         if (Properties.Settings.Default.old_warp == false)
+                                        {
+                                            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
                                             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
+                                        }
                                     }
                                 }
                             }
@@ -1634,6 +1640,7 @@ namespace EQTrainer
 
         private void injectBtn_Click(object sender, EventArgs e)
         {
+            inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
             inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
         }
 
