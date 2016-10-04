@@ -904,13 +904,13 @@
         "Entry"
         {
         "MsmKey" = "8:_E43BBEA332D7188EEF21173AE3A82C44"
-        "OwnerKey" = "8:_B874E9C91F7FBCE9FEF0A4EBE40044EB"
+        "OwnerKey" = "8:_6CF11CCA362D8C57149F611A1D78E4B7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_E43BBEA332D7188EEF21173AE3A82C44"
-        "OwnerKey" = "8:_6CF11CCA362D8C57149F611A1D78E4B7"
+        "OwnerKey" = "8:_B874E9C91F7FBCE9FEF0A4EBE40044EB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1018,19 +1018,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6CF11CCA362D8C57149F611A1D78E4B7"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B874E9C91F7FBCE9FEF0A4EBE40044EB"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E43BBEA332D7188EEF21173AE3A82C44"
+        "OwnerKey" = "8:_B05A655688D86506CDA1C19542E599D4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -1042,7 +1030,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B05A655688D86506CDA1C19542E599D4"
+        "OwnerKey" = "8:_E43BBEA332D7188EEF21173AE3A82C44"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B874E9C91F7FBCE9FEF0A4EBE40044EB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6CF11CCA362D8C57149F611A1D78E4B7"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -2532,11 +2532,6 @@
             "AssemblyAsmDisplayName" = "8:AForge.Imaging, Version=2.2.5.0, Culture=neutral, PublicKeyToken=ba8ddea9676ca48b, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_6CF11CCA362D8C57149F611A1D78E4B7"
-                    {
-                    "Name" = "8:AForge.Imaging.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AForge.Imaging.dll"
             "TargetName" = "8:"
@@ -3323,11 +3318,6 @@
             "AssemblyAsmDisplayName" = "8:Memory, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B05A655688D86506CDA1C19542E599D4"
-                    {
-                    "Name" = "8:Memory.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Memory.dll"
             "TargetName" = "8:"
@@ -3454,11 +3444,6 @@
             "AssemblyAsmDisplayName" = "8:AForge.Math, Version=2.2.5.0, Culture=neutral, PublicKeyToken=abba2e25397ee8c9, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B874E9C91F7FBCE9FEF0A4EBE40044EB"
-                    {
-                    "Name" = "8:AForge.Math.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AForge.Math.dll"
             "TargetName" = "8:"
@@ -4065,11 +4050,6 @@
             "AssemblyAsmDisplayName" = "8:AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E43BBEA332D7188EEF21173AE3A82C44"
-                    {
-                    "Name" = "8:AForge.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:AForge.dll"
             "TargetName" = "8:"
@@ -4489,15 +4469,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EQTrainer"
-        "ProductCode" = "8:{368046D4-E105-4B4F-A691-0CEFF8566271}"
-        "PackageCode" = "8:{E79B7650-7A6D-4381-8A46-B0E764567FB1}"
+        "ProductCode" = "8:{08B445AF-63DC-44D7-AD0A-AC67856DF8C7}"
+        "PackageCode" = "8:{3E7F96C5-14CF-4CC8-8603-F6C54365CA43}"
         "UpgradeCode" = "8:{423DBF5A-1EFC-4CDC-A197-75DBED3DF87F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:5.9.5"
+        "ProductVersion" = "8:5.9.6"
         "Manufacturer" = "8:NewAgeSoldier"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://newagesoldier.com"
