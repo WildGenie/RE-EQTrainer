@@ -986,6 +986,9 @@ namespace EQTrainer
 
         string getBuffName(int buffAddress)
         {
+            if (!File.Exists("buffs.txt"))
+                return "";
+
             System.IO.StreamReader buffFile = new System.IO.StreamReader("buffs.txt");
             string line;
             string wordString = "N/A";
@@ -1225,18 +1228,18 @@ namespace EQTrainer
                 else
                 {
                     label11.Invoke(new MethodInvoker(delegate { label11.Text = "Level: "; }));
-                    followBtn.Enabled = false;
+                    followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = false; }));
                 }
 
                 if (t_level >= 1)
                 {
                     label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: " + t_name; }));
-                    followBtn.Enabled = true;
+                    followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = true; }));
                 }
                 else
                 {
                     label14.Invoke(new MethodInvoker(delegate { label14.Text = "Name: "; }));
-                    followBtn.Enabled = false;
+                    followBtn.Invoke(new MethodInvoker(delegate { followBtn.Enabled = false; }));
                 }
 
                 int t_class = MemLib.readByte("targetClass", codeFile);
@@ -1312,11 +1315,14 @@ namespace EQTrainer
 
                     if (buffAddress > 0 && buffAddress < 8445)
                     {
-                        //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
-                        if (comboBox1.Text.Equals("EQMac"))
-                            buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", sNum, codeFile));
-                        else
-                            buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
+                        comboBox1.Invoke(new MethodInvoker(delegate
+                        {
+                            //MessageBox.Show(buffAddress.ToString() + getBuffName(buffAddress) + " time=" + MemLib.readIntMove("buffsInfoAddress", codeFile, sNum));
+                            if (comboBox1.Text.Equals("EQMac"))
+                                buffsMac.Add(getBuffName(buffAddress), MemLib.readIntMove("buffsInfoAddress", sNum, codeFile));
+                            else
+                                buffs.Add(getBuffName(buffAddress), MemLib.readUIntMove("buffsInfoAddress", codeFile, sNum));
+                        }));
                     }
                 }
 
@@ -1355,7 +1361,6 @@ namespace EQTrainer
                             }
                         }
                     }));
-                }));
 
                 // REMOVE & UPDATE BUFFS
                 //if (buffRefresh == 30)
@@ -1380,8 +1385,11 @@ namespace EQTrainer
                         //if (Convert.ToSingle(item.SubItems[0].Text) == 0) //sometimes can get stuck at 0.5
                         //    buffsList.Items.Remove(item);
                     }
-                //}
-                //buffRefresh++;
+                    //}
+                    //buffRefresh++;
+
+
+                }));
 
                 double xpProgressPercentage = ((double)current_xp / (double)330);
                 int xpProgressBar = (int)(xpProgressPercentage * 100);
