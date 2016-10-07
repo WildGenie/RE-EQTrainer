@@ -88,6 +88,7 @@
     <ClCompile Include="inject.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inject.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Stdafx.h" />
   </ItemGroup>

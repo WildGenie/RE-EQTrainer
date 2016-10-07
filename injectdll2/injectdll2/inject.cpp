@@ -11,39 +11,10 @@
 #include <string>
 
 #include <MQ2Main.h>
+#include "Titanium\opcodes.h"
+//#include "EQMac\opcodes.h"
 
 using namespace std;
-
-struct TradeRequest_Struct {
-	/*00*/	uint32_t to_mob_id;
-	/*04*/	uint32_t from_mob_id;
-	/*08*/
-};
-
-typedef struct _MovePkt {
-	/*0000*/ unsigned short SpawnID;
-	/*0002*/ unsigned short TimeStamp;
-	/*0004*/ float Y;
-	/*0008*/ float DeltaZ;
-	/*0012*/ float DeltaY;
-	/*0016*/ float DeltaX;
-	/*0020*/ int Animation : 10;
-	/*0020*/ int DeltaHeading : 10;
-	/*0020*/ int padding0020 : 12;
-	/*0024*/ float X;
-	/*0028*/ float Z;
-	/*0032*/ int Heading : 12;
-	/*0032*/ int padding1_0032 : 10;
-	/*0032*/ int padding2_0032 : 10;
-} MovePkt;
-
-#define OP_TradeRequest 0x372f
-#define OP_TradeRequestAck 0x4048
-#define OP_TradeAcceptClick 0x0065
-#define OP_FinishTrade 0x6014
-#define	OP_MovePlayer 0x14CB
-
-#define MoveLocalPlayerToSafeCoords 0x43D7C5
 
 // Movement function
 VOID MoveTo(float x, float y, float z) {
@@ -58,10 +29,10 @@ VOID MoveTo(float x, float y, float z) {
 	mp.Y = y;
 	mp.Z = z;
 
-	SendEQMessage(OP_MovePlayer, &mp, sizeof(mp));
+	SendEQMessage(OP_ClientUpdate, &mp, sizeof(mp));
 }
 
-void EQTFunctions (const char *func, int len) {
+VOID EQTFunctions (const char *func, int len) {
 	char newText[1024] = { 0 };
 	strncpy(newText, func, len);
 
@@ -102,6 +73,80 @@ void EQTFunctions (const char *func, int len) {
 	if (strcmp("acceptgive", cmd) == 0) {
 		SendWndClick("GiveWnd", "GVW_Give_Button", "leftmouseup");
 	}
+	if (strcmp("useskill", cmd) == 0) {
+		//http://wiki.eqemulator.org/p?Skills
+
+		PSPAWNINFO pMyTarget = (PSPAWNINFO)pTarget;
+		if (!pTarget || !ppTarget) {
+			MessageBox(NULL, L"ERROR: No target selected", NULL, MB_OK);
+			return;
+		}
+
+		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
+
+		const char *arg = newText + 9;
+		pCharData1->UseSkill((unsigned char)arg, (EQPlayer*)pCharData1);
+
+		MoveTo(pMyTarget->X, pMyTarget->Y, pMyTarget->Z);
+	}
+	if (strcmp("summoncorpse", cmd) == 0) {
+
+		PSPAWNINFO pMe = GetCharInfo()->pSpawn;
+		if (!pMe) {
+			MessageBox(NULL, L"ERROR: Cant retrieve our spawn ID", NULL, MB_OK);
+			return;
+		}
+
+		// check for target
+		if (!pTarget || !ppTarget) return;
+
+		// make sure it's a corpse
+		PSPAWNINFO Target = (PSPAWNINFO)pTarget;
+		if (Target->Type != SPAWN_CORPSE) return;
+
+		// setup move packet
+		struct _MOVEPKT {
+			/*0000*/ unsigned short SpawnID;
+			/*0002*/ unsigned short TimeStamp;
+			/*0004*/ float Y;
+			/*0008*/ float DeltaZ;
+			/*0012*/ float DeltaY;
+			/*0016*/ float DeltaX;
+			/*0020*/ int Animation : 10;
+			/*0020*/ int DeltaHeading : 10;
+			/*0020*/ int padding0020 : 12;
+			/*0024*/ float X;
+			/*0028*/ float Z;
+			/*0032*/ int Heading : 12;
+			/*0032*/ int padding1_0032 : 10;
+			/*0032*/ int padding2_0032 : 10;
+		} P; // 36
+
+			 // init move packet
+		ZeroMemory(&P, sizeof(P));
+		P.SpawnID = (unsigned short)pMe->SpawnID;
+		P.Heading = (unsigned int)(pMe->Heading * 4);
+
+		// jump to
+		P.Z = Target->Z;
+		P.Y = Target->Y;
+		P.X = Target->X;
+		SendEQMessage(PKT_UPDATE_POSITION, &P, sizeof(P));
+
+		// corpse drag
+		char szCorpseName[152] = { 0 };
+		strcpy(szCorpseName, Target->Name);
+		SendEQMessage(PKT_CORPSE_DRAG, szCorpseName, 152);
+
+		// jump back
+		P.Z = pMe->Z;
+		P.Y = pMe->Y;
+		P.X = pMe->X;
+		SendEQMessage(PKT_UPDATE_POSITION, &P, sizeof(P));
+
+		// corpse drop
+		SendEQMessage(PKT_CORPSE_DROP, "", 0);
+	}
 	if (strcmp("saytarget", cmd) == 0) {
 		const char *arg = newText + 10; //our message
 
@@ -138,6 +183,8 @@ void EQTFunctions (const char *func, int len) {
 	//delete text; //if we debug
 	return;
 }
+
+
 
 void OnAttach( HMODULE hModule ) {
 
