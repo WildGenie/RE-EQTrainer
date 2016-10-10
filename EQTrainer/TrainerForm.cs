@@ -551,9 +551,16 @@ namespace EQTrainer
 
         private void map_label_Click(object sender, EventArgs e)
         {
-            mapForm obj3 = new mapForm();
-            obj3.RefToForm1 = this;
-            obj3.Show();
+            mapForm fc = Application.OpenForms["mapForm"] != null ? (mapForm)Application.OpenForms["mapForm"] : null;
+            if (fc != null)
+            {
+                if (fc.WindowState == FormWindowState.Minimized)
+                    fc.WindowState = FormWindowState.Normal;
+                else
+                    fc.Close();
+            }
+            else
+                openMapSystemToolStripMenuItem.PerformClick();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
@@ -1263,8 +1270,10 @@ namespace EQTrainer
 
                 runBox.Invoke(new MethodInvoker(delegate
                 {
-                    if (!runBox.Text.Equals("") && !run_speed.Equals(float.Parse(runBox.Text)))
+                    if (!String.IsNullOrEmpty(runBox.Text) && String.Compare(runBox.Text,".") != 0)
                         MemLib.writeMemory("runSpeed", "float", runBox.Text, codeFile);
+                    else
+                        MemLib.writeMemory("runSpeed", "float", "0.7", codeFile);
                 }));
 
                 float t_z_address = MemLib.readFloat("targetZ", codeFile);
@@ -1803,6 +1812,15 @@ namespace EQTrainer
             AboutBox1 obj = new AboutBox1();
             obj.Show();
         }
-        
+
+        private void runBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+                e.Handled = true;
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+                e.Handled = true;
+        }
     }
 }

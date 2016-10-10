@@ -974,6 +974,7 @@
             this.runBox.Size = new System.Drawing.Size(74, 20);
             this.runBox.TabIndex = 508;
             this.runBox.Text = "0.6999999881";
+            this.runBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.runBox_KeyPress);
             // 
             // label13
             // 

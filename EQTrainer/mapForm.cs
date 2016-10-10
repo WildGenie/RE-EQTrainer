@@ -62,8 +62,14 @@ namespace EQTrainer
             GFX = Graphics.FromImage(BackBuffer);
             zoom = TrackBar2.Value / 1;
 
-            backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
-            backgroundWorker1.RunWorkerAsync();
+            //backgroundWorker1.DoWork += new DoWorkEventHandler(backgroundWorker1_DoWork);
+            if (backgroundWorker1.IsBusy == true)
+            {
+                backgroundWorker1.CancelAsync();
+                backgroundWorker1.Dispose();
+            }
+            else
+                backgroundWorker1.RunWorkerAsync();
         }
 
         private void DrawOnForm()
@@ -73,54 +79,59 @@ namespace EQTrainer
 
         private void SpawnList()
         {
-            int player_spawn_info = this.RefToForm1.MemLib.readInt("spawnInfoAddress", this.RefToForm1.codeFile);
+                int player_spawn_info = this.RefToForm1.MemLib.readInt("spawnInfoAddress", this.RefToForm1.codeFile);
 
-            int spawn_info_address = player_spawn_info;
-            int spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
-            spawn_info_address = spawn_next_spawn_info;
-
-            for (int i = 0; i < 4096; i++)
-            {
-                spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
-
-                if (spawn_next_spawn_info == 0x00000000)
-                    break;
-
-                string spawn_info_name = this.RefToForm1.MemLib.readPString((UIntPtr)spawn_info_address, "spawnInfoName", this.RefToForm1.codeFile);
-
-                float spawn_info_y = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoY", this.RefToForm1.codeFile);
-                float spawn_info_x = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoX", this.RefToForm1.codeFile);
-                float spawn_info_z = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoZ", this.RefToForm1.codeFile);
-                float spawn_info_heading = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoHeading", this.RefToForm1.codeFile);
-
-                int spawn_info_level = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoLevel", this.RefToForm1.codeFile);
-                int spawn_info_class = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoClass", this.RefToForm1.codeFile);
-                int spawn_info_type = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoType", this.RefToForm1.codeFile);
-
-                spawn_info_class = (byte)spawn_info_class;
-                spawn_info_level = (byte)spawn_info_level;
-                spawn_info_type = (byte)spawn_info_type;
-
-                spawn_info_name = spawn_info_name.Replace("_", " ");
-                spawn_info_name = Regex.Replace(spawn_info_name, @"[\d-]", string.Empty);
-
-                string filterText = filterBox.Text;
-
-                if (!String.IsNullOrEmpty(filterBox.Text))
-                {
-                    filterText = filterText.Replace("_", " ");
-                    if (spawn_info_name.ToLower().Contains(filterText.ToLower()) == false)
-                    {
-                        spawn_info_address = spawn_next_spawn_info;
-                        continue;
-                    }
-                }
-                //string[] listViewSpawnListRow = { spawn_info_name, spawn_info_address.ToString("X8"), spawn_info_x.ToString(), spawn_info_y.ToString(), spawn_info_z.ToString(), spawn_info_heading.ToString(), spawn_info_level.ToString(), charClass(spawn_info_class), spawn_info_type.ToString() };
-                if (!spawn_info_type.Equals(3)) //no corpses
-                    Drawpoint(spawn_info_y, spawn_info_x, spawn_info_heading, spawn_info_level, spawn_info_name); //x and y are always reversed
-
+                int spawn_info_address = player_spawn_info;
+                int spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
                 spawn_info_address = spawn_next_spawn_info;
-            }
+
+            filterBox.Invoke(new MethodInvoker(delegate
+            {
+                for (int i = 0; i < 4096; i++)
+                {
+                    spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
+
+                    if (spawn_next_spawn_info == 0x00000000)
+                        break;
+
+                    string spawn_info_name = this.RefToForm1.MemLib.readPString((UIntPtr)spawn_info_address, "spawnInfoName", this.RefToForm1.codeFile);
+
+                    float spawn_info_y = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoY", this.RefToForm1.codeFile);
+                    float spawn_info_x = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoX", this.RefToForm1.codeFile);
+                    float spawn_info_z = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoZ", this.RefToForm1.codeFile);
+                    float spawn_info_heading = this.RefToForm1.MemLib.readPFloat((UIntPtr)spawn_info_address, "spawnInfoHeading", this.RefToForm1.codeFile);
+
+                    int spawn_info_level = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoLevel", this.RefToForm1.codeFile);
+                    int spawn_info_class = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoClass", this.RefToForm1.codeFile);
+                    int spawn_info_type = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoType", this.RefToForm1.codeFile);
+
+                    spawn_info_class = (byte)spawn_info_class;
+                    spawn_info_level = (byte)spawn_info_level;
+                    spawn_info_type = (byte)spawn_info_type;
+
+                    spawn_info_name = spawn_info_name.Replace("_", " ");
+                    spawn_info_name = Regex.Replace(spawn_info_name, @"[\d-]", string.Empty);
+
+                    string filterText = filterBox.Text;
+
+
+                    if (!String.IsNullOrEmpty(filterBox.Text))
+                    {
+                        filterText = filterText.Replace("_", " ");
+                        if (spawn_info_name.ToLower().Contains(filterText.ToLower()) == false)
+                        {
+                            spawn_info_address = spawn_next_spawn_info;
+                            continue;
+                        }
+                    }
+
+                    //string[] listViewSpawnListRow = { spawn_info_name, spawn_info_address.ToString("X8"), spawn_info_x.ToString(), spawn_info_y.ToString(), spawn_info_z.ToString(), spawn_info_heading.ToString(), spawn_info_level.ToString(), charClass(spawn_info_class), spawn_info_type.ToString() };
+                    if (!spawn_info_type.Equals(3)) //no corpses
+                        Drawpoint(spawn_info_y, spawn_info_x, spawn_info_heading, spawn_info_level, spawn_info_name); //x and y are always reversed
+
+                    spawn_info_address = spawn_next_spawn_info;
+                }
+            }));
         }
 
         private Color conColor(int plvl, int npclvl)
@@ -217,6 +228,8 @@ namespace EQTrainer
             }
         }
 
+        private bool _isClosing = false;
+
         public void drawmap()
         {
             try
@@ -239,6 +252,9 @@ namespace EQTrainer
 
                 while ((line = file.ReadLine()) != null)
                 {
+                    if (_isClosing)
+                        break;
+
                     try
                     {
                         // LINES
@@ -447,6 +463,16 @@ namespace EQTrainer
         private void trackPlayer_Click(object sender, EventArgs e)
         {
             track = true;
+        }
+
+        private void mapForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (backgroundWorker1.IsBusy == true)
+            {
+                backgroundWorker1.CancelAsync();
+                backgroundWorker1.Dispose();
+            }
+            _isClosing = true;
         }
     }
 }
