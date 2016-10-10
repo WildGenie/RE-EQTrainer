@@ -1,10 +1,13 @@
 // REFERENCES and RESOURCES
 // =======================
 // Auto Unload DLL: http://www.unknowncheats.me/forum/613953-post43.html
-// EQ Mac Functions: https://github.com/sodcheats/eqmac/blob/master/eqmac/include/eqmac.hpp
+// EQ Mac Functions: https://github.com/kevrgithub/eqmac
 // Find warp tutorial (titanium and EQMac) - http://www.redguides.com/forums/showthread.php/4846-Simplest-offset-to-find-ever-(Warp-offset)
 // Find warp tutorial (underfoot and Live) - http://www.mmobugs.com/forums/everquest-cheats-and-guides/1460-easy-warp-dothezone-fast.html
 // Find safe xyz - http://eqpathfinders.guildportal.com/Guild.aspx?GuildID=9508&TabID=77837&ForumID=614583&TopicID=6833250
+
+//download MQ2 source, rename all instances of EQ2Main to structures
+//download at http://mqemulator.net/downloads.php
 
 #include "windows.h"
 #include "Stdafx.h"
@@ -96,7 +99,6 @@ VOID EQTFunctions (const char *func, int len) {
 			MessageBox(NULL, L"ERROR: Cant retrieve our spawn ID", NULL, MB_OK);
 			return;
 		}
-
 		// check for target
 		if (!pTarget || !ppTarget) return;
 

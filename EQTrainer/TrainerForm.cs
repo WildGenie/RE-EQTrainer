@@ -264,7 +264,10 @@ namespace EQTrainer
                             if (Properties.Settings.Default.MQ2Inject)
                             {
                                 if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                                {
+                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
                                     inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+                                }
                             }
                             else
                                 inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
@@ -1057,7 +1060,10 @@ namespace EQTrainer
                                             if (Properties.Settings.Default.MQ2Inject)
                                             {
                                                 if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                                                {
+                                                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
                                                     inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+                                                }
                                             } else
                                                 inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
                                         }
@@ -1666,7 +1672,10 @@ namespace EQTrainer
             if (Properties.Settings.Default.MQ2Inject)
             {
                 if (File.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll"))
+                {
+                    inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "structures.dll");
                     inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject2016.dll");
+                }
             }
             else
                 inject(Application.StartupPath + Path.DirectorySeparatorChar + "builds" + Path.DirectorySeparatorChar + comboBox1.Text + Path.DirectorySeparatorChar + "inject.dll");
@@ -1794,5 +1803,6 @@ namespace EQTrainer
             AboutBox1 obj = new AboutBox1();
             obj.Show();
         }
+        
     }
 }

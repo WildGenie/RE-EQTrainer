@@ -81,7 +81,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Detours\lib60\detours.lib;C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Release\MQ2Main.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Release\structures.lib;C:\Users\jake.CUTTING\Desktop\MQ2 Titanium Source\Detours\lib60\detours.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
