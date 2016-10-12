@@ -77,16 +77,14 @@ namespace EQTrainer
             FormGFX.DrawImage(BackBuffer, 0, 0);
         }
 
-        private void SpawnList()
+        private void SpawnList(string filter = "")
         {
                 int player_spawn_info = this.RefToForm1.MemLib.readInt("spawnInfoAddress", this.RefToForm1.codeFile);
 
                 int spawn_info_address = player_spawn_info;
                 int spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
                 spawn_info_address = spawn_next_spawn_info;
-
-            filterBox.Invoke(new MethodInvoker(delegate
-            {
+            
                 for (int i = 0; i < 4096; i++)
                 {
                     spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
@@ -115,10 +113,10 @@ namespace EQTrainer
                     string filterText = filterBox.Text;
 
 
-                    if (!String.IsNullOrEmpty(filterBox.Text))
+                    if (!String.IsNullOrEmpty(filter))
                     {
                         filterText = filterText.Replace("_", " ");
-                        if (spawn_info_name.ToLower().Contains(filterText.ToLower()) == false)
+                        if (spawn_info_name.ToLower().Contains(filter.ToLower()) == false)
                         {
                             spawn_info_address = spawn_next_spawn_info;
                             continue;
@@ -131,7 +129,6 @@ namespace EQTrainer
 
                     spawn_info_address = spawn_next_spawn_info;
                 }
-            }));
         }
 
         private Color conColor(int plvl, int npclvl)
@@ -230,14 +227,14 @@ namespace EQTrainer
 
         private bool _isClosing = false;
 
-        public void drawmap()
+        public void drawmap(string filter = "")
         {
             try
             {
                 GFX.FillRectangle(Brushes.Tan, new Rectangle(0, 0, pictureBox1.Width, pictureBox1.Height)); //background
 
                 Drawpoint(playerx, playery, playerh); //draw me
-                SpawnList(); //draw spawns
+                SpawnList(filter); //draw spawns
 
                 string mapFile = Application.StartupPath + @"\maps\" + zoneshort + ".txt";
                 if (!File.Exists(mapFile))
@@ -380,7 +377,7 @@ namespace EQTrainer
                     }
 
                     if (!String.IsNullOrEmpty(zoneshort) && !mymousedown)
-                        drawmap();
+                        drawmap(filterBox.Text);
                 }
                 catch
                 {
@@ -424,7 +421,9 @@ namespace EQTrainer
                 MouseUpx = offset;
                 MouseUpy = offsety;
 
-                drawmap();
+                string filter = filterBox.Text;
+
+                drawmap(filter);
 
                 offset = oldoff;
                 offsety = oldoffy;
