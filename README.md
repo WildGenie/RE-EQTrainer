@@ -3,9 +3,7 @@ EQTrainer - EverQuest Hacking Program
 
 Project forms are written in C#, inject DLL is written in C++.
 
-To compile you will need AForge.NET, AutoIt 3x and the Memory.dll project
-
-- http://www.aforgenet.com/framework/downloads.html
+To compile you will need AutoIt 3x and the Memory.dll project
 
 - https://www.autoitscript.com/site/autoit/downloads
 
