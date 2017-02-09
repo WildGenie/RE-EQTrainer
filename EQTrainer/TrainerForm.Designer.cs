@@ -208,7 +208,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.targetInfoBox = new System.Windows.Forms.GroupBox();
             this.autoSwap = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.slapMe = new System.Windows.Forms.Button();
+            this.hertz = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1933,15 +1934,28 @@
             this.autoSwap.Text = "Auto Swap Process";
             this.autoSwap.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // slapMe
             // 
-            this.button1.Location = new System.Drawing.Point(242, 420);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 23);
-            this.button1.TabIndex = 625;
-            this.button1.Text = "Slap Me";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.slapMe.Location = new System.Drawing.Point(290, 420);
+            this.slapMe.Name = "slapMe";
+            this.slapMe.Size = new System.Drawing.Size(47, 23);
+            this.slapMe.TabIndex = 625;
+            this.slapMe.Text = "Slap";
+            this.slapMe.UseVisualStyleBackColor = true;
+            this.slapMe.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // hertz
+            // 
+            this.hertz.FormattingEnabled = true;
+            this.hertz.Items.AddRange(new object[] {
+            "25",
+            "60"});
+            this.hertz.Location = new System.Drawing.Point(242, 420);
+            this.hertz.Name = "hertz";
+            this.hertz.Size = new System.Drawing.Size(44, 21);
+            this.hertz.TabIndex = 626;
+            this.hertz.Text = "60";
+            this.hertz.SelectedIndexChanged += new System.EventHandler(this.hertz_SelectedIndexChanged);
             // 
             // TrainerForm
             // 
@@ -1949,7 +1963,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1016, 573);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.hertz);
+            this.Controls.Add(this.slapMe);
             this.Controls.Add(this.autoSwap);
             this.Controls.Add(this.targetInfoBox);
             this.Controls.Add(this.panel1);
@@ -2285,7 +2300,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox targetInfoBox;
         private System.Windows.Forms.CheckBox autoSwap;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button slapMe;
+        private System.Windows.Forms.ComboBox hertz;
     }
 }
 

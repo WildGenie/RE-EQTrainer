@@ -114,7 +114,7 @@ namespace EQTrainer
                 else if (id == 7)
                     followBtn.PerformClick();
                 else if (id == 8)
-                    button1.PerformClick();
+                    slapMe.PerformClick();
             }
             base.WndProc(ref m);
         }
@@ -152,6 +152,9 @@ namespace EQTrainer
                 tt.SetToolTip(this.button19, "Load X Y Z from file (set 3)");
                 tt.SetToolTip(this.button20, "Load X Y Z from file (set 4)");
                 tt.SetToolTip(this.distance, "Distance to follow");
+
+                hertz.Text = Properties.Settings.Default.hertz;
+
                 if (Directory.Exists(Application.StartupPath + Path.DirectorySeparatorChar + "auto"))
                     autoLoad.InitialDirectory = Application.StartupPath + Path.DirectorySeparatorChar + "auto";
                 if (Properties.Settings.Default.old_warp == true)
@@ -1838,16 +1841,37 @@ namespace EQTrainer
 
             string y_text = x_label.Text;
             string x_text = y_label.Text;
+            string z_text = "0";
+            float curZ = float.Parse(z_label.Text);
             int dmg = 5;
             if (current_hp > 5)
                 dmg = 5;
             else
                 dmg = current_hp + 1;
-            string z_text = (55 + (dmg * 3) - float.Parse(z_label.Text)).ToString();
-            
+
+            if (hertz.Text == "25")
+                z_text = (55 + (dmg * 3) - curZ).ToString();
+            else if (hertz.Text == "60")
+            {
+                int tempZ = 0;
+                if (dmg == 5)
+                    tempZ = 30;
+                else if (dmg == 4 || dmg == 3)
+                    tempZ = 29;
+                else if (dmg == 2 || dmg == 1)
+                    tempZ = 28;
+                z_text = (tempZ + curZ).ToString();
+            }
+
             MemLib.writeMemory("playerX", "float", x_text, codeFile);
             MemLib.writeMemory("playerY", "float", y_text, codeFile);
             MemLib.writeMemory("playerZ", "float", z_text, codeFile);
+        }
+
+        private void hertz_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.hertz = hertz.Text;
+            Properties.Settings.Default.Save();
         }
     }
 }
