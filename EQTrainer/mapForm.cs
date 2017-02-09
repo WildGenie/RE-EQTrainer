@@ -8,6 +8,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace EQTrainer
 {
@@ -87,6 +88,9 @@ namespace EQTrainer
             
                 for (int i = 0; i < 4096; i++)
                 {
+                    if (_isClosing)
+                        break;
+
                     spawn_next_spawn_info = this.RefToForm1.MemLib.readPInt((UIntPtr)spawn_info_address, "spawnInfoNext", this.RefToForm1.codeFile);
 
                     if (spawn_next_spawn_info == 0x00000000)
@@ -357,6 +361,8 @@ namespace EQTrainer
         {
             while (true)
             {
+                if (_isClosing)
+                    break;
                 try
                 {
                     //string curZone = MemLib.RemoveSpecialCharacters(MemLib.readUIntPtrStr("mapShortName", codeFile));
@@ -471,7 +477,7 @@ namespace EQTrainer
                 backgroundWorker1.CancelAsync();
                 backgroundWorker1.Dispose();
             }
-            _isClosing = true;
+            BackBuffer.Dispose();
         }
     }
 }

@@ -96,7 +96,8 @@ namespace EQTrainer
                     teleportBtn3.PerformClick();
                 else if (id == 4)
                     teleportBtn4.PerformClick();
-                else if (id == 5) {
+                else if (id == 5)
+                {
                     mapForm fc = Application.OpenForms["mapForm"] != null ? (mapForm)Application.OpenForms["mapForm"] : null;
                     if (fc != null)
                     {
@@ -107,10 +108,13 @@ namespace EQTrainer
                     }
                     else
                         openMapSystemToolStripMenuItem.PerformClick();
-                } else if (id == 6)
+                }
+                else if (id == 6)
                     gateBtn.PerformClick();
                 else if (id == 7)
                     followBtn.PerformClick();
+                else if (id == 8)
+                    button1.PerformClick();
             }
             base.WndProc(ref m);
         }
@@ -175,6 +179,7 @@ namespace EQTrainer
                 RegisterHotKey(this.Handle, 5, 2, (int)'M'); //must be uppercase
                 RegisterHotKey(this.Handle, 6, 2, (int)'G');
                 RegisterHotKey(this.Handle, 7, 2, (int)'T');
+                RegisterHotKey(this.Handle, 8, 2, (int)'E');
             }
             catch
             {
@@ -1457,6 +1462,8 @@ namespace EQTrainer
                 {
                     progressBarMP.Invoke(new MethodInvoker(delegate
                     {
+                        if (mpProgressBar > 100)
+                            mpProgressBar = 100;
                         progressBarMP.Value = mpProgressBar;
                         if (max_mp >= 0)
                             mp_stats.Text = mpProgressBar.ToString() + "%";
@@ -1821,6 +1828,26 @@ namespace EQTrainer
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
                 e.Handled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int current_hp = MemLib.readInt("PlayerCurrentHP", codeFile);
+            if (current_hp < 0)
+                return;
+
+            string y_text = x_label.Text;
+            string x_text = y_label.Text;
+            int dmg = 5;
+            if (current_hp > 5)
+                dmg = 5;
+            else
+                dmg = current_hp + 1;
+            string z_text = (55 + (dmg * 3) - float.Parse(z_label.Text)).ToString();
+            
+            MemLib.writeMemory("playerX", "float", x_text, codeFile);
+            MemLib.writeMemory("playerY", "float", y_text, codeFile);
+            MemLib.writeMemory("playerZ", "float", z_text, codeFile);
         }
     }
 }

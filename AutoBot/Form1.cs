@@ -13,8 +13,6 @@ using System.Diagnostics;
 using System.Threading;
 using Memory;
 using AutoItX3Lib;
-using AForge.Imaging;
-using AForge.Imaging.Filters;
 using System.IO.Pipes;
 
 namespace AutoBot
@@ -76,7 +74,7 @@ namespace AutoBot
 
         static string lastCmd = "";
 
-        List<int> getImgCoords(Bitmap template, Bitmap bmp)
+        /*List<int> getImgCoords(Bitmap template, Bitmap bmp)
         {
             const Int32 divisor = 4;
             //const Int32 epsilon = 10;
@@ -102,7 +100,7 @@ namespace AutoBot
             }
             //return false;
             return listRange;
-        }
+        }*/
 
         protected override void WndProc(ref Message m) //hotbuttons
         {
@@ -137,7 +135,7 @@ namespace AutoBot
             return sb.ToString();
         }
 
-        void clickonImage(string image_name)
+        /*void clickonImage(string image_name)
         {
             int screenWidth = Screen.GetBounds(new Point(0, 0)).Width;
             int screenHeight = Screen.GetBounds(new Point(0, 0)).Height;
@@ -157,7 +155,7 @@ namespace AutoBot
             bmpScreenShot.Dispose();
             findimg.Dispose();
             gfx.Dispose();
-        }
+        }*/
 
         void AppendOutputText(string text, Color color = default(Color))
         {
@@ -412,12 +410,12 @@ namespace AutoBot
                 AppendOutputText("Walking to X:" + words[1] + " Y:" + words[2]);
                 WalkTo(float.Parse(words[1]), float.Parse(words[2]));
             }
-            else if (String.Compare(command[0], "clickon") == 0)
+            /*else if (String.Compare(command[0], "clickon") == 0)
             {
                 string[] words = line.Split(' ');
                 AppendOutputText("Click on: " + words[1]);
                 clickonImage(words[1]);
-            }
+            }*/
             else if (String.Compare(command[0], "saytarget") == 0)
             {
                 char[] spaceChar = " ".ToCharArray(0, 1);

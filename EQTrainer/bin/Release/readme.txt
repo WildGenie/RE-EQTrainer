@@ -24,6 +24,7 @@ CTRL+4 = Teleport to Set 4
 CTRL+G = Instant Gate (only for EQMac)
 CTRL+T = Target Follow/Un-Follow
 CTRL+M = Open Map Window
+CTRL+E = Slap Me
 
 
 TROUBLESHOOTING

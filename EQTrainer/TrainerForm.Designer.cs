@@ -127,7 +127,6 @@
             this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
             this.cRedistributablex86ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoItToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoForgeNETToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label5 = new System.Windows.Forms.Label();
             this.heading_label = new System.Windows.Forms.Label();
             this.mousex = new System.Windows.Forms.TextBox();
@@ -209,6 +208,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.targetInfoBox = new System.Windows.Forms.GroupBox();
             this.autoSwap = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1129,8 +1129,7 @@
             this.toolStripDropDownButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripDropDownButton3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cRedistributablex86ToolStripMenuItem,
-            this.autoItToolStripMenuItem,
-            this.autoForgeNETToolStripMenuItem});
+            this.autoItToolStripMenuItem});
             this.toolStripDropDownButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton3.Image")));
             this.toolStripDropDownButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton3.Name = "toolStripDropDownButton3";
@@ -1150,13 +1149,6 @@
             this.autoItToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
             this.autoItToolStripMenuItem.Text = "AutoIt 3x";
             this.autoItToolStripMenuItem.Click += new System.EventHandler(this.autoItToolStripMenuItem_Click);
-            // 
-            // autoForgeNETToolStripMenuItem
-            // 
-            this.autoForgeNETToolStripMenuItem.Name = "autoForgeNETToolStripMenuItem";
-            this.autoForgeNETToolStripMenuItem.Size = new System.Drawing.Size(235, 22);
-            this.autoForgeNETToolStripMenuItem.Text = "AForge.NET";
-            this.autoForgeNETToolStripMenuItem.Click += new System.EventHandler(this.autoForgeNETToolStripMenuItem_Click);
             // 
             // label5
             // 
@@ -1941,12 +1933,23 @@
             this.autoSwap.Text = "Auto Swap Process";
             this.autoSwap.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(242, 420);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 23);
+            this.button1.TabIndex = 625;
+            this.button1.Text = "Slap Me";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // TrainerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(1016, 573);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.autoSwap);
             this.Controls.Add(this.targetInfoBox);
             this.Controls.Add(this.panel1);
@@ -2282,7 +2285,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox targetInfoBox;
         private System.Windows.Forms.CheckBox autoSwap;
-        private System.Windows.Forms.ToolStripMenuItem autoForgeNETToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
